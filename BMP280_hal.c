@@ -122,9 +122,8 @@ HAL_StatusTypeDef BMP280_Config(uint8_t T_OS = BMP280_OVERSAMPLING_1, uint8_t P_
 
 	sensor_settings.ctrl_meas = (T_OS << 5) | (P_OS << 2);
 	sensor_settings.config = (STDB << 5) | (IIRF << 2);
-	uint8_t retval = HAL_I2C_Mem_Write(&hi2c, BMP280_ADDRESS, BMP280_CTRL_MEAS_REGISTER, I2C_MEMADD_SIZE_8BIT, &sensor_settings, 2, 0xFF);
 
-	return retval;
+	return HAL_I2C_Mem_Write(&hi2c, BMP280_ADDRESS, BMP280_CTRL_MEAS_REGISTER, I2C_MEMADD_SIZE_8BIT, &sensor_settings, 2, 0xFF);
 }
 
 /*
@@ -171,11 +170,8 @@ HAL_StatusTypeDef BMP280_forced_measure(double *temp, double *press, double *h) 
 HAL_StatusTypeDef BMP280_normal_measure() {
 	sensor_settings.ctrl_meas = (sensor_settings.ctrl_meas & 0xFC) | 0b11;
 	
-	// Ìîæíî áûëî áû ñðàçó â return çàñóíóòü Mem_Write
-	if(HAL_I2C_Mem_Write(&hi2c, BMP280_ADDRESS, BMP280_CTRL_MEAS_REGISTER, I2C_MEMADD_SIZE_8BIT, &sensor_settings, 1, 0xFF)!= HAL_OK){
-		return HAL_ERROR;
-	}
-	return HAL_OK;
+	// ÃŒÃ®Ã¦Ã­Ã® Ã¡Ã»Ã«Ã® Ã¡Ã» Ã±Ã°Ã Ã§Ã³ Ã¢ return Ã§Ã Ã±Ã³Ã­Ã³Ã²Ã¼ Mem_Write
+	return HAL_I2C_Mem_Write(&hi2c, BMP280_ADDRESS, BMP280_CTRL_MEAS_REGISTER, I2C_MEMADD_SIZE_8BIT, &sensor_settings, 1, 0xFF);
 }
 
 
@@ -186,10 +182,7 @@ HAL_StatusTypeDef BMP280_normal_measure() {
  */
 HAL_StatusTypeDef BMP280_sleep() {
 	sensor_settings.ctrl_meas = (sensor_settings.ctrl_meas & 0xFC) | 0b00;
-	if(HAL_I2C_Mem_Write(&hi2c, BMP280_ADDRESS, BMP280_CTRL_MEAS_REGISTER, I2C_MEMADD_SIZE_8BIT, &sensor_settings, 1, 0xFF)!= HAL_OK){
-		return HAL_ERROR;
-	}
-	return HAL_OK;
+	return HAL_I2C_Mem_Write(&hi2c, BMP280_ADDRESS, BMP280_CTRL_MEAS_REGISTER, I2C_MEMADD_SIZE_8BIT, &sensor_settings, 1, 0xFF);
 }
 
 
@@ -213,8 +206,8 @@ HAL_StatusTypeDef BMP280_get_measure(double *temp, double *press, double *h) {
 
 	*temp = __BMP280_compensate_T_int32(ADC_data[0])/100.;
 	*press = __BMP280_compensate_P_int64(ADC_data[1])/256.;
-	// Êîíñòàíòû ñîáðàíû â îäíó, ìîæåò ìåñòî îñâîáîäèò ÷óòü-÷óòü
-	// Òåìïåðàòóðó íàäî èç ãðàäóñîâ Öåëüñèÿ â ãðàäóñû Êåëüâèíà ïåðåâîäèòü
+	// ÃŠÃ®Ã­Ã±Ã²Ã Ã­Ã²Ã» Ã±Ã®Ã¡Ã°Ã Ã­Ã» Ã¢ Ã®Ã¤Ã­Ã³, Ã¬Ã®Ã¦Ã¥Ã² Ã¬Ã¥Ã±Ã²Ã® Ã®Ã±Ã¢Ã®Ã¡Ã®Ã¤Ã¨Ã² Ã·Ã³Ã²Ã¼-Ã·Ã³Ã²Ã¼
+	// Ã’Ã¥Ã¬Ã¯Ã¥Ã°Ã Ã²Ã³Ã°Ã³ Ã­Ã Ã¤Ã® Ã¨Ã§ Ã£Ã°Ã Ã¤Ã³Ã±Ã®Ã¢ Ã–Ã¥Ã«Ã¼Ã±Ã¨Ã¿ Ã¢ Ã£Ã°Ã Ã¤Ã³Ã±Ã» ÃŠÃ¥Ã«Ã¼Ã¢Ã¨Ã­Ã  Ã¯Ã¥Ã°Ã¥Ã¢Ã®Ã¤Ã¨Ã²Ã¼
 	*h = 29.254 * ((*temp) + 273.15) * log(refPressure/(*press));
 	return HAL_OK;
 }

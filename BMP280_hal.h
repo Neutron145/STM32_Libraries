@@ -30,6 +30,10 @@ typedef struct {
 	int16_t dig_P9;
 } BMP280_calib;
 
+typedef struct {
+	uint8_t ctrl_meas;
+	uint8_t config;
+}BMP280_settings;
 
 /* Periods between measurements in normal mode--------------------------------*/
 #define BMP280_STANDBY_0_5 				0b000
@@ -49,6 +53,13 @@ typedef struct {
 #define BMP280_OVERSAMPLING_8 			0b100
 #define BMP280_OVERSAMPLING_16 			0b101
 
+/* Coefficient of the IIR filter ---------------------------------------------*/
+#define BMP280_FILTER_OFF				0b000
+#define BMP280_FILTER_X2				0b001
+#define BMP280_FILTER_X4				0b010
+#define BMP280_FILTER_X8				0b011
+#define BMP280_FILTER_X16				0b100
+
 /* Addres of BMP280 on I2C ---------------------------------------------------*/
 #define BMP280_ADDRESS 					0x76 << 1
 
@@ -61,19 +72,18 @@ typedef struct {
 #define BMP280_RESET_REGISTER 			0xE0
 #define BMP280_ID_REGISTER 				0xD0
 
+/* Reference pressure. Used to make altitude calculations accurate --------*/
+uint32_t refPressure;
 
 /* Compensation formula from datasheet ---------------------------------------*/
 int32_t __BMP280_compensate_T_int32(int32_t adc_T);
 uint32_t __BMP280_compensate_P_int64(int32_t adc_P);
 
 /* Initialization of BMP280 --------------------------------------------------*/
-HAL_StatusTypeDef BMP280_init(I2C_HandleTypeDef hi2c_);
+HAL_StatusTypeDef BMP280_init(I2C_HandleTypeDef hi2c_, uint32_t refPressure_);
 
 /* Configuration BMP280 ------------------------------------------------------*/
-HAL_StatusTypeDef BMP280_set_P_oversampling(uint8_t oversampling);
-HAL_StatusTypeDef BMP280_set_T_oversampling(uint8_t oversampling);
-HAL_StatusTypeDef BMP280_set_T_standby(uint8_t t);
-HAL_StatusTypeDef BMP280_set_IRR_filter(uint8_t filter);
+HAL_StatusTypeDef BMP280_Config(uint8_t T_OS, uint8_t P_OS, uint8_t STDB, uint8_t IIRF);
 
 /* Configuration power modes BMP280 -------------------------------------------------------*/
 HAL_StatusTypeDef BMP280_forced_measure(double* temp, double* press, double *h);

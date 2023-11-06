@@ -13,10 +13,11 @@
 #include "math.h"
 
 BMP280_calib calibration_data;
+BMP280_settings sensor_settings;
 I2C_HandleTypeDef hi2c;
+
 int32_t t_fine;
-uint8_t ctrl_meas = 0b00100100;
-uint8_t config = 0b000000000;
+
 
 /*
  * @brief	Calculates temparature by value from ADC.
@@ -60,70 +61,36 @@ uint32_t __BMP280_compensate_P_int64(int32_t adc_P) {
 
 /*
  * @brief	Initialization of BMP280.
- * @param	hi2c_ I2C to which BMP280 is connected.
+ * @param	hi2c_ - I2C to which BMP280 is connected.
+ * @param	refPressure - Reference pressure for altitude calculations. 101325 Pa by default
  * @retval 	status:		- HAL_OK 	Initialization complete
  * 						- HAL_ERROR Error of initialization
  */
-HAL_StatusTypeDef BMP280_init(I2C_HandleTypeDef hi2c_) {
+HAL_StatusTypeDef BMP280_init(I2C_HandleTypeDef hi2c_, uint32_t refPressure_ = 101325) {
 	uint8_t id;
 	HAL_I2C_Mem_Read(&hi2c_, BMP280_ADDRESS, BMP280_ID_REGISTER, I2C_MEMADD_SIZE_8BIT, &id, 1, 0xFF);
 	if(id == 0x58) {
 		hi2c = hi2c_;
+		refPressure = refPressure_;
 		HAL_I2C_Mem_Read(&hi2c, BMP280_ADDRESS, BMP280_CALIBRATION_REGISTER, I2C_MEMADD_SIZE_8BIT, (uint8_t*) &calibration_data, 24, 0xFF);
+
+		BMP280_Config();
 		return HAL_OK;
 	}
 	else return HAL_ERROR;
 }
 
-
 /*
- * @brief	Set oversampling value for temperature measuring.
- * @param	oversampling Value of oversampling for temperature.
- * 			This parameter can be one of the following values:
+* @brief	Sets the specified configuration to BMP
+* @param	T_OS - value for the oversampling of data from the temperature sensor (X1 by default)
+* @param	P_OS - value for the oversampling of data from the pressure sensor (X1 by default)
  * 						@arg BMP280_OVERSAMPLING_0
  * 						@arg BMP280_OVERSAMPLING_1
  * 						@arg BMP280_OVERSAMPLING_2
  * 						@arg BMP280_OVERSAMPLING_4
  * 						@arg BMP280_OVERSAMPLING_8
  * 						@arg BMP280_OVERSAMPLING_16
- * @retval 	status:		- HAL_OK	Configuration complete.
- * 						- HAL_ERROR Incorrect value.
- */
-HAL_StatusTypeDef BMP280_set_T_oversampling(uint8_t oversampling){
-	if(oversampling > 5) {
-		return HAL_ERROR;
-	}
-	ctrl_meas = (ctrl_meas & 0x1F) | (oversampling << 5);
-	return HAL_OK;
-}
-
-
-/*
- * @brief	Set oversampling value for pressure measuring.
- * @param	oversampling Value of oversampling for pressure.
- * 			This parameter can be one of the following values:
- * 						@arg BMP280_OVERSAMPLING_0
- * 						@arg BMP280_OVERSAMPLING_1
- * 						@arg BMP280_OVERSAMPLING_2
- * 						@arg BMP280_OVERSAMPLING_4
- * 						@arg BMP280_OVERSAMPLING_8
- * 						@arg BMP280_OVERSAMPLING_16
- * @retval 	status:		- HAL_OK	Configuration complete.
- * 						- HAL_ERROR Incorrect value.
- */
-HAL_StatusTypeDef BMP280_set_P_oversampling(uint8_t oversampling){
-	if(oversampling > 5) {
-		return HAL_ERROR;
-	}
-	ctrl_meas = (ctrl_meas & 0xE3) | (oversampling << 2);
-	return HAL_OK;
-}
-
-
-/*
- * @brief	Set periods between measuring in normal mode.
- * @param	t Time in ms between measuring.
- * 			This parameter can be one of the following values:
+ * @param	STDB - value of standby time between measurements (62.5 ms by default)
  * 						@arg BMP280_STANDBY_0_5
  * 						@arg BMP280_STANDBY_62_5
  * 						@arg BMP280_STANDBY_125
@@ -132,32 +99,32 @@ HAL_StatusTypeDef BMP280_set_P_oversampling(uint8_t oversampling){
  * 						@arg BMP280_STANDBY_1000
  * 						@arg BMP280_STANDBY_2000
  * 						@arg BMP280_STANDBY_4000
- * @retval 	status:		- HAL_OK	Configuration complete.
- * 						- HAL_ERROR Incorrect value.
- */
-HAL_StatusTypeDef BMP280_set_T_standby(uint8_t t) {
-	if(t > 7) {
-		return HAL_ERROR;
-	}
-	config = (config & 0x1F) | (t << 5);
-	return HAL_OK;
+* @param	IIRF - setting of the IIR filter coefficient (off by default)
+ * 						@arg BMP280_FILTER_OFF
+ * 						@arg BMP280_FILTER_X1
+ * 						@arg BMP280_FILTER_X2
+ * 						@arg BMP280_FILTER_X4
+ * 						@arg BMP280_FILTER_X8
+ * 						@arg BMP280_FILTER_X16
+ * @retval	status:		HAL_OK -	Configuration parameters successfully sent to BMP;
+ *						HAL_BUSY -	I2C line is currently busy;
+ *						HAL_ERROR - I2C line returned an error;
+*/
+HAL_StatusTypeDef BMP280_Config(uint8_t T_OS = BMP280_OVERSAMPLING_1, uint8_t P_OS = BMP280_OVERSAMPLING_1, uint8_t STDB = BMP280_STANDBY_62_5, uint8_t IIRF = BMP280_FILTER_OFF) {
+	if (T_OS < 0) T_OS = 0;
+	if (T_OS > 0b101) T_OS = 0b101;
+	if (P_OS < 0) P_OS = 0;
+	if (P_OS > 0b101) P_OS = 0b101;
+	if (STDB < 0) STDB = 0;
+	if (STDB > 0b111) STDB = 0b111;
+	if (IIRF < 0) IIRF = 0;
+	if (IIRF > 0b100) IIRF = 0b100;
+
+	sensor_settings.ctrl_meas = (T_OS << 5) | (P_OS << 2);
+	sensor_settings.config = (STDB << 5) | (IIRF << 2);
+
+	return HAL_I2C_Mem_Write(&hi2c, BMP280_ADDRESS, BMP280_CTRL_MEAS_REGISTER, I2C_MEMADD_SIZE_8BIT, &sensor_settings, 2, 0xFF);
 }
-
-
-/*
- * @brief	Set filter for processing measurements.
- * @param	filter Coefficient of filter.
- * @retval 	status:		- HAL_OK	Configuration complete.
- * 						- HAL_ERROR Incorrect value.
- */
-HAL_StatusTypeDef BMP280_set_IRR_filter(uint8_t filter) {
-	if(filter > 8) {
-		return HAL_ERROR;
-	}
-	config = (config & 0xE3) | (filter << 2);
-	return HAL_OK;
-}
-
 
 /*
  * @brief	Perfoms forced measurements.
@@ -168,7 +135,7 @@ HAL_StatusTypeDef BMP280_set_IRR_filter(uint8_t filter) {
  * 						- HAL_ERROR Error of measuring.
  */
 HAL_StatusTypeDef BMP280_forced_measure(double *temp, double *press, double *h) {
-	ctrl_meas = (ctrl_meas & 0xFC) | 0b10;
+	sensor_settings.ctrl_meas = (sensor_settings.ctrl_meas & 0xFC) | 0b10;
 	if(HAL_I2C_Mem_Write(&hi2c, BMP280_ADDRESS, BMP280_CTRL_MEAS_REGISTER, I2C_MEMADD_SIZE_8BIT, &ctrl_meas, 1, 0xFF) != HAL_OK) {
 		return HAL_ERROR;
 	}
@@ -190,7 +157,7 @@ HAL_StatusTypeDef BMP280_forced_measure(double *temp, double *press, double *h) 
 	}
 	*temp = __BMP280_compensate_T_int32(ADC_data[1])/100.;
 	*press = __BMP280_compensate_P_int64(ADC_data[0])/256.;
-	*h = ((8.314 * (*temp))/(0.029 * 9.8)) * log(101325/(*press));
+	*h = 29.254 * ((*temp) + 273.15) * log(refPressure / (*press));
 	return HAL_OK;
 }
 
@@ -201,11 +168,10 @@ HAL_StatusTypeDef BMP280_forced_measure(double *temp, double *press, double *h) 
  * 						- HAL_ERROR Error of configuration.
  */
 HAL_StatusTypeDef BMP280_normal_measure() {
-	ctrl_meas = (ctrl_meas & 0xFC) | 0b11;
-	if(HAL_I2C_Mem_Write(&hi2c, BMP280_ADDRESS, BMP280_CTRL_MEAS_REGISTER, I2C_MEMADD_SIZE_8BIT, &ctrl_meas, 1, 0xFF)!= HAL_OK){
-		return HAL_ERROR;
-	}
-	return HAL_OK;
+	sensor_settings.ctrl_meas = (sensor_settings.ctrl_meas & 0xFC) | 0b11;
+	
+	// Ìîæíî áûëî áû ñðàçó â return çàñóíóòü Mem_Write
+	return HAL_I2C_Mem_Write(&hi2c, BMP280_ADDRESS, BMP280_CTRL_MEAS_REGISTER, I2C_MEMADD_SIZE_8BIT, &sensor_settings, 1, 0xFF);
 }
 
 
@@ -215,11 +181,8 @@ HAL_StatusTypeDef BMP280_normal_measure() {
  * 						- HAL_ERROR Error of configuration.
  */
 HAL_StatusTypeDef BMP280_sleep() {
-	ctrl_meas = (ctrl_meas & 0xFC) | 0b00;
-	if(HAL_I2C_Mem_Write(&hi2c, BMP280_ADDRESS, BMP280_CTRL_MEAS_REGISTER, I2C_MEMADD_SIZE_8BIT, &ctrl_meas, 1, 0xFF)!= HAL_OK){
-		return HAL_ERROR;
-	}
-	return HAL_OK;
+	sensor_settings.ctrl_meas = (sensor_settings.ctrl_meas & 0xFC) | 0b00;
+	return HAL_I2C_Mem_Write(&hi2c, BMP280_ADDRESS, BMP280_CTRL_MEAS_REGISTER, I2C_MEMADD_SIZE_8BIT, &sensor_settings, 1, 0xFF);
 }
 
 
@@ -243,6 +206,8 @@ HAL_StatusTypeDef BMP280_get_measure(double *temp, double *press, double *h) {
 
 	*temp = __BMP280_compensate_T_int32(ADC_data[0])/100.;
 	*press = __BMP280_compensate_P_int64(ADC_data[1])/256.;
-	*h = ((8.314 * (*temp))/(0.029 * 9.8)) * log(101325/(*press));
+	// Êîíñòàíòû ñîáðàíû â îäíó, ìîæåò ìåñòî îñâîáîäèò ÷óòü-÷óòü
+	// Òåìïåðàòóðó íàäî èç ãðàäóñîâ Öåëüñèÿ â ãðàäóñû Êåëüâèíà ïåðåâîäèòü
+	*h = 29.254 * ((*temp) + 273.15) * log(refPressure/(*press));
 	return HAL_OK;
 }

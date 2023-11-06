@@ -67,7 +67,7 @@ uint32_t __BMP280_compensate_P_int64(int32_t adc_P) {
 HAL_StatusTypeDef BMP280_init(I2C_HandleTypeDef hi2c_) {
 	uint8_t id;
 	HAL_I2C_Mem_Read(&hi2c_, BMP280_ADDRESS, BMP280_ID_REGISTER, I2C_MEMADD_SIZE_8BIT, &id, 1, 0xFF);
-	if(id == 0x60) {
+	if(id == 0x58) {
 		hi2c = hi2c_;
 		HAL_I2C_Mem_Read(&hi2c, BMP280_ADDRESS, BMP280_CALIBRATION_REGISTER, I2C_MEMADD_SIZE_8BIT, (uint8_t*) &calibration_data, 24, 0xFF);
 		return HAL_OK;
@@ -188,8 +188,8 @@ HAL_StatusTypeDef BMP280_forced_measure(double *temp, double *press, double *h) 
 	for(int i = 0; i < 2; i++) {
 		ADC_data[i] = (int32_t) (((uint32_t)raw_data[3* i + 0] << 12) | ((uint32_t)raw_data[3 * i + 1] << 4) | ((uint32_t)raw_data[3 * i + 2] >> 4));
 	}
-	*temp = __BMP280_compensate_T_int32(ADC_data[0])/100.;
-	*press = __BMP280_compensate_P_int64(ADC_data[1])/256.;
+	*temp = __BMP280_compensate_T_int32(ADC_data[1])/100.;
+	*press = __BMP280_compensate_P_int64(ADC_data[0])/256.;
 	*h = ((8.314 * (*temp))/(0.029 * 9.8)) * log(101325/(*press));
 	return HAL_OK;
 }

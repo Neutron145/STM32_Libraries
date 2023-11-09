@@ -1,6 +1,6 @@
 /*
  *******************************************************************************
- * 	@file			BMP280_ll.h
+ * 	@file			BMP280_ll.c
  *	@brief			This file provides functions for configuration and taking
  *					measurements from the BMP280 using LL.
  *

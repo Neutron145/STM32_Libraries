@@ -1,6 +1,6 @@
 /*
  *******************************************************************************
- * 	@file			BME280_hal.h
+ * 	@file			BME280_hal.c
  *	@brief			This file provides functions for configuration and taking
  *					measurements from the BME280 using HAL.
  *

@@ -82,11 +82,11 @@ typedef struct {
 #define BME280_REGISTER_ID 				0xD0
 
 /* Reference pressure. Used to make altitude calculations accurate --------*/
-extern uint32_t BMP280_refPressure;
+extern uint32_t BME280_refPressure;
 /* Instance I2C to which BMP280 is connected ---------------------------------*/
-extern I2C_HandleTypeDef BMP280_hi2c;
+extern I2C_HandleTypeDef BME280_hi2c;
 /* Temperature value for pressure calculation --------------------------------*/
-extern int32_t BMP280_t_fine;
+extern int32_t BME280_t_fine;
 
 /* Compensation formula from datasheet ---------------------------------------*/
 int32_t __BME280_compensate_T_int32(int32_t adc_T);

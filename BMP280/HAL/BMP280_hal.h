@@ -89,9 +89,9 @@ HAL_StatusTypeDef BMP280_init(I2C_HandleTypeDef hi2c_, uint32_t refPressure_);
 HAL_StatusTypeDef BMP280_config(uint8_t T_OS, uint8_t P_OS, uint8_t STDB, uint8_t IIRF);
 
 /* Configuration power modes BMP280 ------------------------------------------*/
-HAL_StatusTypeDef BMP280_forced_measure(float *temp, float *press, float *h);
+HAL_StatusTypeDef BMP280_forced_measure(float &temp, float &press, float &h);
 HAL_StatusTypeDef BMP280_normal_measure();
 HAL_StatusTypeDef BMP280_sleep();
-HAL_StatusTypeDef BMP280_get_measure(float *temp, float *press, float *h);
+HAL_StatusTypeDef BMP280_get_measure(float &temp, float &press, float &h);
 
 #endif /* BMP280_H_ */

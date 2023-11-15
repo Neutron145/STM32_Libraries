@@ -1,4 +1,4 @@
-/*
+&/*
  *******************************************************************************
  * 	@file			BME280_ll.h
  *	@brief			Header file for BME280_ll.c
@@ -101,9 +101,9 @@ HAL_StatusTypeDef BME280_init(I2C_TypeDef  *I2Cx_, uint32_t refPressure_);
 HAL_StatusTypeDef BME280_config(uint8_t T_OS, uint8_t P_OS, uint8_t H_OS, uint8_t STDB, uint8_t IIRF);
 
 /* Configuration power modes BMP280 -------------------------------------------------------*/
-HAL_StatusTypeDef BME280_forced_measure(float *temp, float *press, float *hum, float *h);
+HAL_StatusTypeDef BME280_forced_measure(float &temp, float &press, float &hum, float &h);
 HAL_StatusTypeDef BME280_normal_measure();
 HAL_StatusTypeDef BME280_sleep();
-HAL_StatusTypeDef BME280_get_measure(float *temp, float *press, float *hum, float *h);
+HAL_StatusTypeDef BME280_get_measure(float &temp, float &press, float &hum, float &h);
 
 #endif /* BME280_H_ */

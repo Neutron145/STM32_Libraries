@@ -135,7 +135,7 @@ HAL_StatusTypeDef BMP280_config(uint8_t T_OS, uint8_t P_OS, uint8_t STDB, uint8_
  * @retval 	status:		- HAL_OK	Configuration complete.
  * 						- HAL_ERROR Error of measuring.
  */
-HAL_StatusTypeDef BMP280_forced_measure(float *temp, float *press, float *h) {
+HAL_StatusTypeDef BMP280_forced_measure(float &temp, float &press, float &h) {
 	BMP280_sensor_settings.ctrl_meas = (BMP280_sensor_settings.ctrl_meas & 0xFC) | 0b10;
 	I2C_write_bytes(BMP280_I2C, BMP280_ADDRESS, BMP280_REGISTER_CTRL_MEAS, (uint8_t*)&BMP280_sensor_settings.ctrl_meas, 1);
 	uint8_t status = 1;
@@ -149,9 +149,9 @@ HAL_StatusTypeDef BMP280_forced_measure(float *temp, float *press, float *h) {
 	for(int i = 0; i < 2; i++) {
 		ADC_data[i] = (int32_t) (((uint32_t)raw_data[3* i + 0] << 12) | ((uint32_t)raw_data[3 * i + 1] << 4) | ((uint32_t)raw_data[3 * i + 2] >> 4));
 	}
-	*temp = __BMP280_compensate_T_int32(ADC_data[1])/100.;
-	*press = __BMP280_compensate_P_int64(ADC_data[0])/256.;
-	*h = 29.254 * ((*temp) + 273.15) * log(BMP280_refPressure / (*press));
+	temp = __BMP280_compensate_T_int32(ADC_data[1])/100.;
+	press = __BMP280_compensate_P_int64(ADC_data[0])/256.;
+	h = 29.254 * (temp + 273.15) * log(BMP280_refPressure / press);
 	return HAL_OK;
 }
 
@@ -187,7 +187,7 @@ HAL_StatusTypeDef BMP280_sleep() {
  * @retval 	status:		- HAL_OK	Measurements received.
  * 						- HAL_ERROR Error in receiving measurements.
  */
-HAL_StatusTypeDef BMP280_get_measure(float *temp, float *press, float *h) {
+HAL_StatusTypeDef BMP280_get_measure(float &temp, float &press, float &h) {
 	uint8_t raw_data[6];
 	I2C_read_bytes(BMP280_I2C, BMP280_ADDRESS, BMP280_REGISTER_RAW_DATA, raw_data, 6);
 	int32_t ADC_data[2];
@@ -195,8 +195,8 @@ HAL_StatusTypeDef BMP280_get_measure(float *temp, float *press, float *h) {
 		ADC_data[i] = (int32_t) (((uint32_t)raw_data[3* i + 0] << 12) | ((uint32_t)raw_data[3 * i + 1] << 4) | ((uint32_t)raw_data[3 * i + 2] >> 4));
 	}
 
-	*temp = __BMP280_compensate_T_int32(ADC_data[0])/100.;
-	*press = __BMP280_compensate_P_int64(ADC_data[1])/256.;
-	*h = 29.254 * ((*temp) + 273.15) * log(BMP280_refPressure/(*press));
+	temp = __BMP280_compensate_T_int32(ADC_data[0])/100.;
+	press = __BMP280_compensate_P_int64(ADC_data[1])/256.;
+	h = 29.254 * (temp + 273.15) * log(BMP280_refPressure / press);
 	return HAL_OK;
 }

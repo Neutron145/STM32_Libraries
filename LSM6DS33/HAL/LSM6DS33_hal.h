@@ -15,7 +15,7 @@
 
 /* Data from config registers of LSM6DS33 ------------------------------------*/
 typedef struct {
-	uint8_t ORIENT_confg;
+	uint8_t ORIENT_config;
 	uint8_t CTRL1_config;
 	uint8_t CTRL2_config;
 	uint8_t CTRL3_config;
@@ -24,10 +24,10 @@ typedef struct {
 } LSM6DS33_cfg;
 
 /* Instance I2C to which LSM6DS33 is connected -------------------------------*/
-I2C_HandleTypeDef LSM6DS33_hi2c;
+extern I2C_HandleTypeDef LSM6DS33_hi2c;
 
-uint16_t FULL_SCALES_A[4] = {2, 16, 4, 8};
-uint16_t FULL_SCALES_G[4] = {250, 500, 1000, 2000};
+extern uint16_t FULL_SCALES_A[4];
+extern uint16_t FULL_SCALES_G[4];
 
 /* Comment, if pin SA0 is RESET ----------------------------------------------*/
 #define SA0

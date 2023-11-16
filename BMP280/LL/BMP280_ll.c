@@ -14,9 +14,9 @@
 
 BMP280_calib BMP280_calibration_data;
 BMP280_settings BMP280_sensor_settings;
-extern I2C_TypeDef *BMP280_I2C;
-extern int32_t BMP280_t_fine;
-extern uint32_t BMP280_refPressure;
+I2C_TypeDef *BMP280_I2C;
+int32_t BMP280_t_fine;
+uint32_t BMP280_refPressure;
 
 /*
  * @brief	Calculates temparature by value from ADC.

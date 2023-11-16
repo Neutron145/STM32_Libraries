@@ -14,9 +14,9 @@
 
 BME280_calib BME280_calibration_data;
 BME280_settings BME280_sensor_settings;
-extern I2C_TypeDef *BME280_I2C;
-extern int32_t BME280_t_fine;
-extern uint32_t BME280_refPressure;
+I2C_TypeDef *BME280_I2C;
+int32_t BME280_t_fine;
+uint32_t BME280_refPressure;
 
 /*
  * @brief	Calculates temparature by value from ADC.

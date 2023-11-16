@@ -12,9 +12,9 @@
 #include "LSM6DS33_hal.h"
 
 LSM6DS33_cfg LSM6DS33_config;
-extern I2C_HandleTypeDef LSM6DS33_hi2c;
-extern uint16_t FULL_SCALES_A[4] = {2, 16, 4, 8};
-extern uint16_t FULL_SCALES_G[4] = {250, 500, 1000, 2000};
+I2C_HandleTypeDef LSM6DS33_hi2c;
+uint16_t FULL_SCALES_A[4] = {2, 16, 4, 8};
+uint16_t FULL_SCALES_G[4] = {250, 500, 1000, 2000};
 /*
  * @brief Auxiliary function for modifying registers.
  */
@@ -64,8 +64,8 @@ HAL_StatusTypeDef LSM6DS33_init(I2C_HandleTypeDef hi2c_) {
  */
 HAL_StatusTypeDef LSM6DS33_config_orientation(uint8_t orient, uint8_t signs) {
 	if(signs > 0b111) return HAL_ERROR;
-	__LSM6DS33_modify_reg(&LSM6DS33_config.ORIENT_confg, LSM6DS33_ORIENT_CFG_MASK, (signs<<3) + orient);
-	if(HAL_I2C_Mem_Write(&hi2c_, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_ORIENT_CFG, I2C_MEMADD_SIZE_8BIT, &LSM6DS33_config.ORIENT_config, 1, 0xFF) != HAL_OK) {
+	__LSM6DS33_modify_reg(&LSM6DS33_config.ORIENT_config, LSM6DS33_ORIENT_CFG_MASK, (signs<<3) + orient);
+	if(HAL_I2C_Mem_Write(&LSM6DS33_hi2c, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_ORIENT_CFG, I2C_MEMADD_SIZE_8BIT, &LSM6DS33_config.ORIENT_config, 1, 0xFF) != HAL_OK) {
 		return HAL_ERROR;
 	}
 	return HAL_OK;
@@ -92,7 +92,7 @@ HAL_StatusTypeDef LSM6DS33_config_orientation(uint8_t orient, uint8_t signs) {
 HAL_StatusTypeDef LSM6DS33_config_filters(uint8_t g_HPF, uint8_t g_HPF_frequency, uint8_t a_HPF) {
 	__LSM6DS33_modify_reg(&LSM6DS33_config.CTRL7_config, LSM6DS33_GYRO_HPF_MASK, (g_HPF << 6) + (g_HPF_frequency << 4));
 	__LSM6DS33_modify_reg(&LSM6DS33_config.CTRL8_config, LSM6DS33_A_FILTER_MASK, a_HPF << 5);
-	if(HAL_I2C_Mem_Write(&hi2c_, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_CTRL7, I2C_MEMADD_SIZE_8BIT, &LSM6DS33_config.CTRL7_config, 2, 0xFF) != HAL_OK) {
+	if(HAL_I2C_Mem_Write(&LSM6DS33_hi2c, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_CTRL7, I2C_MEMADD_SIZE_8BIT, &LSM6DS33_config.CTRL7_config, 2, 0xFF) != HAL_OK) {
 		return HAL_ERROR;
 	}
 	return HAL_OK;
@@ -117,7 +117,7 @@ HAL_StatusTypeDef LSM6DS33_config_full_scale(uint8_t a_FS, uint8_t g_FS) {
 	if(a_FS > 0b11 || a_FS < 0 || g_FS > 0b11 || g_FS < 0) return HAL_ERROR;
 	__LSM6DS33_modify_reg(&LSM6DS33_config.CTRL1_config, LSM6DS33_FULL_SCALE_MASK, a_FS << 2);
 	__LSM6DS33_modify_reg(&LSM6DS33_config.CTRL2_config, LSM6DS33_FULL_SCALE_MASK, g_FS << 2);
-	if(HAL_I2C_Mem_Write(&hi2c_, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_CTRL1, I2C_MEMADD_SIZE_8BIT, &LSM6DS33_config.CTRL1_config, 2, 0xFF) != HAL_OK) {
+	if(HAL_I2C_Mem_Write(&LSM6DS33_hi2c, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_CTRL1, I2C_MEMADD_SIZE_8BIT, &LSM6DS33_config.CTRL1_config, 2, 0xFF) != HAL_OK) {
 		return HAL_ERROR;
 	}
 	return HAL_OK;
@@ -152,7 +152,7 @@ HAL_StatusTypeDef LSM6DS33_config_perfomance_mode(uint8_t a_ODR, uint8_t g_ODR) 
 	if(a_ODR > 0b1010 || a_ODR < 0b0 || g_ODR > 0b1000 || g_ODR < 0b0) return HAL_ERROR;
 	__LSM6DS33_modify_reg(&LSM6DS33_config.CTRL1_config, LSM6DS33_ODR_MASK, a_ODR << 4);
 	__LSM6DS33_modify_reg(&LSM6DS33_config.CTRL2_config, LSM6DS33_ODR_MASK, g_ODR << 4);
-	if(HAL_I2C_Mem_Write(&hi2c_, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_CTRL1, I2C_MEMADD_SIZE_8BIT, &LSM6DS33_config.CTRL1_config, 2, 0xFF) != HAL_OK) {
+	if(HAL_I2C_Mem_Write(&LSM6DS33_hi2c, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_CTRL1, I2C_MEMADD_SIZE_8BIT, &LSM6DS33_config.CTRL1_config, 2, 0xFF) != HAL_OK) {
 		return HAL_ERROR;
 	}
 	return HAL_OK;
@@ -165,7 +165,7 @@ HAL_StatusTypeDef LSM6DS33_config_perfomance_mode(uint8_t a_ODR, uint8_t g_ODR) 
  */
 HAL_StatusTypeDef LSM6DS33_reset() {
 	__LSM6DS33_modify_reg(&LSM6DS33_config.CTRL3_config, 0b00000001, 0b0);
-	if(HAL_I2C_Mem_Write(&hi2c_, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_CTRL3, I2C_MEMADD_SIZE_8BIT, &LSM6DS33_config.CTRL3_config, 1, 0xFF) != HAL_OK) {
+	if(HAL_I2C_Mem_Write(&LSM6DS33_hi2c, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_CTRL3, I2C_MEMADD_SIZE_8BIT, &LSM6DS33_config.CTRL3_config, 1, 0xFF) != HAL_OK) {
 		return HAL_ERROR;
 	}
 	return HAL_OK;
@@ -179,7 +179,7 @@ HAL_StatusTypeDef LSM6DS33_reset() {
  */
 HAL_StatusTypeDef LSM6DS33_A_get_measure(float *a) {
 	uint16_t raw_data[3];
-	if(HAL_I2C_Mem_Read(&hi2c1, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_OUT_A, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&raw_data, 6, 0xFF) != HAL_OK) {
+	if(HAL_I2C_Mem_Read(&LSM6DS33_hi2c, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_OUT_A, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&raw_data, 6, 0xFF) != HAL_OK) {
 		return HAL_ERROR;
 	}
 	for(int i = 0; i < 3; i++) {
@@ -196,7 +196,7 @@ HAL_StatusTypeDef LSM6DS33_A_get_measure(float *a) {
  */
 HAL_StatusTypeDef LSM6DS33_G_get_measure(float *g) {
 	uint16_t raw_data[3];
-	if(HAL_I2C_Mem_Read(&hi2c1, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_OUT_G, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&raw_data, 6, 0xFF) != HAL_OK) {
+	if(HAL_I2C_Mem_Read(&LSM6DS33_hi2c, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_OUT_G, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&raw_data, 6, 0xFF) != HAL_OK) {
 		return HAL_ERROR;
 	}
 	for(int i = 0; i < 3; i++) {
@@ -214,7 +214,7 @@ HAL_StatusTypeDef LSM6DS33_G_get_measure(float *g) {
  */
 HAL_StatusTypeDef LSM6DS33_get_measure(float* a, float *g) {
 	uint16_t raw_data[6];
-	if(HAL_I2C_Mem_Read(&hi2c1, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_OUT_G, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&raw_data, 12, 0xFF) != HAL_OK) {
+	if(HAL_I2C_Mem_Read(&LSM6DS33_hi2c, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_OUT_G, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&raw_data, 12, 0xFF) != HAL_OK) {
 		return HAL_ERROR;
 	}
 	for(int i = 0; i < 3; i++) {

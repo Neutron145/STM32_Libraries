@@ -35,6 +35,13 @@ typedef struct {
 	uint8_t config;
 } BMP280_settings;
 
+/* Reference pressure. Used to make altitude calculations accurate -----------*/
+extern uint32_t BMP280_refPressure;
+/* Instance I2C to which BMP280 is connected ---------------------------------*/
+extern I2C_TypeDef *BMP280_I2C;
+/* Temperature value for pressure calculation --------------------------------*/
+extern int32_t BMP280_t_fine;
+
 /* Periods between measurements in normal mode--------------------------------*/
 #define BMP280_STANDBY_0_5 				0b000
 #define BMP280_STANDBY_62_5 			0b001
@@ -72,12 +79,6 @@ typedef struct {
 #define BMP280_REGISTER_RESET 			0xE0
 #define BMP280_REGISTER_ID 				0xD0
 
-/* Reference pressure. Used to make altitude calculations accurate -----------*/
-uint32_t BMP280_refPressure;
-/* Instance I2C to which BMP280 is connected ---------------------------------*/
-I2C_TypeDef *BMP280_I2C;
-/* Temperature value for pressure calculation --------------------------------*/
-int32_t BMP280_t_fine;
 
 /* Compensation formula from datasheet ---------------------------------------*/
 int32_t __BMP280_compensate_T_int32(int32_t adc_T);

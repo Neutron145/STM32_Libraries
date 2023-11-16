@@ -14,9 +14,9 @@
 
 BME280_calib BME280_calibration_data;
 BME280_settings BME280_sensor_settings;
-I2C_TypeDef *BME280_I2C;
-int32_t BME280_t_fine;
-uint32_t BME280_refPressure;
+extern I2C_TypeDef *BME280_I2C;
+extern int32_t BME280_t_fine;
+extern uint32_t BME280_refPressure;
 
 /*
  * @brief	Calculates temparature by value from ADC.
@@ -161,7 +161,7 @@ HAL_StatusTypeDef BME280_config(uint8_t T_OS, uint8_t P_OS, uint8_t H_OS, uint8_
  * @retval 	status:		- HAL_OK	Configuration complete.
  * 						- HAL_ERROR Error of measuring.
  */
-HAL_StatusTypeDef BME280_forced_measure(float& temp, float& press, float& hum, float& h) {
+HAL_StatusTypeDef BME280_forced_measure(float *temp, float *press, float *hum, float *h) {
 	BME280_sensor_settings.ctrl_meas = (BME280_sensor_settings.ctrl_meas & 0xFC) | 0b10;
 	I2C_write_bytes(BME280_I2C, BME280_ADDRESS, BME280_REGISTER_CTRL_MEAS, (uint8_t*)&BME280_sensor_settings.ctrl_meas, 1);
 	I2C_write_bytes(BME280_I2C, BME280_ADDRESS, BME280_REGISTER_CTRL_HUM, (uint8_t*)&BME280_sensor_settings.ctrl_hum, 1);
@@ -177,10 +177,10 @@ HAL_StatusTypeDef BME280_forced_measure(float& temp, float& press, float& hum, f
 		ADC_data[i] = (int32_t)(((uint32_t)raw_data[3 * i + 0] << 12) | ((uint32_t)raw_data[3 * i + 1] << 4) | ((uint32_t)raw_data[3 * i + 2] >> 4));
 	}
 	ADC_data[2] = (int32_t)(((uint16_t)raw_data[7] << 8) | ((uint16_t)raw_data[6] & 0xFF));
-	temp = __BME280_compensate_T_int32(ADC_data[1]) / 100.;
-	press = __BME280_compensate_P_int64(ADC_data[0]) / 256.;
-	hum = __BME280_compensate_H_int32(ADC_data[2]) / 1024.;
-	h = 29.254 * (temp + 273.15) * log(BME280_refPressure / press);
+	*temp = __BME280_compensate_T_int32(ADC_data[1]) / 100.;
+	*press = __BME280_compensate_P_int64(ADC_data[0]) / 256.;
+	*hum = __BME280_compensate_H_int32(ADC_data[2]) / 1024.;
+	*h = 29.254 * ((*temp) + 273.15) * log(BME280_refPressure / (*press));
 	return HAL_OK;
 }
 
@@ -213,7 +213,7 @@ HAL_StatusTypeDef BME280_sleep() {
  * @retval 	status:		- HAL_OK	Measurements received.
  * 						- HAL_ERROR Error in receiving measurements.
  */
-HAL_StatusTypeDef BME280_get_measure(float &temp, float &press, float &hum, float &h) {
+HAL_StatusTypeDef BME280_get_measure(float *temp, float *press, float *hum, float *h) {
 	uint8_t raw_data[8];
 	I2C_read_bytes(BME280_I2C, BME280_ADDRESS, BME280_REGISTER_RAW_DATA, raw_data, 8);
 	int32_t ADC_data[3];
@@ -221,10 +221,10 @@ HAL_StatusTypeDef BME280_get_measure(float &temp, float &press, float &hum, floa
 		ADC_data[i] = (int32_t)(((uint32_t)raw_data[3 * i + 0] << 12) | ((uint32_t)raw_data[3 * i + 1] << 4) | ((uint32_t)raw_data[3 * i + 2] >> 4));
 	}
 	ADC_data[2] = (int32_t)(((uint16_t)raw_data[7] << 8) | ((uint16_t)raw_data[6] & 0xFF));
-	temp = __BME280_compensate_T_int32(ADC_data[1]) / 100.;
-	press = __BME280_compensate_P_int64(ADC_data[0]) / 256.;
-	hum = __BME280_compensate_H_int32(ADC_data[2]) / 1024.;
-	h = 29.254 * (temp + 273.15) * log(BME280_refPressure / press);
+	*temp = __BME280_compensate_T_int32(ADC_data[1]) / 100.;
+	*press = __BME280_compensate_P_int64(ADC_data[0]) / 256.;
+	*hum = __BME280_compensate_H_int32(ADC_data[2]) / 1024.;
+	*h = 29.254 * ((*temp) + 273.15) * log(BME280_refPressure / (*press));
 	return HAL_OK;
 }
 

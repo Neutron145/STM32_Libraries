@@ -83,11 +83,11 @@ typedef struct {
 #define BME280_REGISTER_ID 				0xD0
 
 /* Reference pressure. Used to make altitude calculations accurate --------*/
-extern uint32_t BME280_refPressure;
+uint32_t BME280_refPressure;
 /* Instance I2C to which BMP280 is connected ---------------------------------*/
-extern I2C_TypeDef *BME280_I2Cx;
+I2C_TypeDef *BME280_I2Cx;
 /* Temperature value for pressure calculation --------------------------------*/
-extern int32_t BME280_t_fine;
+int32_t BME280_t_fine;
 
 /* Compensation formula from datasheet ---------------------------------------*/
 int32_t __BME280_compensate_T_int32(int32_t adc_T);
@@ -101,9 +101,9 @@ HAL_StatusTypeDef BME280_init(I2C_TypeDef  *I2Cx_, uint32_t refPressure_);
 HAL_StatusTypeDef BME280_config(uint8_t T_OS, uint8_t P_OS, uint8_t H_OS, uint8_t STDB, uint8_t IIRF);
 
 /* Configuration power modes BMP280 -------------------------------------------------------*/
-HAL_StatusTypeDef BME280_forced_measure(float &temp, float &press, float &hum, float &h);
+HAL_StatusTypeDef BME280_forced_measure(float *temp, float *press, float *hum, float *h);
 HAL_StatusTypeDef BME280_normal_measure();
 HAL_StatusTypeDef BME280_sleep();
-HAL_StatusTypeDef BME280_get_measure(float &temp, float &press, float &hum, float &h);
+HAL_StatusTypeDef BME280_get_measure(float *temp, float *press, float *hum, float *h);
 
 #endif /* BME280_H_ */

@@ -1,7 +1,7 @@
 /*
  *******************************************************************************
- * 	@file			LSM6DS33_hal.h
- *	@brief			Header file for LSM6DS33_hal.c
+ * 	@file			LSM6DS33_ll.h
+ *	@brief			Header file for LSM6DS33_ll.c
  *
  *	@author			Rafael Abeldinov
  *  @created 		15.11.2023

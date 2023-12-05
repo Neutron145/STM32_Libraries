@@ -35,6 +35,7 @@ typedef struct {
 	int8_t dig_H6;
 } BME280_calib;
 
+/* Settings of BME280 -----------------------------*/
 typedef struct {
 	uint8_t ctrl_meas;
 	uint8_t config;

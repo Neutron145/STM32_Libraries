@@ -13,7 +13,7 @@
 
 #include "main.h"
 
-/* Calibration data for temperature and pressure -------- --------------------*/
+/* Calibration data for temperature and pressure -----------------------------*/
 typedef struct {
 	uint16_t dig_T1;
 	int16_t dig_T2;
@@ -35,14 +35,14 @@ typedef struct {
 	int8_t dig_H6;
 } BME280_calib;
 
-/* Settings of BME280 -----------------------------*/
+/* Settings of BME280 --------------------------------------------------------*/
 typedef struct {
 	uint8_t ctrl_meas;
 	uint8_t config;
 	uint8_t ctrl_hum;
 } BME280_settings;
 
-/* Reference pressure. Used to make altitude calculations accurate --------*/
+/* Reference pressure. Used to make altitude calculations accurate -----------*/
 extern uint32_t BME280_refPressure;
 /* Instance I2C to which BMP280 is connected ---------------------------------*/
 extern I2C_HandleTypeDef BME280_hi2c;
@@ -100,7 +100,7 @@ HAL_StatusTypeDef BME280_init(I2C_HandleTypeDef hi2c_, uint32_t refPressure_);
 /* Configuration BMP280 ------------------------------------------------------*/
 HAL_StatusTypeDef BME280_config(uint8_t T_OS, uint8_t P_OS, uint8_t H_OS, uint8_t STDB, uint8_t IIRF);
 
-/* Configuration power modes BMP280 -------------------------------------------------------*/
+/* Configuration power modes BMP280 ------------------------------------------*/
 HAL_StatusTypeDef BME280_forced_measure(float *temp, float *press, float *hum, float *h);
 HAL_StatusTypeDef BME280_normal_measure();
 HAL_StatusTypeDef BME280_sleep();

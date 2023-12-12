@@ -79,7 +79,7 @@ extern uint16_t FULL_SCALES_G[4];
 #define LSM6DS33_GYRO_HPF_FREQ_3				0b00
 #define LSM6DS33_GYRO_HPF_FREQ_4				0b01
 
-/* Filters for accelerometer --------------------------------------------------*/
+/* Filters for accelerometer -------------------------------------------------*/
 #define LSM6DS33_A_FILTER_MASK					0b01100000
 #define LSM6DS33_A_FILTER_MODE_1				0b00
 #define LSM6DS33_A_FILTER_MODE_2				0b01

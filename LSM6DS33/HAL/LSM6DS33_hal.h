@@ -70,7 +70,7 @@ extern uint16_t FULL_SCALES_G[4];
 #define LSM6DS33_ORIENT_SIGN_POSITIVE_Z			0b0
 #define LSM6DS33_ORIENT_SIGN_NEGATIVE_Z			0b1
 
-/* Filters for gyroscope -------------------------------------------------------*/
+/* Filters for gyroscope ------------------------------------------------------*/
 #define LSM6DS33_GYRO_HPF_MASK 					0b01110000
 #define LSM6DS33_GYRO_HPF_OFF					0b0
 #define LSM6DS33_GYRO_HPF_ON					0b1

@@ -14,12 +14,13 @@
 #include "main.h"
 
 /* Commands to devices -------------------------------------------------------*/
-#define READ_SIGNAL 	0x01
-#define WRITE_SIGNAL 	0x00
+#define I2C_READ_SIGNAL 	0x01
+#define I2C_WRITE_SIGNAL 	0x00
 
-/* Read bytes from device ----------------------------------------------------*/
-void I2C_read_bytes(I2C_TypeDef *I2Cx, uint8_t device_address, uint16_t reg_address, uint8_t *buffer, uint8_t bytes_count);
-/* Write bytes in devices ----------------------------------------------------*/
-void I2C_write_bytes(I2C_TypeDef *I2Cx, uint8_t device_address, uint16_t reg_address, uint8_t *buffer, uint8_t bytes_count);
+/* Read bytes from device or from registers ----------------------------------*/
+void LL_I2C_Master_Receive(I2C_TypeDef *I2Cx, uint8_t device_address, uint16_t reg_address, uint8_t *buffer, uint8_t bytes_count);
+
+/* Write bytes in registers of devices or send opcode with params ------------*/
+void LL_I2C_Master_Transmit(I2C_TypeDef *I2Cx, uint8_t device_address, uint16_t reg_address, uint8_t *buffer, uint8_t bytes_count);
 
 #endif /* I2C_H_ */

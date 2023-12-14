@@ -29,7 +29,7 @@ typedef struct {
 	int16_t dig_P9;
 } BMP280_calib;
 
-/* Settings of BMP280 -----------------------------*/
+/* Settings of BMP280 --------------------------------------------------------*/
 typedef struct {
 	uint8_t ctrl_meas;
 	uint8_t config;

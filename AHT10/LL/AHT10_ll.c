@@ -9,7 +9,7 @@
  *******************************************************************************
  */
 
-#include "AHT10_hal.h"
+#include "AHT10_ll.h"
 
 I2C_HandleTypeDef AHT10_hi2c;
 uint8_t AHT10_RxData[7] = {0,};
@@ -110,8 +110,5 @@ HAL_StatusTypeDef AHT10_get_H(float *hum) {
  * 						-HAL_ERROR	Error of soft reset.
  */
 HAL_StatusTypeDef AHT10_soft_reset() {
-	if(LL_I2C_Master_Transmit(&AHT10_hi2c, AHT10_ADDRESS, AHT10_COMMAND_RESET, NULL, 0) == HAL_OK) {
-		return HAL_OK;
-	}
-	return HAL_ERROR;
+	return LL_I2C_Master_Transmit(&AHT10_hi2c, AHT10_ADDRESS, AHT10_COMMAND_RESET, NULL, 0) == HAL_OK);
 }

@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RocketLAV`s STM32 libraries: Исходный файл I2C/I2C_ll.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RocketLAV`s STM32 libraries
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_i2_c__ll_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">I2C_ll.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_i2_c__ll_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/***************************************************************************/</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef I2C_H_</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define I2C_H_</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;main.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="group___i2_c__group.html#ga50ba06031b86077aa57174197c6b6139">   22</a></span><span class="preprocessor">#define I2C_READ_SIGNAL     0x01            </span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="group___i2_c__group.html#ga815835233e7757707f5ea32ff5f8becc">   23</a></span><span class="preprocessor">#define I2C_WRITE_SIGNAL    0x00            </span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>HAL_StatusTypeDef <a class="code hl_function" href="group___i2_c__group.html#gadef8174cc949e9b9131d5d5b804b4c5a">I2C__wait_flag</a>(I2C_TypeDef *I2Cx, uint8_t bit, uint8_t timeout);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>HAL_StatusTypeDef <a class="code hl_function" href="group___i2_c__group.html#ga7abdd4efe433ecb5962debd3b9dbd9cf">LL_I2C_Master_Receive</a>(I2C_TypeDef *I2Cx, uint8_t device_address, uint8_t *buffer, uint8_t buffer_size, uint8_t timeout);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>HAL_StatusTypeDef <a class="code hl_function" href="group___i2_c__group.html#gab6450e31affc6d2d32fb5ecd942d9599">LL_I2C_Master_Transmit</a>(I2C_TypeDef *I2Cx, uint8_t device_address, uint8_t *buffer, uint8_t buffer_size, uint8_t timeout);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>HAL_StatusTypeDef <a class="code hl_function" href="group___i2_c__group.html#ga3e8550f526ae87312a6021de2822fdef">LL_I2C_Mem_Read</a>(I2C_TypeDef *I2Cx, uint8_t device_address, uint16_t register_address, uint8_t *buffer, uint8_t buffer_size, uint8_t timeout);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>HAL_StatusTypeDef <a class="code hl_function" href="group___i2_c__group.html#ga3b1ebed43aaf217bb1cfff301055a9ac">LL_I2C_Mem_Write</a>(I2C_TypeDef *I2Cx, uint8_t device_address, uint16_t register_address, uint8_t *buffer, uint8_t buffer_size, uint8_t timeout);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#endif </span><span class="comment">/* I2C_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="ttc" id="agroup___i2_c__group_html_ga3b1ebed43aaf217bb1cfff301055a9ac"><div class="ttname"><a href="group___i2_c__group.html#ga3b1ebed43aaf217bb1cfff301055a9ac">LL_I2C_Mem_Write</a></div><div class="ttdeci">HAL_StatusTypeDef LL_I2C_Mem_Write(I2C_TypeDef *I2Cx, uint8_t device_address, uint16_t register_address, uint8_t *buffer, uint8_t buffer_size, uint8_t timeout)</div><div class="ttdoc">Запись байтов в регистры устройства, подключенного к I2C.</div><div class="ttdef"><b>Definition</b> I2C_ll.c:124</div></div>
+<div class="ttc" id="agroup___i2_c__group_html_ga3e8550f526ae87312a6021de2822fdef"><div class="ttname"><a href="group___i2_c__group.html#ga3e8550f526ae87312a6021de2822fdef">LL_I2C_Mem_Read</a></div><div class="ttdeci">HAL_StatusTypeDef LL_I2C_Mem_Read(I2C_TypeDef *I2Cx, uint8_t device_address, uint16_t register_address, uint8_t *buffer, uint8_t buffer_size, uint8_t timeout)</div><div class="ttdoc">Запись байтов в указанный регистров устройства, подключенного к I2C.</div><div class="ttdef"><b>Definition</b> I2C_ll.c:73</div></div>
+<div class="ttc" id="agroup___i2_c__group_html_ga7abdd4efe433ecb5962debd3b9dbd9cf"><div class="ttname"><a href="group___i2_c__group.html#ga7abdd4efe433ecb5962debd3b9dbd9cf">LL_I2C_Master_Receive</a></div><div class="ttdeci">HAL_StatusTypeDef LL_I2C_Master_Receive(I2C_TypeDef *I2Cx, uint8_t device_address, uint8_t *buffer, uint8_t buffer_size, uint8_t timeout)</div><div class="ttdoc">Чтение байтов с шины I2C от указанного устройства</div><div class="ttdef"><b>Definition</b> I2C_ll.c:18</div></div>
+<div class="ttc" id="agroup___i2_c__group_html_gab6450e31affc6d2d32fb5ecd942d9599"><div class="ttname"><a href="group___i2_c__group.html#gab6450e31affc6d2d32fb5ecd942d9599">LL_I2C_Master_Transmit</a></div><div class="ttdeci">HAL_StatusTypeDef LL_I2C_Master_Transmit(I2C_TypeDef *I2Cx, uint8_t device_address, uint8_t *buffer, uint8_t buffer_size, uint8_t timeout)</div><div class="ttdoc">Отправка байтов по шине I2C на указанное устройство</div><div class="ttdef"><b>Definition</b> I2C_ll.c:48</div></div>
+<div class="ttc" id="agroup___i2_c__group_html_gadef8174cc949e9b9131d5d5b804b4c5a"><div class="ttname"><a href="group___i2_c__group.html#gadef8174cc949e9b9131d5d5b804b4c5a">I2C__wait_flag</a></div><div class="ttdeci">HAL_StatusTypeDef I2C__wait_flag(I2C_TypeDef *I2Cx, uint8_t bit, uint8_t timeout)</div><div class="ttdoc">Дополнительная внутрянняя функция для отлова ошибок в I2C.</div><div class="ttdef"><b>Definition</b> I2C_ll.c:3</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_0492bf3f11d1d3b6bad554bc08778e95.html">I2C</a></li><li class="navelem"><a class="el" href="_i2_c__ll_8h.html">I2C_ll.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

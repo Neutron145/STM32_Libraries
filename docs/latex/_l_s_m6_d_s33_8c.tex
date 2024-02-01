@@ -1,0 +1,67 @@
+\doxysection{Файл LSM6\+DS33/\+LSM6\+DS33.c}
+\hypertarget{_l_s_m6_d_s33_8c}{}\label{_l_s_m6_d_s33_8c}\index{LSM6DS33/LSM6DS33.c@{LSM6DS33/LSM6DS33.c}}
+
+
+Файл обеспечивает работу датчика LSM6\+DS33, подключенному к микроконтроллеру STM32\+F103 или STM32\+F411 по I2C.  
+
+
+{\ttfamily \#include "{}LSM6\+DS33.\+h"{}}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___l_s_m6_d_s33__group_gae6b392cec4944416801eabf7f95d13b2}{\+\_\+\+\_\+\+LSM6\+DS33\+\_\+modify\+\_\+reg}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}reg\+\_\+data, uint8\+\_\+t mask, uint8\+\_\+t bits)
+\begin{DoxyCompactList}\small\item\em Вспомогательная функция для изменения бита в байте \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga65f8d51906bfa63994613f24fe265bbc}{LSM6\+DS33\+\_\+init}} (I2\+C\+\_\+\+Handle\+Type\+Def hi2c\+\_\+)
+\begin{DoxyCompactList}\small\item\em Инициализация датчика LSM6\+DS33. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___l_s_m6_d_s33__group_gab790d028306b8e65cb6bd0fea470488d}{LSM6\+DS33\+\_\+config\+\_\+orientation}} (uint8\+\_\+t orient, uint8\+\_\+t signs)
+\begin{DoxyCompactList}\small\item\em Конфигурация ориентации датчика \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___l_s_m6_d_s33__group_gafa5498ca334e09daeff33bbe17cc1849}{LSM6\+DS33\+\_\+config\+\_\+filters}} (uint8\+\_\+t g\+\_\+\+HPF, uint8\+\_\+t g\+\_\+\+HPF\+\_\+frequency, uint8\+\_\+t a\+\_\+\+HPF)
+\begin{DoxyCompactList}\small\item\em Конфигурация HPF фильтров акселерометра и гироскопа \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___l_s_m6_d_s33__group_gac340e8eb67ec4c3935ac5f9d21702689}{LSM6\+DS33\+\_\+config\+\_\+full\+\_\+scale}} (uint8\+\_\+t a\+\_\+\+FS, uint8\+\_\+t g\+\_\+\+FS)
+\begin{DoxyCompactList}\small\item\em Конфигурация full-\/scale для гироскопа и акселерометра \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga68e56747e6553e229a8bb64a2adeae7d}{LSM6\+DS33\+\_\+config\+\_\+perfomance\+\_\+mode}} (uint8\+\_\+t a\+\_\+\+ODR, uint8\+\_\+t g\+\_\+\+ODR)
+\begin{DoxyCompactList}\small\item\em Конфигурация режима работы датчика \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga0c2dbc5fb28f8dfb76e5b1597b579941}{LSM6\+DS33\+\_\+reset}} ()
+\begin{DoxyCompactList}\small\item\em Програмнная перезагрузка датчика \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___l_s_m6_d_s33__group_gac3a6604c07a62dda0c338d382a0209cd}{LSM6\+DS33\+\_\+\+A\+\_\+get\+\_\+measure}} (float \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Снятие измерений акселерометра \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga7f266a11c1106c6c7774e961ad3ddcd8}{LSM6\+DS33\+\_\+\+G\+\_\+get\+\_\+measure}} (float \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Снятие измерений гироскопа \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga42146df5bea93f539fe623653f301fab}{LSM6\+DS33\+\_\+\+T\+\_\+get\+\_\+measure}} (float \texorpdfstring{$\ast$}{*}t)
+\begin{DoxyCompactList}\small\item\em Снятие измерений термометра \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___l_s_m6_d_s33__group_gabb8047f0a55832252a0d0ef41f748fd6}{LSM6\+DS33\+\_\+get\+\_\+measure}} (float \texorpdfstring{$\ast$}{*}a, float \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Снятие измерений акселерометра и гирокскопа \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga11b009252026358585a88ddcf0703794}{LSM6\+DS33\+\_\+get\+\_\+all\+\_\+measure}} (float \texorpdfstring{$\ast$}{*}a, float \texorpdfstring{$\ast$}{*}g, float \texorpdfstring{$\ast$}{*}t)
+\begin{DoxyCompactList}\small\item\em Снятие измерений акселерометра, гирокскопа и термометра \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_l_s_m6_d_s33__cfg}{LSM6\+DS33\+\_\+cfg}} \mbox{\hyperlink{_l_s_m6_d_s33_8c_a494caf7a702c73001baedacf7f577e28}{LSM6\+DS33\+\_\+config}}
+\item 
+I2\+C\+\_\+\+Handle\+Type\+Def {\bfseries LSM6\+DS33\+\_\+hi2c}
+\begin{DoxyCompactList}\small\item\em Экземпляр I2C, к которому подключен датчиик влажности. Тип экземпляра зависит от библиотеки. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga3e9d93f01df7b25d2b02c252ec86b739}{FULL\+\_\+\+SCALES\+\_\+A}} \mbox{[}4\mbox{]} = \{2, 16, 4, 8\}
+\begin{DoxyCompactList}\small\item\em Используется в переводе значений АЦП в мс/c и градусы в зависимости от установленного full-\/scale акселерометра и гироскопа соотвественно \end{DoxyCompactList}\item 
+uint16\+\_\+t {\bfseries FULL\+\_\+\+SCALES\+\_\+G} \mbox{[}4\mbox{]} = \{250, 500, 1000, 2000\}
+\begin{DoxyCompactList}\small\item\em Хранит значения full-\/scale для гироскопа. Упрощает перевод из попугаев в слонов \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Файл обеспечивает работу датчика LSM6\+DS33, подключенному к микроконтроллеру STM32\+F103 или STM32\+F411 по I2C. 
+
+\begin{DoxyAuthor}{Автор}
+Рафаэль Абельдинов 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Дата}
+19.\+12.\+2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Переменные}
+\Hypertarget{_l_s_m6_d_s33_8c_a494caf7a702c73001baedacf7f577e28}\label{_l_s_m6_d_s33_8c_a494caf7a702c73001baedacf7f577e28} 
+\index{LSM6DS33.c@{LSM6DS33.c}!LSM6DS33\_config@{LSM6DS33\_config}}
+\index{LSM6DS33\_config@{LSM6DS33\_config}!LSM6DS33.c@{LSM6DS33.c}}
+\doxysubsubsection{\texorpdfstring{LSM6DS33\_config}{LSM6DS33\_config}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_l_s_m6_d_s33__cfg}{LSM6\+DS33\+\_\+cfg}} LSM6\+DS33\+\_\+config}
+
+Структура для хранения значений регистров конфигурации датчика. Упрощает работу с датчиком, т.\+к. избегаем чтения регистров с датчика перед его изменением и храним все в памяти МК. 

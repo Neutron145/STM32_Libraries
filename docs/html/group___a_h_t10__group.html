@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RocketLAV`s STM32 libraries: AHT10</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RocketLAV`s STM32 libraries
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('group___a_h_t10__group.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle"><div class="title">AHT10</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Модуль для датчика AHT10. Обеспечивает программную перезагрузку датчика и измерение данных. Датчик подключается к I2C.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga4af2c4e821cc0bf623bc7b2d3d5e0b1f" id="r_ga4af2c4e821cc0bf623bc7b2d3d5e0b1f"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_h_t10__group.html#ga4af2c4e821cc0bf623bc7b2d3d5e0b1f">AHT10_init</a> (I2C_HandleTypeDef hi2c_)</td></tr>
+<tr class="memdesc:ga4af2c4e821cc0bf623bc7b2d3d5e0b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация датчика.  <br /></td></tr>
+<tr class="separator:ga4af2c4e821cc0bf623bc7b2d3d5e0b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga739b776b6a5a10a14f44d97b7ef31665" id="r_ga739b776b6a5a10a14f44d97b7ef31665"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_h_t10__group.html#ga739b776b6a5a10a14f44d97b7ef31665">AHT10_trigger_measure</a> ()</td></tr>
+<tr class="memdesc:ga739b776b6a5a10a14f44d97b7ef31665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция выполнения измерений влажности и темепратуры датчиком. <br  />
+  <br /></td></tr>
+<tr class="separator:ga739b776b6a5a10a14f44d97b7ef31665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac65f8d76d693ca0b007af6c130136c49" id="r_gac65f8d76d693ca0b007af6c130136c49"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_h_t10__group.html#gac65f8d76d693ca0b007af6c130136c49">AHT10_get_measure</a> (float *t, float *hum)</td></tr>
+<tr class="memdesc:gac65f8d76d693ca0b007af6c130136c49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтения измеренных влажности и температуры с датчика.  <br /></td></tr>
+<tr class="separator:gac65f8d76d693ca0b007af6c130136c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80c261a7697e8c99bea28a43a22618b3" id="r_ga80c261a7697e8c99bea28a43a22618b3"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_h_t10__group.html#ga80c261a7697e8c99bea28a43a22618b3">AHT10_get_T</a> (float *t)</td></tr>
+<tr class="memdesc:ga80c261a7697e8c99bea28a43a22618b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтения измеренной температуры с датчика.  <br /></td></tr>
+<tr class="separator:ga80c261a7697e8c99bea28a43a22618b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga20cda6598210616f26ac3c1aa277b11d" id="r_ga20cda6598210616f26ac3c1aa277b11d"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_h_t10__group.html#ga20cda6598210616f26ac3c1aa277b11d">AHT10_get_H</a> (float *hum)</td></tr>
+<tr class="memdesc:ga20cda6598210616f26ac3c1aa277b11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтения измеренной влажности с датчика.  <br /></td></tr>
+<tr class="separator:ga20cda6598210616f26ac3c1aa277b11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa2679c05865245072c04e979beb6fecd" id="r_gaa2679c05865245072c04e979beb6fecd"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_h_t10__group.html#gaa2679c05865245072c04e979beb6fecd">AHT10_soft_reset</a> ()</td></tr>
+<tr class="memdesc:gaa2679c05865245072c04e979beb6fecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Программная перезагрузка датчика.  <br /></td></tr>
+<tr class="separator:gaa2679c05865245072c04e979beb6fecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:ga70f9fa948e0e5538b12df58547cb0d97" id="r_ga70f9fa948e0e5538b12df58547cb0d97"><td class="memItemLeft" align="right" valign="top"><a id="ga70f9fa948e0e5538b12df58547cb0d97" name="ga70f9fa948e0e5538b12df58547cb0d97"></a>
+I2C_TypeDef *&#160;</td><td class="memItemRight" valign="bottom"><b>AHT10_hi2c</b></td></tr>
+<tr class="memdesc:ga70f9fa948e0e5538b12df58547cb0d97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Экземпляр I2C, к которому подключен датчиик влажности. Тип экземпляра зависит от библиотеки. <br /></td></tr>
+<tr class="separator:ga70f9fa948e0e5538b12df58547cb0d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf2677dd003fba0ed1f54919142aa9fe" id="r_gaaf2677dd003fba0ed1f54919142aa9fe"><td class="memItemLeft" align="right" valign="top"><a id="gaaf2677dd003fba0ed1f54919142aa9fe" name="gaaf2677dd003fba0ed1f54919142aa9fe"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>AHT10_RxData</b> [7]</td></tr>
+<tr class="memdesc:gaaf2677dd003fba0ed1f54919142aa9fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Массив для получения данных с датчика. <br /></td></tr>
+<tr class="separator:gaaf2677dd003fba0ed1f54919142aa9fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaef1ba88a9b2a94bb16c95833cdcc1fb1" id="r_gaef1ba88a9b2a94bb16c95833cdcc1fb1"><td class="memItemLeft" align="right" valign="top"><a id="gaef1ba88a9b2a94bb16c95833cdcc1fb1" name="gaef1ba88a9b2a94bb16c95833cdcc1fb1"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>AHT10_trigger_data</b> [3]</td></tr>
+<tr class="memdesc:gaef1ba88a9b2a94bb16c95833cdcc1fb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Массив для отправки данных датчику. <br /></td></tr>
+<tr class="separator:gaef1ba88a9b2a94bb16c95833cdcc1fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Макрос определения используемой библиотеки</h2></td></tr>
+<tr class="memitem:gad4d79ed951d567b18319f998dd478508" id="r_gad4d79ed951d567b18319f998dd478508"><td class="memItemLeft" align="right" valign="top"><a id="gad4d79ed951d567b18319f998dd478508" name="gad4d79ed951d567b18319f998dd478508"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AHT10_HAL</b></td></tr>
+<tr class="memdesc:gad4d79ed951d567b18319f998dd478508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указывает библиотеку STM32, с помощью которой управляется интерфейс I2C. Определите <b>AHT10_HAL</b> или <b>AHT10_LL</b> в зависимости от используемой библиотеки. <br /></td></tr>
+<tr class="separator:gad4d79ed951d567b18319f998dd478508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Макросы управления</h2></td></tr>
+<tr class="memitem:ga207d6ddf3cbdc024811b458ad79b1315" id="r_ga207d6ddf3cbdc024811b458ad79b1315"><td class="memItemLeft" align="right" valign="top"><a id="ga207d6ddf3cbdc024811b458ad79b1315" name="ga207d6ddf3cbdc024811b458ad79b1315"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AHT10_ADDRESS</b>&#160;&#160;&#160;0x38&lt;&lt;1</td></tr>
+<tr class="memdesc:ga207d6ddf3cbdc024811b458ad79b1315"><td class="mdescLeft">&#160;</td><td class="mdescRight">Адрес датчика на шине I2C. <br /></td></tr>
+<tr class="separator:ga207d6ddf3cbdc024811b458ad79b1315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f79cf2f7c101f3fae3c404840499d0b" id="r_ga6f79cf2f7c101f3fae3c404840499d0b"><td class="memItemLeft" align="right" valign="top"><a id="ga6f79cf2f7c101f3fae3c404840499d0b" name="ga6f79cf2f7c101f3fae3c404840499d0b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AHT10_COMMAND_INIT</b>&#160;&#160;&#160;0b11100001</td></tr>
+<tr class="memdesc:ga6f79cf2f7c101f3fae3c404840499d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Код операции инициации измерений влажности и температуры. <br /></td></tr>
+<tr class="separator:ga6f79cf2f7c101f3fae3c404840499d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a071318d43838e834cf91e587f31e54" id="r_ga5a071318d43838e834cf91e587f31e54"><td class="memItemLeft" align="right" valign="top"><a id="ga5a071318d43838e834cf91e587f31e54" name="ga5a071318d43838e834cf91e587f31e54"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AHT10_COMMAND_TRIGGER</b>&#160;&#160;&#160;0b10101100</td></tr>
+<tr class="memdesc:ga5a071318d43838e834cf91e587f31e54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Код операции инициации измерений влажности и температуры. <br /></td></tr>
+<tr class="separator:ga5a071318d43838e834cf91e587f31e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0c3508cf78edc8e095c846e165a1887" id="r_gaf0c3508cf78edc8e095c846e165a1887"><td class="memItemLeft" align="right" valign="top"><a id="gaf0c3508cf78edc8e095c846e165a1887" name="gaf0c3508cf78edc8e095c846e165a1887"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AHT10_COMMAND_RESET</b>&#160;&#160;&#160;0b10111010</td></tr>
+<tr class="memdesc:gaf0c3508cf78edc8e095c846e165a1887"><td class="mdescLeft">&#160;</td><td class="mdescRight">Код операции программной перезагрузки датчика. <br /></td></tr>
+<tr class="separator:gaf0c3508cf78edc8e095c846e165a1887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Модуль для датчика AHT10. Обеспечивает программную перезагрузку датчика и измерение данных. Датчик подключается к I2C. </p>
+<p>Модуль работает с библиотеками LL и HAL. Для выбора библиотеки необходимо использовать макрос и при использовании LL добавить в проект модуль I2C LL. <br  />
+ Для работы достаточно вызвать функцию инициализации, вызвать измерение и считать полученные данные: </p><div class="fragment"><div class="line"><span class="keywordtype">float</span> t, hum;  </div>
+<div class="line">AHT10_init();  </div>
+<div class="line"><a class="code hl_function" href="group___a_h_t10__group.html#ga739b776b6a5a10a14f44d97b7ef31665">AHT10_trigger_measure</a>();  </div>
+<div class="line"><span class="keywordflow">while</span>(1) {  </div>
+<div class="line">    <a class="code hl_function" href="group___a_h_t10__group.html#gac65f8d76d693ca0b007af6c130136c49">AHT10_get_measure</a>(&amp;t, &amp;hum);  </div>
+<div class="line">    HAL_Delay(1000);   </div>
+<div class="line">}  </div>
+<div class="ttc" id="agroup___a_h_t10__group_html_ga739b776b6a5a10a14f44d97b7ef31665"><div class="ttname"><a href="group___a_h_t10__group.html#ga739b776b6a5a10a14f44d97b7ef31665">AHT10_trigger_measure</a></div><div class="ttdeci">HAL_StatusTypeDef AHT10_trigger_measure()</div><div class="ttdoc">Функция выполнения измерений влажности и темепратуры датчиком.</div><div class="ttdef"><b>Definition</b> AHT10.c:18</div></div>
+<div class="ttc" id="agroup___a_h_t10__group_html_gac65f8d76d693ca0b007af6c130136c49"><div class="ttname"><a href="group___a_h_t10__group.html#gac65f8d76d693ca0b007af6c130136c49">AHT10_get_measure</a></div><div class="ttdeci">HAL_StatusTypeDef AHT10_get_measure(float *t, float *hum)</div><div class="ttdoc">Чтения измеренных влажности и температуры с датчика.</div><div class="ttdef"><b>Definition</b> AHT10.c:24</div></div>
+</div><!-- fragment --><p><br  />
+ </p>
+<h2 class="groupheader">Функции</h2>
+<a id="ga20cda6598210616f26ac3c1aa277b11d" name="ga20cda6598210616f26ac3c1aa277b11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga20cda6598210616f26ac3c1aa277b11d">&#9670;&#160;</a></span>AHT10_get_H()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef AHT10_get_H </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>hum</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Чтения измеренной влажности с датчика. </p>
+<p>Функция считывает из AHT10 в буфер <b>AHT10_RxData</b>. Данные из этого буфера преобразуются в величину влажности по стандртным формулам. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Возвращаемая величина влажности в % </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Статус I2C после сохранения данных влажности по I2C в буфер. Может быть <b>HAL_OK</b>, <b>HAL_ERROR</b>, <b>HAL_BUSY</b> </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Аналогичные действия из функциии AHT10_get_measure</p>
+
+</div>
+</div>
+<a id="gac65f8d76d693ca0b007af6c130136c49" name="gac65f8d76d693ca0b007af6c130136c49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac65f8d76d693ca0b007af6c130136c49">&#9670;&#160;</a></span>AHT10_get_measure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef AHT10_get_measure </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>hum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Чтения измеренных влажности и температуры с датчика. </p>
+<p>Функция считывает данные из AHT10 в буфер <b>AHT10_RxData</b>. Данные из этого буфера преобразуются в величины температуры и влажности по стандартным формулам. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Возвращаемая величина температуры в градусах Цельсия </td></tr>
+    <tr><td class="paramname">hum</td><td>Возвращаемая величина влажности в % </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Статус I2C после сохранения полученных данных по I2C в буфер. Может быть <b>HAL_OK</b>, <b>HAL_ERROR</b>, <b>HAL_BUSY</b> </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>0b10000000 - код, который вернет AHT10, если он занят(еще выполняет измерения, например).</p>
+<p>Объединяем 3 последних байта в uint32_t для получения необработанных данных с АЦП о температуре</p>
+<p>Стандартная формула преобразования попугаев в слонов</p>
+<p>Для влажности аналогично объединяем 3 первых байта</p>
+
+</div>
+</div>
+<a id="ga80c261a7697e8c99bea28a43a22618b3" name="ga80c261a7697e8c99bea28a43a22618b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga80c261a7697e8c99bea28a43a22618b3">&#9670;&#160;</a></span>AHT10_get_T()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef AHT10_get_T </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Чтения измеренной температуры с датчика. </p>
+<p>Функция считывает из AHT10 в буфер <b>AHT10_RxData</b>. Данные из этого буфера преобразуются в величину температуры по стандртным формулам. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Возвращаемая величина температуры в градусах Цельсия </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Статус I2C после сохранения данных температуры по I2C в буфер. Может быть <b>HAL_OK</b>, <b>HAL_ERROR</b>, <b>HAL_BUSY</b> </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Аналогичные действия из функциии AHT10_get_measure</p>
+
+</div>
+</div>
+<a id="ga4af2c4e821cc0bf623bc7b2d3d5e0b1f" name="ga4af2c4e821cc0bf623bc7b2d3d5e0b1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4af2c4e821cc0bf623bc7b2d3d5e0b1f">&#9670;&#160;</a></span>AHT10_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef AHT10_init </td>
+          <td>(</td>
+          <td class="paramtype">I2C_HandleTypeDef&#160;</td>
+          <td class="paramname"><em>hi2c_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Инициализация датчика. </p>
+<p>Функция инициализации датчика. Используется перед измерением данных. Отправляет код операции инициализации датчику. <br  />
+ </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hi2c_</td><td>Экземпляр I2C_TypeDef, к которому подключен датчик. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Статус I2C после инициализации датчика. Может быть <b>HAL_OK</b>, <b>HAL_ERROR</b>, <b>HAL_BUSY</b> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa2679c05865245072c04e979beb6fecd" name="gaa2679c05865245072c04e979beb6fecd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa2679c05865245072c04e979beb6fecd">&#9670;&#160;</a></span>AHT10_soft_reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef AHT10_soft_reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Программная перезагрузка датчика. </p>
+<p>Отправляет код операции перезагрузки датчика. Перезагрузка длится ~20мс. </p><dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Статус I2C после отправки кода операции датчику. Может быть <b>HAL_OK</b>, <b>HAL_ERROR</b>, <b>HAL_BUSY</b> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga739b776b6a5a10a14f44d97b7ef31665" name="ga739b776b6a5a10a14f44d97b7ef31665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga739b776b6a5a10a14f44d97b7ef31665">&#9670;&#160;</a></span>AHT10_trigger_measure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef AHT10_trigger_measure </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция выполнения измерений влажности и темепратуры датчиком. <br  />
+ </p>
+<p>Функция отправляет код операции измерения влажности и температуры вместе со стандартными параметрами. Данные измеряются ~75мс. </p><dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Статус I2C после отправки кода операции датчику. Может быть <b>HAL_OK</b>. <b>HAL_ERROR</b>, <b>HAL_BUSY</b> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

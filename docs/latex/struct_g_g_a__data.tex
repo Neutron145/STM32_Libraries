@@ -1,0 +1,49 @@
+\doxysection{Структура GGA\+\_\+data}
+\hypertarget{struct_g_g_a__data}{}\label{struct_g_g_a__data}\index{GGA\_data@{GGA\_data}}
+
+
+Структура для хранения данных сообщения GGA.  
+
+
+
+
+{\ttfamily \#include $<$GPS\+\_\+parser.\+h$>$}
+
+\doxysubsubsection*{Поля данных}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_g_g_a__data_a772178c0e128ae95230c9ce4ae5a1c6b}\label{struct_g_g_a__data_a772178c0e128ae95230c9ce4ae5a1c6b} 
+float {\bfseries date}
+\begin{DoxyCompactList}\small\item\em Дата и время получения сообщения \end{DoxyCompactList}\item 
+\Hypertarget{struct_g_g_a__data_a006303577d6adb772761727538b74f80}\label{struct_g_g_a__data_a006303577d6adb772761727538b74f80} 
+float {\bfseries longitude}
+\begin{DoxyCompactList}\small\item\em Долгота \end{DoxyCompactList}\item 
+\Hypertarget{struct_g_g_a__data_abda081f3534d49068dd275266a9c08e0}\label{struct_g_g_a__data_abda081f3534d49068dd275266a9c08e0} 
+char {\bfseries EW}
+\begin{DoxyCompactList}\small\item\em Направление долготы \end{DoxyCompactList}\item 
+\Hypertarget{struct_g_g_a__data_ad9e643bc6bd5a62b9b5011cf1c93629e}\label{struct_g_g_a__data_ad9e643bc6bd5a62b9b5011cf1c93629e} 
+float {\bfseries latitude}
+\begin{DoxyCompactList}\small\item\em Широта \end{DoxyCompactList}\item 
+\Hypertarget{struct_g_g_a__data_a4f1779c5def808357c8e6f33bbd03551}\label{struct_g_g_a__data_a4f1779c5def808357c8e6f33bbd03551} 
+char {\bfseries NS}
+\begin{DoxyCompactList}\small\item\em Направление широты \end{DoxyCompactList}\item 
+\Hypertarget{struct_g_g_a__data_a0e13a4b4ae0cefdac2a413284239caa6}\label{struct_g_g_a__data_a0e13a4b4ae0cefdac2a413284239caa6} 
+float {\bfseries altitude}
+\begin{DoxyCompactList}\small\item\em Высота \end{DoxyCompactList}\item 
+\Hypertarget{struct_g_g_a__data_a67b819793922e2fadb6ac086196d55ac}\label{struct_g_g_a__data_a67b819793922e2fadb6ac086196d55ac} 
+int {\bfseries solve\+\_\+type}
+\begin{DoxyCompactList}\small\item\em Тип решения \end{DoxyCompactList}\item 
+\Hypertarget{struct_g_g_a__data_ab9956f8a7c5930b1a64d60b162559a28}\label{struct_g_g_a__data_ab9956f8a7c5930b1a64d60b162559a28} 
+float {\bfseries HDOP}
+\begin{DoxyCompactList}\small\item\em Геометрический фактор (точность полученных данных) \end{DoxyCompactList}\item 
+\Hypertarget{struct_g_g_a__data_a507704019ecebddb742907d5ef247e91}\label{struct_g_g_a__data_a507704019ecebddb742907d5ef247e91} 
+int {\bfseries sats}
+\begin{DoxyCompactList}\small\item\em Количество найденных спутников \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Структура для хранения данных сообщения GGA. 
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+GPS\+\_\+parser/\mbox{\hyperlink{_g_p_s__parser_8h}{GPS\+\_\+parser.\+h}}\end{DoxyCompactItemize}

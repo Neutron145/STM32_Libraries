@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RocketLAV`s STM32 libraries: Файл E22400M30S/SX1268.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RocketLAV`s STM32 libraries
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_s_x1268_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Макросы</a> &#124;
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle"><div class="title">Файл SX1268.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Файл обеспечивает передачу данных с помощью стандарта LoRa приемопередатчика SX1268, подключенному по SPI.  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &quot;main.h&quot;</code><br />
+</div>
+<p><a href="_s_x1268_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:ga9cfb62e54209711d8f986fad8d95ab27" id="r_ga9cfb62e54209711d8f986fad8d95ab27"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_STANDBY</b>&#160;&#160;&#160;0x80</td></tr>
+<tr class="memdesc:ga9cfb62e54209711d8f986fad8d95ab27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда перехода в состояние ожидания <br /></td></tr>
+<tr class="separator:ga9cfb62e54209711d8f986fad8d95ab27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae230e2e26a09fbd28af3cf343de697c1" id="r_gae230e2e26a09fbd28af3cf343de697c1"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_TX</b>&#160;&#160;&#160;0x83</td></tr>
+<tr class="memdesc:gae230e2e26a09fbd28af3cf343de697c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда перехода в состояние отправки данных <br /></td></tr>
+<tr class="separator:gae230e2e26a09fbd28af3cf343de697c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6073b8cf514289bc92ea3f3694de61fa" id="r_ga6073b8cf514289bc92ea3f3694de61fa"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_RX</b>&#160;&#160;&#160;0x82</td></tr>
+<tr class="memdesc:ga6073b8cf514289bc92ea3f3694de61fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда перехода в состояние приема данных <br /></td></tr>
+<tr class="separator:ga6073b8cf514289bc92ea3f3694de61fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf4a9acefc6563ae7bd7e1b6d1d30917" id="r_gacf4a9acefc6563ae7bd7e1b6d1d30917"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_SLEEP</b>&#160;&#160;&#160;0x84</td></tr>
+<tr class="memdesc:gacf4a9acefc6563ae7bd7e1b6d1d30917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда перехода в состояние сна <br /></td></tr>
+<tr class="separator:gacf4a9acefc6563ae7bd7e1b6d1d30917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6526f1a04e63a3bf1598858cac82cb0" id="r_gaa6526f1a04e63a3bf1598858cac82cb0"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_CALIBRATE</b>&#160;&#160;&#160;0x89</td></tr>
+<tr class="memdesc:gaa6526f1a04e63a3bf1598858cac82cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда калбировки приемопередатчика <br /></td></tr>
+<tr class="separator:gaa6526f1a04e63a3bf1598858cac82cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f00534d044ecae18cf7a8164d0f38e9" id="r_ga6f00534d044ecae18cf7a8164d0f38e9"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_WRITE_REGISTER</b>&#160;&#160;&#160;0x0D</td></tr>
+<tr class="memdesc:ga6f00534d044ecae18cf7a8164d0f38e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда записи данных в регистр <br /></td></tr>
+<tr class="separator:ga6f00534d044ecae18cf7a8164d0f38e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0cc0e1bf06981ce7b760899b433de860" id="r_ga0cc0e1bf06981ce7b760899b433de860"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_READ_REGISTER</b>&#160;&#160;&#160;0x1D</td></tr>
+<tr class="memdesc:ga0cc0e1bf06981ce7b760899b433de860"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда чтения данных из регистра <br /></td></tr>
+<tr class="separator:ga0cc0e1bf06981ce7b760899b433de860"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b0cd813f9c4c2a0629e18405e5f2403" id="r_ga5b0cd813f9c4c2a0629e18405e5f2403"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_WRITE_BUFFER</b>&#160;&#160;&#160;0x0E</td></tr>
+<tr class="memdesc:ga5b0cd813f9c4c2a0629e18405e5f2403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда записи данных в буфер данных приемопередатчика <br /></td></tr>
+<tr class="separator:ga5b0cd813f9c4c2a0629e18405e5f2403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6ac0e0ec6f81e402f60cfdc8935d62e" id="r_gab6ac0e0ec6f81e402f60cfdc8935d62e"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_READ_BUFFER</b>&#160;&#160;&#160;0x1E</td></tr>
+<tr class="memdesc:gab6ac0e0ec6f81e402f60cfdc8935d62e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда чтения данных из буфера данных приемопередатчика <br /></td></tr>
+<tr class="separator:gab6ac0e0ec6f81e402f60cfdc8935d62e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga683223b05e1f354593122c6da167df19" id="r_ga683223b05e1f354593122c6da167df19"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_RF_FREQ</b>&#160;&#160;&#160;0x86</td></tr>
+<tr class="memdesc:ga683223b05e1f354593122c6da167df19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация радиочастоты приемопередатчика <br /></td></tr>
+<tr class="separator:ga683223b05e1f354593122c6da167df19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3265b9a66f9b4a6d10984cad685ccb0" id="r_gaf3265b9a66f9b4a6d10984cad685ccb0"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_PACKET_TYPE</b>&#160;&#160;&#160;0x8A</td></tr>
+<tr class="memdesc:gaf3265b9a66f9b4a6d10984cad685ccb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация протокола передачи пакетов (GFSK или LoRa) <br /></td></tr>
+<tr class="separator:gaf3265b9a66f9b4a6d10984cad685ccb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a81effec2d57d47f613eeb4238d99ce" id="r_ga6a81effec2d57d47f613eeb4238d99ce"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_TX_PARAMS</b>&#160;&#160;&#160;0x8E</td></tr>
+<tr class="memdesc:ga6a81effec2d57d47f613eeb4238d99ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация состояния приема данных <br /></td></tr>
+<tr class="separator:ga6a81effec2d57d47f613eeb4238d99ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c138d344bc4cb5d9ddeff5f147cb785" id="r_ga9c138d344bc4cb5d9ddeff5f147cb785"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_MODULATION_PARAMS</b>&#160;&#160;&#160;0x8B</td></tr>
+<tr class="memdesc:ga9c138d344bc4cb5d9ddeff5f147cb785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация параметров модуляции <br /></td></tr>
+<tr class="separator:ga9c138d344bc4cb5d9ddeff5f147cb785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae798c5ccbbb8221c654c86ca8e68dd2f" id="r_gae798c5ccbbb8221c654c86ca8e68dd2f"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_PACKET_PARAMS</b>&#160;&#160;&#160;0x8C</td></tr>
+<tr class="memdesc:gae798c5ccbbb8221c654c86ca8e68dd2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация параметров пакета <br /></td></tr>
+<tr class="separator:gae798c5ccbbb8221c654c86ca8e68dd2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb4d789a938f06b62006b448ae550f03" id="r_gadb4d789a938f06b62006b448ae550f03"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_BUF_BASE_ADDR</b>&#160;&#160;&#160;0x8F</td></tr>
+<tr class="memdesc:gadb4d789a938f06b62006b448ae550f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка адресов на области принятых и отправленных данных в буфере данных приемопередатчика <br /></td></tr>
+<tr class="separator:gadb4d789a938f06b62006b448ae550f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c4862630616ecc85d76b98fbce2d832" id="r_ga3c4862630616ecc85d76b98fbce2d832"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SF5</b>&#160;&#160;&#160;0x05</td></tr>
+<tr class="separator:ga3c4862630616ecc85d76b98fbce2d832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e419b9ade28ff794a30055ae22669aa" id="r_ga5e419b9ade28ff794a30055ae22669aa"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SF6</b>&#160;&#160;&#160;0x06</td></tr>
+<tr class="separator:ga5e419b9ade28ff794a30055ae22669aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73d9063ca849ae564ed0a6908a24d104" id="r_ga73d9063ca849ae564ed0a6908a24d104"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SF7</b>&#160;&#160;&#160;0x07</td></tr>
+<tr class="separator:ga73d9063ca849ae564ed0a6908a24d104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafbdc831b8aecf3e978ab3bf9a4962141" id="r_gafbdc831b8aecf3e978ab3bf9a4962141"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SF8</b>&#160;&#160;&#160;0x08</td></tr>
+<tr class="separator:gafbdc831b8aecf3e978ab3bf9a4962141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad68669a50a2ac1407c69a95004dfeff5" id="r_gad68669a50a2ac1407c69a95004dfeff5"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SF9</b>&#160;&#160;&#160;0x09</td></tr>
+<tr class="separator:gad68669a50a2ac1407c69a95004dfeff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19d327114c16f6bb18f4368fa862dd3d" id="r_ga19d327114c16f6bb18f4368fa862dd3d"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SF10</b>&#160;&#160;&#160;0x0A</td></tr>
+<tr class="separator:ga19d327114c16f6bb18f4368fa862dd3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9d84409653666e11ba458a8de541e23" id="r_gaa9d84409653666e11ba458a8de541e23"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SF11</b>&#160;&#160;&#160;0x0B</td></tr>
+<tr class="separator:gaa9d84409653666e11ba458a8de541e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49c2c4e6238458ac27b11fc1ce811694" id="r_ga49c2c4e6238458ac27b11fc1ce811694"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SF12</b>&#160;&#160;&#160;0x0C</td></tr>
+<tr class="separator:ga49c2c4e6238458ac27b11fc1ce811694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12fe2140c67877079db86b649f1f2b47" id="r_ga12fe2140c67877079db86b649f1f2b47"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_BW_7</b>&#160;&#160;&#160;0x00</td></tr>
+<tr class="separator:ga12fe2140c67877079db86b649f1f2b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac14a9f965d3deebbdde97b4ad53562e8" id="r_gac14a9f965d3deebbdde97b4ad53562e8"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_BW_10</b>&#160;&#160;&#160;0x08</td></tr>
+<tr class="separator:gac14a9f965d3deebbdde97b4ad53562e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga51e3bb046cff4afcade865276bccf8cb" id="r_ga51e3bb046cff4afcade865276bccf8cb"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_BW_15</b>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:ga51e3bb046cff4afcade865276bccf8cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabe069e885f4559c1466bdd6649b85d74" id="r_gabe069e885f4559c1466bdd6649b85d74"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_BW_20</b>&#160;&#160;&#160;0x09</td></tr>
+<tr class="separator:gabe069e885f4559c1466bdd6649b85d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8d92d88ba2100fa675226e757b6f388" id="r_gad8d92d88ba2100fa675226e757b6f388"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_BW_31</b>&#160;&#160;&#160;0x02</td></tr>
+<tr class="separator:gad8d92d88ba2100fa675226e757b6f388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f4658f14f1e5c50ecb38ab66d258321" id="r_ga8f4658f14f1e5c50ecb38ab66d258321"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_BW_41</b>&#160;&#160;&#160;0x0A</td></tr>
+<tr class="separator:ga8f4658f14f1e5c50ecb38ab66d258321"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga397b6354b40baaf41c60279389ef943c" id="r_ga397b6354b40baaf41c60279389ef943c"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_BW_62</b>&#160;&#160;&#160;0x03</td></tr>
+<tr class="separator:ga397b6354b40baaf41c60279389ef943c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19f9138e87cc1383a799f9ab0d411d2f" id="r_ga19f9138e87cc1383a799f9ab0d411d2f"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_BW_125</b>&#160;&#160;&#160;0x04</td></tr>
+<tr class="separator:ga19f9138e87cc1383a799f9ab0d411d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf080fbc4571afed1adf666a689ae824" id="r_gacf080fbc4571afed1adf666a689ae824"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_BW_250</b>&#160;&#160;&#160;0x05</td></tr>
+<tr class="separator:gacf080fbc4571afed1adf666a689ae824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga54f7b30969ace767d6818208d145f857" id="r_ga54f7b30969ace767d6818208d145f857"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_BW_500</b>&#160;&#160;&#160;0x06</td></tr>
+<tr class="separator:ga54f7b30969ace767d6818208d145f857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ab64b9eb1fa37958149c3ee2e43724e" id="r_ga6ab64b9eb1fa37958149c3ee2e43724e"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_CR_4_5</b>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:ga6ab64b9eb1fa37958149c3ee2e43724e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31d5cc607c1af079f4b0ffed049ed954" id="r_ga31d5cc607c1af079f4b0ffed049ed954"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_CR_4_6</b>&#160;&#160;&#160;0x02</td></tr>
+<tr class="separator:ga31d5cc607c1af079f4b0ffed049ed954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga89b53ee5222fd596ed5857416b01f177" id="r_ga89b53ee5222fd596ed5857416b01f177"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_CR_4_7</b>&#160;&#160;&#160;0x03</td></tr>
+<tr class="separator:ga89b53ee5222fd596ed5857416b01f177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaefda577511d683fb12063e99cee1f9e1" id="r_gaefda577511d683fb12063e99cee1f9e1"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LORA_CR_4_8</b>&#160;&#160;&#160;0x04</td></tr>
+<tr class="separator:gaefda577511d683fb12063e99cee1f9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac33447a29bc1e5bddbb74d6b3fc43c8d" id="r_gac33447a29bc1e5bddbb74d6b3fc43c8d"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LDRO_OFF</b>&#160;&#160;&#160;0x00</td></tr>
+<tr class="separator:gac33447a29bc1e5bddbb74d6b3fc43c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga51c9b2c41658efbbdaa6cd104b4e28c1" id="r_ga51c9b2c41658efbbdaa6cd104b4e28c1"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_LDRO_ON</b>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:ga51c9b2c41658efbbdaa6cd104b4e28c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84769bca09877297a7b98d34419ab375" id="r_ga84769bca09877297a7b98d34419ab375"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_PREAMBLE_EXPLICIT</b>&#160;&#160;&#160;0x00</td></tr>
+<tr class="memdesc:ga84769bca09877297a7b98d34419ab375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Пакеты отправляются явным образом <br /></td></tr>
+<tr class="separator:ga84769bca09877297a7b98d34419ab375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3254ad7fcda9092d122632dc0ebee9be" id="r_ga3254ad7fcda9092d122632dc0ebee9be"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_PREAMBLE_IMPLICIT</b>&#160;&#160;&#160;0x01</td></tr>
+<tr class="memdesc:ga3254ad7fcda9092d122632dc0ebee9be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Пакеты отправляются неявным образом <br /></td></tr>
+<tr class="separator:ga3254ad7fcda9092d122632dc0ebee9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga34bbf4e3c494ab4fc11b7a33bec5ed8d" id="r_ga34bbf4e3c494ab4fc11b7a33bec5ed8d"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_CRC_OFF</b>&#160;&#160;&#160;0x00</td></tr>
+<tr class="memdesc:ga34bbf4e3c494ab4fc11b7a33bec5ed8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отключение проверки контрольной суммы пакеты <br /></td></tr>
+<tr class="separator:ga34bbf4e3c494ab4fc11b7a33bec5ed8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78d03066bf2bbfd8cb0de7e78d9f1d3c" id="r_ga78d03066bf2bbfd8cb0de7e78d9f1d3c"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_CRC_ON</b>&#160;&#160;&#160;0x01</td></tr>
+<tr class="memdesc:ga78d03066bf2bbfd8cb0de7e78d9f1d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Включение проверки контрольной суммы пакета <br /></td></tr>
+<tr class="separator:ga78d03066bf2bbfd8cb0de7e78d9f1d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7ae5885fe6c626bbb1542160247a3c05" id="r_ga7ae5885fe6c626bbb1542160247a3c05"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_STANDART_IQ</b>&#160;&#160;&#160;0x00</td></tr>
+<tr class="memdesc:ga7ae5885fe6c626bbb1542160247a3c05"><td class="mdescLeft">&#160;</td><td class="mdescRight">?? <br /></td></tr>
+<tr class="separator:ga7ae5885fe6c626bbb1542160247a3c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d3407bb1c90bfb07008b4ff6565dfaf" id="r_ga6d3407bb1c90bfb07008b4ff6565dfaf"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_INVERT_IQ</b>&#160;&#160;&#160;0x01</td></tr>
+<tr class="memdesc:ga6d3407bb1c90bfb07008b4ff6565dfaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">?? <br /></td></tr>
+<tr class="separator:ga6d3407bb1c90bfb07008b4ff6565dfaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad3b0b5e969bca85e78570fdfd5d53eee" id="r_gad3b0b5e969bca85e78570fdfd5d53eee"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_PACKET_TYPE_LORA</b>&#160;&#160;&#160;0x01</td></tr>
+<tr class="memdesc:gad3b0b5e969bca85e78570fdfd5d53eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">В данном модуле пристуствует только протокол LoRa. <br /></td></tr>
+<tr class="separator:gad3b0b5e969bca85e78570fdfd5d53eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca16acc9e7aeaec87e0390d429c94359" id="r_gaca16acc9e7aeaec87e0390d429c94359"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SET_RAMP_10U</b>&#160;&#160;&#160;0x00</td></tr>
+<tr class="separator:gaca16acc9e7aeaec87e0390d429c94359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b72f7c9cb864960c6d0514e46876822" id="r_ga0b72f7c9cb864960c6d0514e46876822"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SET_RAMP_20U</b>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:ga0b72f7c9cb864960c6d0514e46876822"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c2fc4d80ccf181291a6378465bf02a5" id="r_ga7c2fc4d80ccf181291a6378465bf02a5"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SET_RAMP_40U</b>&#160;&#160;&#160;0x02</td></tr>
+<tr class="separator:ga7c2fc4d80ccf181291a6378465bf02a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga85d8e9a38e5e96985fa77f4f4957ef02" id="r_ga85d8e9a38e5e96985fa77f4f4957ef02"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SET_RAMP_80U</b>&#160;&#160;&#160;0x03</td></tr>
+<tr class="separator:ga85d8e9a38e5e96985fa77f4f4957ef02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacddffb75d20787f0ffffcdd58de54553" id="r_gacddffb75d20787f0ffffcdd58de54553"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SET_RAMP_200U</b>&#160;&#160;&#160;0x04</td></tr>
+<tr class="separator:gacddffb75d20787f0ffffcdd58de54553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa04d914981cbb3546e8de304b13eaaa7" id="r_gaa04d914981cbb3546e8de304b13eaaa7"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SET_RAMP_800U</b>&#160;&#160;&#160;0x05</td></tr>
+<tr class="separator:gaa04d914981cbb3546e8de304b13eaaa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1b1417d46ab3bbdbd8b330fa810d2d62" id="r_ga1b1417d46ab3bbdbd8b330fa810d2d62"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SET_RAMP_1700U</b>&#160;&#160;&#160;0x06</td></tr>
+<tr class="separator:ga1b1417d46ab3bbdbd8b330fa810d2d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c5714586ea18dac2f0d13e776704b1c" id="r_ga7c5714586ea18dac2f0d13e776704b1c"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_SET_RAMP_3400U</b>&#160;&#160;&#160;0x07</td></tr>
+<tr class="separator:ga7c5714586ea18dac2f0d13e776704b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e82d19bf6e17c83ec33dc8113ca9fce" id="r_ga3e82d19bf6e17c83ec33dc8113ca9fce"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_RX_GAIN_REGISTER</b>&#160;&#160;&#160;0x08AC</td></tr>
+<tr class="memdesc:ga3e82d19bf6e17c83ec33dc8113ca9fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Адрес регистра режима получения данных приемопередатчиком <br /></td></tr>
+<tr class="separator:ga3e82d19bf6e17c83ec33dc8113ca9fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88bcf5209fed1a0b254b2e954c1df1ff" id="r_ga88bcf5209fed1a0b254b2e954c1df1ff"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_RX_POWER_SAVING_GAIN_MODE</b>&#160;&#160;&#160;0x94</td></tr>
+<tr class="memdesc:ga88bcf5209fed1a0b254b2e954c1df1ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Режим сбережения энергии и пониженной чувствительности <br /></td></tr>
+<tr class="separator:ga88bcf5209fed1a0b254b2e954c1df1ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga859ce5f657e45c401076eb810b0be6ca" id="r_ga859ce5f657e45c401076eb810b0be6ca"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_RX_BOOSTED_GAIN_MODE</b>&#160;&#160;&#160;0x96</td></tr>
+<tr class="memdesc:ga859ce5f657e45c401076eb810b0be6ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Режим повышенного потребления энергии и высокой чувствительности <br /></td></tr>
+<tr class="separator:ga859ce5f657e45c401076eb810b0be6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Макрос для определения испольуземой библиотеки</div></td></tr>
+<tr class="memitem:ga6e4d9ce6e6be0375ad0cf06fa842d354" id="r_ga6e4d9ce6e6be0375ad0cf06fa842d354"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_HAL</b></td></tr>
+<tr class="memdesc:ga6e4d9ce6e6be0375ad0cf06fa842d354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указывает библиотеку STM32, с помощью которой управляется интерфейс SPI. Определите <b>SX1268_HAL</b> или <b>SX1268_LL</b> для соотвествующей библиотеки. <br /></td></tr>
+<tr class="separator:ga6e4d9ce6e6be0375ad0cf06fa842d354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga2db4fc6028dc6a16d5a2d8a52a36d472" id="r_ga2db4fc6028dc6a16d5a2d8a52a36d472"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_x1268__group.html#ga2db4fc6028dc6a16d5a2d8a52a36d472">SX1268_init</a> (SPI_HandleTypeDef hspi_)</td></tr>
+<tr class="memdesc:ga2db4fc6028dc6a16d5a2d8a52a36d472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация приемопередатчик  <br /></td></tr>
+<tr class="separator:ga2db4fc6028dc6a16d5a2d8a52a36d472"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga93858131efff38ea11b1cf85785c12c4" id="r_ga93858131efff38ea11b1cf85785c12c4"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_x1268__group.html#ga93858131efff38ea11b1cf85785c12c4">SX1268_config_rfFreq</a> (uint8_t *rfFreq)</td></tr>
+<tr class="memdesc:ga93858131efff38ea11b1cf85785c12c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация радиочастоты приемопередатчика  <br /></td></tr>
+<tr class="separator:ga93858131efff38ea11b1cf85785c12c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad23c91801dd2c8c5c9a095d7557ed3a0" id="r_gad23c91801dd2c8c5c9a095d7557ed3a0"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_x1268__group.html#gad23c91801dd2c8c5c9a095d7557ed3a0">SX1268_config_modulation_params</a> (uint8_t SF, uint8_t BW, uint8_t CR, uint8_t LDRO)</td></tr>
+<tr class="memdesc:gad23c91801dd2c8c5c9a095d7557ed3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация параметров модуляции протокола LoRa.  <br /></td></tr>
+<tr class="separator:gad23c91801dd2c8c5c9a095d7557ed3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e88f8f2ca84b2063cf6b0df5718469a" id="r_ga5e88f8f2ca84b2063cf6b0df5718469a"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_x1268__group.html#ga5e88f8f2ca84b2063cf6b0df5718469a">SX1268_config_baseAddr</a> (uint8_t TxAddr, uint8_t RxAddr)</td></tr>
+<tr class="memdesc:ga5e88f8f2ca84b2063cf6b0df5718469a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Определение указателя на принимаемые и отправляемые данные в буфере данных SX1268.  <br /></td></tr>
+<tr class="separator:ga5e88f8f2ca84b2063cf6b0df5718469a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga099eba8949d84aeed2b66afc285c69c2" id="r_ga099eba8949d84aeed2b66afc285c69c2"><td class="memItemLeft" align="right" valign="top">HAL_Status&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_x1268__group.html#ga099eba8949d84aeed2b66afc285c69c2">SX1268_config_tx_params</a> (uint8_t power, unit8_t rampTime)</td></tr>
+<tr class="memdesc:ga099eba8949d84aeed2b66afc285c69c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация мощности сигнала и ramping time для радиопередатчика в режиме TX.  <br /></td></tr>
+<tr class="separator:ga099eba8949d84aeed2b66afc285c69c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80d1e5f8d206b0bd23545f45cc27f36c" id="r_ga80d1e5f8d206b0bd23545f45cc27f36c"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_x1268__group.html#ga80d1e5f8d206b0bd23545f45cc27f36c">SX1268_config_packet_params</a> (uint16_t preamble_length, uint8_t header_type, uint8_t payload_length, uint8_t CRC, uint8_t invert_IQ)</td></tr>
+<tr class="memdesc:ga80d1e5f8d206b0bd23545f45cc27f36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация параметров пакетов  <br /></td></tr>
+<tr class="separator:ga80d1e5f8d206b0bd23545f45cc27f36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga646506d53a9a04b46d69136160941cb4" id="r_ga646506d53a9a04b46d69136160941cb4"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_x1268__group.html#ga646506d53a9a04b46d69136160941cb4">SX1268_send_message</a> (uint8_t *buffer, int buffer_size)</td></tr>
+<tr class="separator:ga646506d53a9a04b46d69136160941cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:ga50a5a59b899471b856eb077516ff444b" id="r_ga50a5a59b899471b856eb077516ff444b"><td class="memItemLeft" align="right" valign="top">
+SPI_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_hspi</b></td></tr>
+<tr class="memdesc:ga50a5a59b899471b856eb077516ff444b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Экземпляр SPI, к которому подключен модуль <br /></td></tr>
+<tr class="separator:ga50a5a59b899471b856eb077516ff444b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Файл обеспечивает передачу данных с помощью стандарта LoRa приемопередатчика SX1268, подключенному по SPI. </p>
+<dl class="section author"><dt>Автор</dt><dd>Рафаэль Абельдинов </dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>12.01.2024 </dd></dl>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_99fe359850d1acca80a5e019d683c8c9.html">E22400M30S</a></li><li class="navelem"><a class="el" href="_s_x1268_8h.html">SX1268.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

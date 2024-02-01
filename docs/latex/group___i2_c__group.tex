@@ -1,0 +1,230 @@
+\doxysection{I2C LL}
+\hypertarget{group___i2_c__group}{}\label{group___i2_c__group}\index{I2C LL@{I2C LL}}
+
+
+Модуль I2C для микроконтроллера F103. Подключается для работы модулей на библиотеке LL.  
+
+
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___i2_c__group_gadef8174cc949e9b9131d5d5b804b4c5a}{I2\+C\+\_\+\+\_\+wait\+\_\+flag}} (I2\+C\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}I2\+Cx, uint8\+\_\+t bit, uint8\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Дополнительная внутрянняя функция для отлова ошибок в I2C. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___i2_c__group_ga7abdd4efe433ecb5962debd3b9dbd9cf}{LL\+\_\+\+I2\+C\+\_\+\+Master\+\_\+\+Receive}} (I2\+C\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}I2\+Cx, uint8\+\_\+t device\+\_\+address, uint8\+\_\+t \texorpdfstring{$\ast$}{*}buffer, uint8\+\_\+t buffer\+\_\+size, uint8\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Чтение байтов с шины I2C от указанного устройства \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___i2_c__group_gab6450e31affc6d2d32fb5ecd942d9599}{LL\+\_\+\+I2\+C\+\_\+\+Master\+\_\+\+Transmit}} (I2\+C\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}I2\+Cx, uint8\+\_\+t device\+\_\+address, uint8\+\_\+t \texorpdfstring{$\ast$}{*}buffer, uint8\+\_\+t buffer\+\_\+size, uint8\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Отправка байтов по шине I2C на указанное устройство \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___i2_c__group_ga3e8550f526ae87312a6021de2822fdef}{LL\+\_\+\+I2\+C\+\_\+\+Mem\+\_\+\+Read}} (I2\+C\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}I2\+Cx, uint8\+\_\+t device\+\_\+address, uint16\+\_\+t register\+\_\+address, uint8\+\_\+t \texorpdfstring{$\ast$}{*}buffer, uint8\+\_\+t buffer\+\_\+size, uint8\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Запись байтов в указанный регистров устройства, подключенного к I2C. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___i2_c__group_ga3b1ebed43aaf217bb1cfff301055a9ac}{LL\+\_\+\+I2\+C\+\_\+\+Mem\+\_\+\+Write}} (I2\+C\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}I2\+Cx, uint8\+\_\+t device\+\_\+address, uint16\+\_\+t register\+\_\+address, uint8\+\_\+t \texorpdfstring{$\ast$}{*}buffer, uint8\+\_\+t buffer\+\_\+size, uint8\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Запись байтов в регистры устройства, подключенного к I2C. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы команд чтения и записи данных}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___i2_c__group_ga50ba06031b86077aa57174197c6b6139}\label{group___i2_c__group_ga50ba06031b86077aa57174197c6b6139} 
+\#define {\bfseries I2\+C\+\_\+\+READ\+\_\+\+SIGNAL}~0x01
+\begin{DoxyCompactList}\small\item\em Команда на чтение данных с устройства \end{DoxyCompactList}\item 
+\Hypertarget{group___i2_c__group_ga815835233e7757707f5ea32ff5f8becc}\label{group___i2_c__group_ga815835233e7757707f5ea32ff5f8becc} 
+\#define {\bfseries I2\+C\+\_\+\+WRITE\+\_\+\+SIGNAL}~0x00
+\begin{DoxyCompactList}\small\item\em Команда на запись данных на устройство \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Модуль I2C для микроконтроллера F103. Подключается для работы модулей на библиотеке LL. 
+
+Обеспечивает запись и чтение данных в регистр, передачу и чтение данных с шины I2C с проверкой на корректность выполненных операций. 
+
+\doxysubsection{Функции}
+\Hypertarget{group___i2_c__group_gadef8174cc949e9b9131d5d5b804b4c5a}\label{group___i2_c__group_gadef8174cc949e9b9131d5d5b804b4c5a} 
+\index{I2C LL@{I2C LL}!I2C\_\_wait\_flag@{I2C\_\_wait\_flag}}
+\index{I2C\_\_wait\_flag@{I2C\_\_wait\_flag}!I2C LL@{I2C LL}}
+\doxysubsubsection{\texorpdfstring{I2C\_\_wait\_flag()}{I2C\_\_wait\_flag()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def I2\+C\+\_\+\+\_\+wait\+\_\+flag (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{I2\+Cx,  }\item[{uint8\+\_\+t}]{bit,  }\item[{uint8\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+Дополнительная внутрянняя функция для отлова ошибок в I2C. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em I2\+Cx} & I2C, для которого была вызвана функция для отправки или приема данных \\
+\hline
+{\em бит} & регистра SR1, значение которого проверяется \\
+\hline
+{\em timeout} & Время ожидания получения необходимого значения бита \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Результат проверки бита I2C. Может быть
+\begin{DoxyItemize}
+\item {\bfseries{HAL\+\_\+\+BUSY}} -\/ если по истечении времени шина осталась занятой
+\item {\bfseries{HAL\+\_\+\+ERROR}} -\/ если по истечении времени флаг не изменился на указанный
+\item {\bfseries{HAL\+\_\+\+OK}} -\/ в остальных случаях ~\newline
+ 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyRetVals}
+\texorpdfstring{$<$}{<} uw\+Tick -\/ миллисекунды, считаемые внутренним таймером МК
+
+\texorpdfstring{$<$}{<} Ждем пока значение бита не изменится на значение bit
+
+\texorpdfstring{$<$}{<} Если не изменилось за timeout мс, возвращаем статус I2C\Hypertarget{group___i2_c__group_ga7abdd4efe433ecb5962debd3b9dbd9cf}\label{group___i2_c__group_ga7abdd4efe433ecb5962debd3b9dbd9cf} 
+\index{I2C LL@{I2C LL}!LL\_I2C\_Master\_Receive@{LL\_I2C\_Master\_Receive}}
+\index{LL\_I2C\_Master\_Receive@{LL\_I2C\_Master\_Receive}!I2C LL@{I2C LL}}
+\doxysubsubsection{\texorpdfstring{LL\_I2C\_Master\_Receive()}{LL\_I2C\_Master\_Receive()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def LL\+\_\+\+I2\+C\+\_\+\+Master\+\_\+\+Receive (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{I2\+Cx,  }\item[{uint8\+\_\+t}]{device\+\_\+address,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{uint8\+\_\+t}]{buffer\+\_\+size,  }\item[{uint8\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+Чтение байтов с шины I2C от указанного устройства 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em I2\+Cx} & I2C, с которого принимаются данные \\
+\hline
+{\em device\+\_\+addres} & Адрес устройства, с которого отправлены данные \\
+\hline
+{\em buffer} & Буфер, куда записываются считанные байты из сдвигого регистра @oaram buffer\+\_\+size Размер буфера в байтах \\
+\hline
+{\em timeout} & Время ожидания изменения флагов в регистре SR1 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Результат приема данных. Может быть
+\begin{DoxyItemize}
+\item {\bfseries{HAL\+\_\+\+BUSY}} -\/ если по истечении времени шина осталась занятой
+\item {\bfseries{HAL\+\_\+\+ERROR}} -\/ если по истечении времени флаг не изменился на указанный
+\item {\bfseries{HAL\+\_\+\+OK}} -\/ в остальных случаях 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyRetVals}
+\texorpdfstring{$<$}{<} Разрешаем сигнал ACK
+
+\texorpdfstring{$<$}{<} Отправляем команду отправки сигнала Старт на шину и ждем, когда сигнал Старт поступит на шину
+
+\texorpdfstring{$<$}{<} Отправляем адрес устройства на шину и команду чтения данных. Ждем, когда указанное устройство вернет сигнал ADDR\Hypertarget{group___i2_c__group_gab6450e31affc6d2d32fb5ecd942d9599}\label{group___i2_c__group_gab6450e31affc6d2d32fb5ecd942d9599} 
+\index{I2C LL@{I2C LL}!LL\_I2C\_Master\_Transmit@{LL\_I2C\_Master\_Transmit}}
+\index{LL\_I2C\_Master\_Transmit@{LL\_I2C\_Master\_Transmit}!I2C LL@{I2C LL}}
+\doxysubsubsection{\texorpdfstring{LL\_I2C\_Master\_Transmit()}{LL\_I2C\_Master\_Transmit()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def LL\+\_\+\+I2\+C\+\_\+\+Master\+\_\+\+Transmit (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{I2\+Cx,  }\item[{uint8\+\_\+t}]{device\+\_\+address,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{uint8\+\_\+t}]{buffer\+\_\+size,  }\item[{uint8\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+Отправка байтов по шине I2C на указанное устройство 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em I2\+Cx} & I2C, через который отправляются байты \\
+\hline
+{\em device\+\_\+addres} & Адрес устройства, на которое отправляются данные \\
+\hline
+{\em buffer} & Буфер отправляемых данных @oaram buffer\+\_\+size Размер буфера в байтах \\
+\hline
+{\em timeout} & Время ожидания изменения флагов в регистре SR1 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Результат отправки данных. Может быть
+\begin{DoxyItemize}
+\item {\bfseries{HAL\+\_\+\+BUSY}} -\/ если по истечении времени шина осталась занятой
+\item {\bfseries{HAL\+\_\+\+ERROR}} -\/ если по истечении времени флаг не изменился на указанный
+\item {\bfseries{HAL\+\_\+\+OK}} -\/ в остальных случаях 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyRetVals}
+\texorpdfstring{$<$}{<} Разрешаем сигнал ACK
+
+\texorpdfstring{$<$}{<} Отправляем команду отправки сигнала Старт на шину и ждем, когда сигнал Старт поступит на шину
+
+\texorpdfstring{$<$}{<} Отправляем адрес устройства на шину и команду записи данных. Ждем, когда указанное устройство вернет сигнал ADDR\Hypertarget{group___i2_c__group_ga3e8550f526ae87312a6021de2822fdef}\label{group___i2_c__group_ga3e8550f526ae87312a6021de2822fdef} 
+\index{I2C LL@{I2C LL}!LL\_I2C\_Mem\_Read@{LL\_I2C\_Mem\_Read}}
+\index{LL\_I2C\_Mem\_Read@{LL\_I2C\_Mem\_Read}!I2C LL@{I2C LL}}
+\doxysubsubsection{\texorpdfstring{LL\_I2C\_Mem\_Read()}{LL\_I2C\_Mem\_Read()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def LL\+\_\+\+I2\+C\+\_\+\+Mem\+\_\+\+Read (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{I2\+Cx,  }\item[{uint8\+\_\+t}]{device\+\_\+address,  }\item[{uint16\+\_\+t}]{register\+\_\+address,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{uint8\+\_\+t}]{buffer\+\_\+size,  }\item[{uint8\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+Запись байтов в указанный регистров устройства, подключенного к I2C. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em I2\+Cx} & I2C, к которому подключено устройство, с которого принимаются данные \\
+\hline
+{\em device\+\_\+addres} & Адрес устройства, с регистров которого читаются байты \\
+\hline
+{\em register\+\_\+address} & Адрес регистра, с котрого необходимо считать байты \\
+\hline
+{\em buffer} & Буфер, куда записываются считанные байты из регистров устройства @oaram buffer\+\_\+size Размер буфера \\
+\hline
+{\em timeout} & Время ожидания изменения флагов в регистре SR1 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Результат чтения данных. Может быть
+\begin{DoxyItemize}
+\item {\bfseries{HAL\+\_\+\+BUSY}} -\/ если по истечении времени шина осталась занятой
+\item {\bfseries{HAL\+\_\+\+ERROR}} -\/ если по истечении времени флаг не изменился на указанный
+\item {\bfseries{HAL\+\_\+\+OK}} -\/ в остальных случаях 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyRetVals}
+\texorpdfstring{$<$}{<} Разрешаем сигнал ACK
+
+\texorpdfstring{$<$}{<} Отправляем команду отправки сигнала Старт на шину и ждем, когда сигнал Старт поступит на шину
+
+\texorpdfstring{$<$}{<} Отправляем адрес устройства на шину и команду записи данных. Ждем, когда указанное устройство вернет сигнал ADDR
+
+\texorpdfstring{$<$}{<} Отправляем на устройство адрес регистра, в который будут записываться байты. Адрес может быть однобайтовым или двухбайтовым
+
+\texorpdfstring{$<$}{<} Отправляем команду на отправку сигнала Рестарт и ждем, когда сигнал Рестарт поступит на шину
+
+\texorpdfstring{$<$}{<} Отправляем адрес устройства, с которого будем считывать данные и команду на чтение данных
+
+\texorpdfstring{$<$}{<} Ждем, когда в сдвиговом регистре появятся байты и сохраняем их в буфер
+
+\texorpdfstring{$<$}{<} Считываем последний байт в буфер\Hypertarget{group___i2_c__group_ga3b1ebed43aaf217bb1cfff301055a9ac}\label{group___i2_c__group_ga3b1ebed43aaf217bb1cfff301055a9ac} 
+\index{I2C LL@{I2C LL}!LL\_I2C\_Mem\_Write@{LL\_I2C\_Mem\_Write}}
+\index{LL\_I2C\_Mem\_Write@{LL\_I2C\_Mem\_Write}!I2C LL@{I2C LL}}
+\doxysubsubsection{\texorpdfstring{LL\_I2C\_Mem\_Write()}{LL\_I2C\_Mem\_Write()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def LL\+\_\+\+I2\+C\+\_\+\+Mem\+\_\+\+Write (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{I2\+Cx,  }\item[{uint8\+\_\+t}]{device\+\_\+address,  }\item[{uint16\+\_\+t}]{register\+\_\+address,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{uint8\+\_\+t}]{buffer\+\_\+size,  }\item[{uint8\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+Запись байтов в регистры устройства, подключенного к I2C. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em I2\+Cx} & I2C, к которому подключено устройство, в которое записываются данные \\
+\hline
+{\em device\+\_\+addres} & Адрес устройства, в регистры которого записываются байты \\
+\hline
+{\em register\+\_\+address} & Адрес первого регистра, в который записываются данные \\
+\hline
+{\em buffer} & Буфер с данными, которые записываются в регистры устройства @oaram buffer\+\_\+size Размер буфера в байтах \\
+\hline
+{\em timeout} & Время ожидания изменения флагов в регистре SR1 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Результат записи данных. Может быть
+\begin{DoxyItemize}
+\item {\bfseries{HAL\+\_\+\+BUSY}} -\/ если по истечении времени шина осталась занятой
+\item {\bfseries{HAL\+\_\+\+ERROR}} -\/ если по истечении времени флаг не изменился на указанный
+\item {\bfseries{HAL\+\_\+\+OK}} -\/ в остальных случаях 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyRetVals}
+\texorpdfstring{$<$}{<} Разрешаем сигнал ACK
+
+\texorpdfstring{$<$}{<} Отправляем команду отправки сигнала Старт на шину и ждем, когда сигнал Старт поступит на шину
+
+\texorpdfstring{$<$}{<} Отправляем адрес устройства на шину и команду записи данных. Ждем, когда указанное устройство вернет сигнал ADDR
+
+\texorpdfstring{$<$}{<} Отправляем на устройство адрес регистра, в который будут записываться байты. Адрес может быть однобайтовым или двухбайтовым
+
+\texorpdfstring{$<$}{<} Отправляем байты из буфера в сдвиговый регистр для отправки их на шину I2C и ждем, когда сдвиговый регистр освободится

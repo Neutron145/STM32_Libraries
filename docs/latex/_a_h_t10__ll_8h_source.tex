@@ -1,0 +1,44 @@
+\doxysection{AHT10\+\_\+ll.\+h}
+\hypertarget{_a_h_t10__ll_8h_source}{}\label{_a_h_t10__ll_8h_source}\index{AHT10/AHT10\_ll.h@{AHT10/AHT10\_ll.h}}
+\mbox{\hyperlink{_a_h_t10__ll_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ INC\_AHT10\_HAL\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ INC\_AHT10\_HAL\_H\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}main.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}SPI\_ll.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ AHT10\_HAL}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifdef\ AH10\_HAL}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{extern}\ I2C\_TypeDef\ AHT10\_hi2c;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ AHT10\_HAL\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#ifdef\ AHT10\_LL}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{extern}\ I2C\_TypeDef\ AHT10\_hi2c;}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ AHT10\_LL\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{group___a_h_t10__group_gaaf2677dd003fba0ed1f54919142aa9fe}{AHT10\_RxData}}[7];\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{group___a_h_t10__group_gaef1ba88a9b2a94bb16c95833cdcc1fb1}{AHT10\_trigger\_data}}[3];\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ AHT10\_ADDRESS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x38<<1\ \ \ \ \ }}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ AHT10\_COMMAND\_INIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b11100001}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ AHT10\_COMMAND\_TRIGGER\ \ \ \ \ \ \ \ \ \ \ 0b10101100}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ AHT10\_COMMAND\_RESET\ \ \ \ \ \ \ \ \ \ \ \ \ 0b10111010}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___a_h_t10__group_ga4af2c4e821cc0bf623bc7b2d3d5e0b1f}{AHT10\_init}}(I2C\_HandleTypeDef\ hi2c\_);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00046\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___a_h_t10__group_ga739b776b6a5a10a14f44d97b7ef31665}{AHT10\_trigger\_measure}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00049\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___a_h_t10__group_gac65f8d76d693ca0b007af6c130136c49}{AHT10\_get\_measure}}(\textcolor{keywordtype}{float}\ *t,\ \textcolor{keywordtype}{float}\ *hum);}
+\DoxyCodeLine{00051\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___a_h_t10__group_ga80c261a7697e8c99bea28a43a22618b3}{AHT10\_get\_T}}(\textcolor{keywordtype}{float}\ *t);}
+\DoxyCodeLine{00053\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___a_h_t10__group_ga20cda6598210616f26ac3c1aa277b11d}{AHT10\_get\_H}}(\textcolor{keywordtype}{float}\ *hum);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___a_h_t10__group_gaa2679c05865245072c04e979beb6fecd}{AHT10\_soft\_reset}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_AHT10\_HAL\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00059\ }
+
+\end{DoxyCode}

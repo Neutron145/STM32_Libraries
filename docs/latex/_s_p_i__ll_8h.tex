@@ -1,0 +1,28 @@
+\doxysection{Файл SPI/\+SPI\+\_\+ll.h}
+\hypertarget{_s_p_i__ll_8h}{}\label{_s_p_i__ll_8h}\index{SPI/SPI\_ll.h@{SPI/SPI\_ll.h}}
+
+
+Файл подключается к проекту для работы с устройствами на SPI с помощью библиотеки LL.  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___s_p_i__group_ga2482d28ec89e3ba371752209e0c3cda5}{SPI\+\_\+\+\_\+wait\+\_\+flag}} (SPI\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}SPIx, uint8\+\_\+t bit, uint8\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Дополнительная внутрянняя функция для отлова ошибок в SPI. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___s_p_i__group_gad815858180faf43e58ae6752ec58ae80}{LL\+\_\+\+SPI\+\_\+\+Transmit}} (SPI\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}SPIx, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t bytes\+\_\+count, uint8\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Отправка байтов по шине SPI. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___s_p_i__group_ga46a5f522fe8d9a68ae4789754f6477be}{LL\+\_\+\+SPI\+\_\+\+Receive}} (SPI \texorpdfstring{$\ast$}{*}SPIx, uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer, uint8\+\_\+t bytes\+\_\+count, uint8\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Прием байтов с шины SPI. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Файл подключается к проекту для работы с устройствами на SPI с помощью библиотеки LL. 
+
+\begin{DoxyAuthor}{Автор}
+Рафаэль Абельдинов 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Дата}
+18.\+12.\+2023 
+\end{DoxyDate}

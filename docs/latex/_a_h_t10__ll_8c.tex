@@ -1,0 +1,36 @@
+\doxysection{Файл AHT10/\+AHT10\+\_\+ll.c}
+\hypertarget{_a_h_t10__ll_8c}{}\label{_a_h_t10__ll_8c}\index{AHT10/AHT10\_ll.c@{AHT10/AHT10\_ll.c}}
+{\ttfamily \#include "{}AHT10.\+h"{}}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_ga4af2c4e821cc0bf623bc7b2d3d5e0b1f}{AHT10\+\_\+init}} (I2\+C\+\_\+\+Handle\+Type\+Def hi2c\+\_\+)
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_ga739b776b6a5a10a14f44d97b7ef31665}{AHT10\+\_\+trigger\+\_\+measure}} ()
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_gac65f8d76d693ca0b007af6c130136c49}{AHT10\+\_\+get\+\_\+measure}} (float \texorpdfstring{$\ast$}{*}t, float \texorpdfstring{$\ast$}{*}hum)
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_ga80c261a7697e8c99bea28a43a22618b3}{AHT10\+\_\+get\+\_\+T}} (float \texorpdfstring{$\ast$}{*}t)
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_ga20cda6598210616f26ac3c1aa277b11d}{AHT10\+\_\+get\+\_\+H}} (float \texorpdfstring{$\ast$}{*}hum)
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_gaa2679c05865245072c04e979beb6fecd}{AHT10\+\_\+soft\+\_\+reset}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_a_h_t10__ll_8c_a1a1a4f7be950aebd19b219985c0cc433}\label{_a_h_t10__ll_8c_a1a1a4f7be950aebd19b219985c0cc433} 
+I2\+C\+\_\+\+Handle\+Type\+Def {\bfseries AHT10\+\_\+hi2c}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___a_h_t10__group_gaaf2677dd003fba0ed1f54919142aa9fe}{AHT10\+\_\+\+Rx\+Data}} \mbox{[}7\mbox{]} = \{0,\}
+\begin{DoxyCompactList}\small\item\em Массив для получения данных с датчика. \end{DoxyCompactList}\item 
+uint8\+\_\+t {\bfseries AHT10\+\_\+trigger\+\_\+data} \mbox{[}2\mbox{]} = \{ 0b00110011, 0 \}
+\begin{DoxyCompactList}\small\item\em Массив для отправки данных датчику. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+@detailed This file provides functions for taking measurements from the AHT10 using LL.
+
+\begin{DoxyAuthor}{Автор}
+Rafael Abeldinov @data 21.\+11.\+2023 
+\end{DoxyAuthor}

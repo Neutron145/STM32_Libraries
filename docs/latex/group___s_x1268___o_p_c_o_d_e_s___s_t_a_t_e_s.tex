@@ -1,0 +1,60 @@
+\doxysubsection{Коды команд для SX1268}
+\hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s}{}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s}\index{Коды команд для SX1268@{Коды команд для SX1268}}
+
+
+Команды для смены состояний, калибровки, конфигурации, чтения и записи данных. Присутсвует конфигурация пакетов только для протокола Lo\+Ra.  
+
+
+\doxysubsubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga9cfb62e54209711d8f986fad8d95ab27}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga9cfb62e54209711d8f986fad8d95ab27} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+SET\+\_\+\+STANDBY}~0x80
+\begin{DoxyCompactList}\small\item\em Команда перехода в состояние ожидания \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gae230e2e26a09fbd28af3cf343de697c1}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gae230e2e26a09fbd28af3cf343de697c1} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+SET\+\_\+\+TX}~0x83
+\begin{DoxyCompactList}\small\item\em Команда перехода в состояние отправки данных \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga6073b8cf514289bc92ea3f3694de61fa}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga6073b8cf514289bc92ea3f3694de61fa} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+SET\+\_\+\+RX}~0x82
+\begin{DoxyCompactList}\small\item\em Команда перехода в состояние приема данных \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gacf4a9acefc6563ae7bd7e1b6d1d30917}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gacf4a9acefc6563ae7bd7e1b6d1d30917} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+SET\+\_\+\+SLEEP}~0x84
+\begin{DoxyCompactList}\small\item\em Команда перехода в состояние сна \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gaa6526f1a04e63a3bf1598858cac82cb0}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gaa6526f1a04e63a3bf1598858cac82cb0} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+CALIBRATE}~0x89
+\begin{DoxyCompactList}\small\item\em Команда калбировки приемопередатчика \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga6f00534d044ecae18cf7a8164d0f38e9}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga6f00534d044ecae18cf7a8164d0f38e9} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+WRITE\+\_\+\+REGISTER}~0x0D
+\begin{DoxyCompactList}\small\item\em Команда записи данных в регистр \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga0cc0e1bf06981ce7b760899b433de860}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga0cc0e1bf06981ce7b760899b433de860} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+READ\+\_\+\+REGISTER}~0x1D
+\begin{DoxyCompactList}\small\item\em Команда чтения данных из регистра \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga5b0cd813f9c4c2a0629e18405e5f2403}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga5b0cd813f9c4c2a0629e18405e5f2403} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+WRITE\+\_\+\+BUFFER}~0x0E
+\begin{DoxyCompactList}\small\item\em Команда записи данных в буфер данных приемопередатчика \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gab6ac0e0ec6f81e402f60cfdc8935d62e}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gab6ac0e0ec6f81e402f60cfdc8935d62e} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+READ\+\_\+\+BUFFER}~0x1E
+\begin{DoxyCompactList}\small\item\em Команда чтения данных из буфера данных приемопередатчика \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga683223b05e1f354593122c6da167df19}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga683223b05e1f354593122c6da167df19} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+SET\+\_\+\+RF\+\_\+\+FREQ}~0x86
+\begin{DoxyCompactList}\small\item\em Конфигурация радиочастоты приемопередатчика \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gaf3265b9a66f9b4a6d10984cad685ccb0}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gaf3265b9a66f9b4a6d10984cad685ccb0} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+SET\+\_\+\+PACKET\+\_\+\+TYPE}~0x8A
+\begin{DoxyCompactList}\small\item\em Конфигурация протокола передачи пакетов (GFSK или Lo\+Ra) \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga6a81effec2d57d47f613eeb4238d99ce}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga6a81effec2d57d47f613eeb4238d99ce} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+SET\+\_\+\+TX\+\_\+\+PARAMS}~0x8E
+\begin{DoxyCompactList}\small\item\em Конфигурация состояния приема данных \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga9c138d344bc4cb5d9ddeff5f147cb785}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_ga9c138d344bc4cb5d9ddeff5f147cb785} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+SET\+\_\+\+MODULATION\+\_\+\+PARAMS}~0x8B
+\begin{DoxyCompactList}\small\item\em Конфигурация параметров модуляции \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gae798c5ccbbb8221c654c86ca8e68dd2f}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gae798c5ccbbb8221c654c86ca8e68dd2f} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+SET\+\_\+\+PACKET\+\_\+\+PARAMS}~0x8C
+\begin{DoxyCompactList}\small\item\em Конфигурация параметров пакета \end{DoxyCompactList}\item 
+\Hypertarget{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gadb4d789a938f06b62006b448ae550f03}\label{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s_gadb4d789a938f06b62006b448ae550f03} 
+\#define {\bfseries SX1268\+\_\+\+OP\+\_\+\+SET\+\_\+\+BUF\+\_\+\+BASE\+\_\+\+ADDR}~0x8F
+\begin{DoxyCompactList}\small\item\em Установка адресов на области принятых и отправленных данных в буфере данных приемопередатчика \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Подробное описание}
+Команды для смены состояний, калибровки, конфигурации, чтения и записи данных. Присутсвует конфигурация пакетов только для протокола Lo\+Ra. 
+

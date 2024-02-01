@@ -1,0 +1,506 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RocketLAV`s STM32 libraries: I2C LL</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RocketLAV`s STM32 libraries
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('group___i2_c__group.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">I2C LL</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Модуль I2C для микроконтроллера F103. Подключается для работы модулей на библиотеке LL.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gadef8174cc949e9b9131d5d5b804b4c5a" id="r_gadef8174cc949e9b9131d5d5b804b4c5a"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_c__group.html#gadef8174cc949e9b9131d5d5b804b4c5a">I2C__wait_flag</a> (I2C_TypeDef *I2Cx, uint8_t bit, uint8_t timeout)</td></tr>
+<tr class="memdesc:gadef8174cc949e9b9131d5d5b804b4c5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Дополнительная внутрянняя функция для отлова ошибок в I2C.  <br /></td></tr>
+<tr class="separator:gadef8174cc949e9b9131d5d5b804b4c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7abdd4efe433ecb5962debd3b9dbd9cf" id="r_ga7abdd4efe433ecb5962debd3b9dbd9cf"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_c__group.html#ga7abdd4efe433ecb5962debd3b9dbd9cf">LL_I2C_Master_Receive</a> (I2C_TypeDef *I2Cx, uint8_t device_address, uint8_t *buffer, uint8_t buffer_size, uint8_t timeout)</td></tr>
+<tr class="memdesc:ga7abdd4efe433ecb5962debd3b9dbd9cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение байтов с шины I2C от указанного устройства  <br /></td></tr>
+<tr class="separator:ga7abdd4efe433ecb5962debd3b9dbd9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6450e31affc6d2d32fb5ecd942d9599" id="r_gab6450e31affc6d2d32fb5ecd942d9599"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_c__group.html#gab6450e31affc6d2d32fb5ecd942d9599">LL_I2C_Master_Transmit</a> (I2C_TypeDef *I2Cx, uint8_t device_address, uint8_t *buffer, uint8_t buffer_size, uint8_t timeout)</td></tr>
+<tr class="memdesc:gab6450e31affc6d2d32fb5ecd942d9599"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка байтов по шине I2C на указанное устройство  <br /></td></tr>
+<tr class="separator:gab6450e31affc6d2d32fb5ecd942d9599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e8550f526ae87312a6021de2822fdef" id="r_ga3e8550f526ae87312a6021de2822fdef"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_c__group.html#ga3e8550f526ae87312a6021de2822fdef">LL_I2C_Mem_Read</a> (I2C_TypeDef *I2Cx, uint8_t device_address, uint16_t register_address, uint8_t *buffer, uint8_t buffer_size, uint8_t timeout)</td></tr>
+<tr class="memdesc:ga3e8550f526ae87312a6021de2822fdef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись байтов в указанный регистров устройства, подключенного к I2C.  <br /></td></tr>
+<tr class="separator:ga3e8550f526ae87312a6021de2822fdef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b1ebed43aaf217bb1cfff301055a9ac" id="r_ga3b1ebed43aaf217bb1cfff301055a9ac"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_c__group.html#ga3b1ebed43aaf217bb1cfff301055a9ac">LL_I2C_Mem_Write</a> (I2C_TypeDef *I2Cx, uint8_t device_address, uint16_t register_address, uint8_t *buffer, uint8_t buffer_size, uint8_t timeout)</td></tr>
+<tr class="memdesc:ga3b1ebed43aaf217bb1cfff301055a9ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись байтов в регистры устройства, подключенного к I2C.  <br /></td></tr>
+<tr class="separator:ga3b1ebed43aaf217bb1cfff301055a9ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Макросы команд чтения и записи данных</h2></td></tr>
+<tr class="memitem:ga50ba06031b86077aa57174197c6b6139" id="r_ga50ba06031b86077aa57174197c6b6139"><td class="memItemLeft" align="right" valign="top"><a id="ga50ba06031b86077aa57174197c6b6139" name="ga50ba06031b86077aa57174197c6b6139"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>I2C_READ_SIGNAL</b>&#160;&#160;&#160;0x01</td></tr>
+<tr class="memdesc:ga50ba06031b86077aa57174197c6b6139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда на чтение данных с устройства <br /></td></tr>
+<tr class="separator:ga50ba06031b86077aa57174197c6b6139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga815835233e7757707f5ea32ff5f8becc" id="r_ga815835233e7757707f5ea32ff5f8becc"><td class="memItemLeft" align="right" valign="top"><a id="ga815835233e7757707f5ea32ff5f8becc" name="ga815835233e7757707f5ea32ff5f8becc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>I2C_WRITE_SIGNAL</b>&#160;&#160;&#160;0x00</td></tr>
+<tr class="memdesc:ga815835233e7757707f5ea32ff5f8becc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда на запись данных на устройство <br /></td></tr>
+<tr class="separator:ga815835233e7757707f5ea32ff5f8becc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Модуль I2C для микроконтроллера F103. Подключается для работы модулей на библиотеке LL. </p>
+<p>Обеспечивает запись и чтение данных в регистр, передачу и чтение данных с шины I2C с проверкой на корректность выполненных операций. </p>
+<h2 class="groupheader">Функции</h2>
+<a id="gadef8174cc949e9b9131d5d5b804b4c5a" name="gadef8174cc949e9b9131d5d5b804b4c5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadef8174cc949e9b9131d5d5b804b4c5a">&#9670;&#160;</a></span>I2C__wait_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef I2C__wait_flag </td>
+          <td>(</td>
+          <td class="paramtype">I2C_TypeDef *&#160;</td>
+          <td class="paramname"><em>I2Cx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>bit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>timeout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Дополнительная внутрянняя функция для отлова ошибок в I2C. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">I2Cx</td><td>I2C, для которого была вызвана функция для отправки или приема данных </td></tr>
+    <tr><td class="paramname">бит</td><td>регистра SR1, значение которого проверяется </td></tr>
+    <tr><td class="paramname">timeout</td><td>Время ожидания получения необходимого значения бита </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Результат проверки бита I2C. Может быть<ul>
+<li><b>HAL_BUSY</b> - если по истечении времени шина осталась занятой</li>
+<li><b>HAL_ERROR</b> - если по истечении времени флаг не изменился на указанный</li>
+<li><b>HAL_OK</b> - в остальных случаях <br  />
+ </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>&lt; uwTick - миллисекунды, считаемые внутренним таймером МК</p>
+<p>&lt; Ждем пока значение бита не изменится на значение bit</p>
+<p>&lt; Если не изменилось за timeout мс, возвращаем статус I2C</p>
+
+</div>
+</div>
+<a id="ga7abdd4efe433ecb5962debd3b9dbd9cf" name="ga7abdd4efe433ecb5962debd3b9dbd9cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7abdd4efe433ecb5962debd3b9dbd9cf">&#9670;&#160;</a></span>LL_I2C_Master_Receive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LL_I2C_Master_Receive </td>
+          <td>(</td>
+          <td class="paramtype">I2C_TypeDef *&#160;</td>
+          <td class="paramname"><em>I2Cx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>device_address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>buffer_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>timeout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Чтение байтов с шины I2C от указанного устройства </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">I2Cx</td><td>I2C, с которого принимаются данные </td></tr>
+    <tr><td class="paramname">device_addres</td><td>Адрес устройства, с которого отправлены данные </td></tr>
+    <tr><td class="paramname">buffer</td><td>Буфер, куда записываются считанные байты из сдвигого регистра @oaram buffer_size Размер буфера в байтах </td></tr>
+    <tr><td class="paramname">timeout</td><td>Время ожидания изменения флагов в регистре SR1 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Результат приема данных. Может быть<ul>
+<li><b>HAL_BUSY</b> - если по истечении времени шина осталась занятой</li>
+<li><b>HAL_ERROR</b> - если по истечении времени флаг не изменился на указанный</li>
+<li><b>HAL_OK</b> - в остальных случаях </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>&lt; Разрешаем сигнал ACK</p>
+<p>&lt; Отправляем команду отправки сигнала Старт на шину и ждем, когда сигнал Старт поступит на шину</p>
+<p>&lt; Отправляем адрес устройства на шину и команду чтения данных. Ждем, когда указанное устройство вернет сигнал ADDR</p>
+
+</div>
+</div>
+<a id="gab6450e31affc6d2d32fb5ecd942d9599" name="gab6450e31affc6d2d32fb5ecd942d9599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab6450e31affc6d2d32fb5ecd942d9599">&#9670;&#160;</a></span>LL_I2C_Master_Transmit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LL_I2C_Master_Transmit </td>
+          <td>(</td>
+          <td class="paramtype">I2C_TypeDef *&#160;</td>
+          <td class="paramname"><em>I2Cx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>device_address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>buffer_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>timeout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправка байтов по шине I2C на указанное устройство </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">I2Cx</td><td>I2C, через который отправляются байты </td></tr>
+    <tr><td class="paramname">device_addres</td><td>Адрес устройства, на которое отправляются данные </td></tr>
+    <tr><td class="paramname">buffer</td><td>Буфер отправляемых данных @oaram buffer_size Размер буфера в байтах </td></tr>
+    <tr><td class="paramname">timeout</td><td>Время ожидания изменения флагов в регистре SR1 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Результат отправки данных. Может быть<ul>
+<li><b>HAL_BUSY</b> - если по истечении времени шина осталась занятой</li>
+<li><b>HAL_ERROR</b> - если по истечении времени флаг не изменился на указанный</li>
+<li><b>HAL_OK</b> - в остальных случаях </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>&lt; Разрешаем сигнал ACK</p>
+<p>&lt; Отправляем команду отправки сигнала Старт на шину и ждем, когда сигнал Старт поступит на шину</p>
+<p>&lt; Отправляем адрес устройства на шину и команду записи данных. Ждем, когда указанное устройство вернет сигнал ADDR</p>
+
+</div>
+</div>
+<a id="ga3e8550f526ae87312a6021de2822fdef" name="ga3e8550f526ae87312a6021de2822fdef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3e8550f526ae87312a6021de2822fdef">&#9670;&#160;</a></span>LL_I2C_Mem_Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LL_I2C_Mem_Read </td>
+          <td>(</td>
+          <td class="paramtype">I2C_TypeDef *&#160;</td>
+          <td class="paramname"><em>I2Cx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>device_address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>register_address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>buffer_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>timeout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Запись байтов в указанный регистров устройства, подключенного к I2C. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">I2Cx</td><td>I2C, к которому подключено устройство, с которого принимаются данные </td></tr>
+    <tr><td class="paramname">device_addres</td><td>Адрес устройства, с регистров которого читаются байты </td></tr>
+    <tr><td class="paramname">register_address</td><td>Адрес регистра, с котрого необходимо считать байты </td></tr>
+    <tr><td class="paramname">buffer</td><td>Буфер, куда записываются считанные байты из регистров устройства @oaram buffer_size Размер буфера </td></tr>
+    <tr><td class="paramname">timeout</td><td>Время ожидания изменения флагов в регистре SR1 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Результат чтения данных. Может быть<ul>
+<li><b>HAL_BUSY</b> - если по истечении времени шина осталась занятой</li>
+<li><b>HAL_ERROR</b> - если по истечении времени флаг не изменился на указанный</li>
+<li><b>HAL_OK</b> - в остальных случаях </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>&lt; Разрешаем сигнал ACK</p>
+<p>&lt; Отправляем команду отправки сигнала Старт на шину и ждем, когда сигнал Старт поступит на шину</p>
+<p>&lt; Отправляем адрес устройства на шину и команду записи данных. Ждем, когда указанное устройство вернет сигнал ADDR</p>
+<p>&lt; Отправляем на устройство адрес регистра, в который будут записываться байты. Адрес может быть однобайтовым или двухбайтовым</p>
+<p>&lt; Отправляем команду на отправку сигнала Рестарт и ждем, когда сигнал Рестарт поступит на шину</p>
+<p>&lt; Отправляем адрес устройства, с которого будем считывать данные и команду на чтение данных</p>
+<p>&lt; Ждем, когда в сдвиговом регистре появятся байты и сохраняем их в буфер</p>
+<p>&lt; Считываем последний байт в буфер</p>
+
+</div>
+</div>
+<a id="ga3b1ebed43aaf217bb1cfff301055a9ac" name="ga3b1ebed43aaf217bb1cfff301055a9ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3b1ebed43aaf217bb1cfff301055a9ac">&#9670;&#160;</a></span>LL_I2C_Mem_Write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LL_I2C_Mem_Write </td>
+          <td>(</td>
+          <td class="paramtype">I2C_TypeDef *&#160;</td>
+          <td class="paramname"><em>I2Cx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>device_address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>register_address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>buffer_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>timeout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Запись байтов в регистры устройства, подключенного к I2C. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">I2Cx</td><td>I2C, к которому подключено устройство, в которое записываются данные </td></tr>
+    <tr><td class="paramname">device_addres</td><td>Адрес устройства, в регистры которого записываются байты </td></tr>
+    <tr><td class="paramname">register_address</td><td>Адрес первого регистра, в который записываются данные </td></tr>
+    <tr><td class="paramname">buffer</td><td>Буфер с данными, которые записываются в регистры устройства @oaram buffer_size Размер буфера в байтах </td></tr>
+    <tr><td class="paramname">timeout</td><td>Время ожидания изменения флагов в регистре SR1 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Результат записи данных. Может быть<ul>
+<li><b>HAL_BUSY</b> - если по истечении времени шина осталась занятой</li>
+<li><b>HAL_ERROR</b> - если по истечении времени флаг не изменился на указанный</li>
+<li><b>HAL_OK</b> - в остальных случаях </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>&lt; Разрешаем сигнал ACK</p>
+<p>&lt; Отправляем команду отправки сигнала Старт на шину и ждем, когда сигнал Старт поступит на шину</p>
+<p>&lt; Отправляем адрес устройства на шину и команду записи данных. Ждем, когда указанное устройство вернет сигнал ADDR</p>
+<p>&lt; Отправляем на устройство адрес регистра, в который будут записываться байты. Адрес может быть однобайтовым или двухбайтовым</p>
+<p>&lt; Отправляем байты из буфера в сдвиговый регистр для отправки их на шину I2C и ждем, когда сдвиговый регистр освободится</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

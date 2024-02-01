@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RocketLAV`s STM32 libraries: Коды команд для SX1268</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RocketLAV`s STM32 libraries
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Макросы</a>  </div>
+  <div class="headertitle"><div class="title">Коды команд для SX1268<div class="ingroups"><a class="el" href="group___s_x1268__group.html">SX1268</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Команды для смены состояний, калибровки, конфигурации, чтения и записи данных. Присутсвует конфигурация пакетов только для протокола LoRa.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:ga9cfb62e54209711d8f986fad8d95ab27" id="r_ga9cfb62e54209711d8f986fad8d95ab27"><td class="memItemLeft" align="right" valign="top"><a id="ga9cfb62e54209711d8f986fad8d95ab27" name="ga9cfb62e54209711d8f986fad8d95ab27"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_STANDBY</b>&#160;&#160;&#160;0x80</td></tr>
+<tr class="memdesc:ga9cfb62e54209711d8f986fad8d95ab27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда перехода в состояние ожидания <br /></td></tr>
+<tr class="separator:ga9cfb62e54209711d8f986fad8d95ab27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae230e2e26a09fbd28af3cf343de697c1" id="r_gae230e2e26a09fbd28af3cf343de697c1"><td class="memItemLeft" align="right" valign="top"><a id="gae230e2e26a09fbd28af3cf343de697c1" name="gae230e2e26a09fbd28af3cf343de697c1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_TX</b>&#160;&#160;&#160;0x83</td></tr>
+<tr class="memdesc:gae230e2e26a09fbd28af3cf343de697c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда перехода в состояние отправки данных <br /></td></tr>
+<tr class="separator:gae230e2e26a09fbd28af3cf343de697c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6073b8cf514289bc92ea3f3694de61fa" id="r_ga6073b8cf514289bc92ea3f3694de61fa"><td class="memItemLeft" align="right" valign="top"><a id="ga6073b8cf514289bc92ea3f3694de61fa" name="ga6073b8cf514289bc92ea3f3694de61fa"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_RX</b>&#160;&#160;&#160;0x82</td></tr>
+<tr class="memdesc:ga6073b8cf514289bc92ea3f3694de61fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда перехода в состояние приема данных <br /></td></tr>
+<tr class="separator:ga6073b8cf514289bc92ea3f3694de61fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf4a9acefc6563ae7bd7e1b6d1d30917" id="r_gacf4a9acefc6563ae7bd7e1b6d1d30917"><td class="memItemLeft" align="right" valign="top"><a id="gacf4a9acefc6563ae7bd7e1b6d1d30917" name="gacf4a9acefc6563ae7bd7e1b6d1d30917"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_SLEEP</b>&#160;&#160;&#160;0x84</td></tr>
+<tr class="memdesc:gacf4a9acefc6563ae7bd7e1b6d1d30917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда перехода в состояние сна <br /></td></tr>
+<tr class="separator:gacf4a9acefc6563ae7bd7e1b6d1d30917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6526f1a04e63a3bf1598858cac82cb0" id="r_gaa6526f1a04e63a3bf1598858cac82cb0"><td class="memItemLeft" align="right" valign="top"><a id="gaa6526f1a04e63a3bf1598858cac82cb0" name="gaa6526f1a04e63a3bf1598858cac82cb0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_CALIBRATE</b>&#160;&#160;&#160;0x89</td></tr>
+<tr class="memdesc:gaa6526f1a04e63a3bf1598858cac82cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда калбировки приемопередатчика <br /></td></tr>
+<tr class="separator:gaa6526f1a04e63a3bf1598858cac82cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f00534d044ecae18cf7a8164d0f38e9" id="r_ga6f00534d044ecae18cf7a8164d0f38e9"><td class="memItemLeft" align="right" valign="top"><a id="ga6f00534d044ecae18cf7a8164d0f38e9" name="ga6f00534d044ecae18cf7a8164d0f38e9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_WRITE_REGISTER</b>&#160;&#160;&#160;0x0D</td></tr>
+<tr class="memdesc:ga6f00534d044ecae18cf7a8164d0f38e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда записи данных в регистр <br /></td></tr>
+<tr class="separator:ga6f00534d044ecae18cf7a8164d0f38e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0cc0e1bf06981ce7b760899b433de860" id="r_ga0cc0e1bf06981ce7b760899b433de860"><td class="memItemLeft" align="right" valign="top"><a id="ga0cc0e1bf06981ce7b760899b433de860" name="ga0cc0e1bf06981ce7b760899b433de860"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_READ_REGISTER</b>&#160;&#160;&#160;0x1D</td></tr>
+<tr class="memdesc:ga0cc0e1bf06981ce7b760899b433de860"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда чтения данных из регистра <br /></td></tr>
+<tr class="separator:ga0cc0e1bf06981ce7b760899b433de860"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b0cd813f9c4c2a0629e18405e5f2403" id="r_ga5b0cd813f9c4c2a0629e18405e5f2403"><td class="memItemLeft" align="right" valign="top"><a id="ga5b0cd813f9c4c2a0629e18405e5f2403" name="ga5b0cd813f9c4c2a0629e18405e5f2403"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_WRITE_BUFFER</b>&#160;&#160;&#160;0x0E</td></tr>
+<tr class="memdesc:ga5b0cd813f9c4c2a0629e18405e5f2403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда записи данных в буфер данных приемопередатчика <br /></td></tr>
+<tr class="separator:ga5b0cd813f9c4c2a0629e18405e5f2403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6ac0e0ec6f81e402f60cfdc8935d62e" id="r_gab6ac0e0ec6f81e402f60cfdc8935d62e"><td class="memItemLeft" align="right" valign="top"><a id="gab6ac0e0ec6f81e402f60cfdc8935d62e" name="gab6ac0e0ec6f81e402f60cfdc8935d62e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_READ_BUFFER</b>&#160;&#160;&#160;0x1E</td></tr>
+<tr class="memdesc:gab6ac0e0ec6f81e402f60cfdc8935d62e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Команда чтения данных из буфера данных приемопередатчика <br /></td></tr>
+<tr class="separator:gab6ac0e0ec6f81e402f60cfdc8935d62e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga683223b05e1f354593122c6da167df19" id="r_ga683223b05e1f354593122c6da167df19"><td class="memItemLeft" align="right" valign="top"><a id="ga683223b05e1f354593122c6da167df19" name="ga683223b05e1f354593122c6da167df19"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_RF_FREQ</b>&#160;&#160;&#160;0x86</td></tr>
+<tr class="memdesc:ga683223b05e1f354593122c6da167df19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация радиочастоты приемопередатчика <br /></td></tr>
+<tr class="separator:ga683223b05e1f354593122c6da167df19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3265b9a66f9b4a6d10984cad685ccb0" id="r_gaf3265b9a66f9b4a6d10984cad685ccb0"><td class="memItemLeft" align="right" valign="top"><a id="gaf3265b9a66f9b4a6d10984cad685ccb0" name="gaf3265b9a66f9b4a6d10984cad685ccb0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_PACKET_TYPE</b>&#160;&#160;&#160;0x8A</td></tr>
+<tr class="memdesc:gaf3265b9a66f9b4a6d10984cad685ccb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация протокола передачи пакетов (GFSK или LoRa) <br /></td></tr>
+<tr class="separator:gaf3265b9a66f9b4a6d10984cad685ccb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a81effec2d57d47f613eeb4238d99ce" id="r_ga6a81effec2d57d47f613eeb4238d99ce"><td class="memItemLeft" align="right" valign="top"><a id="ga6a81effec2d57d47f613eeb4238d99ce" name="ga6a81effec2d57d47f613eeb4238d99ce"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_TX_PARAMS</b>&#160;&#160;&#160;0x8E</td></tr>
+<tr class="memdesc:ga6a81effec2d57d47f613eeb4238d99ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация состояния приема данных <br /></td></tr>
+<tr class="separator:ga6a81effec2d57d47f613eeb4238d99ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c138d344bc4cb5d9ddeff5f147cb785" id="r_ga9c138d344bc4cb5d9ddeff5f147cb785"><td class="memItemLeft" align="right" valign="top"><a id="ga9c138d344bc4cb5d9ddeff5f147cb785" name="ga9c138d344bc4cb5d9ddeff5f147cb785"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_MODULATION_PARAMS</b>&#160;&#160;&#160;0x8B</td></tr>
+<tr class="memdesc:ga9c138d344bc4cb5d9ddeff5f147cb785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация параметров модуляции <br /></td></tr>
+<tr class="separator:ga9c138d344bc4cb5d9ddeff5f147cb785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae798c5ccbbb8221c654c86ca8e68dd2f" id="r_gae798c5ccbbb8221c654c86ca8e68dd2f"><td class="memItemLeft" align="right" valign="top"><a id="gae798c5ccbbb8221c654c86ca8e68dd2f" name="gae798c5ccbbb8221c654c86ca8e68dd2f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_PACKET_PARAMS</b>&#160;&#160;&#160;0x8C</td></tr>
+<tr class="memdesc:gae798c5ccbbb8221c654c86ca8e68dd2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация параметров пакета <br /></td></tr>
+<tr class="separator:gae798c5ccbbb8221c654c86ca8e68dd2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb4d789a938f06b62006b448ae550f03" id="r_gadb4d789a938f06b62006b448ae550f03"><td class="memItemLeft" align="right" valign="top"><a id="gadb4d789a938f06b62006b448ae550f03" name="gadb4d789a938f06b62006b448ae550f03"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SX1268_OP_SET_BUF_BASE_ADDR</b>&#160;&#160;&#160;0x8F</td></tr>
+<tr class="memdesc:gadb4d789a938f06b62006b448ae550f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка адресов на области принятых и отправленных данных в буфере данных приемопередатчика <br /></td></tr>
+<tr class="separator:gadb4d789a938f06b62006b448ae550f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Команды для смены состояний, калибровки, конфигурации, чтения и записи данных. Присутсвует конфигурация пакетов только для протокола LoRa. </p>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

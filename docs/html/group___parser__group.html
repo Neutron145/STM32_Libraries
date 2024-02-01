@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RocketLAV`s STM32 libraries: GPS parser</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RocketLAV`s STM32 libraries
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('group___parser__group.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Структуры данных</a> &#124;
+<a href="#define-members">Макросы</a> &#124;
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle"><div class="title">GPS parser</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Модуль парсера NMEA сообщений  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Структуры данных</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_g_a__data.html">GGA_data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура для хранения данных сообщения GGA.  <a href="struct_g_g_a__data.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_v_t_g__data.html">VTG_data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура для хранения данных сообщения VTG.  <a href="struct_v_t_g__data.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gaed6d05ccd1a8ded6cca6aac6d43fe78a" id="r_gaed6d05ccd1a8ded6cca6aac6d43fe78a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___parser__group.html#gaed6d05ccd1a8ded6cca6aac6d43fe78a">__insert</a> (char *&amp;dest, char source, int pos)</td></tr>
+<tr class="memdesc:gaed6d05ccd1a8ded6cca6aac6d43fe78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вставка символа в строку на указанную позицию  <br /></td></tr>
+<tr class="separator:gaed6d05ccd1a8ded6cca6aac6d43fe78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee803d47574fa687c060137c427808e0" id="r_gaee803d47574fa687c060137c427808e0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___parser__group.html#gaee803d47574fa687c060137c427808e0">__checksum</a> (char *&amp;buffer)</td></tr>
+<tr class="memdesc:gaee803d47574fa687c060137c427808e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверки контрольной суммы  <br /></td></tr>
+<tr class="separator:gaee803d47574fa687c060137c427808e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf716e1c325603f9948abf59c425c0bbc" id="r_gaf716e1c325603f9948abf59c425c0bbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___parser__group.html#gaf716e1c325603f9948abf59c425c0bbc">__line_process</a> (char *&amp;buffer)</td></tr>
+<tr class="memdesc:gaf716e1c325603f9948abf59c425c0bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработка строки  <br /></td></tr>
+<tr class="separator:gaf716e1c325603f9948abf59c425c0bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31444af23d45a9d25543c4629f9b0836" id="r_ga31444af23d45a9d25543c4629f9b0836"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___parser__group.html#ga31444af23d45a9d25543c4629f9b0836">parse</a> (char *buffer)</td></tr>
+<tr class="memdesc:ga31444af23d45a9d25543c4629f9b0836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Извлечение данных из NMEA сообщения  <br /></td></tr>
+<tr class="separator:ga31444af23d45a9d25543c4629f9b0836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:ga29f97c4df870aa36f0c8cfc86e37e014" id="r_ga29f97c4df870aa36f0c8cfc86e37e014"><td class="memItemLeft" align="right" valign="top"><a id="ga29f97c4df870aa36f0c8cfc86e37e014" name="ga29f97c4df870aa36f0c8cfc86e37e014"></a>
+<a class="el" href="struct_g_g_a__data.html">GGA_data</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GGA</b></td></tr>
+<tr class="memdesc:ga29f97c4df870aa36f0c8cfc86e37e014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Хранит данные из последнего сообщения GGA. <br /></td></tr>
+<tr class="separator:ga29f97c4df870aa36f0c8cfc86e37e014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac8dc68bedba1457f3f22e7e1d31bbc0e" id="r_gac8dc68bedba1457f3f22e7e1d31bbc0e"><td class="memItemLeft" align="right" valign="top"><a id="gac8dc68bedba1457f3f22e7e1d31bbc0e" name="gac8dc68bedba1457f3f22e7e1d31bbc0e"></a>
+<a class="el" href="struct_v_t_g__data.html">VTG_data</a>&#160;</td><td class="memItemRight" valign="bottom"><b>VTG</b></td></tr>
+<tr class="memdesc:gac8dc68bedba1457f3f22e7e1d31bbc0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Хранит данные из последнего сообщения VTG. <br /></td></tr>
+<tr class="separator:gac8dc68bedba1457f3f22e7e1d31bbc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Модуль парсера NMEA сообщений </p>
+<p>Предполагается использование модуля на ПК, а не на МК. Модуль позволяет извлекать данные из NMEA сообщений типа GGA и VTG в формате "hh:mm:ss  $GPxxx,x,x,x,x,x,x,x*xx". Пример использования кода </p><div class="fragment"><div class="line"><span class="keywordtype">char</span>* buffer = <span class="keyword">new</span> <span class="keywordtype">char</span>[256];</div>
+<div class="line">strcpy(buffer, <span class="stringliteral">&quot;14:05:35  $GPGGA,140535.00,5312.77775,N,05010.72429,E,1,05,8.77,153.0,M,-6.4,M,,*41&quot;</span>);</div>
+<div class="line"><a class="code hl_function" href="group___parser__group.html#ga31444af23d45a9d25543c4629f9b0836">parse</a>(buffer);</div>
+<div class="ttc" id="agroup___parser__group_html_ga31444af23d45a9d25543c4629f9b0836"><div class="ttname"><a href="group___parser__group.html#ga31444af23d45a9d25543c4629f9b0836">parse</a></div><div class="ttdeci">int parse(char *buffer)</div><div class="ttdoc">Извлечение данных из NMEA сообщения</div><div class="ttdef"><b>Definition</b> GPS_parser.cpp:46</div></div>
+</div><!-- fragment --><p><br  />
+ </p>
+<h2 class="groupheader">Функции</h2>
+<a id="gaee803d47574fa687c060137c427808e0" name="gaee803d47574fa687c060137c427808e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaee803d47574fa687c060137c427808e0">&#9670;&#160;</a></span>__checksum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int __checksum </td>
+          <td>(</td>
+          <td class="paramtype">char *&amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверки контрольной суммы </p>
+<p>Контрольная сумма вычисляется вычислением XOR с каждым байтом сообщения NMEA </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>Строка, для которой необходимо вычислить контрольную сумму </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>- 1, если контрольная сумма совпала<ul>
+<li>0, если контрольная сумма не совпала </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaed6d05ccd1a8ded6cca6aac6d43fe78a" name="gaed6d05ccd1a8ded6cca6aac6d43fe78a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaed6d05ccd1a8ded6cca6aac6d43fe78a">&#9670;&#160;</a></span>__insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void __insert </td>
+          <td>(</td>
+          <td class="paramtype">char *&amp;&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Вставка символа в строку на указанную позицию </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Строка, куда вставляется символ </td></tr>
+    <tr><td class="paramname">source</td><td>символ, который вставляется в строку </td></tr>
+    <tr><td class="paramname">pos</td><td>Позиция, на которую вставляется символ в строку </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">dest</td><td>Строка dest со вставленным символом </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf716e1c325603f9948abf59c425c0bbc" name="gaf716e1c325603f9948abf59c425c0bbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf716e1c325603f9948abf59c425c0bbc">&#9670;&#160;</a></span>__line_process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void __line_process </td>
+          <td>(</td>
+          <td class="paramtype">char *&amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Обработка строки </p>
+<p>Функция подгоняет строку под шаблон перед извлечением данных. Подгон под шаблон происходит путем заполнения нулями отсутсвующих значений </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>Строка, которая подгоняется под шаблон </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Строка,подогнанная</td><td>под шаблон, т.е. со всталеными нулями </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga31444af23d45a9d25543c4629f9b0836" name="ga31444af23d45a9d25543c4629f9b0836"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga31444af23d45a9d25543c4629f9b0836">&#9670;&#160;</a></span>parse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int parse </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Извлечение данных из NMEA сообщения </p>
+<p>Данные извлекаются из строки в структуры GGA и VTG в зависимости от типа сообщения </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>Строка, из которой извлекаются данные </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>- -2, если при VTG или GGA неправильно считались данные для сохранения в структуру<ul>
+<li>-1, если не совпала контрольная сумма</li>
+<li>0, если переданный тип сообщения не VTG или GGA</li>
+<li>1, если данные считались верно для GGA</li>
+<li>2, если данные считались верно для VTG </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

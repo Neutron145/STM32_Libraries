@@ -1,0 +1,244 @@
+\doxysection{SX1268}
+\hypertarget{group___s_x1268__group}{}\label{group___s_x1268__group}\index{SX1268@{SX1268}}
+
+
+Модуль акселерометра  
+
+
+\doxysubsubsection*{Группы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s}{Коды команд для SX1268}}
+\begin{DoxyCompactList}\small\item\em Команды для смены состояний, калибровки, конфигурации, чтения и записи данных. Присутсвует конфигурация пакетов только для протокола Lo\+Ra. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___s_x1268___s_f}{Значения параметра Spreading Factor}}
+\begin{DoxyCompactList}\small\item\em Spreadinf Factor позволяет размазывать передачу данных в диапазоне Band\+With. Чем выше значение SF, тем ниже скорость передачи (и потребление энергии) и выше сила сигнала. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___s_x1268___b_w}{Значения параметра Band\+With}}
+\begin{DoxyCompactList}\small\item\em Bandwith определяет диапазон частот, в котором передается сигнал. Чем шире Bandwith, тем выше скорость передачи, но ниже сила сигнала. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___s_x1268___c_r}{Значения параметра Coding Rate}}
+\begin{DoxyCompactList}\small\item\em Coding Rate определяет скорость кодирования при методе Forward Error Correction. Чем выше скорость, тем сильнее помехоустойчивость, но ниже скорость передачи данных. В типичных условиях достаточно скорость 4\+\_\+5. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___s_x1268___l_d_r_o}{Оптимизация передачи данных при низком потоке данных}}
+\begin{DoxyCompactList}\small\item\em Оптимизация повышает надежность передачи данных при отправке и приеме больших, но редких сообщениях \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___s_x1268___p_a_c_k_e_t___p_a_r_a_m_s}{Параметры для конфигурации пакета}}
+\begin{DoxyCompactList}\small\item\em Этими параметрами конфигурируется пакет, который будет отправляться или приниматься приемопередатчиком. LDRO используется для улучшения связи при приеме и отправке больших, но редких пакетов ~\newline
+ Явный образом отправляются пакеты,. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___s_x1268___t_x___p_a_r_a_m_s}{Значения параметра Ramp Time}}
+\begin{DoxyCompactList}\small\item\em Непонятно на что влияющий параметр \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___s_x1268___g_a_i_n___m_o_d_e}{Режимы получения данных приемопередатчиком}}
+\begin{DoxyCompactList}\small\item\em От режима зависит потребление энергии и чувствительность приемопередатчика в состоянии Rx. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___s_x1268__group_ga3e82d19bf6e17c83ec33dc8113ca9fce}\label{group___s_x1268__group_ga3e82d19bf6e17c83ec33dc8113ca9fce} 
+\#define {\bfseries SX1268\+\_\+\+RX\+\_\+\+GAIN\+\_\+\+REGISTER}~0x08\+AC
+\begin{DoxyCompactList}\small\item\em Адрес регистра режима получения данных приемопередатчиком \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___s_x1268__group_ga2db4fc6028dc6a16d5a2d8a52a36d472}{SX1268\+\_\+init}} (SPI\+\_\+\+Handle\+Type\+Def hspi\+\_\+)
+\begin{DoxyCompactList}\small\item\em Инициализация приемопередатчик \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___s_x1268__group_ga93858131efff38ea11b1cf85785c12c4}{SX1268\+\_\+config\+\_\+rf\+Freq}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}rf\+Freq)
+\begin{DoxyCompactList}\small\item\em Конфигурация радиочастоты приемопередатчика \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___s_x1268__group_gad23c91801dd2c8c5c9a095d7557ed3a0}{SX1268\+\_\+config\+\_\+modulation\+\_\+params}} (uint8\+\_\+t SF, uint8\+\_\+t BW, uint8\+\_\+t CR, uint8\+\_\+t LDRO)
+\begin{DoxyCompactList}\small\item\em Конфигурация параметров модуляции протокола Lo\+Ra. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___s_x1268__group_ga5e88f8f2ca84b2063cf6b0df5718469a}{SX1268\+\_\+config\+\_\+base\+Addr}} (uint8\+\_\+t Tx\+Addr, uint8\+\_\+t Rx\+Addr)
+\begin{DoxyCompactList}\small\item\em Определение указателя на принимаемые и отправляемые данные в буфере данных SX1268. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status \mbox{\hyperlink{group___s_x1268__group_ga099eba8949d84aeed2b66afc285c69c2}{SX1268\+\_\+config\+\_\+tx\+\_\+params}} (uint8\+\_\+t power, unit8\+\_\+t ramp\+Time)
+\begin{DoxyCompactList}\small\item\em Конфигурация мощности сигнала и ramping time для радиопередатчика в режиме TX. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___s_x1268__group_ga80d1e5f8d206b0bd23545f45cc27f36c}{SX1268\+\_\+config\+\_\+packet\+\_\+params}} (uint16\+\_\+t preamble\+\_\+length, uint8\+\_\+t header\+\_\+type, uint8\+\_\+t payload\+\_\+length, uint8\+\_\+t CRC, uint8\+\_\+t invert\+\_\+\+IQ)
+\begin{DoxyCompactList}\small\item\em Конфигурация параметров пакетов \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___s_x1268__group_ga646506d53a9a04b46d69136160941cb4}{SX1268\+\_\+send\+\_\+message}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}buffer, int buffer\+\_\+size)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___s_x1268__group_ga50a5a59b899471b856eb077516ff444b}\label{group___s_x1268__group_ga50a5a59b899471b856eb077516ff444b} 
+SPI\+\_\+\+Type\+Def {\bfseries SX1268\+\_\+hspi}
+\begin{DoxyCompactList}\small\item\em Экземпляр SPI, к которому подключен модуль \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Макрос для определения испольуземой библиотеки}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___s_x1268__group_ga6e4d9ce6e6be0375ad0cf06fa842d354}\label{group___s_x1268__group_ga6e4d9ce6e6be0375ad0cf06fa842d354} 
+\#define {\bfseries SX1268\+\_\+\+HAL}
+\begin{DoxyCompactList}\small\item\em Указывает библиотеку STM32, с помощью которой управляется интерфейс SPI. Определите {\bfseries{SX1268\+\_\+\+HAL}} или {\bfseries{SX1268\+\_\+\+LL}} для соотвествующей библиотеки. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Модуль акселерометра 
+
+Модуль позволяет конфигурировать формат пакета и параметры модуляции и передавать данные. В будущем будет реализация приема данных. ~\newline
+ Модуль разрабатывался для Lo\+Ra модуля E22 400M30S, подключеному по SPI ~\newline
+ Перед отправкой данных необходимо настроить формат пакетов, по желанию сконфигурировать параметры модуляции. ~\newline
+ Пример работы с датчиком ~\newline
+ {\bfseries{ЗДЕСЬ ДОЛЖЕН БЫТЬ КОД}} ~\newline
+ 
+
+\doxysubsection{Функции}
+\Hypertarget{group___s_x1268__group_ga5e88f8f2ca84b2063cf6b0df5718469a}\label{group___s_x1268__group_ga5e88f8f2ca84b2063cf6b0df5718469a} 
+\index{SX1268@{SX1268}!SX1268\_config\_baseAddr@{SX1268\_config\_baseAddr}}
+\index{SX1268\_config\_baseAddr@{SX1268\_config\_baseAddr}!SX1268@{SX1268}}
+\doxysubsubsection{\texorpdfstring{SX1268\_config\_baseAddr()}{SX1268\_config\_baseAddr()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def SX1268\+\_\+config\+\_\+base\+Addr (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Tx\+Addr,  }\item[{uint8\+\_\+t}]{Rx\+Addr }\end{DoxyParamCaption})}
+
+
+
+Определение указателя на принимаемые и отправляемые данные в буфере данных SX1268. 
+
+Позволяет разделить буфер данных на буфер принимаемых данных (в этот буфер будут приходить все принятые данные) и буфер отправляемых данных (сюда помещаются все отправляемые данные). По стандарту оба указателя указывают на нулевой адрес буфера ~\newline
+ Размер буфера -\/ 256 байт. Соотвественно изначально мы можем отправлять или принимать пакеты до 256 байт. В случае изменения адресов, мы изменяем максимальный размер пакетов, которые может отправить или принять. 
+\begin{DoxyParams}{Аргументы}
+{\em Tx\+Addr} & Адрес области памяти для хранения отправлениях данных. Принимаемые значния от 0 до 256 \\
+\hline
+{\em Rx\+Addr} & Адрес области памяти для хранения принятых данных. Принимаемые значения от 0 до 256 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Статус выполнения конфигурации. Может быть {\bfseries{HAL\+\_\+\+OK}}, {\bfseries{HAL\+\_\+\+ERROR}}, {\bfseries{HAL\+\_\+\+BUSY}} \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___s_x1268__group_gad23c91801dd2c8c5c9a095d7557ed3a0}\label{group___s_x1268__group_gad23c91801dd2c8c5c9a095d7557ed3a0} 
+\index{SX1268@{SX1268}!SX1268\_config\_modulation\_params@{SX1268\_config\_modulation\_params}}
+\index{SX1268\_config\_modulation\_params@{SX1268\_config\_modulation\_params}!SX1268@{SX1268}}
+\doxysubsubsection{\texorpdfstring{SX1268\_config\_modulation\_params()}{SX1268\_config\_modulation\_params()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def SX1268\+\_\+config\+\_\+modulation\+\_\+params (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{SF,  }\item[{uint8\+\_\+t}]{BW,  }\item[{uint8\+\_\+t}]{CR,  }\item[{uint8\+\_\+t}]{LDRO }\end{DoxyParamCaption})}
+
+
+
+Конфигурация параметров модуляции протокола Lo\+Ra. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em SF} & Значение Spreading factor. Принимает значения \doxylink{group___s_x1268___s_f}{CF} \\
+\hline
+{\em BW} & Значение Badnwith. Принимает значения \doxylink{group___s_x1268___b_w}{BW} \\
+\hline
+{\em CR} & Значение Coding rate. Принимает значения \doxylink{group___s_x1268___c_r}{CR} \\
+\hline
+{\em LDRO} & Значение Low data rate optimization. Принимает значения \doxylink{group___s_x1268___l_d_r_o}{LDRO} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Статус выполнения конфигурации. Может быть {\bfseries{HAL\+\_\+\+OK}}, {\bfseries{HAL\+\_\+\+ERROR}}, {\bfseries{HAL\+\_\+\+BUSY}} \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___s_x1268__group_ga80d1e5f8d206b0bd23545f45cc27f36c}\label{group___s_x1268__group_ga80d1e5f8d206b0bd23545f45cc27f36c} 
+\index{SX1268@{SX1268}!SX1268\_config\_packet\_params@{SX1268\_config\_packet\_params}}
+\index{SX1268\_config\_packet\_params@{SX1268\_config\_packet\_params}!SX1268@{SX1268}}
+\doxysubsubsection{\texorpdfstring{SX1268\_config\_packet\_params()}{SX1268\_config\_packet\_params()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def SX1268\+\_\+config\+\_\+packet\+\_\+params (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{preamble\+\_\+length,  }\item[{uint8\+\_\+t}]{header\+\_\+type,  }\item[{uint8\+\_\+t}]{payload\+\_\+length,  }\item[{uint8\+\_\+t}]{CRC,  }\item[{uint8\+\_\+t}]{invert\+\_\+\+IQ }\end{DoxyParamCaption})}
+
+
+
+Конфигурация параметров пакетов 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em preamble\+\_\+length} & Длина преамбулы сообщения. Она используется для синхронизации входящего пакета с приемником. По умолчнанию используется 12 символов. Если длина преамбулы неизвеста или варьируется, то устанавливается максимально возможное значение. ~\newline
+ Принимаемые значения\+: от 0 до 65535 \\
+\hline
+{\em header\+\_\+type} & \\
+\hline
+{\em payload\+\_\+length} & \\
+\hline
+{\em CRC} & \\
+\hline
+{\em invert\+\_\+\+IQ} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Статус выполнения конфигурации. Может быть {\bfseries{HAL\+\_\+\+OK}}, {\bfseries{HAL\+\_\+\+ERROR}}, {\bfseries{HAL\+\_\+\+BUSY}} \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___s_x1268__group_ga93858131efff38ea11b1cf85785c12c4}\label{group___s_x1268__group_ga93858131efff38ea11b1cf85785c12c4} 
+\index{SX1268@{SX1268}!SX1268\_config\_rfFreq@{SX1268\_config\_rfFreq}}
+\index{SX1268\_config\_rfFreq@{SX1268\_config\_rfFreq}!SX1268@{SX1268}}
+\doxysubsubsection{\texorpdfstring{SX1268\_config\_rfFreq()}{SX1268\_config\_rfFreq()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def SX1268\+\_\+config\+\_\+rf\+Freq (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{rf\+Freq }\end{DoxyParamCaption})}
+
+
+
+Конфигурация радиочастоты приемопередатчика 
+
+Отправляет команду и указанную частоту, состоящую из 4 байтов 
+\begin{DoxyParams}{Аргументы}
+{\em rf\+Freq} & Массив, определяющий частоту, размеров в 4 байта \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Статус выполнения конфигурации. Может быть {\bfseries{HAL\+\_\+\+OK}}, {\bfseries{HAL\+\_\+\+ERROR}}, {\bfseries{HAL\+\_\+\+BUSY}} \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___s_x1268__group_ga099eba8949d84aeed2b66afc285c69c2}\label{group___s_x1268__group_ga099eba8949d84aeed2b66afc285c69c2} 
+\index{SX1268@{SX1268}!SX1268\_config\_tx\_params@{SX1268\_config\_tx\_params}}
+\index{SX1268\_config\_tx\_params@{SX1268\_config\_tx\_params}!SX1268@{SX1268}}
+\doxysubsubsection{\texorpdfstring{SX1268\_config\_tx\_params()}{SX1268\_config\_tx\_params()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status SX1268\+\_\+config\+\_\+tx\+\_\+params (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{power,  }\item[{unit8\+\_\+t}]{ramp\+Time }\end{DoxyParamCaption})}
+
+
+
+Конфигурация мощности сигнала и ramping time для радиопередатчика в режиме TX. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em power} & Мощность передачи сигнала, измеряется в d\+Bm. ~\newline
+ Принимаемые значения\+: ~\newline
+ от 0x\+EF (-\/17 d\+Bm) до 0x0E (+14 d\+Bm) с шагом 1d\+Bm, если выбран режим low power PA ~\newline
+ от 0x\+F7 (+9 d\+Bm) до 0x16 (+22 d\+Bm) с шагом 1 d\+Bm, если выбран режим high power PA \\
+\hline
+{\em ramp\+Time} & Хз на что это влияет и что это такое вообще \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Статус выполнения конфигурации. Может быть {\bfseries{HAL\+\_\+\+OK}}, {\bfseries{HAL\+\_\+\+ERROR}}, {\bfseries{HAL\+\_\+\+BUSY}} \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___s_x1268__group_ga2db4fc6028dc6a16d5a2d8a52a36d472}\label{group___s_x1268__group_ga2db4fc6028dc6a16d5a2d8a52a36d472} 
+\index{SX1268@{SX1268}!SX1268\_init@{SX1268\_init}}
+\index{SX1268\_init@{SX1268\_init}!SX1268@{SX1268}}
+\doxysubsubsection{\texorpdfstring{SX1268\_init()}{SX1268\_init()}}
+{\footnotesize\ttfamily void SX1268\+\_\+init (\begin{DoxyParamCaption}\item[{SPI\+\_\+\+Handle\+Type\+Def}]{hspi\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Инициализация приемопередатчик 
+
+На этапе инициализации определяется экземпляр SPI, к которому подключен SX1268 и устанавливается протокол Lo\+Ra. 
+\begin{DoxyParams}{Аргументы}
+{\em hspi\+\_\+} & Экземпляр SPI, к которому подключен подключен приемопередатчик. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Результат инициализации SPI. Может быть {\bfseries{HAL\+\_\+\+OK}}, {\bfseries{HAL\+\_\+\+ERROR}}, {\bfseries{HAL\+\_\+\+BUSY}} \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___s_x1268__group_ga646506d53a9a04b46d69136160941cb4}\label{group___s_x1268__group_ga646506d53a9a04b46d69136160941cb4} 
+\index{SX1268@{SX1268}!SX1268\_send\_message@{SX1268\_send\_message}}
+\index{SX1268\_send\_message@{SX1268\_send\_message}!SX1268@{SX1268}}
+\doxysubsubsection{\texorpdfstring{SX1268\_send\_message()}{SX1268\_send\_message()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def SX1268\+\_\+send\+\_\+message (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int}]{buffer\+\_\+size }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em buffer} & \\
+\hline
+{\em buffer\+\_\+size} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em } & \\
+\hline
+\end{DoxyRetVals}
+\input{group___s_x1268___o_p_c_o_d_e_s___s_t_a_t_e_s}
+\input{group___s_x1268___s_f}
+\input{group___s_x1268___b_w}
+\input{group___s_x1268___c_r}
+\input{group___s_x1268___l_d_r_o}
+\input{group___s_x1268___p_a_c_k_e_t___p_a_r_a_m_s}
+\input{group___s_x1268___t_x___p_a_r_a_m_s}
+\input{group___s_x1268___g_a_i_n___m_o_d_e}

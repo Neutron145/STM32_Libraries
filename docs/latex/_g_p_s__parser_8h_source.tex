@@ -1,0 +1,45 @@
+\doxysection{GPS\+\_\+parser.\+h}
+\hypertarget{_g_p_s__parser_8h_source}{}\label{_g_p_s__parser_8h_source}\index{GPS\_parser/GPS\_parser.h@{GPS\_parser/GPS\_parser.h}}
+\mbox{\hyperlink{_g_p_s__parser_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ GPS\_PARSER\_H}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ GPS\_PARSER\_H}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ \_CRT\_SECURE\_NO\_WARNINGS}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}stdio.h"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}fstream"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_g_g_a__data_a772178c0e128ae95230c9ce4ae5a1c6b}{date}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_g_g_a__data_a006303577d6adb772761727538b74f80}{longitude}};\ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_g_a__data_abda081f3534d49068dd275266a9c08e0}{EW}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_g_g_a__data_ad9e643bc6bd5a62b9b5011cf1c93629e}{latitude}};\ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_g_g_a__data_a4f1779c5def808357c8e6f33bbd03551}{NS}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_g_g_a__data_a0e13a4b4ae0cefdac2a413284239caa6}{altitude}};\ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_g_g_a__data_a67b819793922e2fadb6ac086196d55ac}{solve\_type}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_g_g_a__data_ab9956f8a7c5930b1a64d60b162559a28}{HDOP}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_g_g_a__data_a507704019ecebddb742907d5ef247e91}{sats}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \}\ \mbox{\hyperlink{struct_g_g_a__data}{GGA\_data}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_v_t_g__data_ac6894c88aabf335922736a63b2b87b97}{course}};\ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_v_t_g__data_a1694a76d219c26a049db72f847c83dbe}{speed\_kn}};\ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_v_t_g__data_a520ec64d7ff1ec2d32835048dd804e56}{speed\_mph}};\ \ \ }
+\DoxyCodeLine{00050\ \}\ \mbox{\hyperlink{struct_v_t_g__data}{VTG\_data}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_g_g_a__data}{GGA\_data}}\ \mbox{\hyperlink{group___parser__group_ga29f97c4df870aa36f0c8cfc86e37e014}{GGA}};\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_v_t_g__data}{VTG\_data}}\ \mbox{\hyperlink{group___parser__group_gac8dc68bedba1457f3f22e7e1d31bbc0e}{VTG}};\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___parser__group_gaed6d05ccd1a8ded6cca6aac6d43fe78a}{\_\_insert}}(\textcolor{keywordtype}{char}*\ \&dest,\ \textcolor{keywordtype}{char}\ source,\ \textcolor{keywordtype}{int}\ pos);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___parser__group_gaee803d47574fa687c060137c427808e0}{\_\_checksum}}(\textcolor{keywordtype}{char}*\ \&buffer);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___parser__group_gaf716e1c325603f9948abf59c425c0bbc}{\_\_line\_process}}(\textcolor{keywordtype}{char}*\ \&buffer);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___parser__group_ga31444af23d45a9d25543c4629f9b0836}{parse}}(\textcolor{keywordtype}{char}*\ buffer);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GPS\_PARSER\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00094\ }
+
+\end{DoxyCode}

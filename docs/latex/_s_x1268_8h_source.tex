@@ -1,0 +1,110 @@
+\doxysection{SX1268.\+h}
+\hypertarget{_s_x1268_8h_source}{}\label{_s_x1268_8h_source}\index{E22400M30S/SX1268.h@{E22400M30S/SX1268.h}}
+\mbox{\hyperlink{_s_x1268_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ INC\_SX1268\_H\_}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ INC\_SX1268\_H\_}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}main.h"{}}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ SX1268\_HAL\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifdef\ ISX1268\_HAL}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ SPI\_TypeDef\ \ \ \ \ \ \ \ \ \ \ \ \ SPI\_HandleTypeDef}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ SPI\_Transmit(ADR,\ BUF,\ BUF\_SIZE,\ TIMEOUT)\ \ \ \ \ \ \ \ \ \ \ HAL\_SPI\_Transmit(ADR,\ BUF,\ BUF\_SIZE,\ TIMEOUT)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ SPI\_Receive(ADR,\ BUF,BUF\_SIZE,\ TIMEOUT)\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_SPI\_Receive(ADR,\ BUF,\ BUF\_SIZE,\ TIMEOUT)}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#elif\ SX1268\_LL}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ SPI\_TypeDef\ \ \ \ \ \ \ \ \ \ \ \ \ SPI\_TypeDef}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ SPI\_Transmit(ADR,\ BUF,\ BUF\_SIZE,\ TIMEOUT)\ \ \ \ \ \ \ \ \ \ \ LL\_SPI\_Transmit(ADR,\ BUF,\ BUF\_SIZE,\ TIMEOUT)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ SPI\_Receive(ADR,\ BUF,BUF\_SIZE,\ TIMEOUT)\ \ \ \ \ \ \ \ \ \ \ \ \ LL\_SPI\_Receive(ADR,\ BUF,\ BUF\_SIZE,\ TIMEOUT)}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SX1268\_LL\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ SPI\_TypeDef\ \mbox{\hyperlink{group___s_x1268__group_ga50a5a59b899471b856eb077516ff444b}{SX1268\_hspi}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_SET\_STANDBY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x80\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_SET\_TX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x83\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_SET\_RX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x82\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_SET\_SLEEP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x84\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_CALIBRATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x89\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_WRITE\_REGISTER\ \ \ \ \ \ \ \ \ \ \ \ 0x0D\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_READ\_REGISTER\ \ \ \ \ \ \ \ \ \ \ \ \ 0x1D\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_WRITE\_BUFFER\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0E\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_READ\_BUFFER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1E\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_SET\_RF\_FREQ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x86\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_SET\_PACKET\_TYPE\ \ \ \ \ \ \ \ \ \ \ 0x8A\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_SET\_TX\_PARAMS\ \ \ \ \ \ \ \ \ \ \ \ \ 0x8E\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_SET\_MODULATION\_PARAMS\ \ \ \ \ 0x8B\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_SET\_PACKET\_PARAMS\ \ \ \ \ \ \ \ \ 0x8C\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ SX1268\_OP\_SET\_BUF\_BASE\_ADDR\ \ \ \ \ \ \ \ \ 0x8F\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ SX1268\_SF5\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x05\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ SX1268\_SF6\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x06}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ SX1268\_SF7\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x07}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ SX1268\_SF8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x08}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ SX1268\_SF9\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x09}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ SX1268\_SF10\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0A}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ SX1268\_SF11\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0B}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ SX1268\_SF12\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0C}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_BW\_7\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_BW\_10\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x08}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_BW\_15\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x01}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_BW\_20\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x09}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_BW\_31\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x02}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_BW\_41\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0A}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_BW\_62\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x03}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_BW\_125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x04}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_BW\_250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x05}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_BW\_500\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x06}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_CR\_4\_5\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x01}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_CR\_4\_6\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x02}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_CR\_4\_7\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x03}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ SX1268\_LORA\_CR\_4\_8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x04}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ SX1268\_LDRO\_OFF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ SX1268\_LDRO\_ON\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x01\ \ \ \ }}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ SX1268\_PREAMBLE\_EXPLICIT\ \ \ \ \ \ \ \ \ \ \ \ 0x00\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ SX1268\_PREAMBLE\_IMPLICIT\ \ \ \ \ \ \ \ \ \ \ \ 0x01\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ SX1268\_CRC\_OFF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ SX1268\_CRC\_ON\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x01\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ SX1268\_STANDART\_IQ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ SX1268\_INVERT\_IQ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x01\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ SX1268\_PACKET\_TYPE\_LORA\ \ \ \ \ \ \ \ \ \ \ \ \ 0x01\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ SX1268\_SET\_RAMP\_10U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ SX1268\_SET\_RAMP\_20U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x01}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ SX1268\_SET\_RAMP\_40U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x02}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ SX1268\_SET\_RAMP\_80U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x03}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ SX1268\_SET\_RAMP\_200U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x04}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ SX1268\_SET\_RAMP\_800U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x05}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ SX1268\_SET\_RAMP\_1700U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x06}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ SX1268\_SET\_RAMP\_3400U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x07}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#define\ SX1268\_RX\_GAIN\_REGISTER\ \ \ \ \ \ \ \ \ \ \ \ \ 0x08AC\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#define\ SX1268\_RX\_POWER\_SAVING\_GAIN\_MODE\ \ \ \ 0x94\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ SX1268\_RX\_BOOSTED\_GAIN\_MODE\ \ \ \ \ \ \ \ \ 0x96\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00176\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___s_x1268__group_ga2db4fc6028dc6a16d5a2d8a52a36d472}{SX1268\_init}}(SPI\_HandleTypeDef\ hspi\_);}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00185\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___s_x1268__group_ga93858131efff38ea11b1cf85785c12c4}{SX1268\_config\_rfFreq}}(uint8\_t*\ rfFreq);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00195\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___s_x1268__group_gad23c91801dd2c8c5c9a095d7557ed3a0}{SX1268\_config\_modulation\_params}}(uint8\_t\ SF,\ uint8\_t\ BW,\ uint8\_t\ CR,\ uint8\_t\ LDRO);}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00205\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___s_x1268__group_ga5e88f8f2ca84b2063cf6b0df5718469a}{SX1268\_config\_baseAddr}}(uint8\_t\ TxAddr,\ uint8\_t\ RxAddr);}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00217\ HAL\_Status\ \mbox{\hyperlink{group___s_x1268__group_ga099eba8949d84aeed2b66afc285c69c2}{SX1268\_config\_tx\_params}}(uint8\_t\ power,\ unit8\_t\ rampTime);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00231\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___s_x1268__group_ga80d1e5f8d206b0bd23545f45cc27f36c}{SX1268\_config\_packet\_params}}(uint16\_t\ preamble\_length,\ uint8\_t\ header\_type,\ uint8\_t\ payload\_length,\ uint8\_t\ CRC,\ uint8\_t\ invert\_IQ);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00240\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___s_x1268__group_ga646506d53a9a04b46d69136160941cb4}{SX1268\_send\_message}}(uint8\_t*\ buffer,\ \textcolor{keywordtype}{int}\ buffer\_size);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_SX1268\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00243\ }
+
+\end{DoxyCode}

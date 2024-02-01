@@ -1,0 +1,197 @@
+\doxysection{AHT10}
+\hypertarget{group___a_h_t10__group}{}\label{group___a_h_t10__group}\index{AHT10@{AHT10}}
+
+
+Модуль для датчика AHT10. Обеспечивает программную перезагрузку датчика и измерение данных. Датчик подключается к I2C.  
+
+
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_ga4af2c4e821cc0bf623bc7b2d3d5e0b1f}{AHT10\+\_\+init}} (I2\+C\+\_\+\+Handle\+Type\+Def hi2c\+\_\+)
+\begin{DoxyCompactList}\small\item\em Инициализация датчика. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_ga739b776b6a5a10a14f44d97b7ef31665}{AHT10\+\_\+trigger\+\_\+measure}} ()
+\begin{DoxyCompactList}\small\item\em Функция выполнения измерений влажности и темепратуры датчиком. ~\newline
+ \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_gac65f8d76d693ca0b007af6c130136c49}{AHT10\+\_\+get\+\_\+measure}} (float \texorpdfstring{$\ast$}{*}t, float \texorpdfstring{$\ast$}{*}hum)
+\begin{DoxyCompactList}\small\item\em Чтения измеренных влажности и температуры с датчика. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_ga80c261a7697e8c99bea28a43a22618b3}{AHT10\+\_\+get\+\_\+T}} (float \texorpdfstring{$\ast$}{*}t)
+\begin{DoxyCompactList}\small\item\em Чтения измеренной температуры с датчика. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_ga20cda6598210616f26ac3c1aa277b11d}{AHT10\+\_\+get\+\_\+H}} (float \texorpdfstring{$\ast$}{*}hum)
+\begin{DoxyCompactList}\small\item\em Чтения измеренной влажности с датчика. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_gaa2679c05865245072c04e979beb6fecd}{AHT10\+\_\+soft\+\_\+reset}} ()
+\begin{DoxyCompactList}\small\item\em Программная перезагрузка датчика. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___a_h_t10__group_ga70f9fa948e0e5538b12df58547cb0d97}\label{group___a_h_t10__group_ga70f9fa948e0e5538b12df58547cb0d97} 
+I2\+C\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*} {\bfseries AHT10\+\_\+hi2c}
+\begin{DoxyCompactList}\small\item\em Экземпляр I2C, к которому подключен датчиик влажности. Тип экземпляра зависит от библиотеки. \end{DoxyCompactList}\item 
+\Hypertarget{group___a_h_t10__group_gaaf2677dd003fba0ed1f54919142aa9fe}\label{group___a_h_t10__group_gaaf2677dd003fba0ed1f54919142aa9fe} 
+uint8\+\_\+t {\bfseries AHT10\+\_\+\+Rx\+Data} \mbox{[}7\mbox{]}
+\begin{DoxyCompactList}\small\item\em Массив для получения данных с датчика. \end{DoxyCompactList}\item 
+\Hypertarget{group___a_h_t10__group_gaef1ba88a9b2a94bb16c95833cdcc1fb1}\label{group___a_h_t10__group_gaef1ba88a9b2a94bb16c95833cdcc1fb1} 
+uint8\+\_\+t {\bfseries AHT10\+\_\+trigger\+\_\+data} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em Массив для отправки данных датчику. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Макрос определения используемой библиотеки}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___a_h_t10__group_gad4d79ed951d567b18319f998dd478508}\label{group___a_h_t10__group_gad4d79ed951d567b18319f998dd478508} 
+\#define {\bfseries AHT10\+\_\+\+HAL}
+\begin{DoxyCompactList}\small\item\em Указывает библиотеку STM32, с помощью которой управляется интерфейс I2C. Определите {\bfseries{AHT10\+\_\+\+HAL}} или {\bfseries{AHT10\+\_\+\+LL}} в зависимости от используемой библиотеки. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы управления}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___a_h_t10__group_ga207d6ddf3cbdc024811b458ad79b1315}\label{group___a_h_t10__group_ga207d6ddf3cbdc024811b458ad79b1315} 
+\#define {\bfseries AHT10\+\_\+\+ADDRESS}~0x38$<$$<$1
+\begin{DoxyCompactList}\small\item\em Адрес датчика на шине I2C. \end{DoxyCompactList}\item 
+\Hypertarget{group___a_h_t10__group_ga6f79cf2f7c101f3fae3c404840499d0b}\label{group___a_h_t10__group_ga6f79cf2f7c101f3fae3c404840499d0b} 
+\#define {\bfseries AHT10\+\_\+\+COMMAND\+\_\+\+INIT}~0b11100001
+\begin{DoxyCompactList}\small\item\em Код операции инициации измерений влажности и температуры. \end{DoxyCompactList}\item 
+\Hypertarget{group___a_h_t10__group_ga5a071318d43838e834cf91e587f31e54}\label{group___a_h_t10__group_ga5a071318d43838e834cf91e587f31e54} 
+\#define {\bfseries AHT10\+\_\+\+COMMAND\+\_\+\+TRIGGER}~0b10101100
+\begin{DoxyCompactList}\small\item\em Код операции инициации измерений влажности и температуры. \end{DoxyCompactList}\item 
+\Hypertarget{group___a_h_t10__group_gaf0c3508cf78edc8e095c846e165a1887}\label{group___a_h_t10__group_gaf0c3508cf78edc8e095c846e165a1887} 
+\#define {\bfseries AHT10\+\_\+\+COMMAND\+\_\+\+RESET}~0b10111010
+\begin{DoxyCompactList}\small\item\em Код операции программной перезагрузки датчика. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Модуль для датчика AHT10. Обеспечивает программную перезагрузку датчика и измерение данных. Датчик подключается к I2C. 
+
+Модуль работает с библиотеками LL и HAL. Для выбора библиотеки необходимо использовать макрос и при использовании LL добавить в проект модуль I2C LL. ~\newline
+ Для работы достаточно вызвать функцию инициализации, вызвать измерение и считать полученные данные\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{float}\ t,\ hum;\ \ }
+\DoxyCodeLine{AHT10\_init();\ \ }
+\DoxyCodeLine{\mbox{\hyperlink{group___a_h_t10__group_ga739b776b6a5a10a14f44d97b7ef31665}{AHT10\_trigger\_measure}}();\ \ }
+\DoxyCodeLine{\textcolor{keywordflow}{while}(1)\ \{\ \ }
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{group___a_h_t10__group_gac65f8d76d693ca0b007af6c130136c49}{AHT10\_get\_measure}}(\&t,\ \&hum);\ \ }
+\DoxyCodeLine{\ \ \ \ HAL\_Delay(1000);\ \ \ }
+\DoxyCodeLine{\}\ \ }
+
+\end{DoxyCode}
+~\newline
+ 
+
+\doxysubsection{Функции}
+\Hypertarget{group___a_h_t10__group_ga20cda6598210616f26ac3c1aa277b11d}\label{group___a_h_t10__group_ga20cda6598210616f26ac3c1aa277b11d} 
+\index{AHT10@{AHT10}!AHT10\_get\_H@{AHT10\_get\_H}}
+\index{AHT10\_get\_H@{AHT10\_get\_H}!AHT10@{AHT10}}
+\doxysubsubsection{\texorpdfstring{AHT10\_get\_H()}{AHT10\_get\_H()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def AHT10\+\_\+get\+\_\+H (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{hum }\end{DoxyParamCaption})}
+
+
+
+Чтения измеренной влажности с датчика. 
+
+Функция считывает из AHT10 в буфер {\bfseries{AHT10\+\_\+\+Rx\+Data}}. Данные из этого буфера преобразуются в величину влажности по стандртным формулам. 
+\begin{DoxyParams}{Аргументы}
+{\em t} & Возвращаемая величина влажности в \% \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Статус I2C после сохранения данных влажности по I2C в буфер. Может быть {\bfseries{HAL\+\_\+\+OK}}, {\bfseries{HAL\+\_\+\+ERROR}}, {\bfseries{HAL\+\_\+\+BUSY}} \\
+\hline
+\end{DoxyRetVals}
+Аналогичные действия из функциии AHT10\+\_\+get\+\_\+measure\Hypertarget{group___a_h_t10__group_gac65f8d76d693ca0b007af6c130136c49}\label{group___a_h_t10__group_gac65f8d76d693ca0b007af6c130136c49} 
+\index{AHT10@{AHT10}!AHT10\_get\_measure@{AHT10\_get\_measure}}
+\index{AHT10\_get\_measure@{AHT10\_get\_measure}!AHT10@{AHT10}}
+\doxysubsubsection{\texorpdfstring{AHT10\_get\_measure()}{AHT10\_get\_measure()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def AHT10\+\_\+get\+\_\+measure (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{t,  }\item[{float \texorpdfstring{$\ast$}{*}}]{hum }\end{DoxyParamCaption})}
+
+
+
+Чтения измеренных влажности и температуры с датчика. 
+
+Функция считывает данные из AHT10 в буфер {\bfseries{AHT10\+\_\+\+Rx\+Data}}. Данные из этого буфера преобразуются в величины температуры и влажности по стандартным формулам. 
+\begin{DoxyParams}{Аргументы}
+{\em t} & Возвращаемая величина температуры в градусах Цельсия \\
+\hline
+{\em hum} & Возвращаемая величина влажности в \% \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Статус I2C после сохранения полученных данных по I2C в буфер. Может быть {\bfseries{HAL\+\_\+\+OK}}, {\bfseries{HAL\+\_\+\+ERROR}}, {\bfseries{HAL\+\_\+\+BUSY}} \\
+\hline
+\end{DoxyRetVals}
+0b10000000 -\/ код, который вернет AHT10, если он занят(еще выполняет измерения, например).
+
+Объединяем 3 последних байта в uint32\+\_\+t для получения необработанных данных с АЦП о температуре
+
+Стандартная формула преобразования попугаев в слонов
+
+Для влажности аналогично объединяем 3 первых байта\Hypertarget{group___a_h_t10__group_ga80c261a7697e8c99bea28a43a22618b3}\label{group___a_h_t10__group_ga80c261a7697e8c99bea28a43a22618b3} 
+\index{AHT10@{AHT10}!AHT10\_get\_T@{AHT10\_get\_T}}
+\index{AHT10\_get\_T@{AHT10\_get\_T}!AHT10@{AHT10}}
+\doxysubsubsection{\texorpdfstring{AHT10\_get\_T()}{AHT10\_get\_T()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def AHT10\+\_\+get\+\_\+T (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{t }\end{DoxyParamCaption})}
+
+
+
+Чтения измеренной температуры с датчика. 
+
+Функция считывает из AHT10 в буфер {\bfseries{AHT10\+\_\+\+Rx\+Data}}. Данные из этого буфера преобразуются в величину температуры по стандртным формулам. 
+\begin{DoxyParams}{Аргументы}
+{\em t} & Возвращаемая величина температуры в градусах Цельсия \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Статус I2C после сохранения данных температуры по I2C в буфер. Может быть {\bfseries{HAL\+\_\+\+OK}}, {\bfseries{HAL\+\_\+\+ERROR}}, {\bfseries{HAL\+\_\+\+BUSY}} \\
+\hline
+\end{DoxyRetVals}
+Аналогичные действия из функциии AHT10\+\_\+get\+\_\+measure\Hypertarget{group___a_h_t10__group_ga4af2c4e821cc0bf623bc7b2d3d5e0b1f}\label{group___a_h_t10__group_ga4af2c4e821cc0bf623bc7b2d3d5e0b1f} 
+\index{AHT10@{AHT10}!AHT10\_init@{AHT10\_init}}
+\index{AHT10\_init@{AHT10\_init}!AHT10@{AHT10}}
+\doxysubsubsection{\texorpdfstring{AHT10\_init()}{AHT10\_init()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def AHT10\+\_\+init (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def}]{hi2c\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Инициализация датчика. 
+
+Функция инициализации датчика. Используется перед измерением данных. Отправляет код операции инициализации датчику. ~\newline
+ 
+\begin{DoxyParams}{Аргументы}
+{\em hi2c\+\_\+} & Экземпляр I2\+C\+\_\+\+Type\+Def, к которому подключен датчик. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Статус I2C после инициализации датчика. Может быть {\bfseries{HAL\+\_\+\+OK}}, {\bfseries{HAL\+\_\+\+ERROR}}, {\bfseries{HAL\+\_\+\+BUSY}} \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_h_t10__group_gaa2679c05865245072c04e979beb6fecd}\label{group___a_h_t10__group_gaa2679c05865245072c04e979beb6fecd} 
+\index{AHT10@{AHT10}!AHT10\_soft\_reset@{AHT10\_soft\_reset}}
+\index{AHT10\_soft\_reset@{AHT10\_soft\_reset}!AHT10@{AHT10}}
+\doxysubsubsection{\texorpdfstring{AHT10\_soft\_reset()}{AHT10\_soft\_reset()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def AHT10\+\_\+soft\+\_\+reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Программная перезагрузка датчика. 
+
+Отправляет код операции перезагрузки датчика. Перезагрузка длится \texorpdfstring{$\sim$}{\string~}20мс. 
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Статус I2C после отправки кода операции датчику. Может быть {\bfseries{HAL\+\_\+\+OK}}, {\bfseries{HAL\+\_\+\+ERROR}}, {\bfseries{HAL\+\_\+\+BUSY}} \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_h_t10__group_ga739b776b6a5a10a14f44d97b7ef31665}\label{group___a_h_t10__group_ga739b776b6a5a10a14f44d97b7ef31665} 
+\index{AHT10@{AHT10}!AHT10\_trigger\_measure@{AHT10\_trigger\_measure}}
+\index{AHT10\_trigger\_measure@{AHT10\_trigger\_measure}!AHT10@{AHT10}}
+\doxysubsubsection{\texorpdfstring{AHT10\_trigger\_measure()}{AHT10\_trigger\_measure()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Status\+Type\+Def AHT10\+\_\+trigger\+\_\+measure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция выполнения измерений влажности и темепратуры датчиком. ~\newline
+ 
+
+Функция отправляет код операции измерения влажности и температуры вместе со стандартными параметрами. Данные измеряются \texorpdfstring{$\sim$}{\string~}75мс. 
+\begin{DoxyRetVals}{Возвращаемые значения}
+{\em status} & Статус I2C после отправки кода операции датчику. Может быть {\bfseries{HAL\+\_\+\+OK}}. {\bfseries{HAL\+\_\+\+ERROR}}, {\bfseries{HAL\+\_\+\+BUSY}} \\
+\hline
+\end{DoxyRetVals}

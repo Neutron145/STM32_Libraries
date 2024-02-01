@@ -1,33 +1,10 @@
-/*
- *******************************************************************************
- * 	@file			BMP280_hal.h
- *	@brief			This file provides parser for NMEA messages from GPS.
- *					GPS transmits following NMEA messages: GPGGA, GPGSA, GPGSV, GPGLL, GPRMC, GPVTG. 
- *					We will use GPVTG and GGA to get speed, altitude, longitude, latitude, hdop, number of sattelites and course
- * 
- *					All data is read on computer, not in the microcontroller
- * 
- *					Data reading algorithm:
- *					1. Get NMEA message 
- *					2. Calculate checksum
- *					3. If checksum correct, process message before parsing
- *					4. Extract necessary data from template
- *
- *	@author			Rafael Abeldinov
- *  @created 		04.12.2023
- *******************************************************************************
- */
 
 #include "GPS_parser.h"
 
 GGA_data GGA;
 VTG_data VTG;
 
-/*
- * @brief	Auxiliary function for insert char in message
- * @param	dest		- Line to insert char into
- * @param	source		- Char to be inserted into the line
- */
+
 void __insert(char* &dest, char source, int pos) {
 	char* cpy = new char[strlen(dest) + 1];
 	strcpy(cpy, dest);
@@ -38,12 +15,7 @@ void __insert(char* &dest, char source, int pos) {
 	dest = _strdup(cpy);
 }
 
-/*
- * @brief	Internal function to calculate checksum of NMEA message
- * @param	buffer		- NMEA message for which checksum needs to be calculated
- * @retval	status:		- 1		Valid checksum
- *						- 0		Invalid checksum
- */
+
 int __checksum(char* &buffer) {
 	char* b = buffer;
 	uint8_t i_xor = 0;
@@ -60,10 +32,7 @@ int __checksum(char* &buffer) {
 	return 0;
 }
 
-/*
- * @brief	Internal function to process message before parse
- * @param	buffer		- NMEA message to process
- */
+
 void __line_process(char* &buffer) {
 	int pos = 0;
 	while (buffer[pos++] != '*') {
@@ -73,15 +42,7 @@ void __line_process(char* &buffer) {
 	}
 }
 
-/*
- * @brief	Main function to extract data from NMEA message into GGA and VTG structs
- * @param	buffer		- NMEA message
- * @retval	status:		- 2		Parse VTG message
- *						- 1		Parse GGA message
- *						- 0		Other NMEA message
- *						- -1	Invalid checksum
- *						- -2	Uncorrect data in NMEA
- */
+
 int parse(char* buffer) {
 	if (!__checksum(buffer)) return -1;
 	__line_process(buffer);

@@ -1,0 +1,142 @@
+\doxysection{LSM6\+DS33.\+h}
+\hypertarget{_l_s_m6_d_s33_8h_source}{}\label{_l_s_m6_d_s33_8h_source}\index{LSM6DS33/LSM6DS33.h@{LSM6DS33/LSM6DS33.h}}
+\mbox{\hyperlink{_l_s_m6_d_s33_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ INC\_LSM6DS33\_H\_}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ INC\_LSM6DS33\_H\_}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}main.h"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ LSM6DS33\_HAL\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#ifdef\ LSM6DS33\_HAL}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ I2C\_TypeDef\ \ \ \ \ \ \ \ \ I2C\_HandleTypeDef}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ I2C\_Mem\_Write(ADR,\ DEV\_ADR,\ REG\_ADR,\ BUF,\ BUF\_SIZE,\ TIMEOUT)\ \ \ \ \ \ \ \ HAL\_I2C\_Mem\_Write(ADR,DEV\_ADR,REG\_ADR,I2C\_MEMADD\_SIZE\_8BIT,BUF,BUF\_SIZE,TIMEOUT)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ I2C\_Mem\_Read(ADR,\ DEV\_ADR,\ REG\_ADR,\ BUF,\ BUF\_SIZE,\ TIMEOUT)\ \ \ \ \ \ \ \ \ HAL\_I2C\_Mem\_Read(ADR,DEV\_ADR,REG\_ADR,I2C\_MEMADD\_SIZE\_8BIT,BUF,BUF\_SIZE,TIMEOUT)}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#elif\ LSM6DS33\_LL}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i2_c__ll_8h}{I2C\_ll.h}}"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ I2C\_TypeDef\ \ \ \ \ \ \ \ \ I2C\_TypeDef}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ I2C\_Mem\_Write(ADR,\ DEV\_ADR,\ REG\_ADR,\ BUF,\ BUF\_SIZE,\ TIMEOUT)\ \ \ \ \ \ \ \ LL\_I2C\_Mem\_Write(ADR,DEV\_ADR,REG\_ADR,BUF,BUF\_SIZE,TIMEOUT)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ I2C\_Mem\_Read(ADR,\ DEV\_ADR,\ REG\_ADR,\ BUF,\ BUF\_SIZE,\ TIMEOUT)\ \ \ \ \ \ \ \ \ LL\_I2C\_Mem\_Read(ADR,DEV\_ADR,REG\_ADR,BUF,BUF\_SIZE,TIMEOUT)}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LSM6DS33\_LL\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ I2C\_TypeDef*\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_gad8ece5c33c7bd6df846292f7bc2c7259}{LSM6DS33\_hi2c}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ uint16\_t\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga3e9d93f01df7b25d2b02c252ec86b739}{FULL\_SCALES\_A}}[4];\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ uint16\_t\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga1ea42d8000b5a0cc3f34da582e385d9c}{FULL\_SCALES\_G}}[4];\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00063\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_l_s_m6_d_s33__cfg_a8412eda60f7be1020991792289092550}{ORIENT\_config}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_l_s_m6_d_s33__cfg_ae547ab0be4d7840646c694112584e595}{CTRL1\_config}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_l_s_m6_d_s33__cfg_a39c24bad1630ae11b80c93e07a8dcdd1}{CTRL2\_config}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_l_s_m6_d_s33__cfg_a7cde64d1de5b9b973faeca8ee920eaa8}{CTRL3\_config}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_l_s_m6_d_s33__cfg_a38bb7628cd59b42669dc4989c778e493}{CTRL7\_config}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_l_s_m6_d_s33__cfg_a2e603974d041b0b3901de1f35ebba112}{CTRL8\_config}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ \}\ \mbox{\hyperlink{struct_l_s_m6_d_s33__cfg}{LSM6DS33\_cfg}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ SA0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#ifdef\ SA0}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ADDRESS\ \ \ \ \ \ \ \ \ \ \ \ 0xD7\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ADDRESS\ \ \ \ \ \ \ \ \ \ \ \ 0xD5\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SA0\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ODR\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b11110000\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ODR\_POWER\_DOWN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b0000\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ODR\_12\_5HZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b0001\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ODR\_26HZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b0010\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ODR\_52HZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b0011\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ODR\_104HZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b0100\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ODR\_208HZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b0101\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ODR\_416HZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b0110\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ODR\_833HZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b0111\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ODR\_1660HZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b1000\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ODR\_3330HZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b1001\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ODR\_6660HZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b1010\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_CFG\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b00111111\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_CFG\_XYZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b000}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_CFG\_XZY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b001}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_CFG\_YXZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b010}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_CFG\_YZX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b011}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_CFG\_ZXY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b100}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_CFG\_ZYX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b101}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_SIGN\_POSITIVE\_X\ \ \ \ \ \ \ \ \ 0b0<<2}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_SIGN\_NEGATIVE\_X\ \ \ \ \ \ \ \ \ 0b1<<2}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_SIGN\_POSITIVE\_Y\ \ \ \ \ \ \ \ \ 0b0<<1}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_SIGN\_NEGATIVE\_Y\ \ \ \ \ \ \ \ \ 0b1<<1}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_SIGN\_POSITIVE\_Z\ \ \ \ \ \ \ \ \ 0b0}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ LSM6DS33\_ORIENT\_SIGN\_NEGATIVE\_Z\ \ \ \ \ \ \ \ \ 0b1}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ LSM6DS33\_GYRO\_HPF\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b01110000}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ LSM6DS33\_GYRO\_HPF\_OFF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b0}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ LSM6DS33\_GYRO\_HPF\_ON\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b1}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ LSM6DS33\_GYRO\_HPF\_FREQ\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b00\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ LSM6DS33\_GYRO\_HPF\_FREQ\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b01\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ LSM6DS33\_GYRO\_HPF\_FREQ\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b00\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ LSM6DS33\_GYRO\_HPF\_FREQ\_4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b01\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ LSM6DS33\_A\_FILTER\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b01100000}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#define\ LSM6DS33\_A\_FILTER\_MODE\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b00\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ LSM6DS33\_A\_FILTER\_MODE\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b01\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ LSM6DS33\_A\_FILTER\_MODE\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b10\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ LSM6DS33\_A\_FILTER\_MODE\_4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b11\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#define\ LSM6DS33\_FULL\_SCALE\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b00001100}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#define\ LSM6DS33\_FULL\_SCALE\_2G\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b00}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ LSM6DS33\_FULL\_SCALE\_4G\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b10}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ LSM6DS33\_FULL\_SCALE\_8G\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b11}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#define\ LSM6DS33\_FULL\_SCALE\_16G\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b01}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ LSM6DS33\_FULL\_SCALE\_250DPS\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b000}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ LSM6DS33\_FULL\_SCALE\_500DPS\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0b001}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#define\ LSM6DS33\_FULL\_SCALE\_1000DPS\ \ \ \ \ \ \ \ \ \ \ \ \ 0b010}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#define\ LSM6DS33\_FULL\_SCALE\_2000DPS\ \ \ \ \ \ \ \ \ \ \ \ \ 0b011}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#define\ LSM6DS33\_REGISTER\_CTRL1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x10}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ LSM6DS33\_REGISTER\_CTRL2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x11}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#define\ LSM6DS33\_REGISTER\_CTRL3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x12}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#define\ LSM6DS33\_REGISTER\_CTRL7\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x16}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#define\ LSM6DS33\_REGISTER\_CTRL8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x17}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#define\ LSM6DS33\_REGISTER\_ORIENT\_CFG\ \ \ \ \ \ \ \ \ \ \ \ 0x0B}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#define\ LSM6DS33\_REGISTER\_STATUS\_REG\ \ \ \ \ \ \ \ \ \ \ \ 0x1E}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#define\ LSM6DS33\_REGISTER\_OUT\_T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x20}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#define\ LSM6DS33\_REGISTER\_OUT\_G\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x22}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#define\ LSM6DS33\_REGISTER\_OUT\_A\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x28}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#define\ LSM6DS33\_REGISTER\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0F}}
+\DoxyCodeLine{00201\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_gae6b392cec4944416801eabf7f95d13b2}{\_\_LSM6DS33\_modify\_reg}}(uint8\_t\ *reg\_data,\ uint8\_t\ mask,\ uint8\_t\ bits);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00211\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga65f8d51906bfa63994613f24fe265bbc}{LSM6DS33\_init}}(I2C\_HandleTypeDef\ hi2c\_);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00222\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_gab790d028306b8e65cb6bd0fea470488d}{LSM6DS33\_config\_orientation}}(uint8\_t\ orient,\ uint8\_t\ signs);}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00232\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_gafa5498ca334e09daeff33bbe17cc1849}{LSM6DS33\_config\_filters}}(uint8\_t\ g\_HPF,\ uint8\_t\ g\_HPF\_frequency,\ uint8\_t\ a\_HPF);}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00241\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_gac340e8eb67ec4c3935ac5f9d21702689}{LSM6DS33\_config\_full\_scale}}(uint8\_t\ a\_FS,\ uint8\_t\ g\_FS);}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00251\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga68e56747e6553e229a8bb64a2adeae7d}{LSM6DS33\_config\_perfomance\_mode}}(uint8\_t\ a\_ODR,\ uint8\_t\ g\_ODR);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00260\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga0c2dbc5fb28f8dfb76e5b1597b579941}{LSM6DS33\_reset}}();}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00271\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_gac3a6604c07a62dda0c338d382a0209cd}{LSM6DS33\_A\_get\_measure}}(\textcolor{keywordtype}{float}\ *a);}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00279\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga7f266a11c1106c6c7774e961ad3ddcd8}{LSM6DS33\_G\_get\_measure}}(\textcolor{keywordtype}{float}\ *g);}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00287\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga42146df5bea93f539fe623653f301fab}{LSM6DS33\_T\_get\_measure}}(\textcolor{keywordtype}{float}\ *t);}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00296\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_gabb8047f0a55832252a0d0ef41f748fd6}{LSM6DS33\_get\_measure}}(\textcolor{keywordtype}{float}*\ a,\ \textcolor{keywordtype}{float}\ *g);}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00306\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___l_s_m6_d_s33__group_ga11b009252026358585a88ddcf0703794}{LSM6DS33\_get\_all\_measure}}(\textcolor{keywordtype}{float}*\ a,\ \textcolor{keywordtype}{float}\ *g,\ \textcolor{keywordtype}{float}*\ t);}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_LSM6DS33\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00309\ }
+
+\end{DoxyCode}

@@ -1,0 +1,45 @@
+\doxysection{AHT10/\+AHT10\+\_\+ll.h File Reference}
+\hypertarget{_a_h_t10__ll_8h}{}\label{_a_h_t10__ll_8h}\index{AHT10/AHT10\_ll.h@{AHT10/AHT10\_ll.h}}
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include "{}SPI\+\_\+ll.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___a_h_t10__group_gad4d79ed951d567b18319f998dd478508}{AHT10\+\_\+\+HAL}}
+\item 
+\#define \mbox{\hyperlink{group___a_h_t10__group_ga207d6ddf3cbdc024811b458ad79b1315}{AHT10\+\_\+\+ADDRESS}}~0x38$<$$<$1
+\item 
+\#define \mbox{\hyperlink{group___a_h_t10__group_ga6f79cf2f7c101f3fae3c404840499d0b}{AHT10\+\_\+\+COMMAND\+\_\+\+INIT}}~0b11100001
+\item 
+\#define \mbox{\hyperlink{group___a_h_t10__group_ga5a071318d43838e834cf91e587f31e54}{AHT10\+\_\+\+COMMAND\+\_\+\+TRIGGER}}~0b10101100
+\item 
+\#define \mbox{\hyperlink{group___a_h_t10__group_gaf0c3508cf78edc8e095c846e165a1887}{AHT10\+\_\+\+COMMAND\+\_\+\+RESET}}~0b10111010
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_ga4af2c4e821cc0bf623bc7b2d3d5e0b1f}{AHT10\+\_\+init}} (I2\+C\+\_\+\+Handle\+Type\+Def hi2c\+\_\+)
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_ga739b776b6a5a10a14f44d97b7ef31665}{AHT10\+\_\+trigger\+\_\+measure}} ()
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_gac65f8d76d693ca0b007af6c130136c49}{AHT10\+\_\+get\+\_\+measure}} (float \texorpdfstring{$\ast$}{*}t, float \texorpdfstring{$\ast$}{*}hum)
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_ga80c261a7697e8c99bea28a43a22618b3}{AHT10\+\_\+get\+\_\+T}} (float \texorpdfstring{$\ast$}{*}t)
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_ga20cda6598210616f26ac3c1aa277b11d}{AHT10\+\_\+get\+\_\+H}} (float \texorpdfstring{$\ast$}{*}hum)
+\item 
+HAL\+\_\+\+Status\+Type\+Def \mbox{\hyperlink{group___a_h_t10__group_gaa2679c05865245072c04e979beb6fecd}{AHT10\+\_\+soft\+\_\+reset}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___a_h_t10__group_gaaf2677dd003fba0ed1f54919142aa9fe}{AHT10\+\_\+\+Rx\+Data}} \mbox{[}7\mbox{]}
+\begin{DoxyCompactList}\small\item\em Массив для получения данных с датчика. \end{DoxyCompactList}\item 
+uint8\+\_\+t {\bfseries AHT10\+\_\+trigger\+\_\+data} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em Массив для отправки данных датчику. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Данный модуль позволяет измерять данные датчиком влажности AHT10 и сохранять измеренные данные в буфер. \begin{DoxyAuthor}{Author}
+Rafael Abeldinov @data 14.\+12.\+2023 
+\end{DoxyAuthor}

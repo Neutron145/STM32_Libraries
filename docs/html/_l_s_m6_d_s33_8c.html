@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RocketLAV`s STM32 libraries: Файл LSM6DS33/LSM6DS33.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RocketLAV`s STM32 libraries
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_l_s_m6_d_s33_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle"><div class="title">Файл LSM6DS33.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Файл обеспечивает работу датчика LSM6DS33, подключенному к микроконтроллеру STM32F103 или STM32F411 по I2C.  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_l_s_m6_d_s33_8h_source.html">LSM6DS33.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gae6b392cec4944416801eabf7f95d13b2" id="r_gae6b392cec4944416801eabf7f95d13b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#gae6b392cec4944416801eabf7f95d13b2">__LSM6DS33_modify_reg</a> (uint8_t *reg_data, uint8_t mask, uint8_t bits)</td></tr>
+<tr class="memdesc:gae6b392cec4944416801eabf7f95d13b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вспомогательная функция для изменения бита в байте  <br /></td></tr>
+<tr class="separator:gae6b392cec4944416801eabf7f95d13b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga65f8d51906bfa63994613f24fe265bbc" id="r_ga65f8d51906bfa63994613f24fe265bbc"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#ga65f8d51906bfa63994613f24fe265bbc">LSM6DS33_init</a> (I2C_HandleTypeDef hi2c_)</td></tr>
+<tr class="memdesc:ga65f8d51906bfa63994613f24fe265bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация датчика LSM6DS33.  <br /></td></tr>
+<tr class="separator:ga65f8d51906bfa63994613f24fe265bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab790d028306b8e65cb6bd0fea470488d" id="r_gab790d028306b8e65cb6bd0fea470488d"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#gab790d028306b8e65cb6bd0fea470488d">LSM6DS33_config_orientation</a> (uint8_t orient, uint8_t signs)</td></tr>
+<tr class="memdesc:gab790d028306b8e65cb6bd0fea470488d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация ориентации датчика  <br /></td></tr>
+<tr class="separator:gab790d028306b8e65cb6bd0fea470488d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafa5498ca334e09daeff33bbe17cc1849" id="r_gafa5498ca334e09daeff33bbe17cc1849"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#gafa5498ca334e09daeff33bbe17cc1849">LSM6DS33_config_filters</a> (uint8_t g_HPF, uint8_t g_HPF_frequency, uint8_t a_HPF)</td></tr>
+<tr class="memdesc:gafa5498ca334e09daeff33bbe17cc1849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация HPF фильтров акселерометра и гироскопа  <br /></td></tr>
+<tr class="separator:gafa5498ca334e09daeff33bbe17cc1849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac340e8eb67ec4c3935ac5f9d21702689" id="r_gac340e8eb67ec4c3935ac5f9d21702689"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#gac340e8eb67ec4c3935ac5f9d21702689">LSM6DS33_config_full_scale</a> (uint8_t a_FS, uint8_t g_FS)</td></tr>
+<tr class="memdesc:gac340e8eb67ec4c3935ac5f9d21702689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация full-scale для гироскопа и акселерометра  <br /></td></tr>
+<tr class="separator:gac340e8eb67ec4c3935ac5f9d21702689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68e56747e6553e229a8bb64a2adeae7d" id="r_ga68e56747e6553e229a8bb64a2adeae7d"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#ga68e56747e6553e229a8bb64a2adeae7d">LSM6DS33_config_perfomance_mode</a> (uint8_t a_ODR, uint8_t g_ODR)</td></tr>
+<tr class="memdesc:ga68e56747e6553e229a8bb64a2adeae7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация режима работы датчика  <br /></td></tr>
+<tr class="separator:ga68e56747e6553e229a8bb64a2adeae7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c2dbc5fb28f8dfb76e5b1597b579941" id="r_ga0c2dbc5fb28f8dfb76e5b1597b579941"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#ga0c2dbc5fb28f8dfb76e5b1597b579941">LSM6DS33_reset</a> ()</td></tr>
+<tr class="memdesc:ga0c2dbc5fb28f8dfb76e5b1597b579941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Програмнная перезагрузка датчика  <br /></td></tr>
+<tr class="separator:ga0c2dbc5fb28f8dfb76e5b1597b579941"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3a6604c07a62dda0c338d382a0209cd" id="r_gac3a6604c07a62dda0c338d382a0209cd"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#gac3a6604c07a62dda0c338d382a0209cd">LSM6DS33_A_get_measure</a> (float *a)</td></tr>
+<tr class="memdesc:gac3a6604c07a62dda0c338d382a0209cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Снятие измерений акселерометра  <br /></td></tr>
+<tr class="separator:gac3a6604c07a62dda0c338d382a0209cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f266a11c1106c6c7774e961ad3ddcd8" id="r_ga7f266a11c1106c6c7774e961ad3ddcd8"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#ga7f266a11c1106c6c7774e961ad3ddcd8">LSM6DS33_G_get_measure</a> (float *g)</td></tr>
+<tr class="memdesc:ga7f266a11c1106c6c7774e961ad3ddcd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Снятие измерений гироскопа  <br /></td></tr>
+<tr class="separator:ga7f266a11c1106c6c7774e961ad3ddcd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42146df5bea93f539fe623653f301fab" id="r_ga42146df5bea93f539fe623653f301fab"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#ga42146df5bea93f539fe623653f301fab">LSM6DS33_T_get_measure</a> (float *t)</td></tr>
+<tr class="memdesc:ga42146df5bea93f539fe623653f301fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Снятие измерений термометра  <br /></td></tr>
+<tr class="separator:ga42146df5bea93f539fe623653f301fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabb8047f0a55832252a0d0ef41f748fd6" id="r_gabb8047f0a55832252a0d0ef41f748fd6"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#gabb8047f0a55832252a0d0ef41f748fd6">LSM6DS33_get_measure</a> (float *a, float *g)</td></tr>
+<tr class="memdesc:gabb8047f0a55832252a0d0ef41f748fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Снятие измерений акселерометра и гирокскопа  <br /></td></tr>
+<tr class="separator:gabb8047f0a55832252a0d0ef41f748fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11b009252026358585a88ddcf0703794" id="r_ga11b009252026358585a88ddcf0703794"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#ga11b009252026358585a88ddcf0703794">LSM6DS33_get_all_measure</a> (float *a, float *g, float *t)</td></tr>
+<tr class="memdesc:ga11b009252026358585a88ddcf0703794"><td class="mdescLeft">&#160;</td><td class="mdescRight">Снятие измерений акселерометра, гирокскопа и термометра  <br /></td></tr>
+<tr class="separator:ga11b009252026358585a88ddcf0703794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:a494caf7a702c73001baedacf7f577e28" id="r_a494caf7a702c73001baedacf7f577e28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_l_s_m6_d_s33__cfg.html">LSM6DS33_cfg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_s_m6_d_s33_8c.html#a494caf7a702c73001baedacf7f577e28">LSM6DS33_config</a></td></tr>
+<tr class="separator:a494caf7a702c73001baedacf7f577e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8ece5c33c7bd6df846292f7bc2c7259" id="r_gad8ece5c33c7bd6df846292f7bc2c7259"><td class="memItemLeft" align="right" valign="top">
+I2C_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>LSM6DS33_hi2c</b></td></tr>
+<tr class="memdesc:gad8ece5c33c7bd6df846292f7bc2c7259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Экземпляр I2C, к которому подключен датчиик влажности. Тип экземпляра зависит от библиотеки. <br /></td></tr>
+<tr class="separator:gad8ece5c33c7bd6df846292f7bc2c7259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e9d93f01df7b25d2b02c252ec86b739" id="r_ga3e9d93f01df7b25d2b02c252ec86b739"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l_s_m6_d_s33__group.html#ga3e9d93f01df7b25d2b02c252ec86b739">FULL_SCALES_A</a> [4] = {2, 16, 4, 8}</td></tr>
+<tr class="memdesc:ga3e9d93f01df7b25d2b02c252ec86b739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Используется в переводе значений АЦП в мс/c и градусы в зависимости от установленного full-scale акселерометра и гироскопа соотвественно  <br /></td></tr>
+<tr class="separator:ga3e9d93f01df7b25d2b02c252ec86b739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ea42d8000b5a0cc3f34da582e385d9c" id="r_ga1ea42d8000b5a0cc3f34da582e385d9c"><td class="memItemLeft" align="right" valign="top">
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>FULL_SCALES_G</b> [4] = {250, 500, 1000, 2000}</td></tr>
+<tr class="memdesc:ga1ea42d8000b5a0cc3f34da582e385d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Хранит значения full-scale для гироскопа. Упрощает перевод из попугаев в слонов <br /></td></tr>
+<tr class="separator:ga1ea42d8000b5a0cc3f34da582e385d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Файл обеспечивает работу датчика LSM6DS33, подключенному к микроконтроллеру STM32F103 или STM32F411 по I2C. </p>
+<dl class="section author"><dt>Автор</dt><dd>Рафаэль Абельдинов </dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>19.12.2023 </dd></dl>
+</div><h2 class="groupheader">Переменные</h2>
+<a id="a494caf7a702c73001baedacf7f577e28" name="a494caf7a702c73001baedacf7f577e28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a494caf7a702c73001baedacf7f577e28">&#9670;&#160;</a></span>LSM6DS33_config</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_l_s_m6_d_s33__cfg.html">LSM6DS33_cfg</a> LSM6DS33_config</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Структура для хранения значений регистров конфигурации датчика. Упрощает работу с датчиком, т.к. избегаем чтения регистров с датчика перед его изменением и храним все в памяти МК. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_f288131f73488d9fed008f92f7c4f8d7.html">LSM6DS33</a></li><li class="navelem"><a class="el" href="_l_s_m6_d_s33_8c.html">LSM6DS33.c</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

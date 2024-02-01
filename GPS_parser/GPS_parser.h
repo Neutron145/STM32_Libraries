@@ -1,11 +1,21 @@
-/*
- *******************************************************************************
+/***************************************************************************//**
  * 	@file			GPS_parser.h
- *	@brief			Header file for GPS_parser.c
- *
- *	@author			Rafael Abeldinov
- *  @created 		04.12.2023
- *******************************************************************************
+ *  @brief			Файл содержит функции парсинга NMEA сообщений, поступающих с GPS
+ * 	@author			Рафаэль Абельдинов
+ *  @date 			04.12.2023
+ ******************************************************************************/
+
+/**
+ * @defgroup Parser_group GPS parser
+ * @brief			Модуль парсера NMEA сообщений
+ * @details 		Предполагается использование модуля на ПК, а не на МК. Модуль позволяет извлекать данные из NMEA сообщений типа GGA и VTG в формате "hh:mm:ss  $GPxxx,x,x,x,x,x,x,x*xx". 
+ * 					Пример использования кода
+ * 					\code{.c}  
+ * 					char* buffer = new char[256];
+ * 					strcpy(buffer, "14:05:35  $GPGGA,140535.00,5312.77775,N,05010.72429,E,1,05,8.77,153.0,M,-6.4,M,,*41");
+ * 					parse(buffer);
+ * 					\endcode
+ * @{
  */
 
 #ifndef GPS_PARSER_H
@@ -15,37 +25,71 @@
 #include "stdio.h"
 #include "fstream"
 
-/* Data from GGA message ------------------------------------------------------*/
-typedef struct {
-	float date;
-	float longitude;
-	char EW;
-	float latitude;
-	char NS;
-	float altitude;
-	int solve_type;
-	float HDOP;
-	int sats;
+/**
+ * @brief Структура для хранения данных сообщения GGA
+ */
+typedef struct { 
+	float date;			//!< Дата и время получения сообщения
+	float longitude;	//!< Долгота
+	char EW;			//!< Направление долготы 
+	float latitude;		//!< Широта
+	char NS;			//!< Направление широты
+	float altitude;		//!< Высота
+	int solve_type;		//!< Тип решения
+	float HDOP;			//!< Геометрический фактор (точность полученных данных)
+	int sats;			//!< Количество найденных спутников
 } GGA_data;
 
-/* Data from VTG message ------------------------------------------------------*/
+/**
+ * @brief Структура для хранения данных сообщения VTG
+ */
 typedef struct {
-	float course;
-	float speed_kn;
-	float speed_mph;
+	float course;		//!< Курс ракеты
+	float speed_kn;		//!< Скорость в узлах
+	float speed_mph;	//!< Скорость в км/ч
 } VTG_data;
 
-/* Instances for storing data from recent messages ----------------------------*/
-extern GGA_data GGA;
-extern VTG_data VTG;
+extern GGA_data GGA;	//!< Хранит данные из последнего сообщения GGA
+extern VTG_data VTG;	//!< Хранит данные из последнего сообщения VTG
 
-/* Auxiliary function for insert char in message ------------------------------*/
+/**
+ * @brief Вставка символа в строку на указанную позицию
+ * @param dest Строка, куда вставляется символ
+ * @param source символ, который вставляется в строку
+ * @param pos Позиция, на которую вставляется символ в строку
+ * @retval dest Строка dest со вставленным символом
+ */
 void __insert(char* &dest, char source, int pos);
-/* Internal function for calculate checksum of message ------------------------*/
+
+/**
+ * @brief Проверки контрольной суммы
+ * @details Контрольная сумма вычисляется вычислением XOR с каждым байтом сообщения NMEA
+ * @param buffer Строка, для которой необходимо вычислить контрольную сумму
+ * @retval status 	- 1, если контрольная сумма совпала
+ * 					- 0, если контрольная сумма не совпала
+ */
 int __checksum(char* &buffer);
-/* Internal function for processing lines before parse ------------------------*/
+
+/**
+ * @brief Обработка строки
+ * @details Функция подгоняет строку под шаблон перед извлечением данных. Подгон под шаблон происходит путем заполнения нулями отсутсвующих значений
+ * @param buffer Строка, которая подгоняется под шаблон
+ * @retval Строка, подогнанная под шаблон, т.е. со всталеными нулями
+ */
 void __line_process(char* &buffer);
-/* Main function for extract data from NMEA messages --------------------------*/
+
+/**
+ * @brief Извлечение данных из NMEA сообщения 
+ * @details Данные извлекаются из строки в структуры GGA и VTG в зависимости от типа сообщения
+ * @param buffer Строка, из которой извлекаются данные
+ * @retval status 	- -2, если при VTG или GGA неправильно считались данные для сохранения в структуру
+ * 					- -1, если не совпала контрольная сумма
+ * 					- 0, если переданный тип сообщения не VTG или GGA
+ * 					- 1, если данные считались верно для GGA
+ * 					- 2, если данные считались верно для VTG
+ */
 int parse(char* buffer);
 
 #endif /* GPS_PARSER_H */
+
+/** @} */

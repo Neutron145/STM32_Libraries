@@ -1,0 +1,26 @@
+\doxysection{I2\+C\+\_\+ll.\+h}
+\hypertarget{_i2_c__ll_8h_source}{}\label{_i2_c__ll_8h_source}\index{I2C/I2C\_ll.h@{I2C/I2C\_ll.h}}
+\mbox{\hyperlink{_i2_c__ll_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ I2C\_H\_}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ I2C\_H\_}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}main.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ I2C\_READ\_SIGNAL\ \ \ \ \ 0x01\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ I2C\_WRITE\_SIGNAL\ \ \ \ 0x00\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00036\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___i2_c__group_gadef8174cc949e9b9131d5d5b804b4c5a}{I2C\_\_wait\_flag}}(I2C\_TypeDef\ *I2Cx,\ uint8\_t\ bit,\ uint8\_t\ timeout);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00050\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___i2_c__group_ga7abdd4efe433ecb5962debd3b9dbd9cf}{LL\_I2C\_Master\_Receive}}(I2C\_TypeDef\ *I2Cx,\ uint8\_t\ device\_address,\ uint8\_t\ *buffer,\ uint8\_t\ buffer\_size,\ uint8\_t\ timeout);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00064\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___i2_c__group_gab6450e31affc6d2d32fb5ecd942d9599}{LL\_I2C\_Master\_Transmit}}(I2C\_TypeDef\ *I2Cx,\ uint8\_t\ device\_address,\ uint8\_t\ *buffer,\ uint8\_t\ buffer\_size,\ uint8\_t\ timeout);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00079\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___i2_c__group_ga3e8550f526ae87312a6021de2822fdef}{LL\_I2C\_Mem\_Read}}(I2C\_TypeDef\ *I2Cx,\ uint8\_t\ device\_address,\ uint16\_t\ register\_address,\ uint8\_t\ *buffer,\ uint8\_t\ buffer\_size,\ uint8\_t\ timeout);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00094\ HAL\_StatusTypeDef\ \mbox{\hyperlink{group___i2_c__group_ga3b1ebed43aaf217bb1cfff301055a9ac}{LL\_I2C\_Mem\_Write}}(I2C\_TypeDef\ *I2Cx,\ uint8\_t\ device\_address,\ uint16\_t\ register\_address,\ uint8\_t\ *buffer,\ uint8\_t\ buffer\_size,\ uint8\_t\ timeout);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ I2C\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00097\ }
+
+\end{DoxyCode}

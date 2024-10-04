@@ -28,7 +28,7 @@
 #define SX1268_HAL 			//!< Указывает библиотеку STM32, с помощью которой управляется интерфейс SPI. Определите **SX1268_HAL** или **SX1268_LL** для соотвествующей библиотеки. 
 /** @} */
 
-#ifdef ISX1268_HAL
+#ifdef SX1268_HAL
 
 #define SPI_TypeDef 			SPI_HandleTypeDef
 #define SPI_Transmit(ADR, BUF, BUF_SIZE, TIMEOUT)			HAL_SPI_Transmit(ADR, BUF, BUF_SIZE, TIMEOUT)
@@ -226,7 +226,7 @@ HAL_StatusTypeDef SX1268_config_baseAddr(uint8_t TxAddr, uint8_t RxAddr);
  * @param rampTime Принимает значения @ref SX1268_RAMP_TIME "ramp time"
  * @retval status Статус выполнения конфигурации. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
  */
-HAL_Status SX1268_config_tx_params(uint8_t power, unit8_t rampTime);
+HAL_StatusTypeDef SX1268_config_tx_params(uint8_t power, uint8_t rampTime);
 
 /**
  * @brief Конфигурация параметров пакетов
@@ -238,7 +238,7 @@ HAL_Status SX1268_config_tx_params(uint8_t power, unit8_t rampTime);
  * @param invert_IQ Непонятно что это
  * @retval status Статус выполнения конфигурации. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
  */
-HAL_StatusTypeDef SX1268_config_packet_params(uint16_t preamble_length, uint8_t header_type, uint8_t payload_length, uint8_t CRC, uint8_t invert_IQ);
+HAL_StatusTypeDef SX1268_config_packet_params(uint16_t preamble_length, uint8_t header_type, uint8_t payload_length, uint8_t CRC_, uint8_t invert_IQ);
 
 /**
  * @brief

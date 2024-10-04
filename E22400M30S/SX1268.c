@@ -12,8 +12,8 @@ void SX1268_init(SPI_HandleTypeDef hspi_) {
 
 
 HAL_StatusTypeDef SX1268_config_rfFreq(uint8_t* rfFreq) {
-	uint8_t rf_freq_op[4] = {SX1268_OP_SET_RF_FREQ, rfFreq[0], rfFreq[1], rfFreq[2], rfFreq[3]};
-	return SPI_Transmit(&SX1268_hspi, rf_freq_op, 4, 0xFF);
+	uint8_t rf_freq_op[5] = {SX1268_OP_SET_RF_FREQ, rfFreq[0], rfFreq[1], rfFreq[2], rfFreq[3]};
+	return SPI_Transmit(&SX1268_hspi, rf_freq_op, 5, 0xFF);
 }
 
 
@@ -46,7 +46,7 @@ HAL_StatusTypeDef SX1268_config_baseAddr(uint8_t txAddr, uint8_t rxAddr) {
  * 			HAL_BUSY -	SPI line is currently busy.
  * 			HAL_ERROR - SPI line returned an error.
  */
-HAL_Status SX1268_config_tx_params(uint8_t power, unit8_t rampTime) {
+HAL_StatusTypeDef SX1268_config_tx_params(uint8_t power, uint8_t rampTime) {
 	uint8_t tx_params_op[3] = {SX1268_OP_SET_TX_PARAMS, power, rampTime};
 	return SPI_Transmit(&SX1268_hspi, tx_params_op, 3, 0xFF);
 }
@@ -71,8 +71,8 @@ HAL_Status SX1268_config_tx_params(uint8_t power, unit8_t rampTime) {
  * 			HAL_BUSY -	SPI line is currently busy.
  * 			HAL_ERROR - SPI line returned an error.
  */
-HAL_StatusTypeDef SX1268_config_packet_params(uint16_t preamble_length, uint8_t header_type, uint8_t payload_length, uint8_t CRC, uint8_t invert_IQ) {
-	uint8_t pack_params_op[9] = {SX1268_OP_SET_PACKET_PARAMS, preamble_length, header_type, payload_length, CRC, invert_IQ,
+HAL_StatusTypeDef SX1268_config_packet_params(uint16_t preamble_length, uint8_t header_type, uint8_t payload_length, uint8_t CRC_, uint8_t invert_IQ) {
+	uint8_t pack_params_op[9] = {SX1268_OP_SET_PACKET_PARAMS, preamble_length, header_type, payload_length, CRC_, invert_IQ,
 								0, 0 };
 	return SPI_Transmit(&SX1268_hspi, pack_params_op, 9, 0xFF);
 }

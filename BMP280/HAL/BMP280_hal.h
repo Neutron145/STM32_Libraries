@@ -44,6 +44,9 @@ extern I2C_HandleTypeDef *BMP280_hi2c;
 /* Temperature value for pressure calculation */
 extern int32_t BMP280_t_fine;
 
+/* Addres of BMP280 on I2C */
+extern uint32_t BMP280_ADDRESS;
+
 /* Periods between measurements in normal mode */
 #define BMP280_STANDBY_0_5 				0b000
 #define BMP280_STANDBY_62_5 			0b001
@@ -68,9 +71,6 @@ extern int32_t BMP280_t_fine;
 #define BMP280_FILTER_X4				0b010
 #define BMP280_FILTER_X8				0b011
 #define BMP280_FILTER_X16				0b100
-
-/* Addres of BMP280 on I2C */
-#define BMP280_ADDRESS 					0x76 << 1
 
 /* Addresses of BMP280 registers */
 #define BMP280_REGISTER_CALIBRATION		0x88

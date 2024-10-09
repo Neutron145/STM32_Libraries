@@ -19,6 +19,8 @@ I2C_HandleTypeDef *BMP280_hi2c;
 
 int32_t BMP280_t_fine;
 uint32_t BMP280_ref_pressure;
+uint32_t BMP280_ADDRESS;
+
 
 /*
  * @brief	Calculates temparature by value from ADC.
@@ -78,7 +80,13 @@ HAL_StatusTypeDef BMP280_init(I2C_HandleTypeDef *hi2c_, uint32_t ref_pressure_) 
 	uint8_t id;
 	HAL_StatusTypeDef status;
 	
-	if ((status = HAL_I2C_Mem_Read(hi2c_, BMP280_ADDRESS, BMP280_REGISTER_ID, I2C_MEMADD_SIZE_8BIT, &id, 1, 0xFF)) != HAL_OK) {
+	if ((status = HAL_I2C_Mem_Read(hi2c_, 0x76 << 1, BMP280_REGISTER_ID, I2C_MEMADD_SIZE_8BIT, &id, 1, 0xFF)) == HAL_OK) {
+		BMP280_ADDRESS = 0x76 << 1;
+	}
+	else if ((status = HAL_I2C_Mem_Read(hi2c_, 0x77 << 1, BMP280_REGISTER_ID, I2C_MEMADD_SIZE_8BIT, &id, 1, 0xFF)) == HAL_OK) {
+		BMP280_ADDRESS = 0x77 << 1;	
+	}
+	else {
 		return status;
 	}
 

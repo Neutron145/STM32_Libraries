@@ -15,7 +15,7 @@
 BME280_calibration_data calibration_data;
 BME280_settings BME280_sensor_settings;
 
-I2C_HandleTypeDef *BME280_hi2c;
+I2C_TypeDef *BME280_hi2c;
 
 int32_t BME280_t_fine;
 uint32_t BME280_refPressure;
@@ -84,12 +84,16 @@ uint32_t __BME280_compensate_H_int32(int32_t adc_H)
  * @retval 	status:		- HAL_OK 	Initialization complete.
  * 						- HAL_ERROR Error of initialization.
  */
-HAL_StatusTypeDef BME280_init(I2C_HandleTypeDef *hi2c_, uint32_t refPressure_) {
-	uint8_t id;
+HAL_StatusTypeDef BME280_init(I2C_TypeDef *hi2c_, uint32_t refPressure_) {
 	HAL_StatusTypeDef status;
 
-	if ((status = HAL_I2C_Mem_Read(hi2c_, BME280_ADDRESS, BME280_REGISTER_ID, I2C_MEMADD_SIZE_8BIT, &id, 1, 0xFF)) != HAL_OK) {
-		return HAL_ERROR;
+	uint8_t id;
+
+	if ((status = HAL_I2C_Mem_Read(hi2c_, 0x76 << 1, BME280_REGISTER_ID, I2C_MEMADD_SIZE_8BIT, &id, 1, 0xFF)) == HAL_OK) {
+		BME280_ADDRESS = 0x76 << 1;
+	}
+	else if ((status = HAL_I2C_Mem_Read(hi2c_, 0x77 << 1, BME280_REGISTER_ID, I2C_MEMADD_SIZE_8BIT, &id, 1, 0xFF)) == HAL_OK) {
+		BME280_ADDRESS = 0x77 << 1;	
 	}
 
 	if (id == 0x60) {
@@ -98,13 +102,13 @@ HAL_StatusTypeDef BME280_init(I2C_HandleTypeDef *hi2c_, uint32_t refPressure_) {
 		
 		uint8_t H_bytes[3];
 
-		HAL_I2C_Mem_Read(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CALIBRATION, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&BME280_calibration_data, 28, 0xFF);
+		I2C_Mem_Read(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CALIBRATION, (uint8_t*)&BME280_calibration_data, 28, 0xFF);
 		
-		HAL_I2C_Mem_Read(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CALIBRATION_H4, I2C_MEMADD_SIZE_8BIT, H_bytes, 3, 0xFF);
+		I2C_Mem_Read(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CALIBRATION_H4, H_bytes, 3, 0xFF);
 		BME280_calibration_data.dig_H4 = (H_bytes[0] << 4) | (H_bytes[1] & 0xF);
 		BME280_calibration_data.dig_H5 = (H_bytes[2] << 4) | (H_bytes[1] >> 4);
 		
-		HAL_I2C_Mem_Read(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CALIBRATION_H6, I2C_MEMADD_SIZE_8BIT,(uint8_t*) &BME280_calibration_data.dig_H6, 1, 0xFF);
+		I2C_Mem_Read(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CALIBRATION_H6,(uint8_t*) &BME280_calibration_data.dig_H6, 1, 0xFF);
 
 		BME280_config(1, 1, 1, 0, 0);
 	}
@@ -161,11 +165,11 @@ HAL_StatusTypeDef BME280_config(uint8_t T_OS, uint8_t P_OS, uint8_t H_OS, uint8_
 	BME280_sensor_settings.ctrl_hum = H_OS;
 	
 
-	if ((status = HAL_I2C_Mem_Write(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CTRL_MEAS, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&BME280_sensor_settings, 2, 0xFF)) != HAL_OK) {
+	if ((status = I2C_Mem_Write(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CTRL_MEAS, (uint8_t*)&BME280_sensor_settings, 2, 0xFF)) != HAL_OK) {
 		return status;
 	}
 	
-	if ((status = HAL_I2C_Mem_Write(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CTRL_HUM, I2C_MEMADD_SIZE_8BIT, &BME280_sensor_settings.ctrl_hum, 1, 0xFF)) != HAL_OK) {
+	if ((status = I2C_Mem_Write(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CTRL_HUM, &BME280_sensor_settings.ctrl_hum, 1, 0xFF)) != HAL_OK) {
 		return status;
 	}
 	
@@ -186,23 +190,23 @@ HAL_StatusTypeDef BME280_forced_measure(float *temp, float *press, float *hum, f
 
 	BME280_sensor_settings.ctrl_meas = (BME280_sensor_settings.ctrl_meas & 0xFC) | 0b10;
 	
-	if ((status = HAL_I2C_Mem_Write(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CTRL_MEAS, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&BME280_sensor_settings, 1, 0xFF)) != HAL_OK) {
+	if ((status = I2C_Mem_Write(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CTRL_MEAS, (uint8_t*)&BME280_sensor_settings, 1, 0xFF)) != HAL_OK) {
 		return status;
 	}
 
-	if ((status = HAL_I2C_Mem_Write(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CTRL_HUM, I2C_MEMADD_SIZE_8BIT, &BME280_sensor_settings.ctrl_hum, 1, 0xFF)) != HAL_OK) {
+	if ((status = I2C_Mem_Write(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CTRL_HUM, &BME280_sensor_settings.ctrl_hum, 1, 0xFF)) != HAL_OK) {
 		return status;
 	}
 	
 	uint8_t BME_status = 1;
 	while (BME_status >> 3 != 0) {
-		if ((status = HAL_I2C_Mem_Read(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_STATUS, I2C_MEMADD_SIZE_8BIT, &status, 1, 0xFF)) != HAL_OK) {
+		if ((status = I2C_Mem_Read(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_STATUS, &status, 1, 0xFF)) != HAL_OK) {
 			return status;
 		}
 	}
 
 	uint8_t raw_data[8];
-	if ((status = HAL_I2C_Mem_Read(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_RAW_DATA, I2C_MEMADD_SIZE_8BIT, raw_data, 8, 0xFF)) != HAL_OK) {
+	if ((status = I2C_Mem_Read(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_RAW_DATA, raw_data, 8, 0xFF)) != HAL_OK) {
 		return status;
 	}
 
@@ -228,7 +232,7 @@ HAL_StatusTypeDef BME280_forced_measure(float *temp, float *press, float *hum, f
 HAL_StatusTypeDef BME280_normal_measure() {
 	BME280_sensor_settings.ctrl_meas = (BME280_sensor_settings.ctrl_meas & 0xFC) | 0b11;
 	
-	return HAL_I2C_Mem_Write(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CTRL_MEAS, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&BME280_sensor_settings, 1, 0xFF);
+	return I2C_Mem_Write(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CTRL_MEAS, (uint8_t*)&BME280_sensor_settings, 1, 0xFF);
 }
 
 /*
@@ -239,7 +243,7 @@ HAL_StatusTypeDef BME280_normal_measure() {
 HAL_StatusTypeDef BME280_sleep() {
 	BME280_sensor_settings.ctrl_meas = (BME280_sensor_settings.ctrl_meas & 0xFC) | 0b00;
 	
-	return HAL_I2C_Mem_Write(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CTRL_MEAS, I2C_MEMADD_SIZE_8BIT, (uint8_t*)&BME280_sensor_settings, 1, 0xFF);
+	return I2C_Mem_Write(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_CTRL_MEAS, (uint8_t*)&BME280_sensor_settings, 1, 0xFF);
 }
 
 /*
@@ -255,7 +259,7 @@ HAL_StatusTypeDef BME280_get_measure(float *temp, float *press, float *hum, floa
 	HAL_StatusTypeDef status;
 
 	uint8_t raw_data[8];
-	if ((status = HAL_I2C_Mem_Read(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_RAW_DATA, I2C_MEMADD_SIZE_8BIT, raw_data, 8, 0xFF)) != HAL_OK) {
+	if ((status = I2C_Mem_Read(BME280_hi2c, BME280_ADDRESS, BME280_REGISTER_RAW_DATA, raw_data, 8, 0xFF)) != HAL_OK) {
 		return status;
 	}
 	

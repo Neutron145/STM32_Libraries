@@ -13,6 +13,25 @@
 
 #include "main.h"
 
+#define BME280_HAL
+
+/** @cond UNNECESSARY */
+#ifdef BME280_HAL
+
+#define I2C_TypeDef 		I2C_HandleTypeDef
+#define I2C_Mem_Write(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)		HAL_I2C_Mem_Write(ADR,DEV_ADR,REG_ADR,I2C_MEMADD_SIZE_8BIT,BUF,BUF_SIZE,TIMEOUT)
+#define I2C_Mem_Read(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)			HAL_I2C_Mem_Read(ADR,DEV_ADR,REG_ADR,I2C_MEMADD_SIZE_8BIT,BUF,BUF_SIZE,TIMEOUT)
+
+#elif BME280_LL
+
+#include "I2C_ll.h"
+#define I2C_TypeDef 		I2C_TypeDef
+#define I2C_Mem_Write(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)		LL_I2C_Mem_Write(ADR,DEV_ADR,REG_ADR,BUF,BUF_SIZE,TIMEOUT)
+#define I2C_Mem_Read(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)			LL_I2C_Mem_Read(ADR,DEV_ADR,REG_ADR,BUF,BUF_SIZE,TIMEOUT)
+
+#endif /** BME280_LL */
+/** @endcond */
+
 /* Calibration data for temperature and pressure */
 typedef struct {
 	uint16_t dig_T1;
@@ -46,10 +65,13 @@ typedef struct {
 extern uint32_t BME280_refPressure;
 
 /* Instance I2C to which BMP280 is connected */
-extern I2C_HandleTypeDef *BME280_hi2c;
+extern I2C_TypeDef *BME280_hi2c;
 
 /* Temperature value for pressure calculation */
 extern int32_t BME280_t_fine;
+
+/* Addres of BMP280 on I2C */
+extern uint32_t BME280_ADDRESS;
 
 /* Periods between measurements in normal mode */
 #define BME280_STANDBY_0_5 				0b000
@@ -76,9 +98,6 @@ extern int32_t BME280_t_fine;
 #define BME280_FILTER_X8				0b011
 #define BME280_FILTER_X16				0b100
 
-/* Addres of BMP280 on I2C */
-#define BME280_ADDRESS 					0x76 << 1
-
 /* Addresses of BMP280 registers */
 #define BME280_REGISTER_CALIBRATION		0x88
 #define BME280_REGISTER_CALIBRATION_H4	0xE4
@@ -94,7 +113,7 @@ extern int32_t BME280_t_fine;
 
 
 /* Initialization of BMP280 */
-HAL_StatusTypeDef BME280_init(I2C_HandleTypeDef hi2c_, uint32_t refPressure_);
+HAL_StatusTypeDef BME280_init(I2C_TypeDef *hi2c_, uint32_t refPressure_);
 
 /* Configuration BMP280 */
 HAL_StatusTypeDef BME280_config(uint8_t T_OS, uint8_t P_OS, uint8_t H_OS, uint8_t STDB, uint8_t IIRF);

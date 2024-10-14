@@ -28,7 +28,6 @@
  */
 HAL_StatusTypeDef SPI__wait_flag(SPI_TypeDef *SPIx, uint8_t bit, uint8_t timeout);
 
-/* Send bytes to device ------------------------------------------------------*/
 /**
  * @brief Отправка байтов по шине SPI
  * @param SPIx SPI, на который отправляются данные
@@ -40,9 +39,8 @@ HAL_StatusTypeDef SPI__wait_flag(SPI_TypeDef *SPIx, uint8_t bit, uint8_t timeout
  * 					- **HAL_ERROR** - если по истечении времени флаг не изменился на указанный
  *  				- **HAL_OK** - в остальных случаях 
  */
-HAL_StatusTypeDef LL_SPI_Transmit(SPI_TypeDef *SPIx, uint8_t* data, uint8_t bytes_count, uint8_t timeout);
+HAL_StatusTypeDef LL_SPI_Transmit(SPI_TypeDef *SPIx, uint8_t *data, uint8_t bytes_count, uint8_t timeout);
 
-/* Read bytes from device ----------------------------------------------------*/
 /**
  * @brief Прием байтов с шины SPI
  * @param SPIx SPI, с которого отправляются данные
@@ -54,6 +52,6 @@ HAL_StatusTypeDef LL_SPI_Transmit(SPI_TypeDef *SPIx, uint8_t* data, uint8_t byte
  * 					- **HAL_ERROR** - если по истечении времени флаг не изменился на указанный
  *  				- **HAL_OK** - в остальных случаях
  */
-HAL_StatusTypeDef LL_SPI_Receive(SPI *SPIx, uint8_t** buffer, uint8_t bytes_count, uint8_t timeout);
+HAL_StatusTypeDef LL_SPI_Receive(SPI *SPIx, uint8_t **buffer, uint8_t bytes_count, uint8_t timeout);
 
 #endif /* INC_SPI_LL_C_ */

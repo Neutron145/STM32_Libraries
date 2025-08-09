@@ -5,6 +5,8 @@
  *  @date 			19.12.2023
  ******************************************************************************/
 
+#include <stdint.h>
+
 /**
  * @defgroup LSM6DS33_group LSM6DS33
  * @brief			Модуль для акселерометра и гироскопа LSM6DS33
@@ -52,14 +54,15 @@
 #endif /* LSM6DS33_LL */
 /** @endcond */
 
-extern I2C_TypeDef *LSM6DS33_hi2c; 			//!< Указатель на экземпляр I2C, к которому подключен датчиик влажности. Тип экземпляра зависит от библиотеки.
-extern uint16_t FULL_SCALES_A[4]; 			//!< Хранит значения full-scale для акселерометра. Упрощает перевод из попугаев в слонов
-extern uint16_t FULL_SCALES_G[4]; 			//!< Хранит значения full-scale для гироскопа. Упрощает перевод из попугаев в слонов 
+extern I2C_TypeDef* LSM6DS33_hi2c; 			//!< Экземпляр I2C, к которому подключен датчиик влажности. Тип экземпляра зависит от библиотеки.
+extern float FULL_SCALES_A[4]; 			//!< Хранит значения full-scale для акселерометра. Упрощает перевод из попугаев в слонов
+extern float FULL_SCALES_G[4]; 			//!< Хранит значения full-scale для гироскопа. Упрощает перевод из попугаев в слонов
 
-extern uint32_t LSM6DS33_ADDRESS;			//!< Адрес LSM. Зависит от пина SDO, определяется автоматически
+extern float a_ref[3];		//!< Bias для ускорений
+extern float g_ref[3];		//!< Bias для угловых скоростей
 
-extern float LSM6DS33_a_ref[3];			//!< Содержит значения ускорения по трем осям на старте. Необходимо для получения корректных значений
-extern float LSM6DS33_g_ref[3];			//!< Содержит значения угловых скоростей по трем осям на старте. Необходимо для поулчения корректных значений
+extern float full_scale_A;
+extern float full_scale_G;
 
 /**
  * @brief Конфигурация датчика
@@ -71,7 +74,12 @@ typedef struct {
 	uint8_t CTRL3_config;					//!< Конфигурация регистра CTRL3_C
 	uint8_t CTRL7_config;					//!< Конфигурация регистра CTRL7_G
 	uint8_t CTRL8_config;					//!< Конфигурация регистра CTRL8_XL
+	uint8_t CTRL10_config;					//!< Конфигурация регистра CTRL10_C
+	uint8_t TAP_config;						//!< Конфигурация дополнительных функций
 } LSM6DS33_cfg;
+
+/** Адрес датчика, по которому необходимо обращаться */
+extern uint32_t LSM6DS33_ADDRESS;
 
 /**
  * @defgroup LSM6DS33_ODR Частота обновления измерений
@@ -173,17 +181,22 @@ typedef struct {
  * @defgroup LSM5DS33_REG_ADR Адреса регистров датчика 
  * @{
  */
+#define LSM6DS33_REGISTER_FIFO_CTRL4			0x09
+#define LSM6DS33_REGISTER_FIFO_CTRL5			0x0A
 #define LSM6DS33_REGISTER_CTRL1					0x10
 #define LSM6DS33_REGISTER_CTRL2					0x11
 #define LSM6DS33_REGISTER_CTRL3					0x12
 #define LSM6DS33_REGISTER_CTRL7					0x16
 #define LSM6DS33_REGISTER_CTRL8					0x17
+#define LSM6DS33_REGISTER_CTRL10				0x19
+#define LSM6DS33_REGISTER_TAP_CFG 				0x58
 #define LSM6DS33_REGISTER_ORIENT_CFG			0x0B
 #define LSM6DS33_REGISTER_STATUS_REG			0x1E
 #define LSM6DS33_REGISTER_OUT_T					0x20
 #define LSM6DS33_REGISTER_OUT_G					0x22
 #define LSM6DS33_REGISTER_OUT_A					0x28
 #define LSM6DS33_REGISTER_ID					0x0F
+#define LSM6DS33_REGISTER_MD2_CFG				0x5F
 /** @} */
 
 
@@ -200,12 +213,11 @@ void __LSM6DS33_modify_reg(uint8_t *reg_data, uint8_t mask, uint8_t bits);
 
 /**
  * @brief Инициализация датчика LSM6DS33
- * @details Функция вызывается перед конфигурацией и измерением данных датчиком. В ней проверяется ID датчика и загружается стандартная конфигурация. Важно, чтобы датчик в момент инициализации находился в покое.
+ * @details Функция вызывается перед конфигурацией и измерением данных датчиком. В ней проверяется ID датчика и загружается стандартная конфигурация.
  * @param hi2c_ Экземпляр I2C_TypeDef, к которому подключен датчик.
  * @retval status Статус I2C после инициализации датчика. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
  */
-HAL_StatusTypeDef LSM6DS33_init(I2C_TypeDef *hi2c_);
-
+HAL_StatusTypeDef LSM6DS33_init(I2C_HandleTypeDef* hi2c_);
 
 
 /**
@@ -289,7 +301,7 @@ HAL_StatusTypeDef LSM6DS33_T_get_measure(float *t);
  * @param g Массив, куда записываются значений угла отклонения по трем осям
  * @retval status Статус I2C после снятия измерений. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
  */
-HAL_StatusTypeDef LSM6DS33_get_measure(float *a, float *g);
+HAL_StatusTypeDef LSM6DS33_get_measure(float* a, float *g);
 
 /**
  * @brief Снятие измерений акселерометра, гирокскопа и термометра
@@ -299,7 +311,9 @@ HAL_StatusTypeDef LSM6DS33_get_measure(float *a, float *g);
  * @param t Переменная, куда записывается значение температуры в градусах Цельсиях
  * @retval status Статус I2C после снятия измерений. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
  */
-HAL_StatusTypeDef LSM6DS33_get_all_measure(float *a, float *g, float *t);
+HAL_StatusTypeDef LSM6DS33_get_all_measure(float* a, float* g, float* t);
+
+HAL_StatusTypeDef LSM6DS33_convert_measure(int16_t *buffer, float *a, float *g);
 
 #endif /* INC_LSM6DS33_H_ */
 

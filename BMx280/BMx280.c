@@ -112,7 +112,7 @@ HAL_StatusTypeDef BMx280_init(I2C_TypeDef *hi2c_, uint32_t refPressure_) {
 		BMx280_ADDRESS = 0x77 << 1;	
 	}
 
-	if (id == 0x60) {
+	if ((id == 0x60) || (id == 0x58))  {
 		BMx280_hi2c = hi2c_;
 		BMx280_refPressure = refPressure_;
 		

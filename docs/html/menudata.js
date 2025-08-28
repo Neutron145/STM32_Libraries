@@ -24,36 +24,11 @@
 */
 var menudata={children:[
 {text:"Титульная страница",url:"index.html"},
-{text:"Topics",url:"topics.html"},
-{text:"Структуры данных",url:"annotated.html",children:[
-{text:"Структуры данных",url:"annotated.html"},
-{text:"Алфавитный указатель структур данных",url:"classes.html"},
-{text:"Поля структур",url:"functions.html",children:[
-{text:"Указатель",url:"functions.html"},
-{text:"Переменные",url:"functions_vars.html"}]}]},
+{text:"Разделы",url:"topics.html"},
 {text:"Файлы",url:"files.html",children:[
 {text:"Файлы",url:"files.html"},
 {text:"Список членов всех файлов",url:"globals.html",children:[
-{text:"Указатель",url:"globals.html",children:[
-{text:"_",url:"globals.html#index__5F"},
-{text:"a",url:"globals.html#index_a"},
-{text:"f",url:"globals.html#index_f"},
-{text:"g",url:"globals.html#index_g"},
-{text:"i",url:"globals.html#index_i"},
-{text:"l",url:"globals.html#index_l"},
-{text:"p",url:"globals.html#index_p"},
-{text:"s",url:"globals.html#index_s"},
-{text:"v",url:"globals.html#index_v"}]},
-{text:"Функции",url:"globals_func.html",children:[
-{text:"_",url:"globals_func.html#index__5F"},
-{text:"a",url:"globals_func.html#index_a"},
-{text:"i",url:"globals_func.html#index_i"},
-{text:"l",url:"globals_func.html#index_l"},
-{text:"p",url:"globals_func.html#index_p"},
-{text:"s",url:"globals_func.html#index_s"}]},
+{text:"Указатель",url:"globals.html"},
+{text:"Функции",url:"globals_func.html"},
 {text:"Переменные",url:"globals_vars.html"},
-{text:"Макросы",url:"globals_defs.html",children:[
-{text:"a",url:"globals_defs.html#index_a"},
-{text:"i",url:"globals_defs.html#index_i"},
-{text:"l",url:"globals_defs.html#index_l"},
-{text:"s",url:"globals_defs.html#index_s"}]}]}]}]}
+{text:"Макросы",url:"globals_defs.html"}]}]}]}

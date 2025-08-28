@@ -1,19 +1,7 @@
-/*
- *******************************************************************************
- * 	@file			BMx280_hal.c
- *	@brief			This file provides functions for configuration and taking
- *					measurements from the BMx280 using HAL.
- *
- *	@author			Rafael Abeldinov
- *  @created 		07.11.2023
- *******************************************************************************
- */
-
 #include "BMx280.h"
 #include "math.h"
 
 BMx280_calibration_data calibration_data;
-BMx280_settings BMx280_sensor_settings;
 
 I2C_TypeDef *BMx280_hi2c;
 
@@ -21,11 +9,6 @@ int32_t BMx280_t_fine;
 uint32_t BMx280_refPressure;
 uint32_t BMx280_ADDRESS;
 
-/*
- * @brief	Calculates temparature by value from ADC.
- * @param 	adc_T Value from ADC.
- * @retval	Temperature in DegC.
- */
 int32_t __BMx280_compensate_T_int32(int32_t adc_T) {
 	int32_t var1, var2, T;
 
@@ -39,11 +22,7 @@ int32_t __BMx280_compensate_T_int32(int32_t adc_T) {
 	
 	return T;
 }
-/*
- * @brief	Calculates pressure by value from ADC.
- * @param	adc_P Value from ADC.
- * @retval  Pressure in Pa.
- */
+
 uint32_t __BMx280_compensate_P_int64(int32_t adc_P) {
 	int64_t var1, var2, p;
 
@@ -71,12 +50,8 @@ uint32_t __BMx280_compensate_P_int64(int32_t adc_P) {
 
 	return (uint32_t)p;
 }
-/*
- * @brief	Calculates humidity by value from ADC.
- * @param	hum_P Value from ADC.
- * @retval  Humidity in %.
- */
-uint32_t __BMx280_compensate_H_int32(int32_t adc_H)
+
+int32_t __BMx280_compensate_H_int32(int32_t adc_H)
 {
 	int32_t v_x1_u32r;
 
@@ -93,13 +68,6 @@ uint32_t __BMx280_compensate_H_int32(int32_t adc_H)
 	return (uint32_t)(v_x1_u32r >> 12);
 }
 
-/*
- * @brief	Initialization of BMx280.
- * @param	hi2c_ - I2C to which BMx280 is connected.
- * @param	refPressure - Reference pressure for altitude calculations. 101325 Pa by default.
- * @retval 	status:		- HAL_OK 	Initialization complete.
- * 						- HAL_ERROR Error of initialization.
- */
 HAL_StatusTypeDef BMx280_init(I2C_TypeDef *hi2c_, uint32_t refPressure_) {
 	HAL_StatusTypeDef status;
 
@@ -131,37 +99,7 @@ HAL_StatusTypeDef BMx280_init(I2C_TypeDef *hi2c_, uint32_t refPressure_) {
 	return status;
 }
 
-/*
- * @brief	Sets the specified configuration to BMx.
- * @param	T_OS - value for the oversampling of data from the temperature sensor (X1 by default).
- * @param	P_OS - value for the oversampling of data from the pressure sensor (X1 by default).
- * @param   H_OS - value for the oversampling of data from the humidity sensor (X1 by default).
- * 						@arg BMx280_OVERSAMPLING_0
- * 						@arg BMx280_OVERSAMPLING_1
- * 						@arg BMx280_OVERSAMPLING_2
- * 						@arg BMx280_OVERSAMPLING_4
- * 						@arg BMx280_OVERSAMPLING_8
- * 						@arg BMx280_OVERSAMPLING_16
- * @param	STDB - value of standby time between measurements (62.5 ms by default).
- * 						@arg BMx280_STANDBY_0_5
- * 						@arg BMx280_STANDBY_62_5
- * 						@arg BMx280_STANDBY_125
- * 						@arg BMx280_STANDBY_250
- * 						@arg BMx280_STANDBY_500
- * 						@arg BMx280_STANDBY_1000
- * 						@arg BMx280_STANDBY_2000
- * 						@arg BMx280_STANDBY_4000
-* @param	IIRF - setting of the IIR filter coefficient (off by default).
- * 						@arg BMx280_FILTER_OFF
- * 						@arg BMx280_FILTER_X1
- * 						@arg BMx280_FILTER_X2
- * 						@arg BMx280_FILTER_X4
- * 						@arg BMx280_FILTER_X8
- * 						@arg BMx280_FILTER_X16
- * @retval	status:		HAL_OK -	Configuration parameters successfully sent to BMx.
- *						HAL_BUSY -	I2C line is currently busy.
- *						HAL_ERROR - I2C line returned an error.
-*/
+
 HAL_StatusTypeDef BMx280_config(uint8_t T_OS, uint8_t P_OS, uint8_t H_OS, uint8_t STDB, uint8_t IIRF) {
 	if (T_OS < 0) T_OS = 0;
 	else if (T_OS > 0b101) T_OS = 0b101;
@@ -192,15 +130,6 @@ HAL_StatusTypeDef BMx280_config(uint8_t T_OS, uint8_t P_OS, uint8_t H_OS, uint8_
 	return status;
 }
 
-/*
- * @brief	Perfoms forced measurements for BME280.
- * @param	*temp 	Reference to variable to store temperature value.
- * @param	*press 	Reference to variable to store pressure value.
- * @param	*hum	Reference to varibale to store humidity value.
- * @param	*h		Reference to variable to store altitude value.
- * @retval 	status:		- HAL_OK	Configuration complete.
- * 						- HAL_ERROR Error of measuring.
- */
 HAL_StatusTypeDef BME280_forced_measure(float *temp, float *press, float *hum, float *h) {
 	HAL_StatusTypeDef status;
 
@@ -240,14 +169,6 @@ HAL_StatusTypeDef BME280_forced_measure(float *temp, float *press, float *hum, f
 	return HAL_OK;
 }
 
-/*
- * @brief	Perfoms forced measurements for BMP280.
- * @param	*temp 	Reference to variable to store temperature value.
- * @param	*press 	Reference to variable to store pressure value.
- * @param	*h		Reference to variable to store altitude value.
- * @retval 	status:		- HAL_OK	Configuration complete.
- * 						- HAL_ERROR Error of measuring.
- */
 HAL_StatusTypeDef BMP280_forced_measure(float *temp, float *press, float *h) {
 	HAL_StatusTypeDef status;
 
@@ -281,37 +202,18 @@ HAL_StatusTypeDef BMP280_forced_measure(float *temp, float *press, float *h) {
 	return HAL_OK;
 }
 
-/*
- * @brief	Set normal mode for measuring.
- * @retval 	status:		- HAL_OK	Configuration complete.
- * 						- HAL_ERROR Error of configuration.
- */
 HAL_StatusTypeDef BMx280_normal_measure() {
 	BMx280_sensor_settings.ctrl_meas = (BMx280_sensor_settings.ctrl_meas & 0xFC) | 0b11;
 	
 	return I2C_Mem_Write(BMx280_hi2c, BMx280_ADDRESS, BMx280_REGISTER_CTRL_MEAS, (uint8_t*)&BMx280_sensor_settings, 1, 0xFF);
 }
 
-/*
- * @brief	Set sleep mode.
- * @retval 	status:		- HAL_OK	Configuration complete.
- * 						- HAL_ERROR Error of configuration.
- */
 HAL_StatusTypeDef BMx280_sleep() {
 	BMx280_sensor_settings.ctrl_meas = (BMx280_sensor_settings.ctrl_meas & 0xFC) | 0b00;
 	
 	return I2C_Mem_Write(BMx280_hi2c, BMx280_ADDRESS, BMx280_REGISTER_CTRL_MEAS, (uint8_t*)&BMx280_sensor_settings, 1, 0xFF);
 }
 
-/*
- * @brief	Get measurements from normal mode for BME.
- * @param	*temp 	Reference to variable to store temperature value.
- * @param	*press 	Reference to variable to store pressure value.
- * @param	*hum	Reference to varibale to store humidity value.
- * @param	*h		Reference to variable to store altitude value.
- * @retval 	status:		- HAL_OK	Measurements received.
- * 						- HAL_ERROR Error in receiving measurements.
- */
 HAL_StatusTypeDef BME280_get_measure(float *temp, float *press, float *hum, float *h) {
 	HAL_StatusTypeDef status;
 
@@ -334,14 +236,6 @@ HAL_StatusTypeDef BME280_get_measure(float *temp, float *press, float *hum, floa
 	return HAL_OK;
 }
 
-/*
- * @brief	Get measurements from normal mode for BMP.
- * @param	*temp 	Reference to variable to store temperature value.
- * @param	*press 	Reference to variable to store pressure value.
- * @param	*h		Reference to variable to store altitude value.
- * @retval 	status:		- HAL_OK	Measurements received.
- * 						- HAL_ERROR Error in receiving measurements.
- */
 HAL_StatusTypeDef BMP280_get_measure(float *temp, float *press, float *h) {
 	HAL_StatusTypeDef status;
 

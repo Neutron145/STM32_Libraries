@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bandwith_0',['Значения параметра BandWith',['../group___s_x1268___b_w.html',1,'']]]
+  ['iir_5ffilter_0',['IIR_FILTER',['../group___i_i_r___f_i_l_t_e_r.html',1,'']]]
 ];

@@ -1,0 +1,39 @@
+\doxysubsection{OVERSAMPLING }
+\hypertarget{group___o_v_e_r_s_a_m_p_l_i_n_g}{}\label{group___o_v_e_r_s_a_m_p_l_i_n_g}\index{OVERSAMPLING@{OVERSAMPLING}}
+
+
+Конфигурация точности измеряемых показаний. Применимо для барометра и термометра  
+
+
+\doxysubsubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___o_v_e_r_s_a_m_p_l_i_n_g_ga56ba31f2842a5ddf3696343655f47d4b}\label{group___o_v_e_r_s_a_m_p_l_i_n_g_ga56ba31f2842a5ddf3696343655f47d4b} 
+\#define {\bfseries BMx280\+\_\+\+OVERSAMPLING\+\_\+0}~0b000
+\item 
+\Hypertarget{group___o_v_e_r_s_a_m_p_l_i_n_g_gadf1b6505e4b53a91248034ea9d700d20}\label{group___o_v_e_r_s_a_m_p_l_i_n_g_gadf1b6505e4b53a91248034ea9d700d20} 
+\#define {\bfseries BMx280\+\_\+\+OVERSAMPLING\+\_\+1}~0b001
+\item 
+\Hypertarget{group___o_v_e_r_s_a_m_p_l_i_n_g_ga7751eddfd7c3bac086ecdd2b1973703e}\label{group___o_v_e_r_s_a_m_p_l_i_n_g_ga7751eddfd7c3bac086ecdd2b1973703e} 
+\#define {\bfseries BMx280\+\_\+\+OVERSAMPLING\+\_\+2}~0b010
+\item 
+\Hypertarget{group___o_v_e_r_s_a_m_p_l_i_n_g_gac1cd44339e3986f5e7fb51ec64e7b837}\label{group___o_v_e_r_s_a_m_p_l_i_n_g_gac1cd44339e3986f5e7fb51ec64e7b837} 
+\#define {\bfseries BMx280\+\_\+\+OVERSAMPLING\+\_\+4}~0b011
+\item 
+\Hypertarget{group___o_v_e_r_s_a_m_p_l_i_n_g_ga582abffb729455ac7e2c83099c6c78b1}\label{group___o_v_e_r_s_a_m_p_l_i_n_g_ga582abffb729455ac7e2c83099c6c78b1} 
+\#define {\bfseries BMx280\+\_\+\+OVERSAMPLING\+\_\+8}~0b100
+\item 
+\Hypertarget{group___o_v_e_r_s_a_m_p_l_i_n_g_ga00d0d9d5befeb196befc41f564d4ff55}\label{group___o_v_e_r_s_a_m_p_l_i_n_g_ga00d0d9d5befeb196befc41f564d4ff55} 
+\#define {\bfseries BMx280\+\_\+\+OVERSAMPLING\+\_\+16}~0b101
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Подробное описание}
+Конфигурация точности измеряемых показаний. Применимо для барометра и термометра 
+
+Данные значения передаются как аргумент в функцию \doxylink{group___b_mx280_ga0c6aef7cbd6323e9b67b9b0c4bca16f1}{BMx280\+\_\+config} для трех разных датчиков\+: термометра, барометра, гигрометра (актуально для BME280). ~\newline
+ Среднеквадратичные значения шумов при разных разрешениях oversampling для барометра в зависимости от коэффициентов фильтра IIR\+: 
+
+Среднеквадратичные значения шумов при разных разрешениях oversampling для термометра\+: 
+
+Среднеквадратичные значения шумов при разных разрешениях oversampling для гигрометра\+:  

@@ -1,6 +1,5 @@
 var annotated_dup =
 [
-    [ "GGA_data", "struct_g_g_a__data.html", "struct_g_g_a__data" ],
-    [ "LSM6DS33_cfg", "struct_l_s_m6_d_s33__cfg.html", "struct_l_s_m6_d_s33__cfg" ],
-    [ "VTG_data", "struct_v_t_g__data.html", "struct_v_t_g__data" ]
+    [ "BMx280_calibration_data", "struct_b_mx280__calibration__data.html", null ],
+    [ "BMx280_settings", "struct_b_mx280__settings.html", null ]
 ];

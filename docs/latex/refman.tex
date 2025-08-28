@@ -1,7 +1,16 @@
   % Handle batch mode
   % to overcome problems with too many open files
   \let\mypdfximage\pdfximage\def\pdfximage{\immediate\mypdfximage}
-  \pdfminorversion=7
+  \RequirePackage{iftex}
+  \ifLuaTeX
+    \directlua{pdf.setminorversion(7)}
+  \fi
+  \ifXeTeX
+    \special{pdf:minorversion 7}
+  \fi
+  \ifPDFTeX
+    \pdfminorversion=7
+  \fi
   % Set document class depending on configuration
   \documentclass[twoside]{book}
   %% moved from doxygen.sty due to workaround for LaTex 2019 version and unmaintained tabu package
@@ -22,10 +31,18 @@
   \let\protected@wlog\@@protected@wlog
   \makeatother
   \IfFormatAtLeastTF{2016/01/01}{}{\usepackage{fixltx2e}} % for \textsubscript
-  \IfFormatAtLeastTF{2015/01/01}{\pdfsuppresswarningpagegroup=1}{}
+  \ifPDFTeX
+    \IfFormatAtLeastTF{2015/01/01}{\pdfsuppresswarningpagegroup=1}{}
+  \fi
   \usepackage{doxygen}
   \usepackage{graphicx}
-  \usepackage[utf8]{inputenc}
+  \iftutex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Ligatures={TeX}}
+    \usepackage{unicode-math}
+  \else
+    \usepackage[utf8]{inputenc}
+  \fi
   \usepackage{makeidx}
   \PassOptionsToPackage{warn}{textcomp}
   \usepackage{textcomp}
@@ -36,7 +53,10 @@
 \usepackage[russian]{babel}
   % Define default fonts
   % Font selection
-  \usepackage[T1]{fontenc}
+  \iftutex
+  \else
+    \usepackage[T1]{fontenc}
+  \fi
   % set main and monospaced font
   \usepackage[scaled=.90]{helvet}
 \usepackage{courier}
@@ -117,13 +137,14 @@
   }
   % ToC, LoF, LoT, bibliography, and index
   % Indices & bibliography
-  \usepackage{natbib}
+  \usepackage[numbers]{natbib}
   \usepackage[titles]{tocloft}
   \setcounter{tocdepth}{3}
   \setcounter{secnumdepth}{5}
   % creating indexes
   \makeindex
-  \usepackage{newunicodechar}
+  \ifPDFTeX
+\usepackage{newunicodechar}
   \makeatletter
     \def\doxynewunicodechar#1#2{%
     \@tempswafalse
@@ -142,15 +163,20 @@
   \doxynewunicodechar{⁻}{${}^{-}$}% Superscript minus
   \doxynewunicodechar{²}{${}^{2}$}% Superscript two
   \doxynewunicodechar{³}{${}^{3}$}% Superscript three
+\fi
   % Hyperlinks
     % Hyperlinks (required, but should be loaded last)
-    \ifpdf
+    \ifPDFTeX
       \usepackage[pdftex,pagebackref=true]{hyperref}
     \else
-      \ifxetex
-        \usepackage[pagebackref=true]{hyperref}
+      \ifXeTeX
+        \usepackage[xetex,pagebackref=true]{hyperref}
       \else
-        \usepackage[ps2pdf,pagebackref=true]{hyperref}
+        \ifLuaTeX
+          \usepackage[luatex,pagebackref=true]{hyperref}
+        \else
+          \usepackage[ps2pdf,pagebackref=true]{hyperref}
+        \fi
       \fi
     \fi
     \hypersetup{%
@@ -158,7 +184,7 @@
       linkcolor=blue,%
       citecolor=blue,%
       unicode,%
-      pdftitle={Rocket\+LAV\`{}s STM32 libraries},%
+      pdftitle={Rocket\+LAV sensor libraries},%
       pdfsubject={}%
     }
   % Custom commands used by the header
@@ -195,9 +221,9 @@
   \begin{titlepage}
   \vspace*{7cm}
   \begin{center}%
-  {\Large Rocket\+LAV\`{}s STM32 libraries}\\
+  {\Large Rocket\+LAV sensor libraries}\\
   \vspace*{1cm}
-  {\large Создано системой Doxygen 1.9.8}\\
+  {\large Создано системой Doxygen 1.14.0}\\
   \end{center}
   \end{titlepage}
   \clearemptydoublepage
@@ -209,36 +235,15 @@
   \hypersetup{pageanchor=true}
 %--- Begin generated contents ---
 \input{index}
-\chapter{Topic Index}
+\chapter{Указатель разделов}
 \input{topics}
-\chapter{Алфавитный указатель структур данных}
-\input{annotated}
 \chapter{Список файлов}
 \input{files}
-\chapter{Topic Documentation}
-\input{group___a_h_t10__group}
-\input{group___s_x1268__group}
-\input{group___parser__group}
-\input{group___i2_c__group}
-\input{group___l_s_m6_d_s33__group}
-\input{group___s_p_i__group}
-\chapter{Структуры данных}
-\input{struct_g_g_a__data}
-\input{struct_l_s_m6_d_s33__cfg}
-\input{struct_v_t_g__data}
+\chapter{Документация разделов}
+\input{group___b_mx280}
 \chapter{Файлы}
-\input{_a_h_t10_8h}
-\input{_a_h_t10_8h_source}
-\input{_s_x1268_8h}
-\input{_s_x1268_8h_source}
-\input{_g_p_s__parser_8h}
-\input{_g_p_s__parser_8h_source}
-\input{_i2_c__ll_8h}
-\input{_i2_c__ll_8h_source}
-\input{_l_s_m6_d_s33_8h}
-\input{_l_s_m6_d_s33_8h_source}
-\input{_s_p_i__ll_8h}
-\input{_s_p_i__ll_8h_source}
+\input{_b_mx280_8h}
+\input{_b_mx280_8h_source}
 %--- End generated contents ---
 % Index
   \backmatter

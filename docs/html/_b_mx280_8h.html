@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RocketLAV sensor libraries: Файл BMx280/BMx280.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RocketLAV sensor libraries
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_b_mx280_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Файл BMx280.h<div class="ingroups"><a class="el" href="group___b_mx280.html">BMx280</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>API библиотеки для использования в своих проектах  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &quot;main.h&quot;</code><br />
+</div>
+<p><a href="_b_mx280_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:gaf5bb3697bdc54b9efadbd2a29427e630" id="r_gaf5bb3697bdc54b9efadbd2a29427e630"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_STANDBY_0_5</b>&#160;&#160;&#160;0b000</td></tr>
+<tr class="memdesc:gaf5bb3697bdc54b9efadbd2a29427e630"><td class="mdescLeft">&#160;</td><td class="mdescRight">2 кГц <br /></td></tr>
+<tr class="memitem:gabf5c8cdd4df0484806549c0da4190302" id="r_gabf5c8cdd4df0484806549c0da4190302"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_STANDBY_62_5</b>&#160;&#160;&#160;0b001</td></tr>
+<tr class="memdesc:gabf5c8cdd4df0484806549c0da4190302"><td class="mdescLeft">&#160;</td><td class="mdescRight">16 Гц <br /></td></tr>
+<tr class="memitem:gab0b19481ba9db24d28d01351c4b78802" id="r_gab0b19481ba9db24d28d01351c4b78802"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_STANDBY_125</b>&#160;&#160;&#160;0b010</td></tr>
+<tr class="memdesc:gab0b19481ba9db24d28d01351c4b78802"><td class="mdescLeft">&#160;</td><td class="mdescRight">8 Гц <br /></td></tr>
+<tr class="memitem:gafe68b44a258fc37d89c2697edc656220" id="r_gafe68b44a258fc37d89c2697edc656220"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_STANDBY_250</b>&#160;&#160;&#160;0b011</td></tr>
+<tr class="memdesc:gafe68b44a258fc37d89c2697edc656220"><td class="mdescLeft">&#160;</td><td class="mdescRight">4 Гц <br /></td></tr>
+<tr class="memitem:ga0fee70b866087cb9e27758c8e6728886" id="r_ga0fee70b866087cb9e27758c8e6728886"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_STANDBY_500</b>&#160;&#160;&#160;0b100</td></tr>
+<tr class="memdesc:ga0fee70b866087cb9e27758c8e6728886"><td class="mdescLeft">&#160;</td><td class="mdescRight">2 Гц <br /></td></tr>
+<tr class="memitem:gae5ee909de8a10fa1c0c4c93b7f3e0008" id="r_gae5ee909de8a10fa1c0c4c93b7f3e0008"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_STANDBY_1000</b>&#160;&#160;&#160;0b101</td></tr>
+<tr class="memdesc:gae5ee909de8a10fa1c0c4c93b7f3e0008"><td class="mdescLeft">&#160;</td><td class="mdescRight">1 Гц <br /></td></tr>
+<tr class="memitem:ga2eec2a37f55a0e151fbf37f81f3612e0" id="r_ga2eec2a37f55a0e151fbf37f81f3612e0"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_STANDBY_2000</b>&#160;&#160;&#160;0b110</td></tr>
+<tr class="memdesc:ga2eec2a37f55a0e151fbf37f81f3612e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">0.5 Гц <br /></td></tr>
+<tr class="memitem:ga95143fd2a5900e1c72aa91a71e222708" id="r_ga95143fd2a5900e1c72aa91a71e222708"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_STANDBY_4000</b>&#160;&#160;&#160;0b111</td></tr>
+<tr class="memdesc:ga95143fd2a5900e1c72aa91a71e222708"><td class="mdescLeft">&#160;</td><td class="mdescRight">0.25 Гц <br /></td></tr>
+<tr class="memitem:ga56ba31f2842a5ddf3696343655f47d4b" id="r_ga56ba31f2842a5ddf3696343655f47d4b"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_OVERSAMPLING_0</b>&#160;&#160;&#160;0b000</td></tr>
+<tr class="memitem:gadf1b6505e4b53a91248034ea9d700d20" id="r_gadf1b6505e4b53a91248034ea9d700d20"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_OVERSAMPLING_1</b>&#160;&#160;&#160;0b001</td></tr>
+<tr class="memitem:ga7751eddfd7c3bac086ecdd2b1973703e" id="r_ga7751eddfd7c3bac086ecdd2b1973703e"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_OVERSAMPLING_2</b>&#160;&#160;&#160;0b010</td></tr>
+<tr class="memitem:gac1cd44339e3986f5e7fb51ec64e7b837" id="r_gac1cd44339e3986f5e7fb51ec64e7b837"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_OVERSAMPLING_4</b>&#160;&#160;&#160;0b011</td></tr>
+<tr class="memitem:ga582abffb729455ac7e2c83099c6c78b1" id="r_ga582abffb729455ac7e2c83099c6c78b1"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_OVERSAMPLING_8</b>&#160;&#160;&#160;0b100</td></tr>
+<tr class="memitem:ga00d0d9d5befeb196befc41f564d4ff55" id="r_ga00d0d9d5befeb196befc41f564d4ff55"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_OVERSAMPLING_16</b>&#160;&#160;&#160;0b101</td></tr>
+<tr class="memitem:gad1e0ddde83a1aaa2e1e5f56fbab7c00e" id="r_gad1e0ddde83a1aaa2e1e5f56fbab7c00e"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_FILTER_OFF</b>&#160;&#160;&#160;0b000</td></tr>
+<tr class="memdesc:gad1e0ddde83a1aaa2e1e5f56fbab7c00e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ultra low-power. <br /></td></tr>
+<tr class="memitem:gad9284b0ba9b2596836d256fd5c98927f" id="r_gad9284b0ba9b2596836d256fd5c98927f"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_FILTER_X2</b>&#160;&#160;&#160;0b001</td></tr>
+<tr class="memdesc:gad9284b0ba9b2596836d256fd5c98927f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low-power. <br /></td></tr>
+<tr class="memitem:ga97146bd3dce239856936a97d794ba0b2" id="r_ga97146bd3dce239856936a97d794ba0b2"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_FILTER_X4</b>&#160;&#160;&#160;0b010</td></tr>
+<tr class="memdesc:ga97146bd3dce239856936a97d794ba0b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standart resolution. <br /></td></tr>
+<tr class="memitem:ga1ff4df7854695f263f2a3fd3ebd4d868" id="r_ga1ff4df7854695f263f2a3fd3ebd4d868"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_FILTER_X8</b>&#160;&#160;&#160;0b011</td></tr>
+<tr class="memdesc:ga1ff4df7854695f263f2a3fd3ebd4d868"><td class="mdescLeft">&#160;</td><td class="mdescRight">High resolution. <br /></td></tr>
+<tr class="memitem:gae40226683f8bdc62949341468f5a0270" id="r_gae40226683f8bdc62949341468f5a0270"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_FILTER_X16</b>&#160;&#160;&#160;0b100</td></tr>
+<tr class="memdesc:gae40226683f8bdc62949341468f5a0270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ultra high resolution. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gaeb4962c9608f1182364dcae9585f43b1" id="r_gaeb4962c9608f1182364dcae9585f43b1"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_mx280.html#gaeb4962c9608f1182364dcae9585f43b1">BMx280_init</a> (I2C_TypeDef *hi2c_, uint32_t refPressure_)</td></tr>
+<tr class="memdesc:gaeb4962c9608f1182364dcae9585f43b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация BME/BMP280.  <br /></td></tr>
+<tr class="memitem:ga0c6aef7cbd6323e9b67b9b0c4bca16f1" id="r_ga0c6aef7cbd6323e9b67b9b0c4bca16f1"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_mx280.html#ga0c6aef7cbd6323e9b67b9b0c4bca16f1">BMx280_config</a> (uint8_t T_OS, uint8_t P_OS, uint8_t H_OS, uint8_t STDB, uint8_t IIRF)</td></tr>
+<tr class="memdesc:ga0c6aef7cbd6323e9b67b9b0c4bca16f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация датчика BMP/BME280.  <br /></td></tr>
+<tr class="memitem:ga7e7cdaeae911bfecc62c276a196a48a5" id="r_ga7e7cdaeae911bfecc62c276a196a48a5"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_mx280.html#ga7e7cdaeae911bfecc62c276a196a48a5">BME280_forced_measure</a> (float *temp, float *press, float *hum, float *h)</td></tr>
+<tr class="memdesc:ga7e7cdaeae911bfecc62c276a196a48a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция для разового измерения и чтения данных с датчика BME280.  <br /></td></tr>
+<tr class="memitem:ga55e3e5e076801147905ece515f95d001" id="r_ga55e3e5e076801147905ece515f95d001"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_mx280.html#ga55e3e5e076801147905ece515f95d001">BME280_get_measure</a> (float *temp, float *press, float *hum, float *h)</td></tr>
+<tr class="memdesc:ga55e3e5e076801147905ece515f95d001"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение измеренных данных из памяти BME280.  <br /></td></tr>
+<tr class="memitem:gab9b4bc64a810e07d72bfd38626b38027" id="r_gab9b4bc64a810e07d72bfd38626b38027"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_mx280.html#gab9b4bc64a810e07d72bfd38626b38027">BMP280_forced_measure</a> (float *temp, float *press, float *h)</td></tr>
+<tr class="memdesc:gab9b4bc64a810e07d72bfd38626b38027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция для разового измерения и чтения данных с датчика BMP280.  <br /></td></tr>
+<tr class="memitem:ga7828835a30dcc11b11ec4b6e8b9cc7a2" id="r_ga7828835a30dcc11b11ec4b6e8b9cc7a2"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_mx280.html#ga7828835a30dcc11b11ec4b6e8b9cc7a2">BMP280_get_measure</a> (float *temp, float *press, float *h)</td></tr>
+<tr class="memdesc:ga7828835a30dcc11b11ec4b6e8b9cc7a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение измеренных данных из памяти BMP280.  <br /></td></tr>
+<tr class="memitem:ga414960f385cffa90902314181a741fc6" id="r_ga414960f385cffa90902314181a741fc6"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_mx280.html#ga414960f385cffa90902314181a741fc6">BMx280_sleep</a> ()</td></tr>
+<tr class="memdesc:ga414960f385cffa90902314181a741fc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переход в режим сна  <br /></td></tr>
+<tr class="memitem:gaadfd90b9c48c238aa9b4826d7fa5c8ea" id="r_gaadfd90b9c48c238aa9b4826d7fa5c8ea"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_mx280.html#gaadfd90b9c48c238aa9b4826d7fa5c8ea">BMx280_normal_measure</a> ()</td></tr>
+<tr class="memdesc:gaadfd90b9c48c238aa9b4826d7fa5c8ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переход в режим измерений.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:ac127dfcf65b1a7ff5ef005a20d82d466" id="r_ac127dfcf65b1a7ff5ef005a20d82d466"><td class="memItemLeft" align="right" valign="top"><a id="ac127dfcf65b1a7ff5ef005a20d82d466" name="ac127dfcf65b1a7ff5ef005a20d82d466"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_refPressure</b></td></tr>
+<tr class="memdesc:ac127dfcf65b1a7ff5ef005a20d82d466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Давление при инициализации датчика для вычисления высоты <br /></td></tr>
+<tr class="memitem:a735bc442803d8a2ff0659148957a3b7a" id="r_a735bc442803d8a2ff0659148957a3b7a"><td class="memItemLeft" align="right" valign="top"><a id="a735bc442803d8a2ff0659148957a3b7a" name="a735bc442803d8a2ff0659148957a3b7a"></a>
+I2C_TypeDef *&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_hi2c</b></td></tr>
+<tr class="memdesc:a735bc442803d8a2ff0659148957a3b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Экземпляр интерфейса I2C, к которому подключен BMP280/BME280. <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>API библиотеки для использования в своих проектах </p>
+<dl class="section author"><dt>Автор</dt><dd>Rafael Abeldinov </dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>24.08.2025 </dd></dl>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_802df405a930e40b9ed8f120da335913.html">BMx280</a></li><li class="navelem"><a href="_b_mx280_8h.html">BMx280.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

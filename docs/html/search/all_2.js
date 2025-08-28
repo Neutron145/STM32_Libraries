@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bandwith_0',['Значения параметра BandWith',['../group___s_x1268___b_w.html',1,'']]]
+  ['oversampling_0',['OVERSAMPLING',['../group___o_v_e_r_s_a_m_p_l_i_n_g.html',1,'']]]
 ];

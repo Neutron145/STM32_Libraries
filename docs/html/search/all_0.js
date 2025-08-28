@@ -1,7 +1,28 @@
 var searchData=
 [
-  ['_5f_5fchecksum_0',['__checksum',['../group___parser__group.html#gaee803d47574fa687c060137c427808e0',1,'__checksum(char *&amp;buffer):&#160;GPS_parser.cpp'],['../group___parser__group.html#gaee803d47574fa687c060137c427808e0',1,'__checksum(char *&amp;buffer):&#160;GPS_parser.cpp']]],
-  ['_5f_5finsert_1',['__insert',['../group___parser__group.html#gaed6d05ccd1a8ded6cca6aac6d43fe78a',1,'__insert(char *&amp;dest, char source, int pos):&#160;GPS_parser.cpp'],['../group___parser__group.html#gaed6d05ccd1a8ded6cca6aac6d43fe78a',1,'__insert(char *&amp;dest, char source, int pos):&#160;GPS_parser.cpp']]],
-  ['_5f_5fline_5fprocess_2',['__line_process',['../group___parser__group.html#gaf716e1c325603f9948abf59c425c0bbc',1,'__line_process(char *&amp;buffer):&#160;GPS_parser.cpp'],['../group___parser__group.html#gaf716e1c325603f9948abf59c425c0bbc',1,'__line_process(char *&amp;buffer):&#160;GPS_parser.cpp']]],
-  ['_5f_5flsm6ds33_5fmodify_5freg_3',['__lsm6ds33_modify_reg',['../group___l_s_m6_d_s33__group.html#gae6b392cec4944416801eabf7f95d13b2',1,'__LSM6DS33_modify_reg(uint8_t *reg_data, uint8_t mask, uint8_t bits):&#160;LSM6DS33.c'],['../group___l_s_m6_d_s33__group.html#gae6b392cec4944416801eabf7f95d13b2',1,'__LSM6DS33_modify_reg(uint8_t *reg_data, uint8_t mask, uint8_t bits):&#160;LSM6DS33.c']]]
+  ['bme280_5fforced_5fmeasure_0',['BME280_forced_measure',['../group___b_mx280.html#ga7e7cdaeae911bfecc62c276a196a48a5',1,'BMx280.h']]],
+  ['bme280_5fget_5fmeasure_1',['BME280_get_measure',['../group___b_mx280.html#ga55e3e5e076801147905ece515f95d001',1,'BMx280.h']]],
+  ['bmp280_5fforced_5fmeasure_2',['BMP280_forced_measure',['../group___b_mx280.html#gab9b4bc64a810e07d72bfd38626b38027',1,'BMx280.h']]],
+  ['bmp280_5fget_5fmeasure_3',['BMP280_get_measure',['../group___b_mx280.html#ga7828835a30dcc11b11ec4b6e8b9cc7a2',1,'BMx280.h']]],
+  ['bmx280_4',['BMx280',['../group___b_mx280.html',1,'']]],
+  ['bmx280_2eh_5',['BMx280.h',['../_b_mx280_8h.html',1,'']]],
+  ['bmx280_5fconfig_6',['BMx280_config',['../group___b_mx280.html#ga0c6aef7cbd6323e9b67b9b0c4bca16f1',1,'BMx280.h']]],
+  ['bmx280_5ffilter_5foff_7',['BMx280_FILTER_OFF',['../group___i_i_r___f_i_l_t_e_r.html#gad1e0ddde83a1aaa2e1e5f56fbab7c00e',1,'BMx280.h']]],
+  ['bmx280_5ffilter_5fx16_8',['BMx280_FILTER_X16',['../group___i_i_r___f_i_l_t_e_r.html#gae40226683f8bdc62949341468f5a0270',1,'BMx280.h']]],
+  ['bmx280_5ffilter_5fx2_9',['BMx280_FILTER_X2',['../group___i_i_r___f_i_l_t_e_r.html#gad9284b0ba9b2596836d256fd5c98927f',1,'BMx280.h']]],
+  ['bmx280_5ffilter_5fx4_10',['BMx280_FILTER_X4',['../group___i_i_r___f_i_l_t_e_r.html#ga97146bd3dce239856936a97d794ba0b2',1,'BMx280.h']]],
+  ['bmx280_5ffilter_5fx8_11',['BMx280_FILTER_X8',['../group___i_i_r___f_i_l_t_e_r.html#ga1ff4df7854695f263f2a3fd3ebd4d868',1,'BMx280.h']]],
+  ['bmx280_5fhi2c_12',['BMx280_hi2c',['../_b_mx280_8h.html#a735bc442803d8a2ff0659148957a3b7a',1,'BMx280.h']]],
+  ['bmx280_5finit_13',['BMx280_init',['../group___b_mx280.html#gaeb4962c9608f1182364dcae9585f43b1',1,'BMx280.h']]],
+  ['bmx280_5fnormal_5fmeasure_14',['BMx280_normal_measure',['../group___b_mx280.html#gaadfd90b9c48c238aa9b4826d7fa5c8ea',1,'BMx280.h']]],
+  ['bmx280_5frefpressure_15',['BMx280_refPressure',['../_b_mx280_8h.html#ac127dfcf65b1a7ff5ef005a20d82d466',1,'BMx280.h']]],
+  ['bmx280_5fsleep_16',['BMx280_sleep',['../group___b_mx280.html#ga414960f385cffa90902314181a741fc6',1,'BMx280.h']]],
+  ['bmx280_5fstandby_5f0_5f5_17',['BMx280_STANDBY_0_5',['../group___s_t_a_n_d_b_y___m_o_d_e.html#gaf5bb3697bdc54b9efadbd2a29427e630',1,'BMx280.h']]],
+  ['bmx280_5fstandby_5f1000_18',['BMx280_STANDBY_1000',['../group___s_t_a_n_d_b_y___m_o_d_e.html#gae5ee909de8a10fa1c0c4c93b7f3e0008',1,'BMx280.h']]],
+  ['bmx280_5fstandby_5f125_19',['BMx280_STANDBY_125',['../group___s_t_a_n_d_b_y___m_o_d_e.html#gab0b19481ba9db24d28d01351c4b78802',1,'BMx280.h']]],
+  ['bmx280_5fstandby_5f2000_20',['BMx280_STANDBY_2000',['../group___s_t_a_n_d_b_y___m_o_d_e.html#ga2eec2a37f55a0e151fbf37f81f3612e0',1,'BMx280.h']]],
+  ['bmx280_5fstandby_5f250_21',['BMx280_STANDBY_250',['../group___s_t_a_n_d_b_y___m_o_d_e.html#gafe68b44a258fc37d89c2697edc656220',1,'BMx280.h']]],
+  ['bmx280_5fstandby_5f4000_22',['BMx280_STANDBY_4000',['../group___s_t_a_n_d_b_y___m_o_d_e.html#ga95143fd2a5900e1c72aa91a71e222708',1,'BMx280.h']]],
+  ['bmx280_5fstandby_5f500_23',['BMx280_STANDBY_500',['../group___s_t_a_n_d_b_y___m_o_d_e.html#ga0fee70b866087cb9e27758c8e6728886',1,'BMx280.h']]],
+  ['bmx280_5fstandby_5f62_5f5_24',['BMx280_STANDBY_62_5',['../group___s_t_a_n_d_b_y___m_o_d_e.html#gabf5c8cdd4df0484806549c0da4190302',1,'BMx280.h']]]
 ];

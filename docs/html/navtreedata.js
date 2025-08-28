@@ -24,17 +24,9 @@
 */
 var NAVTREE =
 [
-  [ "RocketLAV`s STM32 libraries", "index.html", [
+  [ "RocketLAV sensor libraries", "index.html", [
     [ "Главная страница", "index.html", null ],
-    [ "Topics", "topics.html", "topics" ],
-    [ "Структуры данных", "annotated.html", [
-      [ "Структуры данных", "annotated.html", "annotated_dup" ],
-      [ "Алфавитный указатель структур данных", "classes.html", null ],
-      [ "Поля структур", "functions.html", [
-        [ "Указатель", "functions.html", null ],
-        [ "Переменные", "functions_vars.html", null ]
-      ] ]
-    ] ],
+    [ "Разделы", "topics.html", "topics" ],
     [ "Файлы", "files.html", [
       [ "Файлы", "files.html", "files_dup" ],
       [ "Список членов всех файлов", "globals.html", [
@@ -49,8 +41,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_a_h_t10_8h.html"
+"_b_mx280_8h.html"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';
 var SYNCOFFMSG = 'нажмите на включить для синхронизации панелей';
+var LISTOFALLMEMBERS = 'Полный список членов класса';

@@ -1,30 +1,33 @@
 var indexSectionsWithContent =
 {
-  0: "biosбгдикпсч",
-  1: "b",
-  2: "b",
-  3: "b",
-  4: "bios",
-  5: "бгдикпсч"
+  0: "abcfgilostбгдикпсч",
+  1: "l",
+  2: "bl",
+  3: "bl",
+  4: "abcfglot",
+  5: "bilos",
+  6: "бгдикпсч"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "files",
-  2: "functions",
-  3: "variables",
-  4: "groups",
-  5: "pages"
+  1: "classes",
+  2: "files",
+  3: "functions",
+  4: "variables",
+  5: "groups",
+  6: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "Указатель",
-  1: "Файлы",
-  2: "Функции",
-  3: "Переменные",
-  4: "Группы",
-  5: "Страницы"
+  1: "Структуры данных",
+  2: "Файлы",
+  3: "Функции",
+  4: "Переменные",
+  5: "Группы",
+  6: "Страницы"
 };
 

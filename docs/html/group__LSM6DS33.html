@@ -1,0 +1,534 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RocketLAV sensor libraries: LSM6DS33</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RocketLAV sensor libraries
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('group__LSM6DS33.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LSM6DS33 </div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Библиотека для работы с LSM6DS33 - 3-осевым акселерометром и 3-осевым гироскопом. Позволяет снимать единичные измерения и получать сразу преобразованные значения в м/с^2 и град/с.  
+<a href="#details">Подробнее...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-groups" class="groupheader"><a id="groups" name="groups"></a>
+Разделы</h2></td></tr>
+<tr class="memitem:LSM6DS33_5FODR" id="r_LSM6DS33_5FODR"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LSM6DS33__ODR.html">LSM6DS33_ODR </a></td></tr>
+<tr class="memdesc:group__LSM6DS33__ODR"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация частоты снятия измерений датчиком <br /></td></tr>
+<tr class="memitem:LSM6DS33_5FORIENT" id="r_LSM6DS33_5FORIENT"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LSM6DS33__ORIENT.html">LSM6DS33_ORIENT </a></td></tr>
+<tr class="memdesc:group__LSM6DS33__ORIENT"><td class="mdescLeft">&#160;</td><td class="mdescRight">Порядок расположения осей системы координат в массиве полученных измерений <br /></td></tr>
+<tr class="memitem:LSM6DS33_5FORIENT_5FSIGN" id="r_LSM6DS33_5FORIENT_5FSIGN"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LSM6DS33__ORIENT__SIGN.html">LSM6DS33_ORIENT_SIGN </a></td></tr>
+<tr class="memdesc:group__LSM6DS33__ORIENT__SIGN"><td class="mdescLeft">&#160;</td><td class="mdescRight">Направления осей системы координат <br /></td></tr>
+<tr class="memitem:LSM6DS33_5FGYRO_5FHPF" id="r_LSM6DS33_5FGYRO_5FHPF"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LSM6DS33__GYRO__HPF.html">LSM6DS33_GYRO_HPF </a></td></tr>
+<tr class="memdesc:group__LSM6DS33__GYRO__HPF"><td class="mdescLeft">&#160;</td><td class="mdescRight">Фильтр high-pass frequency для гироскопа <br /></td></tr>
+<tr class="memitem:LSM6DS33_5FA_5FFILTER" id="r_LSM6DS33_5FA_5FFILTER"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LSM6DS33__A__FILTER.html">LSM6DS33_A_FILTER </a></td></tr>
+<tr class="memdesc:group__LSM6DS33__A__FILTER"><td class="mdescLeft">&#160;</td><td class="mdescRight">Фильтр high-pass frequency для акселерометра <br /></td></tr>
+<tr class="memitem:LSM5DS33_5FFULL_5FSCALE_5FA" id="r_LSM5DS33_5FFULL_5FSCALE_5FA"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LSM5DS33__FULL__SCALE__A.html">LSM5DS33_FULL_SCALE_A </a></td></tr>
+<tr class="memdesc:group__LSM5DS33__FULL__SCALE__A"><td class="mdescLeft">&#160;</td><td class="mdescRight">Full-scale для акселерометра <br /></td></tr>
+<tr class="memitem:LSM6DS33_5FFULL_5FSCALE_5FG" id="r_LSM6DS33_5FFULL_5FSCALE_5FG"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LSM6DS33__FULL__SCALE__G.html">LSM6DS33_FULL_SCALE_G </a></td></tr>
+<tr class="memdesc:group__LSM6DS33__FULL__SCALE__G"><td class="mdescLeft">&#160;</td><td class="mdescRight">Full-scale для гироскопа <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-files" class="groupheader"><a id="files" name="files"></a>
+Файлы</h2></td></tr>
+<tr class="memitem:LSM6DS33_2Eh" id="r_LSM6DS33_2Eh"><td class="memItemLeft" align="right" valign="top">файл &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="LSM6DS33_8h.html">LSM6DS33.h</a></td></tr>
+<tr class="memdesc:LSM6DS33_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">API библиотеки для использования в своих проектах <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gaa4f1016fb1779c4d2d5bdb3af19d10dc" id="r_gaa4f1016fb1779c4d2d5bdb3af19d10dc"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa4f1016fb1779c4d2d5bdb3af19d10dc">LSM6DS33_init</a> (I2C_HandleTypeDef *hi2c_)</td></tr>
+<tr class="memdesc:gaa4f1016fb1779c4d2d5bdb3af19d10dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация датчика LSM6DS33.  <br /></td></tr>
+<tr class="memitem:gab790d028306b8e65cb6bd0fea470488d" id="r_gab790d028306b8e65cb6bd0fea470488d"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab790d028306b8e65cb6bd0fea470488d">LSM6DS33_config_orientation</a> (uint8_t orient, uint8_t signs)</td></tr>
+<tr class="memdesc:gab790d028306b8e65cb6bd0fea470488d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация ориентации датчика  <br /></td></tr>
+<tr class="memitem:gafa5498ca334e09daeff33bbe17cc1849" id="r_gafa5498ca334e09daeff33bbe17cc1849"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafa5498ca334e09daeff33bbe17cc1849">LSM6DS33_config_filters</a> (uint8_t g_HPF, uint8_t g_HPF_frequency, uint8_t a_HPF)</td></tr>
+<tr class="memdesc:gafa5498ca334e09daeff33bbe17cc1849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация высокочастотных фильтров для гироскопа и акселерометра  <br /></td></tr>
+<tr class="memitem:gac340e8eb67ec4c3935ac5f9d21702689" id="r_gac340e8eb67ec4c3935ac5f9d21702689"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac340e8eb67ec4c3935ac5f9d21702689">LSM6DS33_config_full_scale</a> (uint8_t a_FS, uint8_t g_FS)</td></tr>
+<tr class="memdesc:gac340e8eb67ec4c3935ac5f9d21702689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация full-scale для гироскопа и акселерометра  <br /></td></tr>
+<tr class="memitem:ga68e56747e6553e229a8bb64a2adeae7d" id="r_ga68e56747e6553e229a8bb64a2adeae7d"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga68e56747e6553e229a8bb64a2adeae7d">LSM6DS33_config_perfomance_mode</a> (uint8_t a_ODR, uint8_t g_ODR)</td></tr>
+<tr class="memdesc:ga68e56747e6553e229a8bb64a2adeae7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурация режима работы датчика  <br /></td></tr>
+<tr class="memitem:ga0c2dbc5fb28f8dfb76e5b1597b579941" id="r_ga0c2dbc5fb28f8dfb76e5b1597b579941"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0c2dbc5fb28f8dfb76e5b1597b579941">LSM6DS33_reset</a> ()</td></tr>
+<tr class="memdesc:ga0c2dbc5fb28f8dfb76e5b1597b579941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Программная перезагрузка датчика  <br /></td></tr>
+<tr class="memitem:gac3a6604c07a62dda0c338d382a0209cd" id="r_gac3a6604c07a62dda0c338d382a0209cd"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac3a6604c07a62dda0c338d382a0209cd">LSM6DS33_A_get_measure</a> (float *a)</td></tr>
+<tr class="memdesc:gac3a6604c07a62dda0c338d382a0209cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Снятие измерений с акселерометра  <br /></td></tr>
+<tr class="memitem:ga7f266a11c1106c6c7774e961ad3ddcd8" id="r_ga7f266a11c1106c6c7774e961ad3ddcd8"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7f266a11c1106c6c7774e961ad3ddcd8">LSM6DS33_G_get_measure</a> (float *g)</td></tr>
+<tr class="memdesc:ga7f266a11c1106c6c7774e961ad3ddcd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Снятие измерений с гироскопа  <br /></td></tr>
+<tr class="memitem:ga42146df5bea93f539fe623653f301fab" id="r_ga42146df5bea93f539fe623653f301fab"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga42146df5bea93f539fe623653f301fab">LSM6DS33_T_get_measure</a> (float *t)</td></tr>
+<tr class="memdesc:ga42146df5bea93f539fe623653f301fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Снятие измерений с термометра  <br /></td></tr>
+<tr class="memitem:gabb8047f0a55832252a0d0ef41f748fd6" id="r_gabb8047f0a55832252a0d0ef41f748fd6"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabb8047f0a55832252a0d0ef41f748fd6">LSM6DS33_get_measure</a> (float *a, float *g)</td></tr>
+<tr class="memdesc:gabb8047f0a55832252a0d0ef41f748fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Снятие измерений акселерометра и гирокскопа  <br /></td></tr>
+<tr class="memitem:ga11b009252026358585a88ddcf0703794" id="r_ga11b009252026358585a88ddcf0703794"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga11b009252026358585a88ddcf0703794">LSM6DS33_get_all_measure</a> (float *a, float *g, float *t)</td></tr>
+<tr class="memdesc:ga11b009252026358585a88ddcf0703794"><td class="mdescLeft">&#160;</td><td class="mdescRight">Снятие измерений акселерометра, гирокскопа и термометра  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<p>Библиотека для работы с LSM6DS33 - 3-осевым акселерометром и 3-осевым гироскопом. Позволяет снимать единичные измерения и получать сразу преобразованные значения в м/с^2 и град/с. </p>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Функции</h2>
+<a id="gac3a6604c07a62dda0c338d382a0209cd" name="gac3a6604c07a62dda0c338d382a0209cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac3a6604c07a62dda0c338d382a0209cd">&#9670;&#160;</a></span>LSM6DS33_A_get_measure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LSM6DS33_A_get_measure </td>
+          <td>(</td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Снятие измерений с акселерометра </p>
+<p>Получает значения ускорений по трем осям в сконфигурированной системе координат и заданном full-scale.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>Массив, куда записываются значения ускорений по трем осям </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Результат получения данных по I2C </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gafa5498ca334e09daeff33bbe17cc1849" name="gafa5498ca334e09daeff33bbe17cc1849"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafa5498ca334e09daeff33bbe17cc1849">&#9670;&#160;</a></span>LSM6DS33_config_filters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LSM6DS33_config_filters </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>g_HPF</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>g_HPF_frequency</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>a_HPF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конфигурация высокочастотных фильтров для гироскопа и акселерометра </p>
+<p>Повзоляет настроить высокочастотный фильтр (HPF) для гироскопа и акселерометра. <br  />
+ Высокочастотный фильтр пропускает резкие движения, отфильтровывает медленные движения и дрейф.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g_HPF</td><td>Режим работы фильтра HPF для гироскопа. Принимает значения макросов <a class="el" href="group__LSM6DS33__GYRO__HPF.html">режима работы фильтра</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g_HPF_frequency</td><td>Частота фильтра HPF для гироскопа. Принимает значения макросов <a class="el" href="group__LSM6DS33__GYRO__HPF.html">частоты фильтра для гироскопа</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a_HPF</td><td>Частота и режим работы HPF для акселерометра. Принимает значения макросов <a class="el" href="group__LSM6DS33__A__FILTER.html">фильтра high-pass frequency для акселерометра</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>HAL_StatusTypeDef Результат получения данных по I2C </dd></dl>
+
+</div>
+</div>
+<a id="gac340e8eb67ec4c3935ac5f9d21702689" name="gac340e8eb67ec4c3935ac5f9d21702689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac340e8eb67ec4c3935ac5f9d21702689">&#9670;&#160;</a></span>LSM6DS33_config_full_scale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LSM6DS33_config_full_scale </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>a_FS</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>g_FS</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конфигурация full-scale для гироскопа и акселерометра </p>
+<p>Конфигурирует максимальный масштаб и точность измерений акселерометра и гироскопа.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a_FS</td><td>Full-scale для акселерометра. Принимает значения макросов <a class="el" href="group__LSM5DS33__FULL__SCALE__A.html">full-scale для акселерометра</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g_FS</td><td>Full-scale для гироскопа. Принимает значения макросов <a class="el" href="group__LSM6DS33__FULL__SCALE__G.html">full-scale Для гироскопа</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>HAL_StatusTypeDef Результат получения данных по I2C </dd></dl>
+
+</div>
+</div>
+<a id="gab790d028306b8e65cb6bd0fea470488d" name="gab790d028306b8e65cb6bd0fea470488d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab790d028306b8e65cb6bd0fea470488d">&#9670;&#160;</a></span>LSM6DS33_config_orientation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LSM6DS33_config_orientation </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>orient</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>signs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конфигурация ориентации датчика </p>
+<p>Конфигурируется порядок расположения осей системы координат и их знаки относительно заводской системы координат. <br  />
+</p>
+<dl class="section note"><dt>Заметки</dt><dd>Стандартная система координат датчика совпадает с осями, размеченными на корпусе датчика и имеет порядок X, Y, Z с положительными направлениями.</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">orient</td><td>Порядок расположение осей системы координат. Принимает значения макросов <a class="el" href="group__LSM6DS33__ORIENT.html">порядка расположения осей системы координат</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">signs</td><td>Знаки осей в системе координат. Принимает значения макросов <a class="el" href="group__LSM6DS33__ORIENT__SIGN.html">направлений осей системы координат</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>HAL_StatusTypeDef Результат получения данных по I2C </dd></dl>
+
+</div>
+</div>
+<a id="ga68e56747e6553e229a8bb64a2adeae7d" name="ga68e56747e6553e229a8bb64a2adeae7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga68e56747e6553e229a8bb64a2adeae7d">&#9670;&#160;</a></span>LSM6DS33_config_perfomance_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LSM6DS33_config_perfomance_mode </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>a_ODR</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>g_ODR</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конфигурация режима работы датчика </p>
+<p>Конфигурирует частоту работы акселерометра и гироскопа. От них зависит качество работы фильтров и измеренных данных, а также энергопотребление датчика.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a_ODR</td><td>Частота работы акселерометра. Принимает значения макросов <a class="el" href="group__LSM6DS33__ODR.html">частоты и питания датчика</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g_ODR</td><td>Частота работы гироскопа. Принимает значения макросов <a class="el" href="group__LSM6DS33__ODR.html">частоты и питания датчика</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>HAL_StatusTypeDef Результат получения данных по I2C </dd></dl>
+
+</div>
+</div>
+<a id="ga7f266a11c1106c6c7774e961ad3ddcd8" name="ga7f266a11c1106c6c7774e961ad3ddcd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7f266a11c1106c6c7774e961ad3ddcd8">&#9670;&#160;</a></span>LSM6DS33_G_get_measure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LSM6DS33_G_get_measure </td>
+          <td>(</td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Снятие измерений с гироскопа </p>
+<p>Получает значения угловых скоростей по трем осям в сконфигурированной системе координат и заданном full-scale.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">g</td><td>Массив, куда записываются значений угла отклонения по трем осям </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Результат получения данных по I2C </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga11b009252026358585a88ddcf0703794" name="ga11b009252026358585a88ddcf0703794"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga11b009252026358585a88ddcf0703794">&#9670;&#160;</a></span>LSM6DS33_get_all_measure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LSM6DS33_get_all_measure </td>
+          <td>(</td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Снятие измерений акселерометра, гирокскопа и термометра </p>
+<p>Получает значения ускорений, угловых скоростей и температуры в сконфигурированной системе координат и заданном full-scale.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>Массив, куда записываются значения ускорений по трем осям </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">g</td><td>Массив, куда записываются значений угла отклонения по трем осям </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">t</td><td>Переменная, куда записывается значение температуры в градусах Цельсиях </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Результат получения данных по I2C </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gabb8047f0a55832252a0d0ef41f748fd6" name="gabb8047f0a55832252a0d0ef41f748fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabb8047f0a55832252a0d0ef41f748fd6">&#9670;&#160;</a></span>LSM6DS33_get_measure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LSM6DS33_get_measure </td>
+          <td>(</td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Снятие измерений акселерометра и гирокскопа </p>
+<p>Получает значения ускорений и угловых скоростей по трем осям в сконфигурированной системе координат и заданном full-scale.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>Массив, куда записываются значения ускорений по трем осям </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">g</td><td>Массив, куда записываются значений угла отклонения по трем осям </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Результат получения данных по I2C </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa4f1016fb1779c4d2d5bdb3af19d10dc" name="gaa4f1016fb1779c4d2d5bdb3af19d10dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa4f1016fb1779c4d2d5bdb3af19d10dc">&#9670;&#160;</a></span>LSM6DS33_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LSM6DS33_init </td>
+          <td>(</td>
+          <td class="paramtype">I2C_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>hi2c_</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Инициализация датчика LSM6DS33. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Автоматически определяет адрес датчика в заваисимости от состояния пина SA0. <br  />
+ Данная библиотека поддерживает только один подключенный датчик LSM6DS33.</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">hi2c_</td><td>Экземпляр интерфейса I2C, к которому подключен датчик </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>HAL_StatusTypeDef Результат получения данных по I2C </dd></dl>
+
+</div>
+</div>
+<a id="ga0c2dbc5fb28f8dfb76e5b1597b579941" name="ga0c2dbc5fb28f8dfb76e5b1597b579941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0c2dbc5fb28f8dfb76e5b1597b579941">&#9670;&#160;</a></span>LSM6DS33_reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LSM6DS33_reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Программная перезагрузка датчика </p>
+<p>Позволяет перезагрузить датчик программно, без отключения питания.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>HAL_StatusTypeDef Результат получения данных по I2C </dd></dl>
+
+</div>
+</div>
+<a id="ga42146df5bea93f539fe623653f301fab" name="ga42146df5bea93f539fe623653f301fab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga42146df5bea93f539fe623653f301fab">&#9670;&#160;</a></span>LSM6DS33_T_get_measure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef LSM6DS33_T_get_measure </td>
+          <td>(</td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Снятие измерений с термометра </p>
+<p>Получает значение температуры в градусах Цельсия.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">t</td><td>Переменная, куда записывается значение температуры в градусах Цельсиях </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Возвращаемые значения</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">status</td><td>Результат получения данных по I2C </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

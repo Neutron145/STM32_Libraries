@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RocketLAV sensor libraries: Исходный файл LSM6DS33/LSM6DS33.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">RocketLAV sensor libraries
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('LSM6DS33_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LSM6DS33.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="LSM6DS33_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef LSM6DS33_H_</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define LSM6DS33_H_</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;main.h&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#ifdef LSM6DS33_HAL</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define I2C_TypeDef         I2C_HandleTypeDef</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define I2C_Mem_Write(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)        HAL_I2C_Mem_Write(ADR,DEV_ADR,REG_ADR,I2C_MEMADD_SIZE_8BIT,BUF,BUF_SIZE,TIMEOUT)</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define I2C_Mem_Read(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)         HAL_I2C_Mem_Read(ADR,DEV_ADR,REG_ADR,I2C_MEMADD_SIZE_8BIT,BUF,BUF_SIZE,TIMEOUT)</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#elif LSM6DS33_LL</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;I2C_ll.h&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define I2C_TypeDef         I2C_TypeDef</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define I2C_Mem_Write(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)        LL_I2C_Mem_Write(ADR,DEV_ADR,REG_ADR,BUF,BUF_SIZE,TIMEOUT)</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#define I2C_Mem_Read(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)         LL_I2C_Mem_Read(ADR,DEV_ADR,REG_ADR,BUF,BUF_SIZE,TIMEOUT)</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#endif </span><span class="comment">/* LSM6DS33_LL */</span><span class="preprocessor"></span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">extern</span> I2C_TypeDef* <a class="code hl_variable" href="LSM6DS33_8h.html#ad8ece5c33c7bd6df846292f7bc2c7259">LSM6DS33_hi2c</a>;      </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="LSM6DS33_8h.html#a3c9da962929769bb08b2f045550393f5">FULL_SCALES_A</a>[4];          </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="LSM6DS33_8h.html#ac9f5296b0570e8008b85b2d5bb589b6a">FULL_SCALES_G</a>[4];          </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="LSM6DS33_8h.html#aa0ccc478c35cdaf50f524d7c53af571a">a_ref</a>[3];                  </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="LSM6DS33_8h.html#a86bdace7dd1d17d1e015c4871135e2e7">g_ref</a>[3];                  </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="LSM6DS33_8h.html#a68b76a324891415c8d8ff12732bc50c8">full_scale_A</a>;              </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="LSM6DS33_8h.html#a46543b4cc5555f68f7984304d2cfd5db">full_scale_G</a>;              </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structLSM6DS33__cfg.html">   48</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structLSM6DS33__cfg.html#a8412eda60f7be1020991792289092550">   49</a></span>    uint8_t <a class="code hl_variable" href="structLSM6DS33__cfg.html#a8412eda60f7be1020991792289092550">ORIENT_config</a>;                  </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="structLSM6DS33__cfg.html#ae547ab0be4d7840646c694112584e595">   50</a></span>    uint8_t <a class="code hl_variable" href="structLSM6DS33__cfg.html#ae547ab0be4d7840646c694112584e595">CTRL1_config</a>;                   </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structLSM6DS33__cfg.html#a39c24bad1630ae11b80c93e07a8dcdd1">   51</a></span>    uint8_t <a class="code hl_variable" href="structLSM6DS33__cfg.html#a39c24bad1630ae11b80c93e07a8dcdd1">CTRL2_config</a>;                   </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="structLSM6DS33__cfg.html#a7cde64d1de5b9b973faeca8ee920eaa8">   52</a></span>    uint8_t <a class="code hl_variable" href="structLSM6DS33__cfg.html#a7cde64d1de5b9b973faeca8ee920eaa8">CTRL3_config</a>;                   </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structLSM6DS33__cfg.html#a38bb7628cd59b42669dc4989c778e493">   53</a></span>    uint8_t <a class="code hl_variable" href="structLSM6DS33__cfg.html#a38bb7628cd59b42669dc4989c778e493">CTRL7_config</a>;                   </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structLSM6DS33__cfg.html#a2e603974d041b0b3901de1f35ebba112">   54</a></span>    uint8_t <a class="code hl_variable" href="structLSM6DS33__cfg.html#a2e603974d041b0b3901de1f35ebba112">CTRL8_config</a>;                   </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structLSM6DS33__cfg.html#a066c69f81edff8a86897afcacf5cd96f">   55</a></span>    uint8_t <a class="code hl_variable" href="structLSM6DS33__cfg.html#a066c69f81edff8a86897afcacf5cd96f">CTRL10_config</a>;                  </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="structLSM6DS33__cfg.html#a8d0aa5c1585865dc6ed0f669dd888351">   56</a></span>    uint8_t <a class="code hl_variable" href="structLSM6DS33__cfg.html#a8d0aa5c1585865dc6ed0f669dd888351">TAP_config</a>;                     </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>} <a class="code hl_struct" href="structLSM6DS33__cfg.html">LSM6DS33_cfg</a>;</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#define LSM6DS33_ODR_MASK                       0b11110000          </span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#define LSM6DS33_ODR_POWER_DOWN                 0b0000              </span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#define LSM6DS33_ODR_12_5HZ                     0b0001              </span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#define LSM6DS33_ODR_26HZ                       0b0010              </span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#define LSM6DS33_ODR_52HZ                       0b0011              </span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#define LSM6DS33_ODR_104HZ                      0b0100              </span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#define LSM6DS33_ODR_208HZ                      0b0101              </span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#define LSM6DS33_ODR_416HZ                      0b0110              </span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#define LSM6DS33_ODR_833HZ                      0b0111              </span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#define LSM6DS33_ODR_1660HZ                     0b1000              </span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#define LSM6DS33_ODR_3330HZ                     0b1001              </span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#define LSM6DS33_ODR_6660HZ                     0b1010              </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#define LSM6DS33_ORIENT_CFG_MASK                0b00111111          </span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#define LSM6DS33_ORIENT_CFG_XYZ                 0b000</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#define LSM6DS33_ORIENT_CFG_XZY                 0b001</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#define LSM6DS33_ORIENT_CFG_YXZ                 0b010</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#define LSM6DS33_ORIENT_CFG_YZX                 0b011</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#define LSM6DS33_ORIENT_CFG_ZXY                 0b100</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#define LSM6DS33_ORIENT_CFG_ZYX                 0b101</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#define LSM6DS33_ORIENT_SIGN_POSITIVE_X         0b0&lt;&lt;2</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#define LSM6DS33_ORIENT_SIGN_NEGATIVE_X         0b1&lt;&lt;2</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#define LSM6DS33_ORIENT_SIGN_POSITIVE_Y         0b0&lt;&lt;1</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#define LSM6DS33_ORIENT_SIGN_NEGATIVE_Y         0b1&lt;&lt;1</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#define LSM6DS33_ORIENT_SIGN_POSITIVE_Z         0b0</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#define LSM6DS33_ORIENT_SIGN_NEGATIVE_Z         0b1</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#define LSM6DS33_GYRO_HPF_MASK                  0b01110000</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">#define LSM6DS33_GYRO_HPF_OFF                   0b0</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">#define LSM6DS33_GYRO_HPF_ON                    0b1</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="group__LSM6DS33__GYRO__HPF.html#ga19a219978291ff062bb3d5b00965b955">  124</a></span><span class="preprocessor">#define LSM6DS33_GYRO_HPF_FREQ_1                0b00        </span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="group__LSM6DS33__GYRO__HPF.html#gaa3f4bfa7e907d162df8233ad9b23d19e">  125</a></span><span class="preprocessor">#define LSM6DS33_GYRO_HPF_FREQ_2                0b01        </span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="group__LSM6DS33__GYRO__HPF.html#gaab7e1edf11b7e5e2c834c28632c584dc">  126</a></span><span class="preprocessor">#define LSM6DS33_GYRO_HPF_FREQ_3                0b00        </span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="group__LSM6DS33__GYRO__HPF.html#gaceaa36ebb12cbaf3e965ac3a41e044b1">  127</a></span><span class="preprocessor">#define LSM6DS33_GYRO_HPF_FREQ_4                0b01        </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="preprocessor">#define LSM6DS33_A_FILTER_MASK                  0b01100000</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="group__LSM6DS33__A__FILTER.html#ga1370fb650ca37a2b68bfc9c8c40dceeb">  140</a></span><span class="preprocessor">#define LSM6DS33_A_FILTER_MODE_1                0b00            </span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="group__LSM6DS33__A__FILTER.html#ga8fa957d3284804de1988f982a9cf84a7">  141</a></span><span class="preprocessor">#define LSM6DS33_A_FILTER_MODE_2                0b01            </span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="group__LSM6DS33__A__FILTER.html#ga6bdbb59ecae1cf8622b30112d1c9ebcf">  142</a></span><span class="preprocessor">#define LSM6DS33_A_FILTER_MODE_3                0b10            </span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="group__LSM6DS33__A__FILTER.html#ga02c729e10df2918c4ff3a4c58ea3614f">  143</a></span><span class="preprocessor">#define LSM6DS33_A_FILTER_MODE_4                0b11            </span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#define LSM6DS33_FULL_SCALE_MASK                0b00001100</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="preprocessor">#define LSM6DS33_FULL_SCALE_2G                  0b00</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="preprocessor">#define LSM6DS33_FULL_SCALE_4G                  0b10</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">#define LSM6DS33_FULL_SCALE_8G                  0b11</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="preprocessor">#define LSM6DS33_FULL_SCALE_16G                 0b01</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="preprocessor">#define LSM6DS33_FULL_SCALE_250DPS              0b000</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">#define LSM6DS33_FULL_SCALE_500DPS              0b001</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="preprocessor">#define LSM6DS33_FULL_SCALE_1000DPS             0b010</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">#define LSM6DS33_FULL_SCALE_2000DPS             0b011</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">#define LSM6DS33_REGISTER_FIFO_CTRL4            0x09</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="preprocessor">#define LSM6DS33_REGISTER_FIFO_CTRL5            0x0A</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="preprocessor">#define LSM6DS33_REGISTER_CTRL1                 0x10</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">#define LSM6DS33_REGISTER_CTRL2                 0x11</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="preprocessor">#define LSM6DS33_REGISTER_CTRL3                 0x12</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="preprocessor">#define LSM6DS33_REGISTER_CTRL7                 0x16</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="preprocessor">#define LSM6DS33_REGISTER_CTRL8                 0x17</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">#define LSM6DS33_REGISTER_CTRL10                0x19</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">#define LSM6DS33_REGISTER_TAP_CFG               0x58</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="preprocessor">#define LSM6DS33_REGISTER_ORIENT_CFG            0x0B</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="preprocessor">#define LSM6DS33_REGISTER_STATUS_REG            0x1E</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="preprocessor">#define LSM6DS33_REGISTER_OUT_T                 0x20</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="preprocessor">#define LSM6DS33_REGISTER_OUT_G                 0x22</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="preprocessor">#define LSM6DS33_REGISTER_OUT_A                 0x28</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">#define LSM6DS33_REGISTER_ID                    0x0F</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">#define LSM6DS33_REGISTER_MD2_CFG               0x5F</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="keywordtype">void</span> __LSM6DS33_modify_reg(uint8_t *reg_data, uint8_t mask, uint8_t bits);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="group__LSM6DS33.html#gaa4f1016fb1779c4d2d5bdb3af19d10dc">  209</a></span>HAL_StatusTypeDef <a class="code hl_function" href="group__LSM6DS33.html#gaa4f1016fb1779c4d2d5bdb3af19d10dc">LSM6DS33_init</a>(I2C_HandleTypeDef* hi2c_);</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="group__LSM6DS33.html#gab790d028306b8e65cb6bd0fea470488d">  222</a></span>HAL_StatusTypeDef <a class="code hl_function" href="group__LSM6DS33.html#gab790d028306b8e65cb6bd0fea470488d">LSM6DS33_config_orientation</a>(uint8_t orient, uint8_t signs);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="group__LSM6DS33.html#gafa5498ca334e09daeff33bbe17cc1849">  235</a></span>HAL_StatusTypeDef <a class="code hl_function" href="group__LSM6DS33.html#gafa5498ca334e09daeff33bbe17cc1849">LSM6DS33_config_filters</a>(uint8_t g_HPF, uint8_t g_HPF_frequency, uint8_t a_HPF);</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="group__LSM6DS33.html#gac340e8eb67ec4c3935ac5f9d21702689">  246</a></span>HAL_StatusTypeDef <a class="code hl_function" href="group__LSM6DS33.html#gac340e8eb67ec4c3935ac5f9d21702689">LSM6DS33_config_full_scale</a>(uint8_t a_FS, uint8_t g_FS);</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="group__LSM6DS33.html#ga68e56747e6553e229a8bb64a2adeae7d">  258</a></span>HAL_StatusTypeDef <a class="code hl_function" href="group__LSM6DS33.html#ga68e56747e6553e229a8bb64a2adeae7d">LSM6DS33_config_perfomance_mode</a>(uint8_t a_ODR, uint8_t g_ODR);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="group__LSM6DS33.html#ga0c2dbc5fb28f8dfb76e5b1597b579941">  267</a></span>HAL_StatusTypeDef <a class="code hl_function" href="group__LSM6DS33.html#ga0c2dbc5fb28f8dfb76e5b1597b579941">LSM6DS33_reset</a>();</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="group__LSM6DS33.html#gac3a6604c07a62dda0c338d382a0209cd">  277</a></span>HAL_StatusTypeDef <a class="code hl_function" href="group__LSM6DS33.html#gac3a6604c07a62dda0c338d382a0209cd">LSM6DS33_A_get_measure</a>(<span class="keywordtype">float</span> *a);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="group__LSM6DS33.html#ga7f266a11c1106c6c7774e961ad3ddcd8">  287</a></span>HAL_StatusTypeDef <a class="code hl_function" href="group__LSM6DS33.html#ga7f266a11c1106c6c7774e961ad3ddcd8">LSM6DS33_G_get_measure</a>(<span class="keywordtype">float</span> *g);</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno"><a class="line" href="group__LSM6DS33.html#ga42146df5bea93f539fe623653f301fab">  297</a></span>HAL_StatusTypeDef <a class="code hl_function" href="group__LSM6DS33.html#ga42146df5bea93f539fe623653f301fab">LSM6DS33_T_get_measure</a>(<span class="keywordtype">float</span> *t);</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno"><a class="line" href="group__LSM6DS33.html#gabb8047f0a55832252a0d0ef41f748fd6">  308</a></span>HAL_StatusTypeDef <a class="code hl_function" href="group__LSM6DS33.html#gabb8047f0a55832252a0d0ef41f748fd6">LSM6DS33_get_measure</a>(<span class="keywordtype">float</span>* a, <span class="keywordtype">float</span> *g);</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno"><a class="line" href="group__LSM6DS33.html#ga11b009252026358585a88ddcf0703794">  320</a></span>HAL_StatusTypeDef <a class="code hl_function" href="group__LSM6DS33.html#ga11b009252026358585a88ddcf0703794">LSM6DS33_get_all_measure</a>(<span class="keywordtype">float</span>* a, <span class="keywordtype">float</span>* g, <span class="keywordtype">float</span>* t);</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span><span class="preprocessor">#endif </span><span class="comment">/* INC_LSM6DS33_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aLSM6DS33_8h_html_a3c9da962929769bb08b2f045550393f5"><div class="ttname"><a href="LSM6DS33_8h.html#a3c9da962929769bb08b2f045550393f5">FULL_SCALES_A</a></div><div class="ttdeci">float FULL_SCALES_A[4]</div><div class="ttdoc">Хранит значения full-scale для акселерометра. Full-scale определяет максимальный масштаб и точность и...</div></div>
+<div class="ttc" id="aLSM6DS33_8h_html_a46543b4cc5555f68f7984304d2cfd5db"><div class="ttname"><a href="LSM6DS33_8h.html#a46543b4cc5555f68f7984304d2cfd5db">full_scale_G</a></div><div class="ttdeci">float full_scale_G</div><div class="ttdoc">Текущее значение full-scale для гироскопа.</div></div>
+<div class="ttc" id="aLSM6DS33_8h_html_a68b76a324891415c8d8ff12732bc50c8"><div class="ttname"><a href="LSM6DS33_8h.html#a68b76a324891415c8d8ff12732bc50c8">full_scale_A</a></div><div class="ttdeci">float full_scale_A</div><div class="ttdoc">Текущее значение full-scale для акселерометра.</div></div>
+<div class="ttc" id="aLSM6DS33_8h_html_a86bdace7dd1d17d1e015c4871135e2e7"><div class="ttname"><a href="LSM6DS33_8h.html#a86bdace7dd1d17d1e015c4871135e2e7">g_ref</a></div><div class="ttdeci">float g_ref[3]</div><div class="ttdoc">Смещение относительно нуля для угловых скоростей. Используется для калибровки.</div></div>
+<div class="ttc" id="aLSM6DS33_8h_html_aa0ccc478c35cdaf50f524d7c53af571a"><div class="ttname"><a href="LSM6DS33_8h.html#aa0ccc478c35cdaf50f524d7c53af571a">a_ref</a></div><div class="ttdeci">float a_ref[3]</div><div class="ttdoc">Смещение относительно нуля для ускорений. Используется для калибровки.</div></div>
+<div class="ttc" id="aLSM6DS33_8h_html_ac9f5296b0570e8008b85b2d5bb589b6a"><div class="ttname"><a href="LSM6DS33_8h.html#ac9f5296b0570e8008b85b2d5bb589b6a">FULL_SCALES_G</a></div><div class="ttdeci">float FULL_SCALES_G[4]</div><div class="ttdoc">Хранит значения full-scale для гироскопа. Full-scale определяет максимальный масштаб и точность измер...</div></div>
+<div class="ttc" id="aLSM6DS33_8h_html_ad8ece5c33c7bd6df846292f7bc2c7259"><div class="ttname"><a href="LSM6DS33_8h.html#ad8ece5c33c7bd6df846292f7bc2c7259">LSM6DS33_hi2c</a></div><div class="ttdeci">I2C_TypeDef * LSM6DS33_hi2c</div><div class="ttdoc">Экземпляр I2C, к которому подключен инерциальный датчик.</div></div>
+<div class="ttc" id="agroup__LSM6DS33_html_ga0c2dbc5fb28f8dfb76e5b1597b579941"><div class="ttname"><a href="group__LSM6DS33.html#ga0c2dbc5fb28f8dfb76e5b1597b579941">LSM6DS33_reset</a></div><div class="ttdeci">HAL_StatusTypeDef LSM6DS33_reset()</div><div class="ttdoc">Программная перезагрузка датчика</div></div>
+<div class="ttc" id="agroup__LSM6DS33_html_ga11b009252026358585a88ddcf0703794"><div class="ttname"><a href="group__LSM6DS33.html#ga11b009252026358585a88ddcf0703794">LSM6DS33_get_all_measure</a></div><div class="ttdeci">HAL_StatusTypeDef LSM6DS33_get_all_measure(float *a, float *g, float *t)</div><div class="ttdoc">Снятие измерений акселерометра, гирокскопа и термометра</div></div>
+<div class="ttc" id="agroup__LSM6DS33_html_ga42146df5bea93f539fe623653f301fab"><div class="ttname"><a href="group__LSM6DS33.html#ga42146df5bea93f539fe623653f301fab">LSM6DS33_T_get_measure</a></div><div class="ttdeci">HAL_StatusTypeDef LSM6DS33_T_get_measure(float *t)</div><div class="ttdoc">Снятие измерений с термометра</div></div>
+<div class="ttc" id="agroup__LSM6DS33_html_ga68e56747e6553e229a8bb64a2adeae7d"><div class="ttname"><a href="group__LSM6DS33.html#ga68e56747e6553e229a8bb64a2adeae7d">LSM6DS33_config_perfomance_mode</a></div><div class="ttdeci">HAL_StatusTypeDef LSM6DS33_config_perfomance_mode(uint8_t a_ODR, uint8_t g_ODR)</div><div class="ttdoc">Конфигурация режима работы датчика</div></div>
+<div class="ttc" id="agroup__LSM6DS33_html_ga7f266a11c1106c6c7774e961ad3ddcd8"><div class="ttname"><a href="group__LSM6DS33.html#ga7f266a11c1106c6c7774e961ad3ddcd8">LSM6DS33_G_get_measure</a></div><div class="ttdeci">HAL_StatusTypeDef LSM6DS33_G_get_measure(float *g)</div><div class="ttdoc">Снятие измерений с гироскопа</div></div>
+<div class="ttc" id="agroup__LSM6DS33_html_gaa4f1016fb1779c4d2d5bdb3af19d10dc"><div class="ttname"><a href="group__LSM6DS33.html#gaa4f1016fb1779c4d2d5bdb3af19d10dc">LSM6DS33_init</a></div><div class="ttdeci">HAL_StatusTypeDef LSM6DS33_init(I2C_HandleTypeDef *hi2c_)</div><div class="ttdoc">Инициализация датчика LSM6DS33.</div></div>
+<div class="ttc" id="agroup__LSM6DS33_html_gab790d028306b8e65cb6bd0fea470488d"><div class="ttname"><a href="group__LSM6DS33.html#gab790d028306b8e65cb6bd0fea470488d">LSM6DS33_config_orientation</a></div><div class="ttdeci">HAL_StatusTypeDef LSM6DS33_config_orientation(uint8_t orient, uint8_t signs)</div><div class="ttdoc">Конфигурация ориентации датчика</div></div>
+<div class="ttc" id="agroup__LSM6DS33_html_gabb8047f0a55832252a0d0ef41f748fd6"><div class="ttname"><a href="group__LSM6DS33.html#gabb8047f0a55832252a0d0ef41f748fd6">LSM6DS33_get_measure</a></div><div class="ttdeci">HAL_StatusTypeDef LSM6DS33_get_measure(float *a, float *g)</div><div class="ttdoc">Снятие измерений акселерометра и гирокскопа</div></div>
+<div class="ttc" id="agroup__LSM6DS33_html_gac340e8eb67ec4c3935ac5f9d21702689"><div class="ttname"><a href="group__LSM6DS33.html#gac340e8eb67ec4c3935ac5f9d21702689">LSM6DS33_config_full_scale</a></div><div class="ttdeci">HAL_StatusTypeDef LSM6DS33_config_full_scale(uint8_t a_FS, uint8_t g_FS)</div><div class="ttdoc">Конфигурация full-scale для гироскопа и акселерометра</div></div>
+<div class="ttc" id="agroup__LSM6DS33_html_gac3a6604c07a62dda0c338d382a0209cd"><div class="ttname"><a href="group__LSM6DS33.html#gac3a6604c07a62dda0c338d382a0209cd">LSM6DS33_A_get_measure</a></div><div class="ttdeci">HAL_StatusTypeDef LSM6DS33_A_get_measure(float *a)</div><div class="ttdoc">Снятие измерений с акселерометра</div></div>
+<div class="ttc" id="agroup__LSM6DS33_html_gafa5498ca334e09daeff33bbe17cc1849"><div class="ttname"><a href="group__LSM6DS33.html#gafa5498ca334e09daeff33bbe17cc1849">LSM6DS33_config_filters</a></div><div class="ttdeci">HAL_StatusTypeDef LSM6DS33_config_filters(uint8_t g_HPF, uint8_t g_HPF_frequency, uint8_t a_HPF)</div><div class="ttdoc">Конфигурация высокочастотных фильтров для гироскопа и акселерометра</div></div>
+<div class="ttc" id="astructLSM6DS33__cfg_html"><div class="ttname"><a href="structLSM6DS33__cfg.html">LSM6DS33_cfg</a></div><div class="ttdoc">Конфигурация датчика</div><div class="ttdef"><b>Определения</b> LSM6DS33.h:48</div></div>
+<div class="ttc" id="astructLSM6DS33__cfg_html_a066c69f81edff8a86897afcacf5cd96f"><div class="ttname"><a href="structLSM6DS33__cfg.html#a066c69f81edff8a86897afcacf5cd96f">LSM6DS33_cfg::CTRL10_config</a></div><div class="ttdeci">uint8_t CTRL10_config</div><div class="ttdoc">Конфигурация регистра CTRL10_C.</div><div class="ttdef"><b>Определения</b> LSM6DS33.h:55</div></div>
+<div class="ttc" id="astructLSM6DS33__cfg_html_a2e603974d041b0b3901de1f35ebba112"><div class="ttname"><a href="structLSM6DS33__cfg.html#a2e603974d041b0b3901de1f35ebba112">LSM6DS33_cfg::CTRL8_config</a></div><div class="ttdeci">uint8_t CTRL8_config</div><div class="ttdoc">Конфигурация регистра CTRL8_XL.</div><div class="ttdef"><b>Определения</b> LSM6DS33.h:54</div></div>
+<div class="ttc" id="astructLSM6DS33__cfg_html_a38bb7628cd59b42669dc4989c778e493"><div class="ttname"><a href="structLSM6DS33__cfg.html#a38bb7628cd59b42669dc4989c778e493">LSM6DS33_cfg::CTRL7_config</a></div><div class="ttdeci">uint8_t CTRL7_config</div><div class="ttdoc">Конфигурация регистра CTRL7_G.</div><div class="ttdef"><b>Определения</b> LSM6DS33.h:53</div></div>
+<div class="ttc" id="astructLSM6DS33__cfg_html_a39c24bad1630ae11b80c93e07a8dcdd1"><div class="ttname"><a href="structLSM6DS33__cfg.html#a39c24bad1630ae11b80c93e07a8dcdd1">LSM6DS33_cfg::CTRL2_config</a></div><div class="ttdeci">uint8_t CTRL2_config</div><div class="ttdoc">Конфигурация регистра CTRL2_G.</div><div class="ttdef"><b>Определения</b> LSM6DS33.h:51</div></div>
+<div class="ttc" id="astructLSM6DS33__cfg_html_a7cde64d1de5b9b973faeca8ee920eaa8"><div class="ttname"><a href="structLSM6DS33__cfg.html#a7cde64d1de5b9b973faeca8ee920eaa8">LSM6DS33_cfg::CTRL3_config</a></div><div class="ttdeci">uint8_t CTRL3_config</div><div class="ttdoc">Конфигурация регистра CTRL3_C.</div><div class="ttdef"><b>Определения</b> LSM6DS33.h:52</div></div>
+<div class="ttc" id="astructLSM6DS33__cfg_html_a8412eda60f7be1020991792289092550"><div class="ttname"><a href="structLSM6DS33__cfg.html#a8412eda60f7be1020991792289092550">LSM6DS33_cfg::ORIENT_config</a></div><div class="ttdeci">uint8_t ORIENT_config</div><div class="ttdoc">Конфигурация регистра ORIENT_CFG_G.</div><div class="ttdef"><b>Определения</b> LSM6DS33.h:49</div></div>
+<div class="ttc" id="astructLSM6DS33__cfg_html_a8d0aa5c1585865dc6ed0f669dd888351"><div class="ttname"><a href="structLSM6DS33__cfg.html#a8d0aa5c1585865dc6ed0f669dd888351">LSM6DS33_cfg::TAP_config</a></div><div class="ttdeci">uint8_t TAP_config</div><div class="ttdoc">Конфигурация дополнительных функций</div><div class="ttdef"><b>Определения</b> LSM6DS33.h:56</div></div>
+<div class="ttc" id="astructLSM6DS33__cfg_html_ae547ab0be4d7840646c694112584e595"><div class="ttname"><a href="structLSM6DS33__cfg.html#ae547ab0be4d7840646c694112584e595">LSM6DS33_cfg::CTRL1_config</a></div><div class="ttdeci">uint8_t CTRL1_config</div><div class="ttdoc">Конфигурация регистра CTRL1_XL.</div><div class="ttdef"><b>Определения</b> LSM6DS33.h:50</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>LSM6DS33</b></li><li class="navelem"><a href="LSM6DS33_8h.html">LSM6DS33.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

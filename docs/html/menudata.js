@@ -25,10 +25,21 @@
 var menudata={children:[
 {text:"Титульная страница",url:"index.html"},
 {text:"Разделы",url:"topics.html"},
+{text:"Структуры данных",url:"annotated.html",children:[
+{text:"Структуры данных",url:"annotated.html"},
+{text:"Алфавитный указатель структур данных",url:"classes.html"},
+{text:"Поля структур",url:"functions.html",children:[
+{text:"Указатель",url:"functions.html"},
+{text:"Переменные",url:"functions_vars.html"}]}]},
 {text:"Файлы",url:"files.html",children:[
 {text:"Файлы",url:"files.html"},
 {text:"Список членов всех файлов",url:"globals.html",children:[
-{text:"Указатель",url:"globals.html"},
+{text:"Указатель",url:"globals.html",children:[
+{text:"a",url:"globals.html#index_a"},
+{text:"b",url:"globals.html#index_b"},
+{text:"f",url:"globals.html#index_f"},
+{text:"g",url:"globals.html#index_g"},
+{text:"l",url:"globals.html#index_l"}]},
 {text:"Функции",url:"globals_func.html"},
 {text:"Переменные",url:"globals_vars.html"},
 {text:"Макросы",url:"globals_defs.html"}]}]}]}

@@ -992,6 +992,7 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 INPUT                  = BMx280/BMx280.h \
+                         LSM6DS33/LSM6DS33.h \
                          mainpage.md
 
 # This tag can be used to specify the character encoding of the source files

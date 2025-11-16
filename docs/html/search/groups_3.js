@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['standby_5fmode_0',['STANDBY_MODE',['../group__STANDBY__MODE.html',1,'']]]
+  ['oversampling_0',['OVERSAMPLING',['../group__OVERSAMPLING.html',1,'']]]
 ];

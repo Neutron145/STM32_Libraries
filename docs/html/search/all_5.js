@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['главная_20страница_0',['Главная страница',['../index.html',1,'']]]
+  ['iir_5ffilter_0',['IIR_FILTER',['../group__IIR__FILTER.html',1,'']]]
 ];

@@ -29,6 +29,7 @@
 #define I2C_Mem_Write(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)		LL_I2C_Mem_Write(ADR,DEV_ADR,REG_ADR,BUF,BUF_SIZE,TIMEOUT)
 #define I2C_Mem_Read(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)			LL_I2C_Mem_Read(ADR,DEV_ADR,REG_ADR,BUF,BUF_SIZE,TIMEOUT)
 #endif /* LSM6DS33_LL */
+/** @endcond */
 
 
 extern I2C_TypeDef* LSM6DS33_hi2c;		//!< Экземпляр I2C, к которому подключен инерциальный датчик.
@@ -188,12 +189,12 @@ typedef struct {
 #define LSM6DS33_REGISTER_OUT_A					0x28
 #define LSM6DS33_REGISTER_ID					0x0F
 #define LSM6DS33_REGISTER_MD2_CFG				0x5F
-/** @} */
+/** @endcond */
 
 
 /** @cond UNNECESSARY */
 void __LSM6DS33_modify_reg(uint8_t *reg_data, uint8_t mask, uint8_t bits);
-/** @} */
+/** @endcond */
 
 
 /** 
@@ -319,5 +320,3 @@ HAL_StatusTypeDef LSM6DS33_get_measure(float* a, float *g);
 HAL_StatusTypeDef LSM6DS33_get_all_measure(float* a, float* g, float* t);
 
 #endif /* INC_LSM6DS33_H_ */
-
-/** @} */

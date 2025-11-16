@@ -41,7 +41,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_b_mx280_8h.html"
+"BMx280_8h.html"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

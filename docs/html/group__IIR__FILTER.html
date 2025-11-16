@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RocketLAV sensor libraries: Содержание директории BMx280</title>
+<title>RocketLAV sensor libraries: IIR_FILTER</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('dir_802df405a930e40b9ed8f120da335913.html','',''); });
+$(function(){initNavTree('group__IIR__FILTER.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -95,15 +95,38 @@ $(function(){initNavTree('dir_802df405a930e40b9ed8f120da335913.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Содержание директории BMx280</div></div>
+  <div class="headertitle"><div class="title">IIR_FILTER <div class="ingroups"><a class="el" href="group__BMx280.html">BMx280</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Конфигурация IIR-фильтра для барометра  
+<a href="#details">Подробнее...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-files" class="groupheader"><a id="files" name="files"></a>
-Файлы</h2></td></tr>
-<tr class="memitem:BMx280_2Eh" id="r_BMx280_2Eh"><td class="memItemLeft" align="right" valign="top"><a href="BMx280_8h_source.html"><span class="icondoc"><div class="doc-icon"></div></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BMx280_8h.html">BMx280.h</a></td></tr>
-<tr class="memdesc:BMx280_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">API библиотеки для использования в своих проектах <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:gad1e0ddde83a1aaa2e1e5f56fbab7c00e" id="r_gad1e0ddde83a1aaa2e1e5f56fbab7c00e"><td class="memItemLeft" align="right" valign="top"><a id="gad1e0ddde83a1aaa2e1e5f56fbab7c00e" name="gad1e0ddde83a1aaa2e1e5f56fbab7c00e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_FILTER_OFF</b>&#160;&#160;&#160;0b000</td></tr>
+<tr class="memdesc:gad1e0ddde83a1aaa2e1e5f56fbab7c00e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ultra low-power. <br /></td></tr>
+<tr class="memitem:gad9284b0ba9b2596836d256fd5c98927f" id="r_gad9284b0ba9b2596836d256fd5c98927f"><td class="memItemLeft" align="right" valign="top"><a id="gad9284b0ba9b2596836d256fd5c98927f" name="gad9284b0ba9b2596836d256fd5c98927f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_FILTER_X2</b>&#160;&#160;&#160;0b001</td></tr>
+<tr class="memdesc:gad9284b0ba9b2596836d256fd5c98927f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low-power. <br /></td></tr>
+<tr class="memitem:ga97146bd3dce239856936a97d794ba0b2" id="r_ga97146bd3dce239856936a97d794ba0b2"><td class="memItemLeft" align="right" valign="top"><a id="ga97146bd3dce239856936a97d794ba0b2" name="ga97146bd3dce239856936a97d794ba0b2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_FILTER_X4</b>&#160;&#160;&#160;0b010</td></tr>
+<tr class="memdesc:ga97146bd3dce239856936a97d794ba0b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standart resolution. <br /></td></tr>
+<tr class="memitem:ga1ff4df7854695f263f2a3fd3ebd4d868" id="r_ga1ff4df7854695f263f2a3fd3ebd4d868"><td class="memItemLeft" align="right" valign="top"><a id="ga1ff4df7854695f263f2a3fd3ebd4d868" name="ga1ff4df7854695f263f2a3fd3ebd4d868"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_FILTER_X8</b>&#160;&#160;&#160;0b011</td></tr>
+<tr class="memdesc:ga1ff4df7854695f263f2a3fd3ebd4d868"><td class="mdescLeft">&#160;</td><td class="mdescRight">High resolution. <br /></td></tr>
+<tr class="memitem:gae40226683f8bdc62949341468f5a0270" id="r_gae40226683f8bdc62949341468f5a0270"><td class="memItemLeft" align="right" valign="top"><a id="gae40226683f8bdc62949341468f5a0270" name="gae40226683f8bdc62949341468f5a0270"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BMx280_FILTER_X16</b>&#160;&#160;&#160;0b100</td></tr>
+<tr class="memdesc:gae40226683f8bdc62949341468f5a0270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ultra high resolution. <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<p>Конфигурация IIR-фильтра для барометра </p>
+<p>Чем выше коэффициент - тем меньше шумов, но медленнее реакция на изменения. <br  />
+ Зависимость коэффициента фильтра на скорость реакции отражена на графике: </p><div class="image">
+<img src="bmx_iir_response.png" alt=""/>
+</div>
+<p> То есть без фильтра при следующем измерении будет получено 100% от резкого изменения сигнала. При коэффициенте 16 после резкого изменения сигнала будет получено 90% сигнала после 32 измерений. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
@@ -117,7 +140,6 @@ $(function(){initNavTree('dir_802df405a930e40b9ed8f120da335913.html','',''); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>BMx280</b></li>
     <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>

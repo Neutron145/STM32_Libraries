@@ -1,0 +1,26 @@
+var BMx280_8h =
+[
+    [ "BMx280_FILTER_OFF", "group__IIR__FILTER.html#gad1e0ddde83a1aaa2e1e5f56fbab7c00e", null ],
+    [ "BMx280_FILTER_X16", "group__IIR__FILTER.html#gae40226683f8bdc62949341468f5a0270", null ],
+    [ "BMx280_FILTER_X2", "group__IIR__FILTER.html#gad9284b0ba9b2596836d256fd5c98927f", null ],
+    [ "BMx280_FILTER_X4", "group__IIR__FILTER.html#ga97146bd3dce239856936a97d794ba0b2", null ],
+    [ "BMx280_FILTER_X8", "group__IIR__FILTER.html#ga1ff4df7854695f263f2a3fd3ebd4d868", null ],
+    [ "BMx280_STANDBY_0_5", "group__STANDBY__MODE.html#gaf5bb3697bdc54b9efadbd2a29427e630", null ],
+    [ "BMx280_STANDBY_1000", "group__STANDBY__MODE.html#gae5ee909de8a10fa1c0c4c93b7f3e0008", null ],
+    [ "BMx280_STANDBY_125", "group__STANDBY__MODE.html#gab0b19481ba9db24d28d01351c4b78802", null ],
+    [ "BMx280_STANDBY_2000", "group__STANDBY__MODE.html#ga2eec2a37f55a0e151fbf37f81f3612e0", null ],
+    [ "BMx280_STANDBY_250", "group__STANDBY__MODE.html#gafe68b44a258fc37d89c2697edc656220", null ],
+    [ "BMx280_STANDBY_4000", "group__STANDBY__MODE.html#ga95143fd2a5900e1c72aa91a71e222708", null ],
+    [ "BMx280_STANDBY_500", "group__STANDBY__MODE.html#ga0fee70b866087cb9e27758c8e6728886", null ],
+    [ "BMx280_STANDBY_62_5", "group__STANDBY__MODE.html#gabf5c8cdd4df0484806549c0da4190302", null ],
+    [ "BME280_forced_measure", "group__BMx280.html#ga7e7cdaeae911bfecc62c276a196a48a5", null ],
+    [ "BME280_get_measure", "group__BMx280.html#ga55e3e5e076801147905ece515f95d001", null ],
+    [ "BMP280_forced_measure", "group__BMx280.html#gab9b4bc64a810e07d72bfd38626b38027", null ],
+    [ "BMP280_get_measure", "group__BMx280.html#ga7828835a30dcc11b11ec4b6e8b9cc7a2", null ],
+    [ "BMx280_config", "group__BMx280.html#ga0c6aef7cbd6323e9b67b9b0c4bca16f1", null ],
+    [ "BMx280_init", "group__BMx280.html#gaeb4962c9608f1182364dcae9585f43b1", null ],
+    [ "BMx280_normal_measure", "group__BMx280.html#gaadfd90b9c48c238aa9b4826d7fa5c8ea", null ],
+    [ "BMx280_sleep", "group__BMx280.html#ga414960f385cffa90902314181a741fc6", null ],
+    [ "BMx280_hi2c", "BMx280_8h.html#a735bc442803d8a2ff0659148957a3b7a", null ],
+    [ "BMx280_refPressure", "BMx280_8h.html#ac127dfcf65b1a7ff5ef005a20d82d466", null ]
+];

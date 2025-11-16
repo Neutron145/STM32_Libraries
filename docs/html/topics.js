@@ -1,4 +1,4 @@
 var topics =
 [
-    [ "BMx280", "group___b_mx280.html", "group___b_mx280" ]
+    [ "BMx280", "group__BMx280.html", "group__BMx280" ]
 ];

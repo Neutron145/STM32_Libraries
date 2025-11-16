@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bmx280_0',['BMx280',['../group___b_mx280.html',1,'']]]
+  ['bmx280_0',['BMx280',['../group__BMx280.html',1,'']]]
 ];

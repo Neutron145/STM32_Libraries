@@ -1,68 +1,45 @@
-/***************************************************************************//**
- * 	@file			LSM6DS33.h
- *  @brief			Файл обеспечивает работу датчика LSM6DS33, подключенному к микроконтроллеру STM32F103 или STM32F411 по I2C.
- * 	@author			Рафаэль Абельдинов
- *  @date 			19.12.2023
- ******************************************************************************/
+/**
+ * @defgroup LSM6DS33
+ * @brief Библиотека для работы с LSM6DS33 - 3-осевым акселерометром и 3-осевым гироскопом. Позволяет снимать единичные измерения
+ * и получать сразу преобразованные значения в м/с^2 и град/с.
+ */
+ /**
+ * @file LSM6DS33.h
+ * @ingroup LSM6DS33
+ * @brief API библиотеки для использования в своих проектах
+ *
+ * @author Rafael Abeldinov
+ * @date 15.11.2025
+ */
+#ifndef LSM6DS33_H_
+#define LSM6DS33_H_
 
 #include <stdint.h>
-
-/**
- * @defgroup LSM6DS33_group LSM6DS33
- * @brief			Модуль для акселерометра и гироскопа LSM6DS33
- * @details 		Модуль позволяет конфигурировать датчик, снимать измерения гироскопа и акселерометра, программно сбрасывать датчик.  
- * 					Модуль работает с библиотеками LL и HAL. Для выбора библиотеки необходимо использовать макрос и при использовании LL добавить в проект модуль I2C LL.  
- * 					Перед измерением данных необходимо инициализировать датчик, сконфигурировать его, после чего можно снимать измерения.
- * 					Пример работы с датчиком:
- * 					\code{.c}  
- * 					float a[3];
- * 					float g[3];
- * 					float t;  
- * 					LSM6DS33_init(hi2c1);
- * 					LSM6DS33_get_all_measure(a, g, &t);   
- * 					}  
- * 					\endcode
- * @{
- */
-#ifndef INC_LSM6DS33_H_
-#define INC_LSM6DS33_H_
-
 #include "main.h"
-
-/**
- * @name Макрос определения используемой библиотеки
- * @{
- */
-#define LSM6DS33_HAL			//!< Указывает библиотеку STM32, с помощью которой управляется интерфейс I2C. Определите **LSM6DS33_HAL** или **LSM6DS33_LL** в зависимости от используемой библиотеки.
-/** @} */
 
 /** @cond UNNECESSARY */
 #ifdef LSM6DS33_HAL
-
 #define I2C_TypeDef 		I2C_HandleTypeDef
 #define I2C_Mem_Write(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)		HAL_I2C_Mem_Write(ADR,DEV_ADR,REG_ADR,I2C_MEMADD_SIZE_8BIT,BUF,BUF_SIZE,TIMEOUT)
 #define I2C_Mem_Read(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)			HAL_I2C_Mem_Read(ADR,DEV_ADR,REG_ADR,I2C_MEMADD_SIZE_8BIT,BUF,BUF_SIZE,TIMEOUT)
 
-
 #elif LSM6DS33_LL
-
 #include "I2C_ll.h"
 #define I2C_TypeDef 		I2C_TypeDef
 #define I2C_Mem_Write(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)		LL_I2C_Mem_Write(ADR,DEV_ADR,REG_ADR,BUF,BUF_SIZE,TIMEOUT)
 #define I2C_Mem_Read(ADR, DEV_ADR, REG_ADR, BUF, BUF_SIZE, TIMEOUT)			LL_I2C_Mem_Read(ADR,DEV_ADR,REG_ADR,BUF,BUF_SIZE,TIMEOUT)
-
 #endif /* LSM6DS33_LL */
-/** @endcond */
 
-extern I2C_TypeDef* LSM6DS33_hi2c; 			//!< Экземпляр I2C, к которому подключен датчиик влажности. Тип экземпляра зависит от библиотеки.
-extern float FULL_SCALES_A[4]; 			//!< Хранит значения full-scale для акселерометра. Упрощает перевод из попугаев в слонов
-extern float FULL_SCALES_G[4]; 			//!< Хранит значения full-scale для гироскопа. Упрощает перевод из попугаев в слонов
 
-extern float a_ref[3];		//!< Bias для ускорений
-extern float g_ref[3];		//!< Bias для угловых скоростей
+extern I2C_TypeDef* LSM6DS33_hi2c;		//!< Экземпляр I2C, к которому подключен инерциальный датчик.
+extern float FULL_SCALES_A[4]; 			//!< Хранит значения full-scale для акселерометра. Full-scale определяет максимальный масштаб и точность измерений.
+extern float FULL_SCALES_G[4]; 			//!< Хранит значения full-scale для гироскопа. Full-scale определяет максимальный масштаб и точность измерений.
 
-extern float full_scale_A;
-extern float full_scale_G;
+extern float a_ref[3];					//!< Смещение относительно нуля для ускорений. Используется для калибровки.
+extern float g_ref[3];					//!< Смещение относительно нуля для угловых скоростей. Используется для калибровки.
+
+extern float full_scale_A;				//!< Текущее значение full-scale для акселерометра.
+extern float full_scale_G;  			//!< Текущее значение full-scale для гироскопа.
 
 /**
  * @brief Конфигурация датчика
@@ -78,12 +55,10 @@ typedef struct {
 	uint8_t TAP_config;						//!< Конфигурация дополнительных функций
 } LSM6DS33_cfg;
 
-/** Адрес датчика, по которому необходимо обращаться */
-extern uint32_t LSM6DS33_ADDRESS;
-
 /**
- * @defgroup LSM6DS33_ODR Частота обновления измерений
- * @brief Значения битов ODR в регистре CTRL1
+ * @defgroup LSM6DS33_ODR
+ * @ingroup LSM6DS33
+ * @brief Конфигурация частоты снятия измерений датчиком
  * @{
  */
 #define LSM6DS33_ODR_MASK						0b11110000			
@@ -100,10 +75,12 @@ extern uint32_t LSM6DS33_ADDRESS;
 #define LSM6DS33_ODR_6660HZ						0b1010				
 /** @} */
 
-
 /**
- * @defgroup LSM6DS33_ORIENT Порядок расположения осей системы координат
- * @brief Значения битов Orient_2, Orient_1 и Orient_0 в регистре ORIENT_CFG_G
+ * @defgroup LSM6DS33_ORIENT
+ * @ingroup LSM6DS33
+ * @brief Порядок расположения осей системы координат в массиве полученных измерений
+ * @details Значения передаются в функцию @ref LSM6DS33_config_orientation для настройки порядка осей.
+ *  Стандартный порядок - X, Y, Z. В соответствии с осями, размеченными на датчике.
  * @{
  */
 #define LSM6DS33_ORIENT_CFG_MASK				0b00111111			
@@ -116,8 +93,11 @@ extern uint32_t LSM6DS33_ADDRESS;
 /** @} */
 
 /**
- * @defgroup LSM6DS33_ORIENT_SIGN Направления осей системы координат
- * @brief Значения битов SignX_G, SignY_G и SignZ_G в регистре ORIENT_CFG_G
+ * @defgroup LSM6DS33_ORIENT_SIGN 
+ * @ingroup LSM6DS33
+ * @brief Направления осей системы координат
+ * @details Значения передаются в функцию @ref LSM6DS33_config_orientation для настройки направлений осей.
+ *  Стандартные значения направлены в позитивную сторону осей X, Y, Z.
  * @{ 
  */
 #define LSM6DS33_ORIENT_SIGN_POSITIVE_X			0b0<<2
@@ -129,8 +109,12 @@ extern uint32_t LSM6DS33_ADDRESS;
 /** @} */
 
 /**
- * @defgroup LSM6DS33_GYRO_HPF Фильтр high-pass frequency для гироскопа
- * @brief Значения битов HPFC_G (частота фильтра) и HPF_G_E (включен или выключен фильтр) регистра CTRL7_G
+ * @defgroup LSM6DS33_GYRO_HPF
+ * @ingroup LSM6DS33
+ * @brief Фильтр high-pass frequency для гироскопа
+ * @details Фильтр высоких частот для гироскопа. Пропускает высокие частоты (резкие движения), 
+ *  отфильтровывает низкие частоты (медленные движения, дрейф). Значения передаются в функцию 
+ * 	@ref LSM6DS33_config_filters. 
  * @{
  */
 #define LSM6DS33_GYRO_HPF_MASK 					0b01110000
@@ -143,8 +127,12 @@ extern uint32_t LSM6DS33_ADDRESS;
 /** @} */
 
 /**
- * @defgroup LSM6DS33_A_FILTER Фильтр high-pass frequency для акселерометра 
- * @brief Значения HPCF_XL регистра CTRL8_XL
+ * @defgroup LSM6DS33_A_FILTER 
+ * @ingroup LSM6DS33
+ * @brief Фильтр high-pass frequency для акселерометра
+ * @details Фильтр высоких частот для акселерометра. Пропускает высокие частоты (резкие движения), 
+ *  отфильтровывает низкие частоты (медленные движения, дрейф). Значения передаются в функцию 
+ * 	@ref LSM6DS33_config_filters.
  * @{
  */
 #define LSM6DS33_A_FILTER_MASK					0b01100000
@@ -155,8 +143,11 @@ extern uint32_t LSM6DS33_ADDRESS;
 /** @} */
 
 /**
- * @defgroup LSM5DS33_FULL_SCALE_A Full-scale для акселерометра
- * @brief Значения битов FS_XL регистра CTRL1_XL
+ * @defgroup LSM5DS33_FULL_SCALE_A 
+ * @ingroup LSM6DS33
+ * @brief Full-scale для акселерометра
+ * @details Значения масштаба и точности измерений акселерометра. Чем выше full-scale, тем выше максимальное
+ * 	измеряемое значение, но ниже точность измерений. Значения передаются в функцию @ref LSM6DS33_config_full_scale
  * @{
  */
 #define LSM6DS33_FULL_SCALE_MASK				0b00001100
@@ -167,8 +158,11 @@ extern uint32_t LSM6DS33_ADDRESS;
 /** @} */
 
 /**
- * @defgroup LSM6DS33_FULL_SCALE_G Full-scale для гироскопа
- * @brief Значения битов FS_G регистра CTRL2_G
+ * @defgroup LSM6DS33_FULL_SCALE_G
+ * @ingroup LSM6DS33
+ * @brief Full-scale для гироскопа
+ * @details Значения масштаба и точности измерений гироскопа. Чем выше full-scale, тем выше максимальное 
+ *  измеренное значение, но ниже точность измерений. Значения передаются в функцию @ref LSM6DS33_config_full_scale
  * @{
  */
 #define LSM6DS33_FULL_SCALE_250DPS				0b000
@@ -177,10 +171,7 @@ extern uint32_t LSM6DS33_ADDRESS;
 #define LSM6DS33_FULL_SCALE_2000DPS				0b011
 /** @} */
 
-/**
- * @defgroup LSM5DS33_REG_ADR Адреса регистров датчика 
- * @{
- */
+/** @cond UNNECESSARY */
 #define LSM6DS33_REGISTER_FIFO_CTRL4			0x09
 #define LSM6DS33_REGISTER_FIFO_CTRL5			0x0A
 #define LSM6DS33_REGISTER_CTRL1					0x10
@@ -200,120 +191,132 @@ extern uint32_t LSM6DS33_ADDRESS;
 /** @} */
 
 
-/**
- * @brief Вспомогательная функция для изменения бита в байте 
- * @details Используется для модификации регистров датчика, используя маску бита и новое значение
- * @param reg_data Значение регистра 
- * @param mask Маска изменяемого бита
- * @param bits Новое значение бита
- */
+/** @cond UNNECESSARY */
 void __LSM6DS33_modify_reg(uint8_t *reg_data, uint8_t mask, uint8_t bits);
+/** @} */
 
 
-
-/**
+/** 
  * @brief Инициализация датчика LSM6DS33
- * @details Функция вызывается перед конфигурацией и измерением данных датчиком. В ней проверяется ID датчика и загружается стандартная конфигурация.
- * @param hi2c_ Экземпляр I2C_TypeDef, к которому подключен датчик.
- * @retval status Статус I2C после инициализации датчика. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
+ * @ingroup LSM6DS33
+ * @note Автоматически определяет адрес датчика в заваисимости от состояния пина SA0.  
+ *  Данная библиотека поддерживает только один подключенный датчик LSM6DS33.
+ *
+ * @param[in] hi2c_ Экземпляр интерфейса I2C, к которому подключен датчик
+ * @return HAL_StatusTypeDef Результат получения данных по I2C
  */
 HAL_StatusTypeDef LSM6DS33_init(I2C_HandleTypeDef* hi2c_);
 
-
 /**
  * @brief Конфигурация ориентации датчика
- * @details Конфигурируется регистр ORIENT_CFG_G. Определяется порядок расположения осей системы координат и их знаки
- * @param orient Порядок расположение осей системы координат. Принимает значения макросов @ref LSM6DS33_ORIENT "порядка расположения осей системы координат".
- * @param signs Знаки осей в системе координат. Принимает значения макросов @ref LSM6DS33_ORIENT_SIGN "направлений осей системы координат".
- * @retval status Статус I2C после конфигурации ориентации датчика. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
+ * @ingroup LSM6DS33
+ * @details Конфигурируется порядок расположения осей системы координат и их знаки относительно заводской системы координат.  
+ *
+ * @note Стандартная система координат датчика совпадает с осями, размеченными на корпусе датчика и имеет порядок X, Y, Z с положительными направлениями.
+ * 
+ * @param[in] orient Порядок расположение осей системы координат. Принимает значения макросов @ref LSM6DS33_ORIENT "порядка расположения осей системы координат".
+ * @param[in] signs Знаки осей в системе координат. Принимает значения макросов @ref LSM6DS33_ORIENT_SIGN "направлений осей системы координат".
+ * @return HAL_StatusTypeDef Результат получения данных по I2C
  */
 HAL_StatusTypeDef LSM6DS33_config_orientation(uint8_t orient, uint8_t signs);
 
 /**
- * @brief Конфигурация HPF фильтров акселерометра и гироскопа
- * @details Конфигурируется через бит HPCF_XL в регистре CRTL8_XL и биты HPCF_G, HP_G_EN в регистре CTRL7_G 
- * @param g_HPF Режим работы фильтра HPF для гироскопа. Принимает значения макросов @ref LSM6DS33_GYRO_HPF "режима работы фильтра".
- * @param g_HPF_frequency Частота фильтра HPF для гироскопа. Принимает значения макросов @ref LSM6DS33_GYRO_HPF "частоты фильтра для гироскопа".
- * @param a_HPF Частота и режим работы HPF для акселерометра. Принимает значения макросов @ref LSM6DS33_A_FILTER "фильтра high-pass frequency для акселерометра".
- * @retval status Статус I2C после конфигурации фильтров датчика. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
+ * @brief Конфигурация высокочастотных фильтров для гироскопа и акселерометра
+ * @ingroup LSM6DS33
+ * @details Повзоляет настроить высокочастотный фильтр (HPF) для гироскопа и акселерометра.  
+ *  Высокочастотный фильтр пропускает резкие движения, отфильтровывает медленные движения и дрейф.
+ *
+ * @param[in] g_HPF Режим работы фильтра HPF для гироскопа. Принимает значения макросов @ref LSM6DS33_GYRO_HPF "режима работы фильтра".
+ * @param[in] g_HPF_frequency Частота фильтра HPF для гироскопа. Принимает значения макросов @ref LSM6DS33_GYRO_HPF "частоты фильтра для гироскопа".
+ * @param[in] a_HPF Частота и режим работы HPF для акселерометра. Принимает значения макросов @ref LSM6DS33_A_FILTER "фильтра high-pass frequency для акселерометра".
+ * @return HAL_StatusTypeDef Результат получения данных по I2C
  */
 HAL_StatusTypeDef LSM6DS33_config_filters(uint8_t g_HPF, uint8_t g_HPF_frequency, uint8_t a_HPF);
 
 /**
  * @brief Конфигурация full-scale для гироскопа и акселерометра
- * @details Конфигурируется через бит FS_XL регистра CTRL1_XL и бит FS_G регистра CTRL2_G
- * @param a_FS Full-scale для акселерометра. Принимает значения марокосов @ref LSM5DS33_FULL_SCALE_A "full-scale для акселерометра".
- * @param g_FS Full-scale для гироскопа. Принимает значения макросов @ref LSM6DS33_FULL_SCALE_G "full-scale Для гироскопа".
- * @retval status Статус I2C после конфигурации full scale датчика. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
+ * @ingroup LSM6DS33
+ * @details Конфигурирует максимальный масштаб и точность измерений акселерометра и гироскопа.
+ * 
+ * @param[in] a_FS Full-scale для акселерометра. Принимает значения макросов @ref LSM5DS33_FULL_SCALE_A "full-scale для акселерометра".
+ * @param[in] g_FS Full-scale для гироскопа. Принимает значения макросов @ref LSM6DS33_FULL_SCALE_G "full-scale Для гироскопа".
+ * @return HAL_StatusTypeDef Результат получения данных по I2C
  */
 HAL_StatusTypeDef LSM6DS33_config_full_scale(uint8_t a_FS, uint8_t g_FS);
 
 /**
- * @brief Конфигурация режима работы датчика 
- * @details Конфигурируется через бит ODR_XL регистра CTRL1_XL и бит ODR_G регистра CTRL2_G. Позволяет включать или выключать гироскопа и акселерометра и задавать частоту их работы. 
- * 			Акселерометр и гироскоп работают независимо друг от друга, каждый на своих частотах.
- * @param a_ODR Частота работы акселерометра. Принимает значения макросов @ref LSM6DS33_ODR "частоты и питания датчика".
- * @param g_ODR Частота работы гироскопа. Принимает значения макросов @ref LSM6DS33_ODR "частоты и питания датчика".
- * @retval status Статус I2C после конфигурации режима работы датчика. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
+ * @brief Конфигурация режима работы датчика
+ * @ingroup LSM6DS33
+ * @details Конфигурирует частоту работы акселерометра и гироскопа. От них зависит качество работы фильтров и измеренных данных,
+ * 	а также энергопотребление датчика.
+ * 
+ * @param[in] a_ODR Частота работы акселерометра. Принимает значения макросов @ref LSM6DS33_ODR "частоты и питания датчика".
+ * @param[in] g_ODR Частота работы гироскопа. Принимает значения макросов @ref LSM6DS33_ODR "частоты и питания датчика".
+ * @return HAL_StatusTypeDef Результат получения данных по I2C
  */
 HAL_StatusTypeDef LSM6DS33_config_perfomance_mode(uint8_t a_ODR, uint8_t g_ODR);
 
-
-
 /**
- * @brief Програмнная перезагрузка датчика
- * @details Выполняется записью 1 в бит SW_RESET в регистр CTRL3_C
- * @retval status Статус I2C после сброса датчика. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
+ * @brief Программная перезагрузка датчика
+ * @ingroup LSM6DS33
+ * @details Позволяет перезагрузить датчик программно, без отключения питания.
+ *
+ * @return HAL_StatusTypeDef Результат получения данных по I2C
  */
 HAL_StatusTypeDef LSM6DS33_reset();
 
-
-
-
 /**
- * @brief Снятие измерений акселерометра
- * @details Измерения получаются путем считывания значений из 6 регистров, начиная с OUTX_L_XL, и преобразованием значений АЦП в мс/c.
- * @param a Массив, куда записываются значения ускорений по трем осям
- * @retval status Статус I2C после снятия измерений. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
+ * @brief Снятие измерений с акселерометра
+ * @ingroup LSM6DS33
+ * @details Получает значения ускорений по трем осям в сконфигурированной системе координат и заданном full-scale.
+ *
+ * @param[out] a Массив, куда записываются значения ускорений по трем осям
+ * @retval status Результат получения данных по I2C
  */
 HAL_StatusTypeDef LSM6DS33_A_get_measure(float *a);
 
 /**
- * @brief Снятие измерений гироскопа
- * @details Измерения получаются путем считывания значений из 6 регистров, начиная с OUTX_L_G, и преобразованием значениий АЦП в градусы.
- * @param g Массив, куда записываются значений угла отклонения по трем осям
- * @retval status Статус I2C после снятия измерений. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
+ * @brief Снятие измерений с гироскопа
+ * @ingroup LSM6DS33
+ * @details Получает значения угловых скоростей по трем осям в сконфигурированной системе координат и заданном full-scale.
+ *
+ * @param[out] g Массив, куда записываются значений угла отклонения по трем осям
+ * @retval status Результат получения данных по I2C
  */
 HAL_StatusTypeDef LSM6DS33_G_get_measure(float *g);
 
 /**
- * @brief Снятие измерений термометра
- * @details Измерения получаются путем считывания значений из регистров OUT_TEMP_L и OUT_TEMP и преобразование значений АЦП в градусы Цельсия.
- * @param t Переменная, куда записывается значение температуры в градусах Цельсиях
- * @retval status Статус I2C после снятия измерений. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
+ * @brief Снятие измерений с термометра
+ * @ingroup LSM6DS33
+ * @details Получает значение температуры в градусах Цельсия.
+ * 
+ * @param[out] t Переменная, куда записывается значение температуры в градусах Цельсиях
+ * @retval status Результат получения данных по I2C
  */
 HAL_StatusTypeDef LSM6DS33_T_get_measure(float *t);
 
 /**
  * @brief Снятие измерений акселерометра и гирокскопа
- * @details Измерениия получаются путем считывания значений из 12 регистров, начиная с OUTX_L_G и преобразованием значений АЦП в мс/с и градусы. 
- * @param a Массив, куда записываются значения ускорений по трем осям
- * @param g Массив, куда записываются значений угла отклонения по трем осям
- * @retval status Статус I2C после снятия измерений. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
+ * @ingroup LSM6DS33
+ * @details Получает значения ускорений и угловых скоростей по трем осям в сконфигурированной системе координат и заданном full-scale.
+ *
+ * @param[out] a Массив, куда записываются значения ускорений по трем осям
+ * @param[out] g Массив, куда записываются значений угла отклонения по трем осям
+ * @retval status Результат получения данных по I2C
  */
 HAL_StatusTypeDef LSM6DS33_get_measure(float* a, float *g);
 
 /**
  * @brief Снятие измерений акселерометра, гирокскопа и термометра
- * @details Измерения получаются путем считывания значений из 14 регистров, начиная с OUT_TEMP_L и преобразованием значений АЦП в мс/c, градусы и градусы Цельсия. 
- * @param a Массив, куда записываются значения ускорений по трем осям
- * @param g Массив, куда записываются значений угла отклонения по трем осям
- * @param t Переменная, куда записывается значение температуры в градусах Цельсиях
- * @retval status Статус I2C после снятия измерений. Может быть **HAL_OK**, **HAL_ERROR**, **HAL_BUSY**
+ * @ingroup LSM6DS33
+ * @details Получает значения ускорений, угловых скоростей и температуры в сконфигурированной системе координат и заданном full-scale.
+ *
+ * @param[out] a Массив, куда записываются значения ускорений по трем осям
+ * @param[out] g Массив, куда записываются значений угла отклонения по трем осям
+ * @param[out] t Переменная, куда записывается значение температуры в градусах Цельсиях
+ * @retval status Результат получения данных по I2C
  */
 HAL_StatusTypeDef LSM6DS33_get_all_measure(float* a, float* g, float* t);
-
-HAL_StatusTypeDef LSM6DS33_convert_measure(int16_t *buffer, float *a, float *g);
 
 #endif /* INC_LSM6DS33_H_ */
 

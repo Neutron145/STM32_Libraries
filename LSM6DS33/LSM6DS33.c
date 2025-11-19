@@ -1,9 +1,6 @@
 #include <stdint.h>
 #include "LSM6DS33.h"
 
-LSM6DS33_cfg LSM6DS33_config;
-I2C_HandleTypeDef* LSM6DS33_hi2c;
-
 float FULL_SCALES_A[4] = { 0.061f, 0.488f, 0.122f, 0.244f };
 float FULL_SCALES_G[4] = { 8.75f, 17.5f, 35.0f, 70.0f };
 
@@ -17,19 +14,19 @@ void __LSM6DS33_modify_reg(uint8_t *reg_data, uint8_t mask, uint8_t bits) {
 	*reg_data |= bits;
 }
 
-void __calibrate_accelerometer(LSM6DS33_handler* handler) {
+void __calibrate_accelerometer(LSM6DS33_handler_t* handler) {
 	for(int i = 0; i < 3; i++) {
 		handler->measured_data.a[i] -= handler->calibration_data.a_bias[i];
 	}
 }
 
-void __calibrate_gyroscope(LSM6DS33_handler* handler) {
+void __calibrate_gyroscope(LSM6DS33_handler_t* handler) {
 	for(int i = 0; i < 3; i++) {
 		handler->measured_data.g[i] -= handler->calibration_data.g_bias[i];
 	}
 }
 
-HAL_StatusTypeDef LSM6DS33_init(LSM6DS33_handler* handler, I2C_HandleTypeDef* hi2c_) {
+HAL_StatusTypeDef LSM6DS33_init(LSM6DS33_handler_t* handler, I2C_HandleTypeDef* hi2c_) {
 	HAL_StatusTypeDef status;
 	uint8_t id;
 
@@ -72,7 +69,7 @@ HAL_StatusTypeDef LSM6DS33_init(LSM6DS33_handler* handler, I2C_HandleTypeDef* hi
 		}
 
 		//!< Устанавливаем частоту гироскопа и акселерометра 52Гц
-		LSM6DS33_config_perfomance_mode(LSM6DS33_ODR_52HZ, LSM6DS33_ODR_52HZ);
+		LSM6DS33_config_perfomance_mode(handler, LSM6DS33_ODR_52HZ, LSM6DS33_ODR_52HZ);
 		if((status = I2C_Mem_Write(hi2c_, LSM6DS33_ADDRESS, LSM6DS33_REGISTER_CTRL3, &handler->config.CTRL3_config, 1, 0xFF)) != HAL_OK) {
 			return status;
 		}
@@ -87,7 +84,7 @@ HAL_StatusTypeDef LSM6DS33_init(LSM6DS33_handler* handler, I2C_HandleTypeDef* hi
 	return HAL_ERROR;
 }
 
-HAL_StatusTypeDef LSM6DS33_config_orientation(LSM6DS33_handler* handler, uint8_t orient, uint8_t signs) {
+HAL_StatusTypeDef LSM6DS33_config_orientation(LSM6DS33_handler_t* handler, uint8_t orient, uint8_t signs) {
 	HAL_StatusTypeDef status;
 	if(signs > 0b111) return HAL_ERROR;
 	__LSM6DS33_modify_reg(&handler->config.ORIENT_config, LSM6DS33_ORIENT_CFG_MASK, (signs<<3) + orient);
@@ -97,7 +94,7 @@ HAL_StatusTypeDef LSM6DS33_config_orientation(LSM6DS33_handler* handler, uint8_t
 	return HAL_OK;
 }
 
-HAL_StatusTypeDef LSM6DS33_config_filters(LSM6DS33_handler* handler, uint8_t g_HPF, uint8_t g_HPF_frequency, uint8_t a_HPF) {
+HAL_StatusTypeDef LSM6DS33_config_filters(LSM6DS33_handler_t* handler, uint8_t g_HPF, uint8_t g_HPF_frequency, uint8_t a_HPF) {
 	HAL_StatusTypeDef status;
 
 	__LSM6DS33_modify_reg(&handler->config.CTRL7_config, LSM6DS33_GYRO_HPF_MASK, (g_HPF << 6) + (g_HPF_frequency << 4));
@@ -110,7 +107,7 @@ HAL_StatusTypeDef LSM6DS33_config_filters(LSM6DS33_handler* handler, uint8_t g_H
 	return HAL_OK;
 }
 
-HAL_StatusTypeDef LSM6DS33_config_full_scale(LSM6DS33_handler* handler, uint8_t a_FS, uint8_t g_FS) {
+HAL_StatusTypeDef LSM6DS33_config_full_scale(LSM6DS33_handler_t* handler, uint8_t a_FS, uint8_t g_FS) {
 	HAL_StatusTypeDef status;
 
 	if(a_FS > 0b11 || a_FS < 0 || g_FS > 0b11 || g_FS < 0) return HAL_ERROR;
@@ -127,7 +124,7 @@ HAL_StatusTypeDef LSM6DS33_config_full_scale(LSM6DS33_handler* handler, uint8_t 
 	return HAL_OK;
 }
 
-HAL_StatusTypeDef LSM6DS33_config_perfomance_mode(LSM6DS33_handler* handler, uint8_t a_ODR, uint8_t g_ODR) {
+HAL_StatusTypeDef LSM6DS33_config_perfomance_mode(LSM6DS33_handler_t* handler, uint8_t a_ODR, uint8_t g_ODR) {
 	HAL_StatusTypeDef status;
 
 	if(a_ODR > 0b1010 || a_ODR < 0b0 || g_ODR > 0b1000 || g_ODR < 0b0) return HAL_ERROR;
@@ -142,7 +139,7 @@ HAL_StatusTypeDef LSM6DS33_config_perfomance_mode(LSM6DS33_handler* handler, uin
 	return HAL_OK;
 }
 
-HAL_StatusTypeDef LSM6DS33_reset(LSM6DS33_handler* handler) {
+HAL_StatusTypeDef LSM6DS33_reset(LSM6DS33_handler_t* handler) {
 	HAL_StatusTypeDef status;
 
 	__LSM6DS33_modify_reg(&handler->config.CTRL3_config, 0b00000001, 0b0);
@@ -154,7 +151,7 @@ HAL_StatusTypeDef LSM6DS33_reset(LSM6DS33_handler* handler) {
 	return HAL_OK;
 }
 
-HAL_StatusTypeDef LSM6DS33_A_get_measure(LSM6DS33_handler* handler) {
+HAL_StatusTypeDef LSM6DS33_A_get_measure(LSM6DS33_handler_t* handler) {
 	HAL_StatusTypeDef status;
 
 	int16_t raw_data[3];
@@ -163,7 +160,6 @@ HAL_StatusTypeDef LSM6DS33_A_get_measure(LSM6DS33_handler* handler) {
 	}
 
 	for(int i = 0; i < 3; i++) {
-		//TODO: Добавить коррекцию с помощью bias как отдельную функцию
 		handler->measured_data.a[i] = (raw_data[i] * full_scale_A * 0.001f * 9.80665f);
 	}
 	__calibrate_accelerometer(handler);
@@ -171,7 +167,7 @@ HAL_StatusTypeDef LSM6DS33_A_get_measure(LSM6DS33_handler* handler) {
 	return HAL_OK;
 }
 
-HAL_StatusTypeDef LSM6DS33_G_get_measure(LSM6DS33_handler* handler) {
+HAL_StatusTypeDef LSM6DS33_G_get_measure(LSM6DS33_handler_t* handler) {
 	HAL_StatusTypeDef status;
 
 	int16_t raw_data[3];
@@ -180,7 +176,6 @@ HAL_StatusTypeDef LSM6DS33_G_get_measure(LSM6DS33_handler* handler) {
 	}
 
 	for(int i = 0; i < 3; i++) {
-		//TODO: Добавить коррекцию с помощью bias как отдельную функциюы
 		handler->measured_data.g[i] = (raw_data[i] * full_scale_G * 0.001f);
 	}
 	__calibrate_gyroscope(handler);
@@ -188,7 +183,7 @@ HAL_StatusTypeDef LSM6DS33_G_get_measure(LSM6DS33_handler* handler) {
 	return HAL_OK;
 }
 
-HAL_StatusTypeDef LSM6DS33_T_get_measure(LSM6DS33_handler* handler) {
+HAL_StatusTypeDef LSM6DS33_T_get_measure(LSM6DS33_handler_t* handler) {
 	HAL_StatusTypeDef status;
 
 	uint16_t raw_data;
@@ -201,7 +196,7 @@ HAL_StatusTypeDef LSM6DS33_T_get_measure(LSM6DS33_handler* handler) {
 	return HAL_OK;
 }
 
-HAL_StatusTypeDef LSM6DS33_get_measure(LSM6DS33_handler* handler) {
+HAL_StatusTypeDef LSM6DS33_get_measure(LSM6DS33_handler_t* handler) {
 	HAL_StatusTypeDef status;
 
 	int16_t raw_data[6];
@@ -219,7 +214,7 @@ HAL_StatusTypeDef LSM6DS33_get_measure(LSM6DS33_handler* handler) {
 	return HAL_OK;
 }
 
-HAL_StatusTypeDef LSM6DS33_get_all_measure(LSM6DS33_handler* handler) {
+HAL_StatusTypeDef LSM6DS33_get_all_measure(LSM6DS33_handler_t* handler) {
 	HAL_StatusTypeDef status;
 
 	int16_t raw_data[7];

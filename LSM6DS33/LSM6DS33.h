@@ -42,6 +42,26 @@ extern float g_ref[3];					//!< Смещение относительно нул
 extern float full_scale_A;				//!< Текущее значение full-scale для акселерометра.
 extern float full_scale_G;  			//!< Текущее значение full-scale для гироскопа.
 
+
+/**
+ * @brief Данные для калибровки датчика - устранения смещений нуля по трем осям
+ */
+typedef struct {
+	uint8_t[3] a_bias;			//!< Смещения относительно нуля для акселерометра по трем осям.
+	uint8_t[3] g_bias;			//!< Смещения относительно нуля для гироскопа по трем осям.
+} LSM6DS33_calibration_data_t;
+
+
+/**
+ * @brief Структура для хранения измеренных данных с датчика
+ */
+typedef struct {
+	float a[3];					//!< Ускорения по трем осям 
+	float g[3];					//!< Угловые скорости по трем осям
+	float t;					//!< Температура
+} LSM6DS33_measured_data_t;
+
+
 /**
  * @brief Конфигурация датчика
  */
@@ -54,7 +74,22 @@ typedef struct {
 	uint8_t CTRL8_config;					//!< Конфигурация регистра CTRL8_XL
 	uint8_t CTRL10_config;					//!< Конфигурация регистра CTRL10_C
 	uint8_t TAP_config;						//!< Конфигурация дополнительных функций
-} LSM6DS33_cfg;
+} LSM6DS33_config_t;
+
+
+/**
+ * @brief Обработчик датчика LSM6DS33
+ */
+typedef struct {
+	I2C_HandleTypeDef* hi2c_;						//!< Экземпляр I2C, к которому подключен датчик
+	uint8_t SAO_pin_state;							//!< Состояние пина SA0 датчика (0 или 1)
+	uint32_t address;								//!< Адрес датчика на шине I2C
+	uint32_t id;
+	LSM6DS33_calibration_data_t calibration_data;		//!< Данные для калибровки датчика
+	LSM6DS33_measured_data_t measured_data;				//!< Структура для хранения измеренных данных с датчика
+	LSM6DS33_config_t config;							//!< Конфигурация датчика
+} LSM6DS33_handler_t;
+
 
 /**
  * @defgroup LSM6DS33_ODR
@@ -206,7 +241,7 @@ void __LSM6DS33_modify_reg(uint8_t *reg_data, uint8_t mask, uint8_t bits);
  * @param[in] hi2c_ Экземпляр интерфейса I2C, к которому подключен датчик
  * @return HAL_StatusTypeDef Результат получения данных по I2C
  */
-HAL_StatusTypeDef LSM6DS33_init(I2C_HandleTypeDef* hi2c_);
+HAL_StatusTypeDef LSM6DS33_init(LSM6DS33_handler* handler, I2C_HandleTypeDef* hi2c_);
 
 /**
  * @brief Конфигурация ориентации датчика
@@ -219,7 +254,7 @@ HAL_StatusTypeDef LSM6DS33_init(I2C_HandleTypeDef* hi2c_);
  * @param[in] signs Знаки осей в системе координат. Принимает значения макросов @ref LSM6DS33_ORIENT_SIGN "направлений осей системы координат".
  * @return HAL_StatusTypeDef Результат получения данных по I2C
  */
-HAL_StatusTypeDef LSM6DS33_config_orientation(uint8_t orient, uint8_t signs);
+HAL_StatusTypeDef LSM6DS33_config_orientation(LSM6DS33_handler* handler, uint8_t orient, uint8_t signs);
 
 /**
  * @brief Конфигурация высокочастотных фильтров для гироскопа и акселерометра
@@ -232,7 +267,7 @@ HAL_StatusTypeDef LSM6DS33_config_orientation(uint8_t orient, uint8_t signs);
  * @param[in] a_HPF Частота и режим работы HPF для акселерометра. Принимает значения макросов @ref LSM6DS33_A_FILTER "фильтра high-pass frequency для акселерометра".
  * @return HAL_StatusTypeDef Результат получения данных по I2C
  */
-HAL_StatusTypeDef LSM6DS33_config_filters(uint8_t g_HPF, uint8_t g_HPF_frequency, uint8_t a_HPF);
+HAL_StatusTypeDef LSM6DS33_config_filters(LSM6DS33_handler* handler, uint8_t g_HPF, uint8_t g_HPF_frequency, uint8_t a_HPF);
 
 /**
  * @brief Конфигурация full-scale для гироскопа и акселерометра
@@ -243,7 +278,7 @@ HAL_StatusTypeDef LSM6DS33_config_filters(uint8_t g_HPF, uint8_t g_HPF_frequency
  * @param[in] g_FS Full-scale для гироскопа. Принимает значения макросов @ref LSM6DS33_FULL_SCALE_G "full-scale Для гироскопа".
  * @return HAL_StatusTypeDef Результат получения данных по I2C
  */
-HAL_StatusTypeDef LSM6DS33_config_full_scale(uint8_t a_FS, uint8_t g_FS);
+HAL_StatusTypeDef LSM6DS33_config_full_scale(LSM6DS33_handler* handler, uint8_t a_FS, uint8_t g_FS);
 
 /**
  * @brief Конфигурация режима работы датчика
@@ -255,7 +290,7 @@ HAL_StatusTypeDef LSM6DS33_config_full_scale(uint8_t a_FS, uint8_t g_FS);
  * @param[in] g_ODR Частота работы гироскопа. Принимает значения макросов @ref LSM6DS33_ODR "частоты и питания датчика".
  * @return HAL_StatusTypeDef Результат получения данных по I2C
  */
-HAL_StatusTypeDef LSM6DS33_config_perfomance_mode(uint8_t a_ODR, uint8_t g_ODR);
+HAL_StatusTypeDef LSM6DS33_config_perfomance_mode(LSM6DS33_handler* handler, uint8_t a_ODR, uint8_t g_ODR);
 
 /**
  * @brief Программная перезагрузка датчика
@@ -264,7 +299,7 @@ HAL_StatusTypeDef LSM6DS33_config_perfomance_mode(uint8_t a_ODR, uint8_t g_ODR);
  *
  * @return HAL_StatusTypeDef Результат получения данных по I2C
  */
-HAL_StatusTypeDef LSM6DS33_reset();
+HAL_StatusTypeDef LSM6DS33_reset(LSM6DS33_handler* handler);
 
 /**
  * @brief Снятие измерений с акселерометра
@@ -274,7 +309,7 @@ HAL_StatusTypeDef LSM6DS33_reset();
  * @param[out] a Массив, куда записываются значения ускорений по трем осям
  * @retval status Результат получения данных по I2C
  */
-HAL_StatusTypeDef LSM6DS33_A_get_measure(float *a);
+HAL_StatusTypeDef LSM6DS33_A_get_measure(LSM6DS33_handler* handler);
 
 /**
  * @brief Снятие измерений с гироскопа
@@ -284,7 +319,7 @@ HAL_StatusTypeDef LSM6DS33_A_get_measure(float *a);
  * @param[out] g Массив, куда записываются значений угла отклонения по трем осям
  * @retval status Результат получения данных по I2C
  */
-HAL_StatusTypeDef LSM6DS33_G_get_measure(float *g);
+HAL_StatusTypeDef LSM6DS33_G_get_measure(LSM6DS33_handler* handler);
 
 /**
  * @brief Снятие измерений с термометра
@@ -294,7 +329,7 @@ HAL_StatusTypeDef LSM6DS33_G_get_measure(float *g);
  * @param[out] t Переменная, куда записывается значение температуры в градусах Цельсиях
  * @retval status Результат получения данных по I2C
  */
-HAL_StatusTypeDef LSM6DS33_T_get_measure(float *t);
+HAL_StatusTypeDef LSM6DS33_T_get_measure(LSM6DS33_handler* handler);
 
 /**
  * @brief Снятие измерений акселерометра и гирокскопа
@@ -305,7 +340,7 @@ HAL_StatusTypeDef LSM6DS33_T_get_measure(float *t);
  * @param[out] g Массив, куда записываются значений угла отклонения по трем осям
  * @retval status Результат получения данных по I2C
  */
-HAL_StatusTypeDef LSM6DS33_get_measure(float* a, float *g);
+HAL_StatusTypeDef LSM6DS33_get_measure(LSM6DS33_handler* handler);
 
 /**
  * @brief Снятие измерений акселерометра, гирокскопа и термометра
@@ -317,6 +352,6 @@ HAL_StatusTypeDef LSM6DS33_get_measure(float* a, float *g);
  * @param[out] t Переменная, куда записывается значение температуры в градусах Цельсиях
  * @retval status Результат получения данных по I2C
  */
-HAL_StatusTypeDef LSM6DS33_get_all_measure(float* a, float* g, float* t);
+HAL_StatusTypeDef LSM6DS33_get_all_measure(LSM6DS33_handler* handler);
 
 #endif /* INC_LSM6DS33_H_ */

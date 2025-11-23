@@ -47,8 +47,8 @@ extern float full_scale_G;  			//!< Текущее значение full-scale �
  * @brief Данные для калибровки датчика - устранения смещений нуля по трем осям
  */
 typedef struct {
-	uint8_t a_bias[3];			//!< Смещения относительно нуля для акселерометра по трем осям.
-	uint8_t g_bias[3];			//!< Смещения относительно нуля для гироскопа по трем осям.
+	float a_bias[3];			//!< Смещения относительно нуля для акселерометра по трем осям.
+	float g_bias[3];			//!< Смещения относительно нуля для гироскопа по трем осям.
 } LSM6DS33_calibration_data_t;
 
 
@@ -74,20 +74,32 @@ typedef struct {
 	uint8_t CTRL8_config;					//!< Конфигурация регистра CTRL8_XL
 	uint8_t CTRL10_config;					//!< Конфигурация регистра CTRL10_C
 	uint8_t TAP_config;						//!< Конфигурация дополнительных функций
-} LSM6DS33_config_t;
+} LSM6DS33_registers_t;
 
+typedef struct {
+	uint8_t ORIENTATION;
+	uint8_t ORIENT_SIGN;
+	uint8_t GYRO_ODR;
+	uint8_t GYRO_HPF_ON;
+	uint8_t GYRO_HPF_FREQ;
+	uint8_t GYRO_FULL_SCALE;
+	uint8_t ACCEL_ODR;
+	uint8_t ACCEL_HPF;
+	uint8_t ACCEL_FULL_SCALE;
+} LSM6DS33_config_t;
 
 /**
  * @brief Обработчик датчика LSM6DS33
  */
 typedef struct {
-	I2C_HandleTypeDef* hi2c_;						//!< Экземпляр I2C, к которому подключен датчик
-	uint8_t SAO_pin_state;							//!< Состояние пина SA0 датчика (0 или 1)
-	uint32_t address;								//!< Адрес датчика на шине I2C
+	I2C_HandleTypeDef* hi2c_;							//!< Экземпляр I2C, к которому подключен датчик
+	uint8_t SAO_pin_state;								//!< Состояние пина SA0 датчика (0 или 1)
+	uint32_t address;									//!< Адрес датчика на шине I2C
 	uint32_t id;
 	LSM6DS33_calibration_data_t calibration_data;		//!< Данные для калибровки датчика
 	LSM6DS33_measured_data_t measured_data;				//!< Структура для хранения измеренных данных с датчика
 	LSM6DS33_config_t config;							//!< Конфигурация датчика
+	LSM6DS33_registers_t registers;						//!< Регистры конфигурации датчика
 } LSM6DS33_handler_t;
 
 
@@ -97,7 +109,6 @@ typedef struct {
  * @brief Конфигурация частоты снятия измерений датчиком
  * @{
  */
-#define LSM6DS33_ODR_MASK						0b11110000			
 #define LSM6DS33_ODR_POWER_DOWN 				0b0000				
 #define LSM6DS33_ODR_12_5HZ						0b0001				
 #define LSM6DS33_ODR_26HZ						0b0010				
@@ -118,8 +129,7 @@ typedef struct {
  * @details Значения передаются в функцию @ref LSM6DS33_config_orientation для настройки порядка осей.
  *  Стандартный порядок - X, Y, Z. В соответствии с осями, размеченными на датчике.
  * @{
- */
-#define LSM6DS33_ORIENT_CFG_MASK				0b00111111			
+ */	
 #define LSM6DS33_ORIENT_CFG_XYZ					0b000
 #define LSM6DS33_ORIENT_CFG_XZY					0b001
 #define LSM6DS33_ORIENT_CFG_YXZ					0b010
@@ -153,7 +163,6 @@ typedef struct {
  * 	@ref LSM6DS33_config_filters. 
  * @{
  */
-#define LSM6DS33_GYRO_HPF_MASK 					0b01110000
 #define LSM6DS33_GYRO_HPF_OFF					0b0
 #define LSM6DS33_GYRO_HPF_ON					0b1
 #define LSM6DS33_GYRO_HPF_FREQ_1				0b00		//!< Частота фильтра 0.0081 Гц
@@ -171,7 +180,6 @@ typedef struct {
  * 	@ref LSM6DS33_config_filters.
  * @{
  */
-#define LSM6DS33_A_FILTER_MASK					0b01100000
 #define LSM6DS33_A_FILTER_MODE_1				0b00			//!< Применяется фильтр Slope. Частота ODR_XL/50
 #define LSM6DS33_A_FILTER_MODE_2				0b01			//!< Применяется фильтр HPF. Частота ODR_XL/100
 #define LSM6DS33_A_FILTER_MODE_3				0b10			//!< Применяется фильтр HPF. Частота ODR_XL/9
@@ -186,7 +194,6 @@ typedef struct {
  * 	измеряемое значение, но ниже точность измерений. Значения передаются в функцию @ref LSM6DS33_config_full_scale
  * @{
  */
-#define LSM6DS33_FULL_SCALE_MASK				0b00001100
 #define LSM6DS33_FULL_SCALE_2G					0b00
 #define LSM6DS33_FULL_SCALE_4G					0b10
 #define LSM6DS33_FULL_SCALE_8G					0b11
@@ -224,6 +231,12 @@ typedef struct {
 #define LSM6DS33_REGISTER_OUT_A					0x28
 #define LSM6DS33_REGISTER_ID					0x0F
 #define LSM6DS33_REGISTER_MD2_CFG				0x5F
+
+#define LSM6DS33_ODR_MASK						0b11110000			
+#define LSM6DS33_ORIENT_CFG_MASK				0b00111111		
+#define LSM6DS33_GYRO_HPF_MASK 					0b01110000
+#define LSM6DS33_FULL_SCALE_MASK				0b00001100
+#define LSM6DS33_A_FILTER_MASK					0b01100000
 /** @endcond */
 
 
